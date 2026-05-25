@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PackPlanGo — Travel. Plan. Go.</title>
+<meta name="description" content="PackPlanGo — ehrliche Travel Guides für Backpacker und modernes Social Media Management für Hospitality Brands." />
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3efe7;--bg-alt:#ece6da;
+  --teal:#2D6E69;--teal-deep:#1F5552;--teal-light:#4A8E89;
+  --accent:#e89a5b;--accent-soft:#f1c79a;
+  --dark:#1B1B19;--text:#1a1a1a;--text-light:#f3efe7;
+  --muted:#5a6661;--white:#FEFCF8;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* NAV */
+header.site-header{position:sticky;top:0;z-index:50;background:rgba(243,239,231,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(45,110,105,.08)}
+.nav{max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--dark)}
+.logo img{width:32px;height:32px;border-radius:6px}
+.logo span.dot{color:var(--accent)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--dark);font-weight:500;font-size:15px;transition:color .2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{background:var(--teal);color:#fff;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:500;transition:all .2s}
+.nav-cta:hover{background:var(--teal-deep);transform:translateY(-1px);color:#fff}
+.burger{display:none;background:none;border:0;font-size:24px;color:var(--dark);cursor:pointer}
+@media(max-width:820px){.nav-links{display:none}.burger{display:block}.nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:24px 32px;border-bottom:1px solid rgba(45,110,105,.1);gap:20px}}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80') center/cover;z-index:0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,85,82,.45) 0%,rgba(27,27,25,.7) 100%)}
+.hero-inner{position:relative;z-index:2;max-width:900px;padding:40px 32px;color:#fff}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:26px}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,7vw,82px);line-height:1.08;letter-spacing:-.02em;margin-bottom:24px;color:#fff}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:500}
+.hero p.lead{max-width:640px;margin:0 auto 40px;font-size:18px;color:rgba(255,255,255,.88);line-height:1.65}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{padding:16px 32px;border-radius:999px;font-weight:500;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:0}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#d9874a;transform:translateY(-2px);color:#fff}
+.btn-outline-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-outline-light:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-deep);transform:translateY(-2px);color:#fff}
+
+/* SECTIONS */
+section{padding:100px 32px}
+.container{max-width:1240px;margin:0 auto}
+.section-tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:18px}
+.section-title{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4.5vw,52px);line-height:1.1;color:var(--dark);margin-bottom:20px;letter-spacing:-.01em}
+.section-sub{font-size:17px;color:var(--muted);max-width:680px;line-height:1.65}
+
+/* TWO WORLDS */
+.worlds{background:var(--bg-alt)}
+.worlds-head{text-align:center;margin-bottom:70px}
+.worlds-head .section-sub{margin:0 auto}
+.worlds-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:900px){.worlds-grid{grid-template-columns:1fr}}
+.world-card{position:relative;border-radius:24px;overflow:hidden;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;padding:42px;color:#fff;transition:transform .3s;isolation:isolate}
+.world-card:hover{transform:translateY(-6px)}
+.world-card::before{content:'';position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transition:transform .6s}
+.world-card:hover::before{transform:scale(1.04)}
+.world-card::after{content:'';position:absolute;inset:0;z-index:-1}
+.world-travel::before{background-image:url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80')}
+.world-travel::after{background:linear-gradient(180deg,rgba(45,110,105,.05) 0%,rgba(45,110,105,.88) 100%)}
+.world-studio::before{background-image:url('https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1200&q=80')}
+.world-studio::after{background:linear-gradient(180deg,rgba(45,110,105,.05) 0%,rgba(45,110,105,.88) 100%)}
+.world-card .tag{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:14px;font-weight:500}
+.world-card h3{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin-bottom:14px}
+.world-card p{font-size:16px;line-height:1.6;color:rgba(255,255,255,.88);margin-bottom:28px;max-width:440px}
+.world-card .btn{align-self:flex-start}
+
+/* ABOUT */
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
+.about-img{border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:url('/images/about-photo.jpg') center/cover}
+.about-text p{font-size:17px;color:var(--muted);margin-bottom:18px;line-height:1.75}
+.about-stats{display:flex;gap:48px;margin-top:36px;flex-wrap:wrap}
+.stat .num{font-family:var(--serif);font-size:42px;color:var(--teal);font-weight:600;line-height:1}
+.stat .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+/* MANIFESTO */
+.manifesto{background:var(--teal);color:var(--text-light);text-align:center}
+.manifesto h2{font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:500;font-style:italic;max-width:900px;margin:0 auto;line-height:1.25;color:#fff}
+.manifesto h2 em{color:var(--accent);font-style:italic}
+.manifesto .signature{margin-top:30px;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-soft)}
+
+/* CTA */
+.cta{background:var(--bg-alt);text-align:center}
+.cta .container{display:flex;flex-direction:column;align-items:center}
+.cta .section-sub{margin:0 auto 36px}
+
+/* FOOTER */
+footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 32px 40px;text-align:center}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-logo{display:flex;align-items:center;gap:10px;justify-content:center;font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:18px}
+.footer-logo img{width:28px;height:28px;border-radius:4px}
+.footer-logo span{color:var(--accent)}
+.footer-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin:24px 0}
+.footer-links a{color:rgba(255,255,255,.7);font-size:14px;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-social{margin:22px 0}
+.footer-social a{color:rgba(255,255,255,.7);margin:0 10px;font-size:14px}
+.footer-social a:hover{color:var(--accent)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.45);margin-top:30px;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav">
+    <a href="/" class="logo"><img src="/images/favicon.png" alt="PackPlanGo">PackPlanGo<span class="dot">.</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/studio/">Studio</a>
+      <a href="#about">Über mich</a>
+      <a href="#contact" class="nav-cta">Kontakt</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Pack · Plan · Go</p>
+    <h1>One brand.<br>Two <em>worlds</em>.</h1>
+    <p class="lead">PackPlanGo ist dein Startpunkt — egal ob du als Backpacker nach Australien willst oder ein Hotel betreibst, das online endlich nach seinem wahren Wert aussehen soll.</p>
+    <div class="hero-ctas">
+      <a href="/travel/" class="btn btn-primary">Zum Travel Guide</a>
+      <a href="/studio/" class="btn btn-outline-light">Zum Studio</a>
+    </div>
+  </div>
+</section>
+
+<section class="worlds" id="worlds">
+  <div class="container">
+    <div class="worlds-head">
+      <p class="section-tag">Was wir machen</p>
+      <h2 class="section-title">Zwei Welten.<br>Dieselbe DNA.</h2>
+      <p class="section-sub">PackPlanGo Travel hilft Backpackern und Work & Travelern beim Start ins Ausland. PackPlanGo Studio ist unsere Social Media Agentur für Hotels, Hostels und Travel Brands.</p>
+    </div>
+    <div class="worlds-grid">
+      <a href="/travel/" class="world-card world-travel">
+        <div>
+          <p class="tag">PackPlanGo · Travel</p>
+          <h3>Echte Guides für echte Backpacker.</h3>
+          <p>Australien Starter Guide, Visa-Hacks, Job-Tipps, Checklisten und eine WhatsApp Community. Kein Hochglanz-Bullshit — nur das, was du wirklich brauchst.</p>
+          <span class="btn btn-primary">Zu PackPlanGo Travel →</span>
+        </div>
+      </a>
+      <a href="/studio/" class="world-card world-studio">
+        <div>
+          <p class="tag">PackPlanGo · Studio</p>
+          <h3>Social Media für Hotels & Travel Brands.</h3>
+          <p>Wir übernehmen Instagram und Content für Boutique Hotels, Hostels und Villas — damit dein Place online so aussieht, wie er sich in echt anfühlt. Kein Kurs, sondern Done-for-you.</p>
+          <span class="btn btn-primary">Zu PackPlanGo Studio →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-img"></div>
+    <div class="about-text">
+      <p class="section-tag">Über mich</p>
+      <h2 class="section-title">Ich hab das gebaut, weil ich es selbst gebraucht hätte.</h2>
+      <p>Ich bin Jacky West, Content Creator und Digital Nomad. Aktuell unterwegs zwischen Südostasien und Australien. PackPlanGo ist aus zwei Beobachtungen entstanden: Backpacker bekommen zu oft veraltete, generische Tipps. Und Hotels sehen online oft kleiner aus, als sie wirklich sind.</p>
+      <p>Travel ist mein „so wäre es mir früher leichter gefallen." Studio ist meine Agentur, mit der ich Hotels und Travel Brands helfe, auf Instagram sichtbar zu werden. Beides aus derselben Hand.</p>
+      <div class="about-stats">
+        <div class="stat"><div class="num">102K+</div><div class="lbl">Accounts Reached</div></div>
+        <div class="stat"><div class="num">182K+</div><div class="lbl">Total Views</div></div>
+        <div class="stat"><div class="num">87.5%</div><div class="lbl">Non-Follower Reach</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="container">
+    <h2>"Reisen sollte <em>einfacher</em> sein.<br>Hotels sollten online <em>besser</em> aussehen.<br>Das ist der ganze Punkt."</h2>
+    <p class="signature">— Das PackPlanGo Versprechen</p>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="container">
+    <p class="section-tag">Wohin willst du?</p>
+    <h2 class="section-title">Wähle deine Welt.</h2>
+    <p class="section-sub">Du planst deinen ersten Trip nach Australien? Geh zu Travel. Du betreibst ein Hotel oder Hostel und willst online sichtbarer werden? Geh zu Studio.</p>
+    <div class="hero-ctas" style="margin-top:12px">
+      <a href="/travel/" class="btn btn-teal">PackPlanGo Travel</a>
+      <a href="/studio/" class="btn btn-primary">PackPlanGo Studio</a>
+    </div>
+    <p style="margin-top:36px;font-size:14px;color:var(--muted);font-style:italic">Bald kommt mehr: PackPlanGo Academy — lerne, wie du ortsunabhängig arbeitest und dir ein Remote-Business aufbaust. Stay tuned.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="/images/favicon.png" alt="">PackPlanGo<span>.</span></div>
+    <p style="color:rgba(255,255,255,.6);max-width:520px;margin:0 auto;font-size:14px">Travel Guides & Social Media für Hospitality — von Reisenden, für Reisende und die Orte, die sie lieben.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/studio/">Studio</a>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum">Impressum</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/jackywest.remote" target="_blank">Instagram</a> ·
+      <a href="https://tiktok.com/@jacky_west" target="_blank">TikTok</a>
+    </div>
+    <p class="footer-copy">© 2026 PackPlanGo — All rights reserved.</p>
+  </div>
+</footer>
+<script>document.getElementById('burger').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('open')})</script>
+</body>
+</html>

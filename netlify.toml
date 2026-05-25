@@ -1,0 +1,43 @@
+[build]
+  publish = "."
+
+# Clean URLs
+[[redirects]]
+  from = "/travel"
+  to = "/travel/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/studio"
+  to = "/studio/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/danke"
+  to = "/danke.html"
+  status = 200
+
+[[redirects]]
+  from = "/datenschutz"
+  to = "/datenschutz.html"
+  status = 200
+
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum.html"
+  status = 200
+
+# 404 Fallback — must be LAST
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
