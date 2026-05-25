@@ -530,7 +530,7 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').
   </div>
   <div class="ppg-chat-body" id="ppgChatBody"></div>
   <div class="ppg-chat-footer">
-    Brauchst du mehr Hilfe? <a href="https://wa.me/61400000000" target="_blank">Schreib mir auf WhatsApp</a>
+    Brauchst du mehr Hilfe? <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" target="_blank">Tritt der Community bei</a>
   </div>
 </div>
  
@@ -599,16 +599,41 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').
     scrollDown();
   }
  
-  function handleClick(key, btn){
+ function handleClick(key, btn){
     btn.parentElement.remove();
     addMsg(answers[key].q, 'user');
     setTimeout(() => {
-      addMsg(answers[key].a, 'bot');
+      const answerMsg = addMsgReturn(answers[key].a, 'bot');
+      // Scrollt zur Antwort hoch, nicht runter
+      setTimeout(() => {
+        answerMsg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
       setTimeout(() => {
         addMsg('Noch eine Frage? 👇', 'bot');
-        showQuickReplies();
-      }, 600);
+        showQuickRepliesNoScroll();
+      }, 1200);
     }, 400);
+  }
+
+  function addMsgReturn(text, who){
+    const div = document.createElement('div');
+    div.className = 'ppg-msg ' + who;
+    div.innerHTML = text;
+    body.appendChild(div);
+    return div;
+  }
+
+  function showQuickRepliesNoScroll(){
+    const wrap = document.createElement('div');
+    wrap.className = 'ppg-quick';
+    Object.keys(answers).forEach(key => {
+      const btn = document.createElement('button');
+      btn.textContent = answers[key].q;
+      btn.onclick = () => handleClick(key, btn);
+      wrap.appendChild(btn);
+    });
+    body.appendChild(wrap);
+    // KEIN scrollDown hier — Antwort bleibt sichtbar
   }
  
   function startChat(){
