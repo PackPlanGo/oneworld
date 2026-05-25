@@ -419,10 +419,11 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
     <p class="section-sub">Hol dir den interaktiven PackPlanGo Guide mit praktischen Tools, echten Erfahrungen und allem, was du vor Australien wissen solltest.</p>
 
     <!-- Formular -->
-    <form id="guide-form" action="https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe" method="post" target="_blank" style="margin-top:36px;width:100%;max-width:480px;margin-left:auto;margin-right:auto">
+    <form id="guide-form" style="margin-top:36px;width:100%;max-width:480px;margin-left:auto;margin-right:auto">
       <div style="display:flex;flex-direction:column;gap:14px">
         <input
           type="email"
+          id="guide-email"
           name="fields[email]"
           placeholder="Deine E-Mail-Adresse"
           required
@@ -430,13 +431,14 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
           style="width:100%;padding:18px 22px;border-radius:999px;border:1.5px solid rgba(45,110,105,.2);font-family:var(--sans);font-size:16px;background:#fff;color:var(--dark);outline:none;box-sizing:border-box;-webkit-appearance:none"
         >
         <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:0 8px">
-          <input type="checkbox" required name="consent" style="margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:var(--teal);cursor:pointer">
+          <input type="checkbox" id="guide-consent" required name="consent" style="margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:var(--teal);cursor:pointer">
           <span style="font-size:13px;color:var(--muted);line-height:1.5">Ich stimme zu, E-Mails mit Tipps, Guides und Updates zu erhalten. Abmeldung jederzeit möglich.</span>
         </label>
         <input type="hidden" name="ml-submit" value="1">
         <input type="hidden" name="anticsrf" value="true">
         <button
           type="submit"
+          id="guide-btn"
           style="width:100%;padding:18px 32px;border-radius:999px;background:var(--accent);color:#fff;border:0;font-family:var(--sans);font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;-webkit-appearance:none"
         >📥 Guide kostenlos herunterladen</button>
       </div>
@@ -653,6 +655,26 @@ document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').
     toggle.style.display = 'grid';
   });
 })();
+</script>
+<script>
+document.getElementById('guide-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var email = document.getElementById('guide-email').value;
+  var consent = document.getElementById('guide-consent').checked;
+  if (!email || !consent) return;
+  var btn = document.getElementById('guide-btn');
+  btn.textContent = 'Wird gesendet...';
+  btn.disabled = true;
+  fetch('https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: 'fields[email]=' + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true'
+  }).then(function() {
+    window.location.href = '/danke';
+  }).catch(function() {
+    window.location.href = '/danke';
+  });
+});
 </script>
 </body>
 </html>
