@@ -1,39 +1,690 @@
-<form id="guide-form">
-  <input type="email" id="guide-email" name="fields[email]" placeholder="Deine E-Mail-Adresse" required>
-  <label>
-    <input type="checkbox" id="guide-consent" name="consent" required>
-    Ich stimme zu, E-Mails mit Tipps, Guides und Updates zu erhalten.
-  </label>
-  <input type="hidden" name="ml-submit" value="1">
-  <input type="hidden" name="anticsrf" value="true">
-  <button type="submit">📥 Guide kostenlos herunterladen</button>
-</form>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L89D3TJ3C8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-<div id="guide-success" style="display:none; margin-top:20px; text-align:center;">
-  <h3>Danke :)</h3>
-  <p>Deine Bestätigungsmail ist auf dem Weg zu dir.<br>
-  Bitte öffne sie und klicke auf den Bestätigungslink, um deinen Guide zu erhalten.<br>
-  <small>Check vorsichtshalber auch den Spam-Ordner.</small></p>
+  gtag('config', 'G-L89D3TJ3C8');
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PackPlanGo Travel — Dein Australien Starter Guide</title>
+<meta name="description" content="Der ehrliche Work & Travel Guide für Australien. Visa, Jobs, Checklisten, Routen — alles aus erster Hand." />
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '2373720');
+</script>
+<!-- End MailerLite Universal -->
+<style>
+:root{
+  --bg:#f3efe7;--bg-alt:#ece6da;
+  --teal:#2D6E69;--teal-deep:#1F5552;--teal-light:#4A8E89;
+  --accent:#e89a5b;--accent-soft:#f1c79a;
+  --dark:#1B1B19;--text:#1a1a1a;--text-light:#f3efe7;
+  --muted:#5a6661;--white:#FEFCF8;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+header.site-header{position:sticky;top:0;z-index:50;background:rgba(243,239,231,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(45,110,105,.08)}
+.nav{max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--dark)}
+.logo img{width:32px;height:32px;border-radius:6px}
+.logo span.dot{color:var(--accent)}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--dark);font-weight:500;font-size:15px;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-cta{background:var(--teal);color:#fff!important;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:500;transition:all .2s}
+.nav-cta:hover{background:var(--teal-deep);transform:translateY(-1px)}
+.burger{display:none;background:none;border:0;font-size:24px;color:var(--dark);cursor:pointer}
+@media(max-width:820px){.nav-links{display:none}.burger{display:block}.nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:24px 32px;border-bottom:1px solid rgba(45,110,105,.1);gap:20px}}
+
+section{padding:100px 32px}
+.container{max-width:1240px;margin:0 auto}
+.section-tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:18px}
+.section-title{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4.5vw,52px);line-height:1.1;color:var(--dark);margin-bottom:20px;letter-spacing:-.01em}
+.section-sub{font-size:17px;color:var(--muted);max-width:680px;line-height:1.65}
+.btn{padding:16px 32px;border-radius:999px;font-weight:500;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:0}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#d9874a;transform:translateY(-2px);color:#fff}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-deep);transform:translateY(-2px);color:#fff}
+
+/* HERO */
+.hero{padding:100px 32px 90px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--teal-deep) 0%,var(--teal) 100%);color:#fff}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:center}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;text-align:center}.hero-mockup-wrap{display:none}}
+.hero-text{}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:26px}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(36px,5.5vw,68px);line-height:1.05;letter-spacing:-.02em;margin-bottom:28px;color:#fff}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:500}
+.hero p.lead{max-width:560px;margin:0 0 40px;font-size:18px;color:rgba(255,255,255,.85);line-height:1.65}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-note{font-size:13px;color:rgba(255,255,255,.55);margin-top:18px}
+.hero-mockup-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-mockup-wrap img{width:100%;max-width:300px;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.35);transform:rotate(2deg);transition:transform .3s}
+.hero-mockup-wrap:hover img{transform:rotate(0deg)}
+
+/* FEATURES */
+.features{background:var(--bg)}
+.features-head{text-align:center;margin-bottom:70px}
+.features-head .section-sub{margin:0 auto}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+@media(max-width:900px){.features-grid{grid-template-columns:1fr}}
+.feature{background:var(--teal);border-radius:20px;padding:36px;color:#fff;transition:transform .25s}
+.feature:hover{transform:translateY(-6px)}
+.feature .num{font-family:var(--serif);font-size:15px;color:var(--accent-soft);font-style:italic;margin-bottom:14px;letter-spacing:.05em}
+.feature h3{font-family:var(--serif);font-size:24px;color:#fff;font-weight:600;margin-bottom:12px;line-height:1.25}
+.feature p{font-size:15px;color:rgba(255,255,255,.8);line-height:1.65}
+
+/* MOCKUP */
+.mockup{background:var(--bg-alt);text-align:center}
+.mockup-img{max-width:1000px;margin:40px auto 0}
+.mockup-img img{width:100%}
+
+/* GUIDE PREVIEW */
+.preview{background:var(--bg)}
+.preview-head{text-align:center;margin-bottom:50px}
+.preview-head .section-sub{margin:0 auto}
+.preview-scroll{display:flex;gap:24px;overflow-x:auto;padding-bottom:20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.preview-scroll::-webkit-scrollbar{height:4px}
+.preview-scroll::-webkit-scrollbar-thumb{background:var(--teal-light);border-radius:4px}
+.preview-card{flex:0 0 300px;scroll-snap-align:start;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(45,110,105,.12);transition:transform .3s}
+.preview-card:hover{transform:translateY(-4px)}
+.preview-card img{width:100%;height:auto}
+
+/* WHAT YOU GET */
+.what{background:var(--bg-alt)}
+.what-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.what-grid{grid-template-columns:1fr}}
+.what-img{border-radius:20px;overflow:hidden}
+.what-img img{width:100%;border-radius:20px}
+.what-list{list-style:none;padding:0;margin-top:30px}
+.what-list li{padding:18px 0;border-bottom:1px solid rgba(45,110,105,.1);font-size:16px;color:var(--dark);display:flex;gap:14px;align-items:flex-start}
+.what-list li:last-child{border:0}
+.what-list li::before{content:'✓';color:var(--teal);font-weight:700;font-size:18px;flex-shrink:0}
+
+/* REAL TALK */
+.realtalk{background:var(--teal);color:var(--text-light);text-align:center}
+.realtalk .section-tag{color:var(--accent-soft)}
+.realtalk h2{color:#fff;font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(28px,4vw,44px);max-width:900px;margin:0 auto 24px;line-height:1.3}
+.realtalk h2 em{color:var(--accent);font-style:italic}
+.realtalk p{color:rgba(255,255,255,.75);max-width:680px;margin:0 auto;font-size:17px;line-height:1.7}
+
+/* DOWNLOAD */
+.download{background:var(--bg);text-align:center}
+.download .container{max-width:720px;display:flex;flex-direction:column;align-items:center}
+.download .section-sub{margin:0 auto 36px}
+.email-form{display:flex;gap:10px;width:100%;max-width:520px;margin:0 auto;flex-wrap:wrap}
+.email-form input{flex:1;min-width:220px;padding:16px 22px;border-radius:999px;border:1.5px solid rgba(45,110,105,.15);font-family:var(--sans);font-size:15px;background:#fff;color:var(--dark);outline:none;transition:border-color .2s}
+.email-form input:focus{border-color:var(--teal)}
+.email-form button{padding:16px 28px;border-radius:999px;background:var(--accent);color:#fff;border:0;font-weight:500;font-size:15px;cursor:pointer;transition:all .2s}
+.email-form button:hover{background:#d9874a;transform:translateY(-2px)}
+.hero-note.dark{color:var(--muted);margin-top:18px;font-size:13px}
+.download-divider{margin:32px auto;font-size:12px;color:var(--muted);letter-spacing:.3em;text-transform:uppercase;position:relative;max-width:200px}
+.download-divider::before,.download-divider::after{content:'';position:absolute;top:50%;width:60px;height:1px;background:rgba(45,110,105,.15)}
+.download-divider::before{left:-12px;transform:translateX(-100%)}
+.download-divider::after{right:-12px;transform:translateX(100%)}
+.whatsapp-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;background:#25d366;color:#fff;font-weight:500;font-size:15px;transition:all .2s}
+.whatsapp-cta:hover{background:#1ebe5b;transform:translateY(-2px);color:#fff}
+.whatsapp-cta svg{width:22px;height:22px;fill:#fff}
+
+/* GUIDE OVERVIEW SLIDER */
+.guide-overview{background:var(--bg);padding:60px 32px 40px;text-align:center}
+.guide-overview .section-title{font-size:clamp(24px,3vw,36px)}
+.guide-overview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+@media(max-width:700px){.guide-overview-grid{grid-template-columns:repeat(2,1fr)}}
+.guide-overview-card{border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(45,110,105,.1);transition:transform .25s;cursor:pointer}
+.guide-overview-card:hover{transform:translateY(-4px)}
+.guide-overview-card img{width:100%;height:auto;display:block}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;padding:20px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lightbox-close{position:fixed;top:20px;right:28px;color:#fff;font-size:36px;cursor:pointer;line-height:1;opacity:.8;transition:opacity .2s}
+.lightbox-close:hover{opacity:1}
+.lightbox-prev,.lightbox-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);color:#fff;font-size:28px;border:0;cursor:pointer;padding:14px 18px;border-radius:50%;transition:background .2s}
+.lightbox-prev{left:16px}.lightbox-next{right:16px}
+.lightbox-prev:hover,.lightbox-next:hover{background:rgba(255,255,255,.25)}
+.faq{background:var(--bg-alt)}
+.faq-head{text-align:center;margin-bottom:60px}
+.faq-head .section-sub{margin:0 auto}
+.faq-list{max-width:820px;margin:0 auto}
+.faq-item{background:#fff;border-radius:14px;margin-bottom:14px;overflow:hidden;box-shadow:0 4px 18px rgba(45,110,105,.04)}
+.faq-q{width:100%;background:none;border:0;padding:22px 28px;text-align:left;font-family:var(--sans);font-size:16px;font-weight:500;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;line-height:1.4}
+.faq-q::after{content:'+';font-size:24px;color:var(--teal);transition:transform .25s;flex-shrink:0}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a p{padding:0 28px 24px;color:var(--muted);font-size:15px;line-height:1.7}
+
+/* FOOTER */
+footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 32px 40px;text-align:center}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-logo{display:flex;align-items:center;gap:10px;justify-content:center;font-family:var(--serif);font-size:24px;color:#fff;margin-bottom:18px}
+.footer-logo img{width:28px;height:28px;border-radius:4px}
+.footer-logo span{color:var(--accent)}
+.footer-links{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin:24px 0}
+.footer-links a{color:rgba(255,255,255,.7);font-size:14px;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-social{margin:22px 0}
+.footer-social a{color:rgba(255,255,255,.7);margin:0 10px;font-size:14px}
+.footer-social a:hover{color:var(--accent)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.45);margin-top:30px;letter-spacing:.05em}
+.whatsapp-float{position:fixed;bottom:24px;right:24px;width:56px;height:56px;background:#25d366;border-radius:50%;display:grid;place-items:center;z-index:100;box-shadow:0 10px 30px rgba(37,211,102,.4);transition:transform .2s}
+.whatsapp-float:hover{transform:scale(1.08)}
+.whatsapp-float svg{width:30px;height:30px;fill:#fff}
+    /* CHATBOT JERRY — bottom LEFT */
+.ppg-chat-toggle{
+  position:fixed;bottom:24px;left:24px;width:60px;height:60px;
+  background:var(--accent);border-radius:50%;display:grid;place-items:center;z-index:100;
+  box-shadow:0 10px 30px rgba(232,143,75,.4);transition:transform .2s;cursor:pointer;border:0;
+}
+.ppg-chat-toggle:hover{transform:scale(1.08)}
+.ppg-chat-toggle svg{width:28px;height:28px;fill:#fff}
+.ppg-chat-toggle .ppg-pulse{
+  position:absolute;top:-4px;right:-4px;width:14px;height:14px;background:#25d366;
+  border-radius:50%;border:2px solid #fff;animation:ppg-pulse 2s infinite;
+}
+@keyframes ppg-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 0 0 10px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+ 
+.ppg-chat-window{
+  position:fixed;bottom:100px;left:24px;width:360px;max-width:calc(100vw - 48px);
+  height:520px;max-height:calc(100vh - 140px);
+  background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(15,61,54,.25);
+  display:none;flex-direction:column;overflow:hidden;z-index:99;
+  font-family:var(--sans);
+}
+.ppg-chat-window.open{display:flex;animation:ppg-slide .3s ease-out}
+@keyframes ppg-slide{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+ 
+.ppg-chat-header{
+  background:var(--dark);color:#fff;padding:18px 20px;
+  display:flex;align-items:center;gap:12px;
+}
+.ppg-chat-avatar{
+  width:40px;height:40px;border-radius:50%;background:var(--accent);
+  display:grid;place-items:center;flex-shrink:0;font-size:24px;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+.ppg-chat-info{flex:1;min-width:0}
+.ppg-chat-info h4{font-family:var(--serif);font-size:16px;font-weight:600;color:#fff;margin:0;line-height:1.2}
+.ppg-chat-info p{font-size:12px;color:rgba(255,255,255,.7);margin:2px 0 0}
+.ppg-chat-info .ppg-online{display:inline-block;width:7px;height:7px;background:#25d366;border-radius:50%;margin-right:5px}
+.ppg-chat-close{
+  background:none;border:0;color:#fff;cursor:pointer;width:28px;height:28px;
+  display:grid;place-items:center;border-radius:50%;opacity:.7;transition:opacity .2s;
+}
+.ppg-chat-close:hover{opacity:1;background:rgba(255,255,255,.1)}
+.ppg-chat-close svg{width:18px;height:18px;fill:currentColor}
+ 
+.ppg-chat-body{
+  flex:1;overflow-y:auto;padding:18px;background:var(--bg);
+  display:flex;flex-direction:column;gap:12px;
+}
+.ppg-msg{max-width:85%;padding:12px 16px;border-radius:16px;font-size:14px;line-height:1.5;animation:ppg-msg-in .3s ease-out}
+@keyframes ppg-msg-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.ppg-msg.bot{background:#fff;color:var(--dark);border-bottom-left-radius:4px;align-self:flex-start;box-shadow:0 2px 8px rgba(15,61,54,.06)}
+.ppg-msg.user{background:var(--accent);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.ppg-msg a{color:var(--accent);text-decoration:underline;font-weight:500}
+.ppg-msg.user a{color:#fff}
+ 
+.ppg-quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ppg-quick button{
+  background:#fff;border:1.5px solid var(--accent);color:var(--accent);
+  padding:8px 14px;border-radius:999px;font-family:var(--sans);font-size:13px;
+  cursor:pointer;transition:all .2s;text-align:left;line-height:1.3;
+}
+.ppg-quick button:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+ 
+.ppg-chat-footer{
+  padding:12px 16px;background:#fff;border-top:1px solid rgba(15,61,54,.08);
+  text-align:center;font-size:11px;color:var(--muted);
+}
+.ppg-chat-footer a{color:var(--accent);font-weight:500}
+ 
+@media (max-width:480px){
+  .ppg-chat-window{bottom:90px;left:12px;right:12px;width:auto;max-width:none;height:75vh}
+  .ppg-chat-toggle{bottom:18px;left:18px;width:54px;height:54px}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav">
+    <a href="/" class="logo"><img src="/images/favicon.png" alt="PackPlanGo">PackPlanGo<span class="dot">.</span> Travel</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/travel/" class="active">Travel</a>
+      <a href="/studio/">Studio</a>
+      <a href="#faq">FAQ</a>
+      <a href="#download" class="nav-cta">Free Guide</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Work & Travel · Australien</p>
+      <h1>Work & Travel Australien.<br><em>Ohne</em> Bullshit.</h1>
+      <p class="lead">Alles, was du für deine ersten Wochen Down Under wirklich brauchst: Visa, Jobs, Bankkonto, SIM Karte, Routen, Packlisten und echte Erfahrungen aus erster Hand.</p>
+      <div class="hero-ctas">
+        <a href="#download" class="btn btn-primary">Guide kostenlos herunterladen</a>
+      </div>
+      <p class="hero-note">Kostenloser Download · Sofort verfügbar · Ohne Backpacker Blabla</p>
+    </div>
+    <div class="hero-mockup-wrap">
+      <img src="/images/mockup-phone.png" alt="PackPlanGo Guide auf dem Smartphone">
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="features-head">
+      <p class="section-tag">Was du bekommst</p>
+      <h2 class="section-title">Australien beginnt lange<br>vor dem Flug.</h2>
+      <p class="section-sub">Genau dafür gibt es PackPlanGo: echte Erfahrungen, praktische Vorbereitung und Real Talk für deine ersten Wochen Down Under.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <p class="num">01 · Prep</p>
+        <h3>Vorbereitung ohne Chaos</h3>
+        <p>Visa, TFN, Bankkonto, SIM Karte, Versicherungen und Packliste, Schritt für Schritt erklärt, in der Reihenfolge, die wirklich Sinn macht.</p>
+      </div>
+      <div class="feature">
+        <p class="num">02 · Reality</p>
+        <h3>Real Talk statt Hochglanz</h3>
+        <p>Wie das Leben in Australien wirklich ist. Was es kostet, was schieflaufen kann und was dir vorher niemand sagt.</p>
+      </div>
+      <div class="feature">
+        <p class="num">03 · Go</p>
+        <h3>Nicht allein losziehen</h3>
+        <p>Mit Zugang zur WhatsApp Community aus Backpackern, die gerade selbst planen, losziehen oder bereits in Australien sind.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mockup">
+  <div class="container">
+    <p class="section-tag">Der Guide</p>
+    <h2 class="section-title">Digital. Interaktiv. Für die Realität gemacht.</h2>
+    <p class="section-sub" style="margin:0 auto">112 Seiten mit praktischer Vorbereitung, echten Erfahrungen, Checklisten, Routen und Bonusmaterial, direkt auf deinem Handy, Tablet oder Laptop verfügbar.</p>
+    <div class="mockup-img">
+      <img src="/images/mockup.png" alt="PackPlanGo Work and Travel Guide Mockup">
+    </div>
+  </div>
+</section>
+
+<section class="preview">
+  <div class="container">
+    <div class="preview-head">
+      <p class="section-tag">Sneak Peek</p>
+      <h2 class="section-title">Wirf einen Blick in den Guide.</h2>
+      <p class="section-sub">Ein erster Einblick in den Guide, von Checklisten über Real Talk bis zu praktischer Vorbereitung für Australien.</p>
+    </div>
+    <div class="preview-scroll">
+      <div class="preview-card"><img src="/images/preview-1.png" alt="Inhalt"></div>
+      <div class="preview-card"><img src="/images/preview-2.jpg" alt="Vorteile Work and Holiday Visum"></div>
+      <div class="preview-card"><img src="/images/preview-3.png" alt="Checkliste Visumantrag"></div>
+      <div class="preview-card"><img src="/images/preview-4.png" alt="Ankunft Einreise"></div>
+      <div class="preview-card"><img src="/images/preview-5.png" alt="Jobsuche Digital Nomad"></div>
+      <div class="preview-card"><img src="/images/preview-6.png" alt="Festival Guide"></div>
+      <div class="preview-card"><img src="/images/preview-7.png" alt="Routenplaner Northern Territory"></div>
+      <div class="preview-card"><img src="/images/preview-8.png" alt="Farmwork Verlängerung"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDE OVERVIEW BEFORE WHAT-YOU-GET -->
+<section class="guide-overview">
+  <div class="container">
+    <p class="section-tag">Auf einen Blick</p>
+    <h2 class="section-title">Der Guide im Überblick</h2>
+    <div class="guide-overview-grid">
+      <div class="guide-overview-card" onclick="openLightbox(0)"><img src="/images/guide-cover.png" alt="Guide Cover"></div>
+      <div class="guide-overview-card" onclick="openLightbox(1)"><img src="/images/guide-overview.png" alt="Guide Übersicht"></div>
+      <div class="guide-overview-card" onclick="openLightbox(2)"><img src="/images/guide-review.png" alt="Guide Bewertung"></div>
+      <div class="guide-overview-card" onclick="openLightbox(3)"><img src="/images/guide-checklist-info.png" alt="Guide Checkliste"></div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:18px">👆 Klick auf ein Bild für die Großansicht</p>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+  <button class="lightbox-prev" onclick="lightboxNav(-1,event)">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" onclick="lightboxNav(1,event)">›</button>
 </div>
 
+<section class="what">
+  <div class="container what-grid">
+    <div class="what-img">
+      <img src="/images/guide-cover.png" alt="PackPlanGo Guide Cover" style="border-radius:20px;box-shadow:0 20px 60px rgba(45,110,105,.15)">
+    </div>
+    <div>
+      <p class="section-tag">Im Starter Guide</p>
+      <h2 class="section-title">Alles, was du vor Australien wirklich wissen solltest.</h2>
+      <p class="section-sub">Kompakt in einem interaktiven Guide mit Checklisten, Tools, Real Talk und praktischer Vorbereitung für deine ersten Wochen Down Under.</p>
+      <ul class="what-list">
+        <li>Work & Holiday Visum: Antrag, Voraussetzungen und häufige Fehler</li>
+        <li>Die wichtigsten Apps und Tools für Backpacker in Australien</li>
+        <li>Bankkonto, SIM Karte, TFN und Steuernummer Schritt für Schritt erklärt</li>
+        <li>Jobsuche in Hostels, Hospitality und Farmwork, inklusive Plattformen und Tipps</li>
+        <li>Routen für Ostküste und Westküste</li>
+        <li>Packliste für 6 bis 12 Monate Down Under</li>
+        <li>Budget Realität: Was Australien wirklich kostet</li>
+        <li>Zugang zur exklusiven WhatsApp Community</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="realtalk">
+  <div class="container">
+    <p class="section-tag">Real Talk</p>
+    <h2>"Kein perfektes Instagram Märchen, sondern die Dinge, die ich selbst vor Australien gerne gewusst hätte."</h2>
+    <p>PackPlanGo entstand aus echten Erfahrungen, aus Fehlern, Learnings und genau den Dingen, die vor dem Abflug wirklich einen Unterschied machen.</p>
+  </div>
+</section>
+
+<section class="download" id="download">
+  <div class="container">
+    <p class="section-tag">Kostenloser Starter Guide</p>
+    <h2 class="section-title">Bereit für Australien,<br>nur ohne Chaos.</h2>
+    <p class="section-sub">Hol dir den interaktiven PackPlanGo Guide mit praktischen Tools, echten Erfahrungen und allem, was du vor Australien wissen solltest.</p>
+
+    <!-- Formular -->
+    <form id="guide-form" style="margin-top:36px;width:100%;max-width:480px;margin-left:auto;margin-right:auto">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <input
+          type="email"
+          id="guide-email"
+          name="fields[email]"
+          placeholder="Deine E-Mail-Adresse"
+          required
+          autocomplete="email"
+          style="width:100%;padding:18px 22px;border-radius:999px;border:1.5px solid rgba(45,110,105,.2);font-family:var(--sans);font-size:16px;background:#fff;color:var(--dark);outline:none;box-sizing:border-box;-webkit-appearance:none"
+        >
+        <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:0 8px">
+          <input type="checkbox" id="guide-consent" name="consent" required style="margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:var(--teal);cursor:pointer">
+          <span style="font-size:13px;color:var(--muted);line-height:1.5">Ich stimme zu, E-Mails mit Tipps, Guides und Updates zu erhalten. Abmeldung jederzeit möglich.</span>
+        </label>
+        <input type="hidden" name="ml-submit" value="1">
+        <input type="hidden" name="anticsrf" value="true">
+        <button
+          type="submit"
+          id="guide-btn"
+          style="width:100%;padding:18px 32px;border-radius:999px;background:var(--accent);color:#fff;border:0;font-family:var(--sans);font-size:16px;font-weight:600;cursor:pointer;transition:all .2s;-webkit-appearance:none"
+        >📥 Guide kostenlos herunterladen</button>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center">
+        Es gelten unsere <a href="/datenschutz" style="color:var(--teal);text-decoration:underline">Datenschutzbestimmungen</a>.
+      </p>
+    </form>
+
+    <!-- Erfolgsmeldung -->
+    <div id="guide-success" style="display:none;margin-top:36px;text-align:center;padding:32px;background:rgba(45,110,105,.08);border-radius:20px;max-width:480px;margin-left:auto;margin-right:auto">
+      <div style="font-size:48px;margin-bottom:16px">📬</div>
+      <h3 style="font-family:var(--serif);color:var(--teal);font-size:24px;margin:0 0 12px">Danke! Fast geschafft.</h3>
+      <p style="color:var(--muted);font-size:16px;line-height:1.6;margin:0">Deine Bestätigungsmail ist auf dem Weg.<br>Öffne sie und klick auf den Bestätigungslink um deinen Guide zu erhalten.<br><small>Check vorsichtshalber auch den Spam-Ordner.</small></p>
+    </div>
+    <!-- /Erfolgsmeldung -->
+    <!-- /Formular -->
+
+    <p class="hero-note dark" style="margin-top:16px">📩 Kein Spam. Nur hilfreiche Tipps, neue Guides und echte Backpacker Insights.</p>
+
+    <div class="download-divider">oder</div>
+    <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" class="whatsapp-cta" target="_blank">
+      <svg viewBox="0 0 32 32"><path d="M19.11 17.24c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.17-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.48.7.3 1.25.47 1.68.6.7.22 1.34.2 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M16 3C8.82 3 3 8.82 3 16c0 2.82.92 5.42 2.46 7.54L3 29l5.63-2.4A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm0 23.6c-2.17 0-4.2-.63-5.93-1.72l-.42-.25-3.34 1.42 1.47-3.25-.27-.43A10.54 10.54 0 0 1 5.4 16C5.4 10.15 10.15 5.4 16 5.4S26.6 10.15 26.6 16 21.85 26.6 16 26.6z"/></svg>
+      WhatsApp Community beitreten
+    </a>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-head">
+      <p class="section-tag">Q&A</p>
+      <h2 class="section-title">Fragen, die fast jeder<br>vor Australien hat.</h2>
+      <p class="section-sub">Keine Sorge. Genau deshalb gibt es PackPlanGo.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">Ist der Guide wirklich kostenlos?</button><div class="faq-a"><p>Ja. Der Starter Guide ist komplett kostenlos. Später werden zusätzliche Premium-Inhalte folgen, aber der Einstieg kostet dich keinen Cent.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Brauche ich bereits ein Visum?</button><div class="faq-a"><p>Nein. Im Guide erkläre ich dir Schritt für Schritt, wie du dein Work & Holiday Visum beantragst und welche Fehler du vermeiden solltest.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Ist der Guide nur für Deutschland?</button><div class="faq-a"><p>Die meisten Inhalte gelten für Deutschland, Österreich, die Schweiz und UK. Viele Tipps funktionieren aber unabhängig von deiner Nationalität.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Wie bekomme ich den Guide?</button><div class="faq-a"><p>Trag deine E-Mail ein, dann bekommst du sofort Zugriff auf den Download plus hilfreiche Updates rund um Australien.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Kommt noch mehr Content?</button><div class="faq-a"><p>Definitiv. Geplant sind weitere Guides für Südostasien, Vanlife, Budget-Tools, Community Features und exklusive Inhalte.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo"><img src="/images/favicon.png" alt="">PackPlanGo<span>.</span> Travel</div>
+    <p style="color:rgba(255,255,255,.6);max-width:520px;margin:0 auto;font-size:14px">Built for backpackers, dreamers & future expats. Built by one of them.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/studio/">Studio</a>
+      <a href="#faq">FAQ</a>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum">Impressum</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/jackywest.remote" target="_blank">Instagram</a> ·
+      <a href="https://tiktok.com/@jacky_west" target="_blank">TikTok</a>
+    </div>
+    <p class="footer-copy">© 2026 PackPlanGo Travel — All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M19.11 17.24c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.17-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.48.7.3 1.25.47 1.68.6.7.22 1.34.2 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M16 3C8.82 3 3 8.82 3 16c0 2.82.92 5.42 2.46 7.54L3 29l5.63-2.4A12.9 12.9 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm0 23.6c-2.17 0-4.2-.63-5.93-1.72l-.42-.25-3.34 1.42 1.47-3.25-.27-.43A10.54 10.54 0 0 1 5.4 16C5.4 10.15 10.15 5.4 16 5.4S26.6 10.15 26.6 16 21.85 26.6 16 26.6z"/></svg>
+</a>
+
+<script>
+document.getElementById('burger').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('open')});
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{btn.parentElement.classList.toggle('open')})});
+
+// LIGHTBOX
+const lbImages=['/images/guide-cover.png','/images/guide-overview.png','/images/guide-review.png','/images/guide-checklist-info.png'];
+let lbIndex=0;
+function openLightbox(i){lbIndex=i;document.getElementById('lightbox-img').src=lbImages[i];document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
+function closeLightbox(e){if(!e||e.target===document.getElementById('lightbox')||e.currentTarget===document.querySelector('.lightbox-close')){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}}
+function lightboxNav(dir,e){e&&e.stopPropagation();lbIndex=(lbIndex+dir+lbImages.length)%lbImages.length;document.getElementById('lightbox-img').src=lbImages[lbIndex]}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='ArrowLeft')lightboxNav(-1);if(e.key==='ArrowRight')lightboxNav(1);if(e.key==='Escape')closeLightbox()})
+</script>
+    <!-- ===== JERRY CHATBOT 🦘 ===== -->
+<button class="ppg-chat-toggle" id="ppgChatToggle" aria-label="Chat mit Jerry öffnen">
+  <span class="ppg-pulse"></span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+  </svg>
+</button>
+ 
+<div class="ppg-chat-window" id="ppgChatWindow" role="dialog" aria-label="Chat mit Jerry">
+  <div class="ppg-chat-header">
+    <div class="ppg-chat-avatar">🦘</div>
+    <div class="ppg-chat-info">
+      <h4>Jerry vom PackPlanGo Team</h4>
+      <p><span class="ppg-online"></span>Online · antwortet sofort</p>
+    </div>
+    <button class="ppg-chat-close" id="ppgChatClose" aria-label="Schließen">
+      <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+  </div>
+  <div class="ppg-chat-body" id="ppgChatBody"></div>
+  <div class="ppg-chat-footer">
+    Brauchst du mehr Hilfe? <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" target="_blank">Tritt der Community bei</a>
+  </div>
+</div>
+ 
+<script>
+(function(){
+  const toggle = document.getElementById('ppgChatToggle');
+  const win = document.getElementById('ppgChatWindow');
+  const close = document.getElementById('ppgChatClose');
+  const body = document.getElementById('ppgChatBody');
+ 
+  const answers = {
+    budget: {
+      q: "💰 Was kostet ein Trip nach Australien?",
+      a: "Realistisches Startkapital für ein Working-Holiday-Jahr: <b>7.000–8.500 AUD</b> (≈ 4.300–5.200 €).<br><br>📌 <b>Einmalige Kosten vor Abflug:</b><br>• Flug nach Sydney: 900–1.400 €<br>• Visum (417/462): 670 AUD<br>• Auslandskrankenversicherung: 30–60 €/Monat<br>• Proof of Funds (Pflicht): 5.000 AUD auf Konto<br><br>📌 <b>Vor Ort pro Monat:</b><br>• Backpacker-Budget: 80–110 AUD/Tag<br>• Hostel-Bett: 20–70 AUD/Nacht<br>• Essen wenn du selbst kochst: ~250 AUD/Woche<br><br>👉 Komplette Budget-Aufschlüsselung im <a href='/travel/'>Australien Starter Guide</a>."
+    },
+    visum: {
+      q: "🛬 Wie bekomme ich das Working Holiday Visum?",
+      a: "<b>Das Wichtigste in Kürze:</b><br><br>• <b>Subclass 417</b> (Deutsche, Briten, etc.): Alter 18–35<br>• <b>Subclass 462</b> (USA, Indonesien, etc.): Alter 18–30<br>• <b>Kosten:</b> 670 AUD (Stand 2026)<br>• <b>Dauer:</b> 12 Monate, verlängerbar (88-Tage-Regel)<br><br>📌 <b>Voraussetzungen:</b><br>1. Reisepass min. 6 Monate gültig<br>2. 5.000 AUD Nachweis auf dem Konto<br>3. Antrag online auf <b>immi.homeaffairs.gov.au</b><br>4. ImmiAccount erstellen + Formular ausfüllen<br><br>⚡ Die meisten Anträge werden in 1 Tag bearbeitet, 90% innerhalb von 68 Tagen.<br><br>⚠️ <b>Wichtig:</b> Beantrage es <b>vor dem Flug</b> — der erste Antrag muss von außerhalb Australiens kommen!"
+    },
+    job: {
+      q: "💼 Wie finde ich einen Job in Australien?",
+      a: "Die besten Job-Quellen für Backpacker:<br><br>• <b>Seek.com.au</b> — größtes Jobportal<br>• <b>Backpacker Job Board</b> — Hostels, Farmen, Hospitality<br>• <b>Gumtree</b> — Casual Jobs<br>• <b>Facebook Gruppen</b> — z.B. 'Backpacker Jobs in Australia'<br>• <b>Walk-ins</b> — Lebenslauf direkt im Café/Hostel abgeben<br><br>💡 <b>Mindestlohn 2026:</b> ~24 AUD/Stunde, in Hospitality oft 30+ AUD/h durch Casual Loading.<br><br>📌 <b>Was du brauchst:</b><br>• TFN (Tax File Number) — kostenlos online beantragen<br>• Australisches Bankkonto (z.B. CommBank, ING)<br>• Lebenslauf im Aussie-Format (kurz, knackig, 1 Seite)"
+    },
+    reisezeit: {
+      q: "🌍 Wann ist die beste Reisezeit?",
+      a: "Australien ist riesig — die beste Zeit hängt davon ab, <b>wohin</b> du willst:<br><br>• <b>Norden (Cairns, Darwin):</b> Mai–Oktober (Trockenzeit)<br>• <b>Süden (Melbourne, Sydney):</b> Oktober–April (Sommer)<br>• <b>Outback:</b> April–September (nicht zu heiß)<br>• <b>Farmwork:</b> Erntesaison checken (variiert pro Region)<br><br>🏆 <b>Allrounder-Tipp:</b> September/Oktober — überall angenehm, vor der Sommerhitze."
+    },
+    monat: {
+      q: "📅 Wie plane ich meinen ersten Monat?",
+      a: "Mein bewährter <b>30-Tage-Plan</b>:<br><br>• <b>Woche 1:</b> Sydney/Melbourne ankommen, TFN + Bankkonto, SIM-Karte<br>• <b>Woche 2:</b> Hostel-Hopping, erste Kontakte, Stadt erkunden<br>• <b>Woche 3:</b> Jobsuche starten ODER Auto kaufen für Roadtrip<br>• <b>Woche 4:</b> Erster Job ODER Aufbruch in den Norden<br><br>👉 Detaillierter Schritt-für-Schritt Plan im <a href='/travel/'>Starter Guide</a>."
+    },
+    packen: {
+      q: "📦 Was muss ich einpacken?",
+      a: "<b>Absolute Must-Haves:</b><br><br>• Backpack 50–65L (nicht größer!)<br>• Tagesrucksack 20L<br>• Reisepass + Kopien (digital & Papier)<br>• Internationaler Führerschein<br>• Microfaser-Handtuch<br>• Stirnlampe<br>• Powerbank<br>• Adapter Typ I (Australien-Stecker)<br>• Sonnencreme LSF 50+<br>• Erste-Hilfe-Set<br><br>👉 Komplette Packliste als PDF im <a href='/travel/'>Travel Bereich</a>."
+    },
+    apps: {
+      q: "📱 Welche Apps brauche ich?",
+      a: "Meine <b>Top 8 Apps</b> für Australien:<br><br>• <b>WikiCamps</b> — Stellplätze & Camping<br>• <b>Fuel Map</b> — günstigste Tankstellen<br>• <b>Maps.me</b> — Offline-Karten<br>• <b>Seek</b> — Jobs<br>• <b>CommBank/ING</b> — Banking<br>• <b>Backpacker Deals</b> — Rabatte<br>• <b>BOM Weather</b> — Wetter (wichtig!)<br>• <b>WhatsApp</b> — alle nutzen es"
+    },
+    community: {
+      q: "💬 Wie komme ich in die WhatsApp Community?",
+      a: "Yes! 🎉 Die PackPlanGo Travel Community ist kostenlos und voller Backpacker, die gerade in Australien sind oder bald gehen.<br><br>👉 <a href='https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf' target='_blank'><b>Hier beitreten</b></a><br><br>Du findest dort: aktuelle Job-Tipps, Reisepartner, Erfahrungen aus erster Hand."
+    }
+  };
+ 
+  function scrollDown(){ body.scrollTop = body.scrollHeight; }
+ 
+  function addMsg(text, who){
+    const div = document.createElement('div');
+    div.className = 'ppg-msg ' + who;
+    div.innerHTML = text;
+    body.appendChild(div);
+    scrollDown();
+  }
+ 
+  function showQuickReplies(){
+    const wrap = document.createElement('div');
+    wrap.className = 'ppg-quick';
+    Object.keys(answers).forEach(key => {
+      const btn = document.createElement('button');
+      btn.textContent = answers[key].q;
+      btn.onclick = () => handleClick(key, btn);
+      wrap.appendChild(btn);
+    });
+    body.appendChild(wrap);
+    scrollDown();
+  }
+ 
+ function handleClick(key, btn){
+    btn.parentElement.remove();
+    addMsg(answers[key].q, 'user');
+    setTimeout(() => {
+      const answerMsg = addMsgReturn(answers[key].a, 'bot');
+      // Scrollt zur Antwort hoch, nicht runter
+      setTimeout(() => {
+        answerMsg.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      setTimeout(() => {
+        addMsg('Noch eine Frage? 👇', 'bot');
+        showQuickRepliesNoScroll();
+      }, 1200);
+    }, 400);
+  }
+
+  function addMsgReturn(text, who){
+    const div = document.createElement('div');
+    div.className = 'ppg-msg ' + who;
+    div.innerHTML = text;
+    body.appendChild(div);
+    return div;
+  }
+
+  function showQuickRepliesNoScroll(){
+    const wrap = document.createElement('div');
+    wrap.className = 'ppg-quick';
+    Object.keys(answers).forEach(key => {
+      const btn = document.createElement('button');
+      btn.textContent = answers[key].q;
+      btn.onclick = () => handleClick(key, btn);
+      wrap.appendChild(btn);
+    });
+    body.appendChild(wrap);
+    // KEIN scrollDown hier — Antwort bleibt sichtbar
+  }
+ 
+  function startChat(){
+    if (body.children.length > 0) return;
+    setTimeout(() => addMsg("G'day Mate! 🦘 Ich bin Jerry, dein PackPlanGo Buddy.", 'bot'), 200);
+    setTimeout(() => addMsg('Worauf hast du Lust? Wähl einfach eine Frage:', 'bot'), 800);
+    setTimeout(() => showQuickReplies(), 1200);
+  }
+ 
+  toggle.addEventListener('click', () => {
+    win.classList.add('open');
+    toggle.style.display = 'none';
+    startChat();
+  });
+  close.addEventListener('click', () => {
+    win.classList.remove('open');
+    toggle.style.display = 'grid';
+  });
+})();
+</script>
 <script>
 document.getElementById('guide-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  const email = document.getElementById('guide-email').value;
-  const body = 'fields[email]=' + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true';
-
+  var email = document.getElementById('guide-email').value;
+  var consent = document.getElementById('guide-consent').checked;
+  if (!email || !consent) return;
+  var btn = document.getElementById('guide-btn');
+  btn.textContent = 'Wird gesendet...';
+  btn.disabled = true;
   fetch('https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe', {
     method: 'POST',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: body
-  })
-  .then(function() {
+    body: 'fields[email]=' + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true'
+  }).then(function() {
     document.getElementById('guide-form').style.display = 'none';
     document.getElementById('guide-success').style.display = 'block';
-  })
-  .catch(function() {
+  }).catch(function() {
     document.getElementById('guide-form').style.display = 'none';
     document.getElementById('guide-success').style.display = 'block';
   });
 });
 </script>
+</body>
+</html>
