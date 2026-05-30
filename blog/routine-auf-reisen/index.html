@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warum Routine auf Reisen wichtiger ist als du denkst. — PackPlanGo</title>
+  <meta name="description" content="Freiheit klingt nach keiner Routine. Aber die erfolgreichsten Nomads haben eine, und zwar bewusst. Was deine Reise-Routine aussehen sollte.">
+  <link rel="icon" href="https://www.packplango.com/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a; --bg-2: #111111; --bg-3: #1a1a1a; --border: #222222;
+      --text: #f0f0f0; --text-muted: #888888; --accent: #d4a853; --accent-hover: #e8bf70;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; }
+    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .article-hero { padding-top: 64px; position: relative; }
+    .article-hero-img { width: 100%; height: 480px; object-fit: cover; display: block; filter: brightness(0.45); }
+    .article-hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 4rem 5% 3rem; background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.7) 50%, transparent 100%); }
+    .article-hero-inner { max-width: 760px; margin: 0 auto; }
+    .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--text); }
+    .article-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 100px; background: rgba(212,168,83,0.15); color: var(--accent); margin-bottom: 1rem; }
+    .article-hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem; }
+    .article-meta { display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.85rem; flex-wrap: wrap; }
+    .article-wrap { max-width: 760px; margin: 0 auto; padding: 3.5rem 5% 6rem; }
+    .lead { font-size: 1.2rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+    .article-body h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin: 2.5rem 0 1rem; line-height: 1.3; }
+    .article-body p { margin-bottom: 1.3rem; color: #d8d8d8; font-size: 1rem; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+    .callout { background: var(--bg-2); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
+    .callout-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .callout p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+    .article-img { width: 100%; border-radius: 12px; margin: 2rem 0; display: block; object-fit: cover; }
+    .img-caption { text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-top: -1.2rem; margin-bottom: 2rem; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    .sign-off { font-size: 1.05rem; color: var(--text-muted); margin-top: 2rem; font-style: italic; }
+    .sign-off strong { font-style: normal; color: var(--accent); }
+    .anchor-blocks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+    .anchor-block { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; }
+    .anchor-block .anchor-name { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .anchor-block p { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
+    .cta-box { background: var(--bg-2); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; margin: 3rem 0; text-align: center; }
+    .cta-box h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .btn { display: inline-block; padding: 0.85rem 2rem; background: var(--accent); color: #0a0a0a; font-weight: 700; font-size: 0.9rem; border-radius: 100px; text-decoration: none; transition: background 0.2s; }
+    .btn:hover { background: var(--accent-hover); }
+    .btn-ghost { display: inline-block; padding: 0.85rem 2rem; border: 1px solid var(--border); color: var(--text); font-weight: 600; font-size: 0.9rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; margin-left: 1rem; }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .related { padding: 0 5% 5rem; max-width: 1100px; margin: 0 auto; }
+    .related h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .rel-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.2s, border-color 0.2s; }
+    .rel-card:hover { transform: translateY(-3px); border-color: #333; }
+    .rel-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .rel-card-body { padding: 1.1rem; }
+    .rel-card-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .rel-card h4 { font-size: 0.95rem; font-weight: 600; line-height: 1.35; }
+    footer { border-top: 1px solid var(--border); padding: 3rem 5%; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-size: 1rem; font-weight: 600; color: var(--text); text-decoration: none; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
+    @media (max-width: 640px) { .nav-links { display: none; } .article-hero-img { height: 320px; } .anchor-blocks { grid-template-columns: 1fr; } .btn-ghost { margin-left: 0; margin-top: 0.75rem; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://www.packplango.com/" class="nav-logo">PackPlanGo<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="https://www.packplango.com/">Home</a></li>
+      <li><a href="https://www.packplango.com/travel/">Travel</a></li>
+      <li><a href="https://www.packplango.com/studio/">Studio</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+
+<article>
+  <div class="article-hero">
+    <img class="article-hero-img" src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=85&auto=format&fit=crop" alt="Morgen am See mit Nebel, ruhige Naturstimmung">
+    <div class="article-hero-overlay">
+      <div class="article-hero-inner">
+        <p class="breadcrumb"><a href="/blog/">Blog</a> &rsaquo; Realtalk</p>
+        <span class="article-tag">Realtalk</span>
+        <h1>Warum Routine auf Reisen wichtiger ist als du denkst.</h1>
+        <div class="article-meta">
+          <span>Von Jacky West</span>
+          <span>28. Juli 2026</span>
+          <span>5 Min Lesezeit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-wrap">
+    <p class="lead">
+      Freiheit klingt nach keiner Routine. Kein Wecker. Kein Plan. Einfach treiben lassen. Fur eine Woche: wunderschon. Fur drei Monate: Chaos. Die erfolgreichsten Digital Nomads, Creator und Remote Worker die ich kenne haben alle eines gemeinsam: Sie haben eine Routine. Nicht die gleiche wie zuhause. Aber eine.
+    </p>
+
+    <div class="article-body">
+
+      <p>Hier ist warum. Und wie deine aussehen sollte.</p>
+
+      <h2>Warum fehlende Routine mude macht</h2>
+
+      <p>Ohne Struktur entscheidest du jeden Tag neu: Wann aufstehen? Wann arbeiten? Wann essen? Diese kleinen Entscheidungen kosten Energie, mehr als du denkst. Das nennt sich Decision Fatigue. Und nach Wochen ohne Routine fuhlst du dich erschopft ohne wirklich viel getan zu haben.</p>
+
+      <div class="callout">
+        <p class="callout-label">Realtalk</p>
+        <p>Die romantische Vorstellung des komplett planfreien Lebens halt selten langer als zwei Wochen. Danach wollen die meisten Menschen wieder Struktur, auch wenn sie das vorher nie gedacht hatten.</p>
+      </div>
+
+      <h2>Die minimale Reise-Routine. Was wirklich funktioniert.</h2>
+
+      <img class="article-img" src="https://images.unsplash.com/photo-1484627147104-f5197bcd6651?w=900&q=80&auto=format&fit=crop" alt="Kaffee und Laptop am Morgen, Digital Nomad Arbeitsplatz" style="height:360px;">
+      <p class="img-caption">Die besten Routinen sind simpel. Und genau das macht sie so kraftig.</p>
+
+      <p>Du brauchst keine stundengenaue Agenda. Aber ein paar Ankerpunkte machen den Unterschied.</p>
+
+      <div class="anchor-blocks">
+        <div class="anchor-block">
+          <p class="anchor-name">Morgen-Anker</p>
+          <p>Gleiche Zeit aufstehen. Wasser trinken. 15 Minuten ohne Handy. Fertig.</p>
+        </div>
+        <div class="anchor-block">
+          <p class="anchor-name">Work-Block</p>
+          <p>2 bis 3 Stunden fokussiert, zur gleichen Tageszeit. Morgens funktioniert am besten.</p>
+        </div>
+        <div class="anchor-block">
+          <p class="anchor-name">Bewegung</p>
+          <p>Einmal am Tag. Surfen, Yoga, Spaziergang, Schwimmen. Egal was. Nur raus.</p>
+        </div>
+        <div class="anchor-block">
+          <p class="anchor-name">Abend-Abschluss</p>
+          <p>Kurz aufschreiben was morgen wichtig ist. Laptop zu. Fertig.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p class="callout-label">Pro-Tipp</p>
+        <p>Deine Routine muss nicht jeden Tag gleich sein. Aber die Ankerpunkte sollten bleiben, auch wenn du gerade in einem neuen Ort bist oder die Zeitzone wechselst.</p>
+      </div>
+
+      <h2>Wie du deine eigene Reise-Routine findest</h2>
+
+      <img class="article-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80&auto=format&fit=crop" alt="Person macht Yoga am Strand beim Sonnenaufgang" style="height:320px;">
+      <p class="img-caption">Bewegung als Anker. Nicht als Pflicht, sondern als Energie-Quelle.</p>
+
+      <p>Experimentiere die ersten 2 Wochen ohne feste Struktur. Beobachte wann du am produktivsten bist und wann du dich leer fuhlst. Bau daraus 3 bis 5 Anker-Gewohnheiten. Halte sie mindestens 2 Wochen durch. Passe an was nicht funktioniert.</p>
+
+      <p>Das ist alles. Kein Bullet Journal notig. Kein App-Stack. Nur Beobachtung und kleine Anpassungen.</p>
+
+      <p>Mehr zum Thema Produktivitat auf Reisen findest du in meinem Artikel <a href="/blog/reisen-produktivitaet/" style="color:var(--accent);">Wie Reisen dich produktiver macht</a>.</p>
+
+      <hr class="divider">
+
+      <p>Freiheit und Routine schliessen sich nicht aus. Im Gegenteil: Wer eine gute Routine hat ist freier, weil er nicht jeden Tag neu entscheiden muss wie er lebt.</p>
+      <p>Probier es aus.</p>
+
+      <p class="sign-off"><strong>Jacky</strong></p>
+    </div>
+
+    <div class="cta-box">
+      <h3>Starte deinen Plan fur Australien.</h3>
+      <p>Mit dem PackPlanGo Guide hast du alles was du brauchst, strukturiert, ehrlich und direkt auf deinem Handy.</p>
+      <a href="https://www.packplango.com/travel/" class="btn">Zum Starter Guide</a>
+      <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" class="btn-ghost">Community beitreten</a>
+    </div>
+  </div>
+</article>
+
+<section class="related">
+  <h3>Mehr lesen</h3>
+  <div class="related-grid">
+    <a href="/blog/passion-finden-durch-reisen/" class="rel-card">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=75&auto=format&fit=crop" alt="Passion finden durch Reisen">
+      <div class="rel-card-body">
+        <p class="rel-card-tag">Realtalk</p>
+        <h4>Wie Reisen deine Passion findet. Bevor du es selbst tust.</h4>
+      </div>
+    </a>
+    <a href="/blog/reisen-produktivitaet/" class="rel-card">
+      <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&q=75&auto=format&fit=crop" alt="Produktiv reisen">
+      <div class="rel-card-body">
+        <p class="rel-card-tag">Realtalk</p>
+        <h4>Wie Reisen dich produktiver macht. Kein Bullshit.</h4>
+      </div>
+    </a>
+    <a href="/blog/boutique-hotels-social-media-learnings/" class="rel-card">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=75&auto=format&fit=crop" alt="Boutique Hotel">
+      <div class="rel-card-body">
+        <p class="rel-card-tag">Hotel & Studio</p>
+        <h4>Was Boutique Hotels von grossen Chains lernen konnten.</h4>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="https://www.packplango.com/" class="footer-logo">PackPlanGo<span>.</span></a>
+    <div class="footer-links">
+      <a href="https://www.packplango.com/travel/">Travel</a>
+      <a href="https://www.packplango.com/studio/">Studio</a>
+      <a href="https://www.packplango.com/datenschutz">Datenschutz</a>
+      <a href="https://www.packplango.com/impressum">Impressum</a>
+      <a href="https://instagram.com/jackywest.remote">Instagram</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 PackPlanGo.</span>
+  </div>
+</footer>
+
+</body>
+</html>
