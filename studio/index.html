@@ -13,6 +13,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pack Plan Go Studio. Instagram & Ads for Hotels & Travel Brands</title>
+<meta name="description" content="PackPlanGo Studio: Social Media Management and Meta Ads for boutique hotels, hostels, villas and travel brands in Bali, Australia and Southeast Asia." />
+<meta name="keywords" content="boutique hotel social media marketing, instagram management hotel, meta ads hospitality, travel brand marketing, hotel marketing bali australia" />
+<link rel="canonical" href="https://www.packplango.com/studio/" />
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -497,6 +500,19 @@ footer {
   border: 6px solid transparent; border-left-color: var(--sea-deep);
 }
 
+
+/* LANGUAGE TOGGLE */
+.lang-toggle {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(193,122,69,0.1); border: 1px solid rgba(193,122,69,0.25);
+  border-radius: 999px; padding: 7px 16px;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.3px;
+  cursor: pointer; transition: 0.2s ease; color: var(--accent);
+  font-family: 'DM Sans', sans-serif; white-space: nowrap;
+}
+.lang-toggle:hover { background: rgba(193,122,69,0.18); }
+.lang-toggle .lang-flag { font-size: 0.95rem; }
+
 /* MOBILE */
 @media(max-width: 900px) {
   .services-grid, .why-grid, .about-grid,
@@ -534,10 +550,12 @@ footer {
     <div class="nav-links">
       <a href="/">Home</a>
       <a href="/travel/">Travel</a>
-      <a href="#services">Services</a>
-      <a href="#packages">Pricing</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="nav-btn">Let's Talk</a>
+      <a href="/blog/">Blog</a>
+      <a href="#services" id="nav-services">Services</a>
+      <a href="#packages" id="nav-pricing">Pricing</a>
+      <a href="#about" id="nav-about">About</a>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLang()"><span class="lang-flag">🇩🇪</span> Auf Deutsch ansehen</button>
+      <a href="#contact" class="nav-btn" id="nav-contact">Let's Talk</a>
     </div>
   </div>
 </nav>
@@ -545,11 +563,11 @@ footer {
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <p class="hero-tag">Social Media Management and Ads for Hospitality Brands</p>
-      <h1>
+      <p class="hero-tag" id="hero-tag">Social Media Management and Ads for Hospitality Brands</p>
+      <h1 id="hero-h1">
         Beautiful places deserve <span>better</span> marketing.
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" id="hero-sub">
         We grow Instagram accounts and run targeted Meta Ads for boutique hotels, hostels, villas and travel brands across Bali, Australia and Southeast Asia. More visibility, more bookings, more direct revenue.
       </p>
       <div style="
@@ -585,8 +603,8 @@ margin-bottom:28px;
   </div>
 </div>
       <div class="hero-buttons">
-        <a href="#contact" class="hero-btn primary">Book a Free Call</a>
-        <a href="#services" class="hero-btn secondary">See What We Do</a>
+        <a href="#contact" class="hero-btn primary" id="hero-btn1">Book a Free Call</a>
+        <a href="#services" class="hero-btn secondary" id="hero-btn2">See What We Do</a>
       </div>
     </div>
   </div>
@@ -604,11 +622,11 @@ margin-bottom:28px;
 
 <section class="services" id="services">
   <div class="container">
-    <p class="section-tag">What We Do</p>
-    <h2 class="section-title">
+    <p class="section-tag" id="svc-tag">What We Do</p>
+    <h2 class="section-title" id="svc-title">
       Two things, done exceptionally well.
     </h2>
-    <p class="section-sub">
+    <p class="section-sub" id="svc-sub">
       We don't try to be an everything agency. We focus on the two channels that move the needle for hospitality brands today and we go deep on both.
     </p>
 
@@ -622,8 +640,8 @@ margin-bottom:28px;
             <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
           </svg>
         </div>
-        <h3>Instagram Growth</h3>
-        <p>
+        <h3 id="svc-card1-title">Instagram Growth</h3>
+        <p id="svc-card1-p">
           Full account management, content production and growth strategy, built for hospitality brands that want to turn followers into bookings, not just vanity metrics. Posts, Reels, Stories, captions, hashtags, community engagement, all handled.
         </p>
       </div>
@@ -636,26 +654,26 @@ margin-bottom:28px;
             <path d="M14 7h7v7"/>
           </svg>
         </div>
-        <h3>Meta Ads</h3>
-        <p>
+        <h3 id="svc-card2-title">Meta Ads</h3>
+        <p id="svc-card2-p">
           Instagram and Facebook ad campaigns built specifically for the hospitality funnel: discovery, retargeting, and direct booking conversions. Creative direction, audience targeting, A/B testing and transparent monthly reporting included.
         </p>
       </div>
     </div>
 
-    <p class="addons-title">— Add-On Services —</p>
+    <p class="addons-title" id="addons-title">— Add-On Services —</p>
     <div class="addons-grid">
       <div class="addon-card">
-        <h4>Reels & Shortform Video</h4>
-        <p>Cinematic Reels and TikToks edited specifically for travel audiences.</p>
+        <h4 id="addon1-h">Reels & Shortform Video</h4>
+        <p id="addon1-p">Cinematic Reels and TikToks edited specifically for travel audiences.</p>
       </div>
       <div class="addon-card">
-        <h4>Content Strategy</h4>
-        <p>Monthly content plans, hooks, and storytelling tailored to your destination.</p>
+        <h4 id="addon2-h">Content Strategy</h4>
+        <p id="addon2-p">Monthly content plans, hooks, and storytelling tailored to your destination.</p>
       </div>
       <div class="addon-card">
-        <h4>Guest Experience Marketing</h4>
-        <p>Turn happy guests into UGC, reviews, and repeat visibility.</p>
+        <h4 id="addon3-h">Guest Experience Marketing</h4>
+        <p id="addon3-p">Turn happy guests into UGC, reviews, and repeat visibility.</p>
       </div>
     </div>
   </div>
@@ -663,30 +681,30 @@ margin-bottom:28px;
 
 <section class="why">
   <div class="container">
-    <p class="section-tag">Why PackPlanGo Studio</p>
-    <h2 class="section-title">
+    <p class="section-tag" id="why-tag">Why PackPlanGo Studio</p>
+    <h2 class="section-title" id="why-title">
       Not corporate marketing. Content that actually feels human.
     </h2>
-    <p class="section-sub">
+    <p class="section-sub" id="why-sub">
       Most hospitality marketing feels outdated, generic or overproduced.
       We create work that feels modern, emotional and native to the platforms travelers actually use.
     </p>
     <div class="why-grid">
       <div class="why-box">
-        <h3>Creator-Led</h3>
-        <p>
+        <h3 id="why1-h">Creator-Led</h3>
+        <p id="why1-p">
           We understand what makes people stop scrolling because we create travel content ourselves.
         </p>
       </div>
       <div class="why-box">
-        <h3>Hospitality Focused</h3>
-        <p>
+        <h3 id="why2-h">Hospitality Focused</h3>
+        <p id="why2-p">
           Everything is built specifically for hotels, hostels, villas and modern hospitality brands.
         </p>
       </div>
       <div class="why-box">
-        <h3>Modern & Fast</h3>
-        <p>
+        <h3 id="why3-h">Modern &amp; Fast</h3>
+        <p id="why3-p">
           AI-supported workflows allow us to move faster and stay trend-aware without losing quality.
         </p>
       </div>
@@ -699,17 +717,17 @@ margin-bottom:28px;
     <div class="about-grid">
       <div class="about-image"></div>
       <div class="about-text">
-        <p class="section-tag">About</p>
-        <h2 class="section-title">
+        <p class="section-tag" id="about-tag">About</p>
+        <h2 class="section-title" id="about-title">
           Built by someone who travels, creates and markets.
         </h2>
-        <p>
+        <p id="about-p1">
           I'm Jacky West, content creator, online marketing manager and currently based between Australia and Southeast Asia.
         </p>
-        <p>
+        <p id="about-p2">
           I know what makes travelers stop scrolling because I am one. I understand the modern travel aesthetic, the type of content people actually engage with and what makes a place feel desirable online.
         </p>
-        <p>
+        <p id="about-p3">
           Pack Plan Go · Studio was created to help hospitality brands bridge the gap between how special they are in real life and how they come across online.
         </p>
         <div class="stats">
@@ -733,11 +751,11 @@ margin-bottom:28px;
 
 <section class="packages" id="packages">
   <div class="container">
-    <p class="section-tag">Pricing</p>
-    <h2 class="section-title">
+    <p class="section-tag" id="pkg-tag">Pricing</p>
+    <h2 class="section-title" id="pkg-title">
       Pick what you need. Combine if you want.
     </h2>
-    <p class="section-sub">
+    <p class="section-sub" id="pkg-sub">
       Two focused offerings. Or stack them together as a Growth Bundle for the full effect. Transparent monthly pricing, cancel anytime.
     </p>
 
@@ -758,7 +776,7 @@ margin-bottom:28px;
           <li>Community engagement & DM management</li>
           <li>Monthly strategy call + report</li>
         </ul>
-        <a href="#contact" class="package-cta">Grow My Instagram</a>
+        <a href="#contact" class="package-cta" id="pkg-cta1">Grow My Instagram</a>
       </div>
 
       <div class="package-card featured">
@@ -777,7 +795,7 @@ margin-bottom:28px;
           <li>Priority WhatsApp support</li>
           <li>Founding client perks (first 3 only)</li>
         </ul>
-        <a href="#contact" class="package-cta">Book a Bundle Call</a>
+        <a href="#contact" class="package-cta" id="pkg-cta2">Book a Bundle Call</a>
       </div>
 
       <div class="package-card">
@@ -795,7 +813,7 @@ margin-bottom:28px;
           <li>Monthly performance reports</li>
           <li>Booking attribution tracking</li>
         </ul>
-        <a href="#contact" class="package-cta">Launch My Ads</a>
+        <a href="#contact" class="package-cta" id="pkg-cta3">Launch My Ads</a>
       </div>
 
     </div>
@@ -805,11 +823,11 @@ margin-bottom:28px;
 
 <section class="work" id="work">
   <div class="container">
-    <p class="section-tag">Founding Client Program</p>
-    <h2 class="section-title">
+    <p class="section-tag" id="work-tag">Founding Client Program</p>
+    <h2 class="section-title" id="work-title">
       Be one of our first <em style="font-style:italic;color:var(--accent);">three featured brands</em>.
     </h2>
-    <p class="section-sub">
+    <p class="section-sub" id="work-sub">
       PackPlanGo Studio is brand new, and we're choosing three founding clients to launch with. You get more attention, better pricing and a permanent place in our portfolio as we grow.
     </p>
 
@@ -820,8 +838,8 @@ margin-bottom:28px;
           <span class="work-visual-icon">a.</span>
         </div>
         <div class="work-body">
-          <h4>Founding Rates</h4>
-          <p>30% below standard pricing, locked in for your first 12 months, even as our rates grow with new clients.</p>
+          <h4 id="work1-h">Founding Rates</h4>
+          <p id="work1-p">30% below standard pricing, locked in for your first 12 months, even as our rates grow with new clients.</p>
         </div>
       </div>
 
@@ -831,8 +849,8 @@ margin-bottom:28px;
           <span class="work-visual-icon">b.</span>
         </div>
         <div class="work-body">
-          <h4>Direct Founder Line</h4>
-          <p>Work directly with Jacky. No account managers, no handoffs. WhatsApp response within hours, real conversations, fast turnarounds.</p>
+          <h4 id="work2-h">Direct Founder Line</h4>
+          <p id="work2-p">Work directly with Jacky. No account managers, no handoffs. WhatsApp response within hours, real conversations, fast turnarounds.</p>
         </div>
       </div>
 
@@ -842,17 +860,17 @@ margin-bottom:28px;
           <span class="work-visual-icon">c.</span>
         </div>
         <div class="work-body">
-          <h4>Portfolio Spotlight</h4>
-          <p>Permanent feature in our launch portfolio and case studies. As PackPlanGo Studio grows, your brand stays front-and-center as one of our first.</p>
+          <h4 id="work3-h">Portfolio Spotlight</h4>
+          <p id="work3-p">Permanent feature in our launch portfolio and case studies. As PackPlanGo Studio grows, your brand stays front-and-center as one of our first.</p>
         </div>
       </div>
 
       <div class="work-cta-card">
         <div>
-          <h3>Three spots. First come, first signed.</h3>
-          <p>We're being selective about who joins as a founding client. We want brands we genuinely believe in. If that sounds like you, let's talk.</p>
+          <h3 id="work-cta-h">Three spots. First come, first signed.</h3>
+          <p id="work-cta-p">We're being selective about who joins as a founding client. We want brands we genuinely believe in. If that sounds like you, let's talk.</p>
         </div>
-        <a href="#contact" class="hero-btn primary">Apply for a Spot</a>
+        <a href="#contact" class="hero-btn primary" id="work-cta">Apply for a Spot</a>
       </div>
     </div>
   </div>
@@ -860,30 +878,260 @@ margin-bottom:28px;
 
 <section class="cta" id="contact">
   <div class="container">
-    <p class="section-tag">Let's Talk</p>
-    <h2 class="section-title">
+    <p class="section-tag" id="cta-tag">Let's Talk</p>
+    <h2 class="section-title" id="cta-title">
       Ready to make your place impossible to ignore?
     </h2>
-    <p class="section-sub">
+    <p class="section-sub" id="cta-sub">
       Whether you're building a boutique hotel, hostel, villa or travel brand, let's create something travelers actually remember.
     </p>
     <div class="hero-buttons" style="justify-content:center;">
-      <a href="https://wa.me/61455454274" class="hero-btn primary">WhatsApp Me</a>
-      <a href="mailto:jacky.west@packplango.de" class="hero-btn secondary">Send an Email</a>
+      <a href="https://wa.me/61455454274" class="hero-btn primary" id="cta-btn1">WhatsApp Me</a>
+      <a href="mailto:jacky.west@packplango.de" class="hero-btn secondary" id="cta-btn2">Send an Email</a>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 Pack Plan Go · Studio. Instagram & Ads for Hospitality Brands
+  <span id="footer-text">© 2026 Pack Plan Go · Studio. Instagram &amp; Ads for Hospitality Brands</span>
 </footer>
 
 <a href="https://wa.me/61455454274?text=Hi%20Jacky!%20I%20saw%20your%20PackPlanGo%20Studio%20website%20and%20would%20love%20to%20talk." class="whatsapp-float" target="_blank" rel="noopener">
-  <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+  <span class="whatsapp-tooltip" id="wa-tooltip">Chat on WhatsApp</span>
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
+
+
+<script>
+var currentLang = 'en';
+
+var translations = {
+  en: {
+    'nav-services': 'Services',
+    'nav-pricing': 'Pricing',
+    'nav-about': 'About',
+    'nav-contact': "Let's Talk",
+    'hero-tag': 'Social Media Management and Ads for Hospitality Brands',
+    'hero-h1': 'Beautiful places deserve <span>better</span> marketing.',
+    'hero-sub': 'We grow Instagram accounts and run targeted Meta Ads for boutique hotels, hostels, villas and travel brands across Bali, Australia and Southeast Asia. More visibility, more bookings, more direct revenue.',
+    'hero-btn1': 'Book a Free Call',
+    'hero-btn2': 'See What We Do',
+    'svc-tag': 'What We Do',
+    'svc-title': 'Two things, done exceptionally well.',
+    'svc-sub': "We don't try to be an everything agency. We focus on the two channels that move the needle for hospitality brands today and we go deep on both.",
+    'svc-card1-title': 'Instagram Growth',
+    'svc-card1-p': 'Full account management, content production and growth strategy, built for hospitality brands that want to turn followers into bookings, not just vanity metrics. Posts, Reels, Stories, captions, hashtags, community engagement, all handled.',
+    'svc-card2-title': 'Meta Ads',
+    'svc-card2-p': 'Instagram and Facebook ad campaigns built specifically for the hospitality funnel: discovery, retargeting, and direct booking conversions. Creative direction, audience targeting, A/B testing and transparent monthly reporting included.',
+    'addons-title': '— Add-On Services —',
+    'addon1-h': 'Reels & Shortform Video',
+    'addon1-p': 'Cinematic Reels and TikToks edited specifically for travel audiences.',
+    'addon2-h': 'Content Strategy',
+    'addon2-p': 'Monthly content plans, hooks, and storytelling tailored to your destination.',
+    'addon3-h': 'Guest Experience Marketing',
+    'addon3-p': 'Turn happy guests into UGC, reviews, and repeat visibility.',
+    'why-tag': 'Why PackPlanGo Studio',
+    'why-title': 'Not corporate marketing. Content that actually feels human.',
+    'why-sub': 'Most hospitality marketing feels outdated, generic or overproduced. We create work that feels modern, emotional and native to the platforms travelers actually use.',
+    'why1-h': 'Creator-Led',
+    'why1-p': 'We understand what makes people stop scrolling because we create travel content ourselves.',
+    'why2-h': 'Hospitality Focused',
+    'why2-p': 'Everything is built specifically for hotels, hostels, villas and modern hospitality brands.',
+    'why3-h': 'Modern & Fast',
+    'why3-p': 'AI-supported workflows allow us to move faster and stay trend-aware without losing quality.',
+    'about-tag': 'About',
+    'about-title': 'Built by someone who travels, creates and markets.',
+    'about-p1': "I'm Jacky West, content creator, online marketing manager and currently based between Australia and Southeast Asia.",
+    'about-p2': 'I know what makes travelers stop scrolling because I am one. I understand the modern travel aesthetic, the type of content people actually engage with and what makes a place feel desirable online.',
+    'about-p3': 'Pack Plan Go · Studio was created to help hospitality brands bridge the gap between how special they are in real life and how they come across online.',
+    'pkg-tag': 'Pricing',
+    'pkg-title': 'Pick what you need. Combine if you want.',
+    'pkg-sub': 'Two focused offerings. Or stack them together as a Growth Bundle for the full effect. Transparent monthly pricing, cancel anytime.',
+    'pkg-cta1': 'Grow My Instagram',
+    'pkg-cta2': 'Book a Bundle Call',
+    'pkg-cta3': 'Launch My Ads',
+    'work-tag': 'Founding Client Program',
+    'work-title': 'Be one of our first <em style="font-style:italic;color:var(--accent);">three featured brands</em>.',
+    'work-sub': "PackPlanGo Studio is brand new, and we're choosing three founding clients to launch with. You get more attention, better pricing and a permanent place in our portfolio as we grow.",
+    'work1-h': 'Founding Rates',
+    'work1-p': '30% below standard pricing, locked in for your first 12 months, even as our rates grow with new clients.',
+    'work2-h': 'Direct Founder Line',
+    'work2-p': 'Work directly with Jacky. No account managers, no handoffs. WhatsApp response within hours, real conversations, fast turnarounds.',
+    'work3-h': 'Portfolio Spotlight',
+    'work3-p': 'Permanent feature in our launch portfolio and case studies. As PackPlanGo Studio grows, your brand stays front-and-center as one of our first.',
+    'work-cta-h': 'Three spots. First come, first signed.',
+    'work-cta-p': "We're being selective about who joins as a founding client. We want brands we genuinely believe in. If that sounds like you, let's talk.",
+    'work-cta': 'Apply for a Spot',
+    'cta-tag': "Let's Talk",
+    'cta-title': 'Ready to make your place impossible to ignore?',
+    'cta-sub': "Whether you're building a boutique hotel, hostel, villa or travel brand, let's create something travelers actually remember.",
+    'cta-btn1': 'WhatsApp Me',
+    'cta-btn2': 'Send an Email',
+    'wa-tooltip': 'Chat on WhatsApp',
+    'footer-text': '© 2026 Pack Plan Go · Studio. Instagram & Ads for Hospitality Brands',
+    'lang-btn': '<span class="lang-flag">🇩🇪</span> Auf Deutsch ansehen',
+  },
+  de: {
+    'nav-services': 'Leistungen',
+    'nav-pricing': 'Preise',
+    'nav-about': 'Über mich',
+    'nav-contact': 'Kontakt',
+    'hero-tag': 'Social Media Management und Ads für Hospitality Brands',
+    'hero-h1': 'Besondere Orte verdienen <span>besseres</span> Marketing.',
+    'hero-sub': 'Wir wachsen Instagram-Accounts und schalten gezielte Meta Ads für Boutique Hotels, Hostels, Villas und Travel Brands in Bali, Australien und Südostasien. Mehr Sichtbarkeit, mehr Buchungen, mehr direkter Umsatz.',
+    'hero-btn1': 'Kostenloses Gespräch buchen',
+    'hero-btn2': 'Was wir tun',
+    'svc-tag': 'Was wir tun',
+    'svc-title': 'Zwei Dinge. Richtig gut gemacht.',
+    'svc-sub': 'Wir versuchen nicht, eine Alles-Agentur zu sein. Wir fokussieren uns auf die zwei Kanäle, die für Hospitality Brands heute wirklich etwas bewegen.',
+    'svc-card1-title': 'Instagram Growth',
+    'svc-card1-p': 'Komplettes Account-Management, Content-Produktion und Wachstumsstrategie für Hospitality Brands, die aus Followern Buchungen machen wollen. Posts, Reels, Stories, Captions, Hashtags, Community-Management, alles inklusive.',
+    'svc-card2-title': 'Meta Ads',
+    'svc-card2-p': 'Instagram- und Facebook-Kampagnen speziell für den Hospitality-Funnel: Discovery, Retargeting und direkte Buchungskonversionen. Creative Direction, Zielgruppenansprache, A/B-Testing und transparentes monatliches Reporting inklusive.',
+    'addons-title': '— Weitere Leistungen —',
+    'addon1-h': 'Reels & Kurzvideos',
+    'addon1-p': 'Kinematische Reels und TikToks, speziell für Travel-Zielgruppen geschnitten.',
+    'addon2-h': 'Content-Strategie',
+    'addon2-p': 'Monatliche Content-Pläne, Hooks und Storytelling, abgestimmt auf dein Haus.',
+    'addon3-h': 'Gasterlebnis-Marketing',
+    'addon3-p': 'Aus zufriedenen Gästen werden UGC, Bewertungen und wiederholte Sichtbarkeit.',
+    'why-tag': 'Warum PackPlanGo Studio',
+    'why-title': 'Kein Konzern-Marketing. Content, der sich menschlich anfühlt.',
+    'why-sub': 'Die meisten Hospitality-Marketing-Ansätze fühlen sich überholt, generisch oder überproduciert an. Wir schaffen Inhalte, die modern, emotional und nativ auf den Plattformen sind, die Reisende wirklich nutzen.',
+    'why1-h': 'Creator-getrieben',
+    'why1-p': 'Wir wissen, was Menschen beim Scrollen stoppt, weil wir selbst Travel-Content erstellen.',
+    'why2-h': 'Hospitality als Fokus',
+    'why2-p': 'Alles ist speziell für Hotels, Hostels, Villas und moderne Hospitality Brands konzipiert.',
+    'why3-h': 'Modern und schnell',
+    'why3-p': 'Mit smarten Workflows liefern wir schneller und bleiben trend-nah, ohne an Qualität zu verlieren.',
+    'about-tag': 'Über mich',
+    'about-title': 'Gebaut von jemandem, der reist, erstellt und vermarktet.',
+    'about-p1': 'Ich bin Jacky West, Content Creatorin und Online Marketing Managerin, aktuell zwischen Australien und Südostasien unterwegs.',
+    'about-p2': 'Ich weiß, was Reisende beim Scrollen stoppt, weil ich selbst eine bin. Ich kenne die moderne Travel-Ästhetik, die Art von Content, mit dem Menschen wirklich interagieren, und was einen Ort online begehrenswert macht.',
+    'about-p3': 'PackPlanGo Studio wurde gegründet, um Hospitality Brands dabei zu helfen, die Lücke zu schließen zwischen dem, wie besonders sie in echt sind, und wie sie online wirken.',
+    'pkg-tag': 'Preise',
+    'pkg-title': 'Nimm, was du brauchst. Kombiniere, wenn du willst.',
+    'pkg-sub': 'Zwei klare Angebote. Oder kombiniere sie als Growth Bundle für den vollen Effekt. Transparente Monatspauschalen, jederzeit kündbar.',
+    'pkg-cta1': 'Instagram wachsen lassen',
+    'pkg-cta2': 'Bundle-Gespräch buchen',
+    'pkg-cta3': 'Ads starten',
+    'work-tag': 'Founding Client Programm',
+    'work-title': 'Sei eine unserer ersten <em style="font-style:italic;color:var(--accent);">drei Partner-Brands</em>.',
+    'work-sub': 'PackPlanGo Studio ist neu, und wir wählen drei Founding Clients für den Start. Du bekommst mehr Aufmerksamkeit, bessere Preise und einen festen Platz in unserem Portfolio, während wir wachsen.',
+    'work1-h': 'Founding-Konditionen',
+    'work1-p': '30% unter den Standardpreisen, für deine ersten 12 Monate festgeschrieben, auch wenn unsere Preise mit neuen Kunden steigen.',
+    'work2-h': 'Direkter Draht',
+    'work2-p': 'Du arbeitest direkt mit Jacky. Kein Account-Manager, keine Weiterleitungen. WhatsApp-Antwort innerhalb von Stunden, echte Gespräche, schnelle Umsetzung.',
+    'work3-h': 'Portfolio-Spotlight',
+    'work3-p': 'Dauerhafte Platzierung in unserem Launch-Portfolio und unseren Case Studies. Deine Brand bleibt ganz vorne, als eine unserer ersten.',
+    'work-cta-h': 'Drei Plätze. Wer zuerst kommt, ist dabei.',
+    'work-cta-p': 'Wir sind wählerisch, wer als Founding Client dabei ist. Wir wollen Brands, an die wir wirklich glauben. Wenn das nach dir klingt, reden wir.',
+    'work-cta': 'Für einen Platz bewerben',
+    'cta-tag': 'Kontakt',
+    'cta-title': 'Bereit, deinen Ort unwiderstehlich zu machen?',
+    'cta-sub': 'Ob Boutique Hotel, Hostel, Villa oder Travel Brand, lass uns etwas schaffen, das Reisende wirklich in Erinnerung behalten.',
+    'cta-btn1': 'WhatsApp schreiben',
+    'cta-btn2': 'E-Mail senden',
+    'wa-tooltip': 'Auf WhatsApp schreiben',
+    'footer-text': '© 2026 Pack Plan Go · Studio. Instagram & Ads für Hospitality Brands',
+    'lang-btn': '<span class="lang-flag">🇬🇧</span> View in English',
+  }
+};
+
+// Map of IDs to sections that need innerHTML (have child elements)
+var innerHTMLIds = ['hero-h1', 'work-title'];
+
+// Map of complex section content (not single elements but grouped)
+var sections = {
+  en: {
+    'hero-inner-content': null,  // handled by individual IDs
+  }
+};
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'de' : 'en';
+  applyLang(currentLang);
+  // Save preference
+  try { localStorage.setItem('ppg-studio-lang', currentLang); } catch(e) {}
+}
+
+function applyLang(lang) {
+  var t = translations[lang];
+
+  // Simple text elements
+  var simpleIds = ['nav-services','nav-pricing','nav-about','nav-contact','hero-tag',
+    'hero-btn1','hero-btn2','svc-tag','addons-title','why-tag','about-tag','pkg-tag',
+    'work-tag','work-cta','cta-tag','cta-btn1','cta-btn2','wa-tooltip','footer-text',
+    'pkg-cta1','pkg-cta2','pkg-cta3'];
+  simpleIds.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && t[id]) el.textContent = t[id];
+  });
+
+  // Elements needing innerHTML
+  ['hero-h1','work-title'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && t[id]) el.innerHTML = t[id];
+  });
+
+  // Lang toggle button itself
+  document.getElementById('langToggle').innerHTML = t['lang-btn'];
+
+  // Sections with multiple paragraphs (use class-based approach)
+  updateSection('svc-title', t['svc-title'], true);
+  updateSection('svc-sub', t['svc-sub'], false);
+  updateSection('svc-card1-title', t['svc-card1-title'], false);
+  updateSection('svc-card1-p', t['svc-card1-p'], false);
+  updateSection('svc-card2-title', t['svc-card2-title'], false);
+  updateSection('svc-card2-p', t['svc-card2-p'], false);
+  updateSection('addon1-h', t['addon1-h'], false);
+  updateSection('addon1-p', t['addon1-p'], false);
+  updateSection('addon2-h', t['addon2-h'], false);
+  updateSection('addon2-p', t['addon2-p'], false);
+  updateSection('addon3-h', t['addon3-h'], false);
+  updateSection('addon3-p', t['addon3-p'], false);
+  updateSection('why-title', t['why-title'], true);
+  updateSection('why-sub', t['why-sub'], false);
+  updateSection('why1-h', t['why1-h'], false);
+  updateSection('why1-p', t['why1-p'], false);
+  updateSection('why2-h', t['why2-h'], false);
+  updateSection('why2-p', t['why2-p'], false);
+  updateSection('why3-h', t['why3-h'], false);
+  updateSection('why3-p', t['why3-p'], false);
+  updateSection('about-title', t['about-title'], true);
+  updateSection('about-p1', t['about-p1'], false);
+  updateSection('about-p2', t['about-p2'], false);
+  updateSection('about-p3', t['about-p3'], false);
+  updateSection('pkg-title', t['pkg-title'], true);
+  updateSection('pkg-sub', t['pkg-sub'], false);
+  updateSection('work-sub', t['work-sub'], false);
+  updateSection('work1-h', t['work1-h'], false);
+  updateSection('work1-p', t['work1-p'], false);
+  updateSection('work2-h', t['work2-h'], false);
+  updateSection('work2-p', t['work2-p'], false);
+  updateSection('work3-h', t['work3-h'], false);
+  updateSection('work3-p', t['work3-p'], false);
+  updateSection('work-cta-h', t['work-cta-h'], false);
+  updateSection('work-cta-p', t['work-cta-p'], false);
+  updateSection('cta-title', t['cta-title'], true);
+  updateSection('cta-sub', t['cta-sub'], false);
+  updateSection('hero-sub', t['hero-sub'], false);
+}
+
+function updateSection(id, text, isInner) {
+  var el = document.getElementById(id);
+  if (!el || !text) return;
+  if (isInner) el.innerHTML = text; else el.textContent = text;
+}
+
+// On load, check saved preference
+try {
+  var saved = localStorage.getItem('ppg-studio-lang');
+  if (saved && saved !== 'en') { currentLang = saved; applyLang(saved); }
+} catch(e) {}
+</script>
 
 </body>
 </html>
