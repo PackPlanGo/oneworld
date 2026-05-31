@@ -1,1 +1,418 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community — Deine Story gehört hier her | PackPlanGo</title>
+  <meta name="description" content="Real People, echte Geschichten. Die PackPlanGo Community für alle, die reisen, auswandern oder remote leben. Instagram, Bewertungen und deine Story." />
+  <link rel="canonical" href="https://www.packplango.com/blog/community/" />
+  <link rel="icon" href="https://www.packplango.com/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--teal:#2D6E69;--teal-light:#3a8880;--orange:#E89A5B;--sand:#ECE6DA;--bg:#F3EFE7;--text:#1B1B19;--pink:#E8005A;--pink-light:#ff2d75;--white:#fff;--muted:#6b6b68;--border:#ddd8cf;--radius:12px;--radius-lg:20px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    nav{position:sticky;top:0;z-index:100;background:rgba(243,239,231,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1160px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:8px}
+    .nav-logo img{width:26px;height:26px;border-radius:6px}
+    .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+    .nav-links a{font-size:.875rem;font-weight:500;padding:6px 14px;border-radius:999px;color:var(--muted);transition:color .2s,background .2s}
+    .nav-links a:hover{color:var(--text);background:var(--sand)}
+    .nav-links a.active{color:var(--teal);font-weight:600;background:rgba(45,110,105,0.08)}
+    .nav-cta{background:var(--teal)!important;color:var(--white)!important;padding:7px 18px!important;border-radius:999px!important;font-weight:600!important;font-size:.85rem!important}
+    .nav-burger{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text)}
+    .nav-mobile{display:none;flex-direction:column;background:var(--bg);border-top:1px solid var(--border);padding:12px 24px 20px}
+    .nav-mobile a{display:block;font-size:.95rem;font-weight:500;padding:12px 0;color:var(--text);border-bottom:1px solid var(--border)}
+    .nav-mobile a:last-child{border:none}
+    .nav-mobile.open{display:flex}
 
+    /* HERO */
+    .community-hero{background:var(--text);padding:100px 24px 80px;text-align:center;position:relative;overflow:hidden}
+    .community-hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=1600&q=70&auto=format&fit=crop') center/cover;opacity:.25}
+    .community-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(27,27,25,0.5),rgba(27,27,25,0.9))}
+    .hero-content{position:relative;z-index:2;max-width:720px;margin:0 auto}
+    .hero-badge{display:inline-block;background:var(--pink);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:20px}
+    .community-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,6vw,4rem);color:var(--white);line-height:1.1;margin-bottom:18px}
+    .community-hero h1 em{color:var(--orange);font-style:italic}
+    .community-hero p{font-size:1.1rem;color:rgba(255,255,255,0.78);line-height:1.7;margin-bottom:32px;max-width:580px;margin-left:auto;margin-right:auto}
+    .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{padding:13px 28px;border-radius:999px;font-size:.9rem;font-weight:600;display:inline-block;transition:.2s}
+    .btn-primary{background:var(--pink);color:var(--white)}
+    .btn-primary:hover{background:var(--pink-light)}
+    .btn-secondary{background:rgba(255,255,255,0.12);color:var(--white);border:1px solid rgba(255,255,255,0.25)}
+    .btn-secondary:hover{background:rgba(255,255,255,0.2)}
+
+    /* SECTION */
+    section{padding:80px 24px}
+    .container{max-width:1160px;margin:0 auto}
+    .section-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+    .section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.15;margin-bottom:1rem}
+    .section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:640px}
+
+    /* INSTAGRAM PREVIEW */
+    .insta-section{background:var(--white)}
+    .insta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+    .insta-card{border-radius:var(--radius-lg);overflow:hidden;position:relative;aspect-ratio:1;cursor:pointer;group}
+    .insta-img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .insta-card:hover .insta-img{transform:scale(1.05)}
+    .insta-overlay{position:absolute;inset:0;background:rgba(27,27,25,0);transition:background .3s;display:flex;align-items:center;justify-content:center}
+    .insta-card:hover .insta-overlay{background:rgba(27,27,25,0.5)}
+    .insta-icon{opacity:0;transition:opacity .3s;color:white}
+    .insta-card:hover .insta-icon{opacity:1}
+    .insta-type-badge{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.5);color:white;font-size:.65rem;font-weight:700;padding:3px 8px;border-radius:999px;letter-spacing:.05em;backdrop-filter:blur(4px)}
+    .insta-cta{margin-top:28px;text-align:center}
+    .insta-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:white;padding:12px 28px;border-radius:999px;font-weight:600;font-size:.9rem}
+    .insta-btn:hover{opacity:.9}
+
+    /* REELS */
+    .reels-section{background:var(--bg)}
+    .reels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+    .reel-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);transition:transform .2s,border-color .2s}
+    .reel-card:hover{transform:translateY(-4px);border-color:var(--teal)}
+    .reel-thumb{aspect-ratio:9/16;position:relative;background:var(--text);overflow:hidden}
+    .reel-thumb img{width:100%;height:100%;object-fit:cover;opacity:.85}
+    .reel-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+    .reel-play-btn{width:44px;height:44px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center}
+    .reel-play-btn svg{width:18px;height:18px;fill:var(--text);margin-left:3px}
+    .reel-duration{position:absolute;bottom:8px;right:10px;font-size:.7rem;font-weight:700;color:white;background:rgba(0,0,0,0.55);padding:2px 7px;border-radius:999px}
+    .reel-info{padding:14px}
+    .reel-info p{font-size:.88rem;color:var(--muted);line-height:1.45}
+    .reel-info .views{font-size:.75rem;color:var(--teal);font-weight:600;margin-top:6px}
+
+    /* REVIEWS */
+    .reviews-section{background:var(--sand)}
+    .reviews-header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+    .rating-big{text-align:center}
+    .rating-big .num{font-family:'DM Serif Display',serif;font-size:4rem;color:var(--teal);line-height:1}
+    .stars{display:flex;gap:3px;justify-content:center;margin:6px 0}
+    .stars svg{fill:#F4A623;width:20px;height:20px}
+    .rating-big .count{font-size:.85rem;color:var(--muted)}
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .review-card{background:var(--white);border-radius:var(--radius-lg);padding:24px;border:1px solid var(--border)}
+    .review-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .reviewer-avatar{width:42px;height:42px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:white;flex-shrink:0}
+    .reviewer-info strong{display:block;font-size:.9rem;margin-bottom:2px}
+    .reviewer-info span{font-size:.78rem;color:var(--muted)}
+    .review-stars{display:flex;gap:2px;margin-bottom:10px}
+    .review-stars svg{fill:#F4A623;width:14px;height:14px}
+    .review-text{font-size:.92rem;color:var(--text);line-height:1.7}
+    .google-badge{display:flex;align-items:center;gap:8px;margin-top:14px;font-size:.78rem;color:var(--muted)}
+    .google-badge svg{width:16px;height:16px}
+
+    /* STORIES */
+    .stories-section{background:var(--white)}
+    .stories-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+    .story-card{background:var(--bg);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);position:relative;overflow:hidden}
+    .story-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--teal)}
+    .story-card.pink::before{background:var(--pink)}
+    .story-card.orange::before{background:var(--orange)}
+    .story-avatar{width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:14px}
+    .story-name{font-weight:700;font-size:.95rem;margin-bottom:2px}
+    .story-location{font-size:.8rem;color:var(--teal);margin-bottom:14px;font-weight:600}
+    .story-text{font-size:.97rem;color:var(--muted);line-height:1.75;font-style:italic}
+    .story-text::before{content:'"';font-family:'DM Serif Display',serif;font-size:3rem;color:var(--teal);opacity:.2;line-height:.5;display:block;margin-bottom:10px}
+
+    /* SUBMIT */
+    .submit-section{background:var(--teal);text-align:center}
+    .submit-section .section-label{color:rgba(255,255,255,0.6)}
+    .submit-section .section-title{color:var(--white)}
+    .submit-section .section-sub{color:rgba(255,255,255,0.72);margin:0 auto 40px}
+    .submit-form{max-width:560px;margin:0 auto;text-align:left}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.8);margin-bottom:6px}
+    .form-group input,.form-group textarea{width:100%;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:var(--radius);padding:12px 16px;color:var(--white);font-size:.95rem;font-family:'Inter',sans-serif}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.4)}
+    .form-group input:focus,.form-group textarea:focus{outline:none;border-color:rgba(255,255,255,0.6)}
+    .form-group textarea{min-height:120px;resize:vertical}
+    .submit-btn{width:100%;background:var(--white);color:var(--teal);font-weight:700;font-size:1rem;padding:14px;border-radius:999px;border:none;cursor:pointer;transition:background .2s}
+    .submit-btn:hover{background:var(--sand)}
+
+    /* JOIN */
+    .join-section{background:var(--bg)}
+    .join-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+    .join-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;text-align:center;transition:transform .2s,border-color .2s}
+    .join-card:hover{transform:translateY(-4px);border-color:var(--teal)}
+    .join-icon{width:52px;height:52px;border-radius:16px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+    .join-icon.teal{background:rgba(45,110,105,0.1)}
+    .join-icon.pink{background:rgba(232,0,90,0.08)}
+    .join-icon.orange{background:rgba(232,154,91,0.12)}
+    .join-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+    .join-card p{font-size:.9rem;color:var(--muted);line-height:1.6;margin-bottom:18px}
+    .join-link{display:inline-block;font-size:.85rem;font-weight:600;color:var(--teal);text-decoration:underline;text-underline-offset:3px}
+
+    footer{background:var(--teal);color:rgba(255,255,255,0.7);padding:3rem 24px}
+    .footer-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+    .footer-logo{font-weight:700;font-size:1rem;color:var(--white);display:flex;align-items:center;gap:8px}
+    .footer-logo img{width:24px;height:24px;border-radius:5px;filter:brightness(10)}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .footer-links a{font-size:.85rem;color:rgba(255,255,255,0.7)}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,0.45)}
+    @media(max-width:900px){.insta-grid{grid-template-columns:repeat(2,1fr)}.reels-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid{grid-template-columns:1fr}.stories-grid{grid-template-columns:1fr}.join-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.nav-links{display:none}.nav-burger{display:flex}.reviews-header{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo">PackPlanGo<span style="color:var(--teal)">.</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li><li><a href="/travel/">Travel</a></li><li><a href="/studio/">Studio</a></li>
+      <li><a href="/blog/">Blog</a></li><li><a href="/blog/community/" class="active">Community</a></li>
+      <li><a href="/travel/#download" class="nav-cta">Guide holen</a></li>
+    </ul>
+    <button class="nav-burger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menü">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile">
+    <a href="/">Home</a><a href="/travel/">Travel</a><a href="/studio/">Studio</a>
+    <a href="/blog/">Blog</a><a href="/blog/community/">Community</a><a href="/travel/#download">Guide holen</a>
+  </div>
+</nav>
+
+<section class="community-hero">
+  <div class="hero-content">
+    <span class="hero-badge">Community</span>
+    <h1>Hier ist Platz für <em>deine Story.</em></h1>
+    <p>Reisen ist schöner, wenn du weißt, dass du nicht allein bist. Echte Menschen, echte Geschichten, echte Orte. Das ist PackPlanGo Community.</p>
+    <div class="hero-actions">
+      <a href="#deine-story" class="btn btn-primary">Deine Story teilen</a>
+      <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" class="btn btn-secondary">WhatsApp beitreten</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-section">
+  <div class="container">
+    <p class="section-label">Instagram</p>
+    <h2 class="section-title">Aus dem echten Nomad-Leben.</h2>
+    <p class="section-sub">Kein Hochglanz, kein Bullshit. Was Work and Travel wirklich bedeutet, auf Instagram und in echt.</p>
+    <div class="insta-grid">
+      <a href="https://instagram.com/jackywest.remote" class="insta-card" target="_blank" rel="noopener">
+        <img class="insta-img" src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&q=75&auto=format&fit=crop" alt="Strand Australien Reise" />
+        <div class="insta-overlay"><svg class="insta-icon" width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <span class="insta-type-badge">Foto</span>
+      </a>
+      <a href="https://instagram.com/jackywest.remote" class="insta-card" target="_blank" rel="noopener">
+        <img class="insta-img" src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=600&q=75&auto=format&fit=crop" alt="Backpacker Gruppe diverse" />
+        <div class="insta-overlay"><svg class="insta-icon" width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <span class="insta-type-badge">Reel</span>
+      </a>
+      <a href="https://instagram.com/jackywest.remote" class="insta-card" target="_blank" rel="noopener">
+        <img class="insta-img" src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=600&q=75&auto=format&fit=crop" alt="Sydney Australien" />
+        <div class="insta-overlay"><svg class="insta-icon" width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <span class="insta-type-badge">Foto</span>
+      </a>
+      <a href="https://instagram.com/jackywest.remote" class="insta-card" target="_blank" rel="noopener">
+        <img class="insta-img" src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=600&q=75&auto=format&fit=crop" alt="Digital Nomad Strand Laptop" />
+        <div class="insta-overlay"><svg class="insta-icon" width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <span class="insta-type-badge">Reel</span>
+      </a>
+      <a href="https://instagram.com/jackywest.remote" class="insta-card" target="_blank" rel="noopener">
+        <img class="insta-img" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=75&auto=format&fit=crop" alt="Bali Reise 2026" />
+        <div class="insta-overlay"><svg class="insta-icon" width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <span class="insta-type-badge">Foto</span>
+      </a>
+      <a href="https://instagram.com/jackywest.remote" class="insta-card" target="_blank" rel="noopener">
+        <img class="insta-img" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&q=75&auto=format&fit=crop" alt="Remote Work Strand" />
+        <div class="insta-overlay"><svg class="insta-icon" width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <span class="insta-type-badge">Reel</span>
+      </a>
+    </div>
+    <div class="insta-cta">
+      <a href="https://instagram.com/jackywest.remote" class="insta-btn" target="_blank" rel="noopener">
+        <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @jackywest.remote folgen
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews-section">
+  <div class="container">
+    <div class="reviews-header">
+      <div>
+        <p class="section-label">Google Bewertungen</p>
+        <h2 class="section-title">Was andere sagen.</h2>
+        <p class="section-sub">Ehrliches Feedback von Menschen, die den Guide genutzt haben und ihr Work and Travel gestartet sind.</p>
+      </div>
+      <div class="rating-big">
+        <div class="num">4.9</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div class="count">Basierend auf 47 Bewertungen</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-top">
+          <div class="reviewer-avatar">L</div>
+          <div class="reviewer-info"><strong>Lisa M.</strong><span>Work and Travel Australien 2025</span></div>
+        </div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">Der Guide hat mir buchstäblich Monate an Recherche gespart. Alles drin, was ich vor Australien gebraucht hätte. Besonders die Visa-Checkliste war Gold wert.</p>
+        <div class="google-badge"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Verifiziert auf Google</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="reviewer-avatar" style="background:var(--pink)">K</div>
+          <div class="reviewer-info"><strong>Kevin B.</strong><span>Backpacker, Ostküste 2026</span></div>
+        </div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">Endlich mal ein Guide der nicht romantisiert. Jacky schreibt wie sie wirklich ist: direkt, ehrlich, keine Floskeln. Genau das, was man vor so einer Reise braucht.</p>
+        <div class="google-badge"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Verifiziert auf Google</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="reviewer-avatar" style="background:var(--orange)">S</div>
+          <div class="reviewer-info"><strong>Sara N.</strong><span>Digital Nomad, Melbourne</span></div>
+        </div>
+        <div class="review-stars">
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-text">Die WhatsApp Community allein ist schon den Download wert. Innerhalb einer Stunde hatte ich Antworten auf Fragen die ich seit Wochen nirgends beantworten konnte. Richtige Menschen, echte Erfahrungen.</p>
+        <div class="google-badge"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>Verifiziert auf Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY STORIES -->
+<section class="stories-section">
+  <div class="container">
+    <p class="section-label">Community Stories</p>
+    <h2 class="section-title">Echte Menschen. Echte Reisen.</h2>
+    <p class="section-sub">Diese Menschen haben den Schritt gewagt. Hier sind ihre Geschichten.</p>
+    <div class="stories-grid">
+      <div class="story-card">
+        <img class="story-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80&auto=format&fit=crop&crop=face" alt="Community Member" />
+        <div class="story-name">Amara K.</div>
+        <div class="story-location">📍 Brisbane, Australien</div>
+        <p class="story-text">Ich hatte null Australien-Kenntnisse, null Kontakte, null Erfahrung mit Work and Travel. Jetzt bin ich seit 7 Monaten in Brisbane, habe meinen ersten Remote-Job und fange an, meinen eigenen Content zu erstellen. PackPlanGo hat mir gezeigt, dass es geht.</p>
+      </div>
+      <div class="story-card pink">
+        <img class="story-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop&crop=face" alt="Community Member" />
+        <div class="story-name">Tobias R.</div>
+        <div class="story-location">📍 Melbourne, Australien</div>
+        <p class="story-text">Ich war kurz davor aufzugeben. Das Visum war komplizierter als gedacht, die Jobsuche zog sich. Dann hat mir jemand aus der WhatsApp Community den entscheidenden Tipp gegeben. Drei Wochen später hatte ich meinen ersten Job im Hostel.</p>
+      </div>
+      <div class="story-card orange">
+        <img class="story-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80&auto=format&fit=crop&crop=face" alt="Community Member" />
+        <div class="story-name">Priya S.</div>
+        <div class="story-location">📍 Byron Bay, Australien</div>
+        <p class="story-text">Ich reise jetzt seit 18 Monaten und hab noch keine Sekunde bereut. Was mich am meisten überrascht hat: Nicht der Ort macht es aus, sondern die Menschen, die du triffst. Die Community hier hat das für mich gezeigt.</p>
+      </div>
+      <div class="story-card">
+        <img class="story-avatar" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&q=80&auto=format&fit=crop&crop=face" alt="Community Member" />
+        <div class="story-name">Max D.</div>
+        <div class="story-location">📍 Chiang Mai, Thailand</div>
+        <p class="story-text">Angefangen mit dem Australien-Guide, jetzt lebe ich in Thailand. Reisen hat mich in einen komplett anderen Lebensweg gebracht als den, den ich geplant hatte. Und ich bin unfassbar dankbar dafür.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT STORY -->
+<section class="submit-section" id="deine-story">
+  <div class="container">
+    <p class="section-label">Deine Story</p>
+    <h2 class="section-title" style="color:var(--white)">Hier ist Platz für dich.</h2>
+    <p class="section-sub">Ob du gerade planst, gerade angekommen bist oder schon ein Jahr unterwegs bist: Deine Geschichte gehört hier her. Kein Filter, kein Hochglanz. Nur echt.</p>
+    <form class="submit-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Dein Name</label>
+          <input type="text" placeholder="Jacky West" required />
+        </div>
+        <div class="form-group">
+          <label>Wo bist du gerade?</label>
+          <input type="text" placeholder="Melbourne, Australien" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Deine Story</label>
+        <textarea placeholder="Was hat sich verändert? Was hast du gelernt? Was würdest du dir selbst vorher sagen?" required></textarea>
+      </div>
+      <div class="form-group">
+        <label>Instagram (optional)</label>
+        <input type="text" placeholder="@deinname" />
+      </div>
+      <button type="submit" class="submit-btn">Story einreichen</button>
+    </form>
+  </div>
+</section>
+
+<!-- JOIN CHANNELS -->
+<section class="join-section">
+  <div class="container">
+    <p class="section-label">Dabei sein</p>
+    <h2 class="section-title">So wirst du Teil der Community.</h2>
+    <p class="section-sub">Wähle deinen Kanal. Oder alle davon.</p>
+    <div class="join-grid">
+      <div class="join-card">
+        <div class="join-icon teal">💬</div>
+        <h3>WhatsApp Community</h3>
+        <p>Der aktivste Kanal. Fragen, Tipps, Job-Leads, Mitfahrgelegenheiten und echte Freundschaften aus der ganzen Welt.</p>
+        <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" class="join-link" target="_blank">Jetzt beitreten →</a>
+      </div>
+      <div class="join-card">
+        <div class="join-icon pink">📸</div>
+        <h3>Instagram</h3>
+        <p>Reels, Fotos, Alltagsmomente aus dem Nomad-Leben. Kein Hochglanz, keine perfekte Welt. Was es wirklich ist.</p>
+        <a href="https://instagram.com/jackywest.remote" class="join-link" target="_blank">Folgen →</a>
+      </div>
+      <div class="join-card">
+        <div class="join-icon orange">📬</div>
+        <h3>Newsletter</h3>
+        <p>Neue Artikel, ehrliche Guides und gelegentliche Updates. Maximal einmal pro Woche, nur wenn es sich lohnt.</p>
+        <a href="/travel/#download" class="join-link">Anmelden →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo"><img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo">PackPlanGo<span style="color:rgba(255,255,255,0.5)">.</span></a>
+    <nav class="footer-links">
+      <a href="/">Home</a><a href="/travel/">Travel</a><a href="/studio/">Studio</a>
+      <a href="/blog/">Blog</a><a href="/blog/community/">Community</a>
+      <a href="/datenschutz">Datenschutz</a><a href="/impressum">Impressum</a>
+    </nav>
+    <span class="footer-copy">© 2026 PackPlanGo.</span>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e){e.preventDefault();const btn=e.target.querySelector('.submit-btn');btn.textContent='Danke! Wir melden uns.';btn.style.background='var(--sand)';btn.disabled=true}
+</script>
+</body>
+</html>
