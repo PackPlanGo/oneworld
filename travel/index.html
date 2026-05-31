@@ -267,8 +267,21 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   .ppg-chat-window{bottom:90px;left:12px;right:12px;width:auto;max-width:none;height:75vh}
   .ppg-chat-toggle{bottom:18px;left:18px;width:54px;height:54px}
 }
-</style>
+
+    /* ── Scroll Progress Bar ── */
+    #scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent,#E89A5B);z-index:9999;width:0%;transition:width .1s linear}
+
+    /* ── Fade-up reveal ── */
+    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* ── Stagger children ── */
+    .stagger > *{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+    .stagger > *.visible{opacity:1;transform:none}
+
+  </style>
 </head>
+<div id="scroll-progress"></div>
 <body>
 
 <header class="site-header">
@@ -286,7 +299,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   </div>
 </header>
 
-<section class="hero">
+<section class="hero reveal">
   <div class="hero-inner">
     <div class="hero-text">
       <p class="eyebrow">Work & Travel · Australien</p>
@@ -303,14 +316,14 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   </div>
 </section>
 
-<section class="features" id="features">
+<section class="features reveal" id="features">
   <div class="container">
     <div class="features-head">
       <p class="section-tag">Was du bekommst</p>
       <h2 class="section-title">Australien beginnt lange<br>vor dem Flug.</h2>
       <p class="section-sub">Genau dafür gibt es PackPlanGo: echte Erfahrungen, praktische Vorbereitung und Real Talk für deine ersten Wochen Down Under.</p>
     </div>
-    <div class="features-grid">
+    <div class="features-grid stagger">
       <div class="feature">
         <p class="num">01 · Prep</p>
         <h3>Vorbereitung ohne Chaos</h3>
@@ -330,7 +343,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   </div>
 </section>
 
-<section class="mockup">
+<section class="mockup reveal">
   <div class="container">
     <p class="section-tag">Der Guide</p>
     <h2 class="section-title">Digital. Interaktiv. Für die Realität gemacht.</h2>
@@ -341,7 +354,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   </div>
 </section>
 
-<section class="preview">
+<section class="preview reveal">
   <div class="container">
     <div class="preview-head">
       <p class="section-tag">Sneak Peek</p>
@@ -362,7 +375,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
 </section>
 
 <!-- GUIDE OVERVIEW BEFORE WHAT-YOU-GET -->
-<section class="guide-overview">
+<section class="guide-overview reveal">
   <div class="container">
     <p class="section-tag">Auf einen Blick</p>
     <h2 class="section-title">Der Guide im Überblick</h2>
@@ -384,7 +397,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   <button class="lightbox-next" onclick="lightboxNav(1,event)">›</button>
 </div>
 
-<section class="what">
+<section class="what reveal">
   <div class="container what-grid">
     <div class="what-img">
       <img src="/images/guide-cover.png" alt="PackPlanGo Australien Starter Guide — Work and Travel Guide für Backpacker" loading="lazy" style="border-radius:20px;box-shadow:0 20px 60px rgba(45,110,105,.15)">
@@ -407,7 +420,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   </div>
 </section>
 
-<section class="realtalk">
+<section class="realtalk reveal">
   <div class="container">
     <p class="section-tag">Real Talk</p>
     <h2>"Kein perfektes Instagram Märchen, sondern die Dinge, die ich selbst vor Australien gerne gewusst hätte."</h2>
@@ -415,7 +428,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   </div>
 </section>
 
-<section class="download" id="download">
+<section class="download reveal" id="download">
   <div class="container">
     <p class="section-tag">Kostenloser Starter Guide</p>
     <h2 class="section-title">Bereit für Australien,<br>nur ohne Chaos.</h2>
@@ -469,7 +482,7 @@ footer.site-footer{background:var(--dark);color:var(--text-light);padding:70px 3
   </div>
 </section>
 
-<section class="faq" id="faq">
+<section class="faq reveal" id="faq">
   <div class="container">
     <div class="faq-head">
       <p class="section-tag">Q&A</p>
@@ -689,6 +702,61 @@ document.getElementById('guide-form').addEventListener('submit', function(e) {
     document.getElementById('guide-success').style.display = 'block';
   });
 });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+<script>
+
+/* ── Lenis smooth scroll ── */
+const lenis = new Lenis({ lerp: 0.08, smooth: true });
+function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+
+/* ── Scroll progress bar ── */
+const bar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  if(bar) bar.style.width = pct + '%';
+}, { passive: true });
+
+/* ── Intersection Observer: reveal + stagger ── */
+const revealEls = document.querySelectorAll('.reveal');
+const staggerEls = document.querySelectorAll('.stagger > *');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+revealEls.forEach(el => io.observe(el));
+staggerEls.forEach((el, i) => {
+  el.style.transitionDelay = (i * 90) + 'ms';
+  io.observe(el);
+});
+
+/* ── Stats counter ── */
+function animateCounter(el, target, suffix) {
+  let start = 0, duration = 1800;
+  const step = timestamp => {
+    if(!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(ease * target).toLocaleString('de-DE') + suffix;
+    if(progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const el = e.target;
+      const raw = el.dataset.count;
+      const suffix = el.dataset.suffix || '';
+      animateCounter(el, parseInt(raw), suffix);
+      counterIO.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
+
 </script>
 </body>
 </html>
