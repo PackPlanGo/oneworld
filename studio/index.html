@@ -538,17 +538,18 @@ footer {
     #scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent,#E89A5B);z-index:9999;width:0%;transition:width .1s linear}
 
     /* ── Fade-up reveal ── */
-    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
-    .reveal.visible{opacity:1;transform:none}
+    .js .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+    .js .reveal.visible{opacity:1;transform:none}
 
     /* ── Stagger children ── */
-    .stagger > *{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
-    .stagger > *.visible{opacity:1;transform:none}
+    .js .stagger > *{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+    .js .stagger > *.visible{opacity:1;transform:none}
 
   </style>
 </head>
 <div id="scroll-progress"></div>
 <body>
+<script>document.documentElement.classList.add("js")</script>
 
 <nav>
   <div class="nav-inner">
@@ -1150,9 +1151,11 @@ try {
 <script>
 
 /* ── Lenis smooth scroll ── */
-const lenis = new Lenis({ lerp: 0.08, smooth: true });
-function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
-requestAnimationFrame(raf);
+try{
+  const lenis = new Lenis({ lerp: 0.08, smooth: true });
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+}catch(e){}
 
 /* ── Scroll progress bar ── */
 const bar = document.getElementById('scroll-progress');
