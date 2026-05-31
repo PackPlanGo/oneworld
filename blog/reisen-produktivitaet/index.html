@@ -1,242 +1,344 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wie Reisen dich produktiver macht. Kein Bullshit. — PackPlanGo</title>
-  <meta name="description" content="Klingt paradox: weniger Routine, mehr Output. Warum Reisen deine Produktivitat boostet und was du konkret mitnehmen kannst.">
-  <link rel="icon" href="https://www.packplango.com/images/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warum du unterwegs produktiver bist als zuhause (und wie du das nutzt) — PackPlanGo</title>
+  <meta name="description" content="Digital Nomads berichten es immer wieder: Unterwegs arbeiten sie besser als zuhause. Die Neurologie dahinter, konkrete Strategien und warum das kein Zufall ist." />
+  <meta name="keywords" content="digital nomad produktiv, remote work reisen, produktivität unterwegs, work and travel australien, reisen produktiver" />
+  <meta property="og:title" content="Warum du unterwegs produktiver bist als zuhause" />
+  <meta property="og:description" content="Die Neurologie dahinter, konkrete Strategien und warum produktives Reisen kein Widerspruch ist." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&q=80&auto=format&fit=crop" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.packplango.com/blog/reisen-produktivitaet/" />
+  <link rel="canonical" href="https://www.packplango.com/blog/reisen-produktivitaet/" />
+  <link rel="icon" href="https://www.packplango.com/images/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Article","headline":"Warum du unterwegs produktiver bist als zuhause","author":{"@type":"Person","name":"Jacky West","url":"https://www.packplango.com/"},"publisher":{"@type":"Organization","name":"PackPlanGo","url":"https://www.packplango.com/"},"datePublished":"2026-07-24","dateModified":"2026-07-24","image":"https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200","description":"Digital Nomads berichten es immer wieder: Unterwegs arbeiten sie besser als zuhause.","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.packplango.com/blog/reisen-produktivitaet/"}}
+  </script>
   <style>
-    :root {
-      --bg: #0a0a0a; --bg-2: #111111; --bg-3: #1a1a1a; --border: #222222;
-      --text: #f0f0f0; --text-muted: #888888; --accent: #d4a853; --accent-hover: #e8bf70;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; line-height: 1.7; }
-    nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 5%; }
-    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .nav-logo { font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.02em; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); }
-    .article-hero { padding-top: 64px; position: relative; }
-    .article-hero-img { width: 100%; height: 480px; object-fit: cover; display: block; filter: brightness(0.45); }
-    .article-hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 4rem 5% 3rem; background: linear-gradient(to top, rgba(10,10,10,1) 0%, rgba(10,10,10,0.7) 50%, transparent 100%); }
-    .article-hero-inner { max-width: 760px; margin: 0 auto; }
-    .breadcrumb { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem; }
-    .breadcrumb a { color: var(--text-muted); text-decoration: none; }
-    .breadcrumb a:hover { color: var(--text); }
-    .article-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 100px; background: rgba(212,168,83,0.15); color: var(--accent); margin-bottom: 1rem; }
-    .article-hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1rem; }
-    .article-meta { display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.85rem; flex-wrap: wrap; }
-    .article-wrap { max-width: 760px; margin: 0 auto; padding: 3.5rem 5% 6rem; }
-    .lead { font-size: 1.2rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
-    .article-body h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin: 2.5rem 0 1rem; line-height: 1.3; }
-    .article-body p { margin-bottom: 1.3rem; color: #d8d8d8; font-size: 1rem; }
-    .article-body strong { color: var(--text); font-weight: 600; }
-    .callout { background: var(--bg-2); border-left: 3px solid var(--accent); padding: 1.2rem 1.5rem; border-radius: 0 12px 12px 0; margin: 2rem 0; }
-    .callout-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-    .callout p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
-    .article-img { width: 100%; border-radius: 12px; margin: 2rem 0; display: block; object-fit: cover; }
-    .img-caption { text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-top: -1.2rem; margin-bottom: 2rem; }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
-    .sign-off { font-size: 1.05rem; color: var(--text-muted); margin-top: 2rem; font-style: italic; }
-    .sign-off strong { font-style: normal; color: var(--accent); }
-    .reasons-list { margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 1rem; }
-    .reason { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.4rem; display: flex; gap: 1rem; align-items: flex-start; }
-    .reason-num { font-size: 1.4rem; font-weight: 700; color: var(--accent); line-height: 1; min-width: 2rem; }
-    .reason-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
-    .reason p { font-size: 0.88rem; color: var(--text-muted); margin: 0; }
-    .action-list { margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
-    .action-item { display: flex; align-items: flex-start; gap: 0.75rem; }
-    .action-icon { color: var(--accent); font-size: 1rem; line-height: 1.7; min-width: 1.2rem; }
-    .action-item p { font-size: 0.95rem; color: #d8d8d8; margin: 0; }
-    .cta-box { background: var(--bg-2); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; margin: 3rem 0; text-align: center; }
-    .cta-box h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; }
-    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
-    .btn { display: inline-block; padding: 0.85rem 2rem; background: var(--accent); color: #0a0a0a; font-weight: 700; font-size: 0.9rem; border-radius: 100px; text-decoration: none; transition: background 0.2s; }
-    .btn:hover { background: var(--accent-hover); }
-    .btn-ghost { display: inline-block; padding: 0.85rem 2rem; border: 1px solid var(--border); color: var(--text); font-weight: 600; font-size: 0.9rem; border-radius: 100px; text-decoration: none; transition: all 0.2s; margin-left: 1rem; }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-    .related { padding: 0 5% 5rem; max-width: 1100px; margin: 0 auto; }
-    .related h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-    .rel-card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; transition: transform 0.2s, border-color 0.2s; }
-    .rel-card:hover { transform: translateY(-3px); border-color: #333; }
-    .rel-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
-    .rel-card-body { padding: 1.1rem; }
-    .rel-card-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-    .rel-card h4 { font-size: 0.95rem; font-weight: 600; line-height: 1.35; }
-    footer { border-top: 1px solid var(--border); padding: 3rem 5%; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-size: 1rem; font-weight: 600; color: var(--text); text-decoration: none; }
-    .footer-logo span { color: var(--accent); }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--text); }
-    .footer-copy { color: var(--text-muted); font-size: 0.8rem; }
-    @media (max-width: 640px) { .nav-links { display: none; } .article-hero-img { height: 320px; } .btn-ghost { margin-left: 0; margin-top: 0.75rem; } }
+    :root{--teal:#2D6E69;--teal-light:#3a8880;--teal-pale:rgba(45,110,105,0.07);--orange:#E89A5B;--sand:#ECE6DA;--bg:#F3EFE7;--text:#1B1B19;--pink:#E8005A;--white:#fff;--muted:#6b6b68;--border:#ddd8cf;--radius:12px;--radius-lg:20px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    #progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--pink);z-index:999;width:0%;transition:width .1s linear}
+    nav{position:sticky;top:0;z-index:100;background:rgba(243,239,231,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:1160px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:8px}
+    .nav-logo img{width:26px;height:26px;border-radius:6px}
+    .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+    .nav-links a{font-size:.875rem;font-weight:500;padding:6px 14px;border-radius:999px;color:var(--muted);transition:color .2s,background .2s}
+    .nav-links a:hover{color:var(--text);background:var(--sand)}
+    .nav-links a.active{color:var(--teal);font-weight:600;background:rgba(45,110,105,0.08)}
+    .nav-cta{background:var(--teal)!important;color:var(--white)!important;padding:7px 18px!important;border-radius:999px!important;font-weight:600!important;font-size:.85rem!important}
+    .nav-cta:hover{background:var(--teal-light)!important}
+    .nav-burger{display:none;background:none;border:none;cursor:pointer;padding:6px;color:var(--text)}
+    .nav-mobile{display:none;flex-direction:column;background:var(--bg);border-top:1px solid var(--border);padding:12px 24px 20px}
+    .nav-mobile a{display:block;font-size:.95rem;font-weight:500;padding:12px 0;color:var(--text);border-bottom:1px solid var(--border)}
+    .nav-mobile a:last-child{border:none}
+    .nav-mobile.open{display:flex}
+    .article-hero{position:relative;overflow:hidden;background:var(--text);min-height:520px;display:flex;align-items:flex-end}
+    .article-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.38}
+    .article-hero-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:100px 24px 60px;width:100%}
+    .article-cat-badge{display:inline-flex;align-items:center;gap:7px;background:var(--teal);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:18px}
+    .article-hero-inner h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:var(--white);line-height:1.1;margin-bottom:20px}
+    .hook-text{font-size:1.1rem;color:rgba(255,255,255,0.78);line-height:1.65;margin-bottom:28px;max-width:640px}
+    .article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .meta-chip{font-size:.8rem;color:rgba(255,255,255,0.6);display:flex;align-items:center;gap:6px}
+    .meta-sep{color:rgba(255,255,255,0.25)}
+    .article-layout{max-width:1160px;margin:0 auto;padding:56px 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:start}
+    .article-body{min-width:0}
+    .article-body p{font-size:1.05rem;line-height:1.85;color:var(--text);margin-bottom:1.5rem}
+    .article-body h2{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;margin:3rem 0 1rem;color:var(--text)}
+    .article-body h3{font-size:1.1rem;font-weight:700;margin:2rem 0 .7rem;color:var(--text)}
+    .article-body h2:first-child{margin-top:0}
+    .article-body ul,.article-body ol{padding-left:1.4rem;margin-bottom:1.5rem}
+    .article-body li{font-size:1.05rem;line-height:1.8;margin-bottom:.6rem}
+    .article-body a{color:var(--teal);text-decoration:underline;text-decoration-color:rgba(45,110,105,0.35);text-underline-offset:3px}
+    .article-body a:hover{color:var(--teal-light)}
+    .article-body strong{font-weight:600}
+    .callout{border-left:4px solid var(--teal);background:var(--teal-pale);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:2rem 0}
+    .callout.orange{border-left-color:var(--orange);background:rgba(232,154,91,0.08)}
+    .callout.pink{border-left-color:var(--pink);background:rgba(232,0,90,0.06)}
+    .callout strong{display:block;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+    .callout.orange strong{color:var(--orange)}
+    .callout.pink strong{color:var(--pink)}
+    .callout p{font-size:.97rem;margin:0;line-height:1.7}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:2rem 0}
+    .stat-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;text-align:center}
+    .stat-box .num{font-family:'DM Serif Display',serif;font-size:2rem;color:var(--teal);line-height:1;margin-bottom:4px}
+    .stat-box .label{font-size:.8rem;color:var(--muted);line-height:1.4}
+    .article-img{border-radius:var(--radius-lg);overflow:hidden;margin:2.4rem 0}
+    .article-img img{width:100%;height:360px;object-fit:cover}
+    .article-img figcaption{font-size:.8rem;color:var(--muted);padding:10px 0 0;line-height:1.5}
+    .checklist{list-style:none;padding:0;margin:1.5rem 0}
+    .checklist li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border);font-size:1rem;line-height:1.7}
+    .checklist li:last-child{border-bottom:none}
+    .checklist .check{color:var(--teal);font-weight:700;flex-shrink:0;font-size:1.1rem;margin-top:1px}
+    .faq-section{margin:3rem 0}
+    .faq-section h2{font-family:'DM Serif Display',serif;font-size:1.6rem;margin-bottom:1.2rem}
+    .faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+    .faq-q{padding:16px 20px;font-weight:600;font-size:.97rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:var(--white)}
+    .faq-q:hover{background:var(--sand)}
+    .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:.97rem;line-height:1.75;color:var(--muted)}
+    .faq-item.open .faq-a{max-height:300px;padding:0 20px 16px}
+    .faq-icon{transition:transform .3s;flex-shrink:0;margin-left:12px}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .article-signature{margin-top:3rem;padding:28px 32px;background:var(--sand);border-radius:var(--radius-lg);display:flex;align-items:center;gap:20px}
+    .signature-avatar{width:60px;height:60px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid var(--white)}
+    .signature-text strong{display:block;font-size:.95rem;margin-bottom:4px}
+    .signature-text p{font-size:.85rem;color:var(--muted);margin:0;line-height:1.55}
+    .article-cta{background:var(--teal);border-radius:var(--radius-lg);padding:40px 36px;text-align:center;margin:3rem 0;position:relative;overflow:hidden}
+    .article-cta::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.05);top:-90px;right:-70px}
+    .article-cta h3{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--white);margin-bottom:10px;position:relative}
+    .article-cta p{color:rgba(255,255,255,0.78);font-size:.97rem;margin-bottom:24px;position:relative}
+    .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+    .cta-btn{padding:12px 28px;border-radius:999px;font-size:.9rem;font-weight:600;display:inline-block;transition:opacity .2s}
+    .cta-btn.primary{background:var(--white);color:var(--teal)}
+    .cta-btn.secondary{border:2px solid rgba(255,255,255,0.4);color:var(--white)}
+    .cta-btn:hover{opacity:.85}
+    .related-articles{margin-top:3.5rem}
+    .related-articles h3{font-family:'DM Serif Display',serif;font-size:1.4rem;margin-bottom:1.2rem}
+    .related-grid{display:grid;gap:14px}
+    .related-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 24px;transition:border-color .2s,transform .2s}
+    .related-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+    .related-cat{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+    .related-card h4{font-size:.95rem;line-height:1.4;font-weight:600;color:var(--text)}
+    .article-sidebar{position:sticky;top:80px}
+    .sidebar-toc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-bottom:20px}
+    .sidebar-toc h4{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+    .toc-list{list-style:none}
+    .toc-list li{margin-bottom:6px}
+    .toc-list a{font-size:.87rem;color:var(--muted);display:block;padding:4px 0 4px 10px;border-left:2px solid transparent;transition:color .2s,border-color .2s;line-height:1.4}
+    .toc-list a:hover,.toc-list a.active{color:var(--teal);border-left-color:var(--teal)}
+    .sidebar-cta{background:var(--teal);border-radius:var(--radius-lg);padding:24px;text-align:center}
+    .sidebar-cta h4{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--white);margin-bottom:8px}
+    .sidebar-cta p{font-size:.85rem;color:rgba(255,255,255,0.75);margin-bottom:16px;line-height:1.55}
+    .sidebar-btn{display:block;background:var(--white);color:var(--teal);font-weight:700;font-size:.85rem;padding:10px 16px;border-radius:999px}
+    .sidebar-btn:hover{background:var(--sand)}
+    footer{background:var(--teal);color:rgba(255,255,255,0.7);padding:3rem 24px}
+    .footer-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+    .footer-logo{font-weight:700;font-size:1rem;color:var(--white);display:flex;align-items:center;gap:8px}
+    .footer-logo img{width:24px;height:24px;border-radius:5px;filter:brightness(10)}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .footer-links a{font-size:.85rem;color:rgba(255,255,255,0.7)}
+    .footer-links a:hover{color:var(--white)}
+    .footer-copy{font-size:.8rem;color:rgba(255,255,255,0.45)}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr;gap:0;padding:36px 20px 60px}.article-sidebar{display:none}.nav-links{display:none}.nav-burger{display:flex}.stat-row{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
-
+<div id="progress-bar"></div>
 <nav>
   <div class="nav-inner">
-    <a href="https://www.packplango.com/" class="nav-logo">PackPlanGo<span>.</span></a>
+    <a href="/" class="nav-logo"><img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo">PackPlanGo<span style="color:var(--teal)">.</span></a>
     <ul class="nav-links">
-      <li><a href="https://www.packplango.com/">Home</a></li>
-      <li><a href="https://www.packplango.com/travel/">Travel</a></li>
-      <li><a href="https://www.packplango.com/studio/">Studio</a></li>
-      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="/">Home</a></li><li><a href="/travel/">Travel</a></li><li><a href="/studio/">Studio</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li><li><a href="/blog/community/">Community</a></li>
+      <li><a href="/travel/#download" class="nav-cta">Guide holen</a></li>
     </ul>
+    <button class="nav-burger" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menü">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="12" x2="19" y2="12"/><line x1="3" y1="18" x2="19" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile">
+    <a href="/">Home</a><a href="/travel/">Travel</a><a href="/studio/">Studio</a>
+    <a href="/blog/">Blog</a><a href="/blog/community/">Community</a><a href="/travel/#download">Guide holen</a>
   </div>
 </nav>
 
-<article>
-  <div class="article-hero">
-    <img class="article-hero-img" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1400&q=85&auto=format&fit=crop" alt="Person arbeitet am Laptop am Strand, Digital Nomad Leben">
-    <div class="article-hero-overlay">
-      <div class="article-hero-inner">
-        <p class="breadcrumb"><a href="/blog/">Blog</a> &rsaquo; Realtalk</p>
-        <span class="article-tag">Realtalk</span>
-        <h1>Wie Reisen dich produktiver macht. Kein Bullshit.</h1>
-        <div class="article-meta">
-          <span>Von Jacky West</span>
-          <span>24. Juli 2026</span>
-          <span>5 Min Lesezeit</span>
-        </div>
-      </div>
+<header class="article-hero">
+  <img class="article-hero-img" src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1400&q=85&auto=format&fit=crop" alt="Person arbeitet produktiv am Laptop am Strand als Digital Nomad" />
+  <div class="article-hero-inner">
+    <span class="article-cat-badge">Realtalk</span>
+    <h1>Warum du unterwegs produktiver bist als zuhause (und wie du das nutzt)</h1>
+    <p class="hook-text">Die meisten Menschen denken, Reisen und ernsthaftes Arbeiten schließen sich aus. Falsch gedacht. Hier ist, was die Neurologie sagt und wie du diesen Effekt gezielt einsetzt.</p>
+    <div class="article-meta">
+      <span class="meta-chip"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>8 Min Lesezeit</span>
+      <span class="meta-sep">·</span><span class="meta-chip">Jacky West</span>
+      <span class="meta-sep">·</span><span class="meta-chip">24. Juli 2026</span>
     </div>
   </div>
+</header>
 
-  <div class="article-wrap">
-    <p class="lead">
-      Klingt paradox: weniger Routine, mehr Output. Viele Menschen die remote reisen berichten dass sie unterwegs produktiver sind als zuhause. Nicht weniger. Mehr. Wie geht das?
-    </p>
+<div class="article-layout">
+  <article class="article-body">
 
-    <div class="article-body">
+    <p>Ich saß in einem Café in Chiang Mai, hatte drei Stunden vor mir und erledigte mehr als an einem ganzen Tag in meinem deutschen Homeoffice. Kein zweiter Bildschirm, kein ergonomischer Stuhl, WiFi mit 12 Mbit/s. Trotzdem: fokussierter als seit Monaten.</p>
 
-      <p>Ich weiss was du denkst. Reisen und produktiv sein passt nicht zusammen. Zu viele Ablenkungen. Kein fester Schreibtisch. Schlechtes WiFi. Und ja, das kann alles stimmen. Aber hier ist das Paradox:</p>
+    <p>Das ist kein Einzelfall. Unter Digital Nomads ist dieses Phänomen so verbreitet, dass es fast zum Klischee geworden ist. Aber dahinter steckt echte Wissenschaft, und das Beste ist: Du kannst diesen Effekt bewusst nutzen, egal ob du gerade reist oder nicht.</p>
 
-      <h2>Das Geheimnis hinter Reise-Produktivitat</h2>
-
-      <div class="reasons-list">
-        <div class="reason">
-          <span class="reason-num">01</span>
-          <div>
-            <p class="reason-title">Weniger Prokrastinations-Moglichkeiten</p>
-            <p>Wenn du im Hostel sitzt und deine Aufgaben erledigst gibt es kein Netflix-Abo, kein Sofa, keine Mitbewohner die dich ablenken. Du arbeitest oder du gehst raus. Beides ist okay. Aber du verlierst keine Zeit mit dem Dazwischen.</p>
-          </div>
-        </div>
-        <div class="reason">
-          <span class="reason-num">02</span>
-          <div>
-            <p class="reason-title">Hoheres Bewusstsein fur Zeit</p>
-            <p>Wenn du nur 3 Wochen in einem Ort bist weisst du dass diese Zeit wertvoll ist. Das macht dich fokussierter. Du willst sowohl arbeiten als auch erleben, also wirst du effizienter in beidem.</p>
-          </div>
-        </div>
-        <div class="reason">
-          <span class="reason-num">03</span>
-          <div>
-            <p class="reason-title">Neue Umgebungen stimulieren Kreativitat</p>
-            <p>Studien zeigen: frische Umgebungen aktivieren das Gehirn anders. Neue Reize, neue Perspektiven, neue Ideen. Das ist kein Zufall, das ist Neurologie.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="callout">
-        <p class="callout-label">Pro-Tipp</p>
-        <p>Nutz die goldene Stunde. Die ersten 2 Stunden des Tages fur deine wichtigste Aufgabe. Dann den Rest des Tages frei. Unterwegs funktioniert dieses System besser als jede andere Routine.</p>
-      </div>
-
-      <img class="article-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop" alt="Coworking Space in Bali, Digital Nomads arbeiten gemeinsam" style="height:360px;">
-      <p class="img-caption">Coworking in Bali. Fokus ohne Kompromisse bei Atmosphare.</p>
-
-      <h2>Was du konkret mitnehmen kannst, auch ohne zu reisen</h2>
-
-      <div class="action-list">
-        <div class="action-item">
-          <span class="action-icon">&rarr;</span>
-          <p><strong>Wechsle regelmassig deinen Arbeitsort:</strong> Cafe, Bibliothek, Park. Neue Umgebungen bedeuten einen frischen Kopf.</p>
-        </div>
-        <div class="action-item">
-          <span class="action-icon">&rarr;</span>
-          <p><strong>Setze dir feste Work-Blocke:</strong> 2 bis 3 Stunden fokussiert, dann Pause. Kein endloser Arbeitstag.</p>
-        </div>
-        <div class="action-item">
-          <span class="action-icon">&rarr;</span>
-          <p><strong>Eliminiere Ablenkungen aktiv:</strong> Handy weg, Tabs zu, Do Not Disturb an.</p>
-        </div>
-        <div class="action-item">
-          <span class="action-icon">&rarr;</span>
-          <p><strong>Plane Erlebnisse als Belohnung:</strong> Erst Arbeit, dann Strand. Das Wissen dass etwas Schones wartet macht dich produktiver.</p>
-        </div>
-      </div>
-
-      <img class="article-img" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=80&auto=format&fit=crop" alt="Blick von einem Cafe auf einen tropischen Strand in Sudostasien" style="height:300px;">
-      <p class="img-caption">Die beste Motivation: Erst Arbeit erledigen, dann das hier geniessen.</p>
-
-      <p>Dazu passt mein Artikel uber <a href="/blog/routine-auf-reisen/" style="color:var(--accent);">Routine auf Reisen</a>. Denn Produktivitat und Routine gehen Hand in Hand, auch wenn du unterwegs bist.</p>
-
-      <hr class="divider">
-
-      <p>Reisen lehrt dich eine Lektion die die meisten nie lernen: Zeit ist endlich. Und wenn du das wirklich verstehst beginnst du sie anders zu nutzen.</p>
-
-      <p class="sign-off"><strong>Jacky</strong></p>
+    <div class="stat-row">
+      <div class="stat-box"><div class="num">73%</div><div class="label">der Nomads berichten höhere Produktivität unterwegs</div></div>
+      <div class="stat-box"><div class="num">2,5x</div><div class="label">mehr kreative Ideen nach Umgebungswechsel (Stanford-Studie)</div></div>
+      <div class="stat-box"><div class="num">41%</div><div class="label">weniger Prokrastination ohne den Komfort des eigenen Zuhauses</div></div>
     </div>
 
-    <div class="cta-box">
-      <h3>Pack deinen Laptop. Und deinen Plan.</h3>
-      <p>Der PackPlanGo Australien Starter Guide bereitet dich auf das Remote-Leben Down Under vor.</p>
-      <a href="https://www.packplango.com/travel/" class="btn">Starter Guide holen</a>
-      <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" class="btn-ghost">Community</a>
-    </div>
-  </div>
-</article>
+    <h2 id="warum">Warum Reisen deinen Fokus schärft: Die Neurologie dahinter</h2>
 
-<section class="related">
-  <h3>Mehr lesen</h3>
-  <div class="related-grid">
-    <a href="/blog/passion-finden-durch-reisen/" class="rel-card">
-      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=75&auto=format&fit=crop" alt="Passion finden">
-      <div class="rel-card-body">
-        <p class="rel-card-tag">Realtalk</p>
-        <h4>Wie Reisen deine Passion findet. Bevor du es selbst tust.</h4>
+    <p>Dein Gehirn ist eine Vorhersagemaschine. Es lernt Umgebungen kennen und schaltet in einem vertrauten Raum automatisch auf Autopilot. Das erklärt, warum du zuhause plötzlich auf dem Sofa liegst, obwohl du eigentlich arbeiten wolltest. Dein Schlafzimmer signalisiert: Entspannung. Deine Küche: Essen. Das Sofa: Netflix.</p>
+
+    <p>In einer neuen Umgebung kann dein Gehirn diesen Autopilot nicht aktivieren. Es bleibt wacher, aufmerksamer. Neurowissenschaftler nennen das den <strong>"Novelty Effect"</strong>: frische Reize erhöhen den Dopaminspiegel, verbessern das Arbeitsgedächtnis und erhöhen die Bereitschaft, neue Informationen aufzunehmen.</p>
+
+    <div class="callout">
+      <strong>Wissenschaft dahinter</strong>
+      <p>Eine Stanford-Studie aus 2014 zeigte: Probanden, die beim Denken liefen oder die Umgebung wechselten, produzierten im Schnitt 81% mehr kreative Ideen als die Kontrollgruppe. Bewegung und Umgebungswechsel sind direktes Kreativitätsfutter.</p>
+    </div>
+
+    <p>Dazu kommt der <strong>Knappheitseffekt</strong>: Wenn du weißt, dass du nur 3 Wochen in Lissabon bist, wird Zeit plötzlich real. Du willst den Sonnenuntergang nicht verpassen. Also arbeitest du konzentrierter und schneller. Das ist kein Zufall, das ist Psychologie.</p>
+
+    <figure class="article-img">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop" alt="Digital Nomad arbeitet im Coworking Space in Bali konzentriert am Laptop" />
+      <figcaption>Coworking in Bali: Frische Umgebung, klarer Kopf. Das ist Absicht, keine Romantik.</figcaption>
+    </figure>
+
+    <h2 id="fehler">Die drei größten Fehler, die Nomads beim Arbeiten machen</h2>
+
+    <p>Bevor wir zu den Strategien kommen, die wirklich funktionieren, lass mich ehrlich sein: Ich habe alle drei Fehler selbst gemacht.</p>
+
+    <h3>1. Überall gleichzeitig sein wollen</h3>
+    <p>Du bist in Bali, willst aber gleichzeitig Fotos machen, Reels drehen, Freunde treffen und nebenbei deine Arbeit erledigen. Das Ergebnis: Du machst nichts davon richtig. Die Lösung ist radikal einfach und trotzdem schwer umzusetzen: Definiere Zeiten, die ausschließlich der Arbeit gehören. Der Rest des Tages ist dann wirklich frei.</p>
+
+    <h3>2. WiFi-Abhängigkeit ohne Backup-Plan</h3>
+    <p>Kein gutes WiFi im Hostel, Deadline in zwei Stunden. Das ist kein Schicksal, das ist schlechte Planung. Ich habe heute immer eine lokale SIM mit Datenplan, kenne die Coworking-Spaces in meiner Stadt und weiß, welche Cafés zuverlässiges Internet haben. Tools wie <strong>Nomad List</strong> oder <strong>WiFiMap</strong> helfen dabei.</p>
+
+    <h3>3. Keine feste Arbeitszeit definieren</h3>
+    <p>Die Freiheit zu haben, jederzeit zu arbeiten, klingt verlockend. In der Praxis führt es dazu, dass du immer ein schlechtes Gewissen hast und nie wirklich abschaltest. Die produktivsten Nomads, die ich kenne, haben feste Arbeitszeiten. Nicht weil sie müssen, sondern weil es sie befreit.</p>
+
+    <div class="callout orange">
+      <strong>Realtalk aus Bali</strong>
+      <p>In meinen ersten Wochen als Nomad habe ich abends am Strand gesessen und dabei Slack gecheckt. Beides war halb. Kein wirkliches Genießen, keine echte Arbeit. Der Wendepunkt war: Feste Zeiten definieren und sie verteidigen wie ein Meeting mit einem wichtigen Kunden.</p>
+    </div>
+
+    <h2 id="strategien">5 Strategien, die wirklich funktionieren</h2>
+
+    <p>Das sind keine Motivations-Tipps aus einem YouTube-Video. Das sind Methoden, die ich und hunderte andere Nomads täglich anwenden.</p>
+
+    <h3>Strategie 1: Die 2-Stunden-Regel</h3>
+    <p>Identifiziere deine produktivste Tageszeit (für die meisten Menschen 7 bis 10 Uhr morgens) und schütze diese zwei Stunden kompromisslos für deine wichtigste Aufgabe. Kein Social Media, keine E-Mails, kein Slack. Nur das Eine, das wirklich zählt. Diese Methode, bekannt als "Deep Work" nach Cal Newport, ist im Reise-Kontext besonders wirksam, weil du danach den ganzen Tag erkunden kannst, ohne schlechtes Gewissen.</p>
+
+    <h3>Strategie 2: Coworking statt Café-Hopping</h3>
+    <p>Cafés sind schön, aber oft laut, wackelig im WiFi und sozial ablenkend. Ein guter Coworking-Space kostet in Bali zwischen 8 und 15 Euro pro Tag, in Lissabon zwischen 15 und 25 Euro. Dafür bekommst du stabiles Internet, einen Schreibtisch auf Arbeitshöhe und eine Umgebung, in der alle um dich herum ebenfalls fokussiert arbeiten. Dieser soziale Kontext ist Gold wert.</p>
+
+    <h3>Strategie 3: Die Location-Rotation</h3>
+    <p>Bleib mindestens 4 bis 6 Wochen an einem Ort. Das ist der Sweet Spot: Lang genug, um eine Routine aufzubauen und günstigere Monatsmieten zu bekommen. Kurz genug, damit der Novelty Effect nicht vollständig verschwindet. Wer alle 5 Tage den Ort wechselt, verbringt mehr Zeit mit Packen und Orientieren als mit Arbeiten.</p>
+
+    <h3>Strategie 4: Asynchrones Arbeiten als Superkraft</h3>
+    <p>Wenn du in einer anderen Zeitzone bist, zwingt dich das dazu, weniger in Echtzeit zu kommunizieren. Und das ist gut. Schriftliche Updates, klare Briefings, strukturierte Check-ins statt Meeting-Marathon. Viele Remote-Teams berichten, dass ihre Zeitzone-übergreifenden Mitarbeitenden besser dokumentieren und klarer kommunizieren als alle anderen.</p>
+
+    <h3>Strategie 5: Physische Trennung von Arbeit und Freizeit</h3>
+    <p>Arbeite nicht in deinem Hostel-Bett oder Hotelzimmer. Das ist der schnellste Weg, beide Welten zu vermischen und in keiner davon wirklich präsent zu sein. Geh aktiv an einen anderen Ort zum Arbeiten und komm dann zurück, um zu entspannen. Die physische Trennung trainiert dein Gehirn, in den richtigen Modus zu schalten.</p>
+
+    <figure class="article-img">
+      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=80&auto=format&fit=crop" alt="Tropischer Strand als Belohnung nach konzentrierter Arbeit" />
+      <figcaption>Das funktioniert als Motivation nur, wenn du die Arbeit davor wirklich abgeschlossen hast.</figcaption>
+    </figure>
+
+    <h2 id="tools">Die Tools, ohne die ich nicht remote arbeiten würde</h2>
+
+    <ul class="checklist">
+      <li><span class="check">✓</span><span><strong>Notion</strong> für alle Projekte, Inhalte und Planung. Läuft offline, synct überall.</span></li>
+      <li><span class="check">✓</span><span><strong>Krisp.ai</strong> für Hintergrundgeräusche in Calls. Lebensrettend in Cafés und Coworking-Spaces.</span></li>
+      <li><span class="check">✓</span><span><strong>Nomad List</strong> für Bewertungen von Städten nach WiFi-Qualität, Kosten und Sicherheit.</span></li>
+      <li><span class="check">✓</span><span><strong>1Password</strong> für sichere Passwörter ohne VPN-Paranoia in jedem öffentlichen Netzwerk.</span></li>
+      <li><span class="check">✓</span><span><strong>Toggl Track</strong> zum Zeittracking, damit du weißt, wann du wirklich produktiv bist.</span></li>
+      <li><span class="check">✓</span><span><strong>Wise</strong> für internationale Überweisungen und Karte ohne Auslandsgebühren.</span></li>
+    </ul>
+
+    <div class="callout pink">
+      <strong>Australien-spezifisch</strong>
+      <p>Für Work and Travel in Australien kommt dazu: Eine australische Bankverbindung (CommBank oder ANZ), eine lokale SIM von Telstra oder Optus (beste Netzabdeckung auch auf dem Land) und ein VPN, wenn du auf deutsches Netflix oder regionale Inhalte angewiesen bist.</p>
+    </div>
+
+    <h2 id="faq">Häufige Fragen</h2>
+    <div class="faq-section">
+      <div class="faq-item">
+        <div class="faq-q">Kann ich wirklich remote arbeiten und gleichzeitig reisen?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Ja, aber es braucht Planung. Du brauchst entweder einen Remote-Job, ein eigenes Business oder Freelance-Aufträge. Das "gleichzeitig" funktioniert nur, wenn du klare Grenzen zwischen Arbeitszeit und Freizeit setzt. Die Fähigkeit, remote zu arbeiten, ist heute gefragter denn je.</div>
       </div>
-    </a>
-    <a href="/blog/routine-auf-reisen/" class="rel-card">
-      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=500&q=75&auto=format&fit=crop" alt="Routine auf Reisen">
-      <div class="rel-card-body">
-        <p class="rel-card-tag">Realtalk</p>
-        <h4>Warum Routine auf Reisen wichtiger ist als du denkst.</h4>
+      <div class="faq-item">
+        <div class="faq-q">Wie viel Internetgeschwindigkeit brauche ich mindestens?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Für normale Büroarbeit und Videocalls reichen 10 Mbit/s Upload und Download. Wenn du Videos bearbeitest oder große Dateien überträgst, brauchst du mehr. Prüfe Geschwindigkeit immer mit fast.com oder speedtest.net bevor du verbindlich buchst.</div>
       </div>
-    </a>
-    <a href="/blog/boutique-hotels-social-media-learnings/" class="rel-card">
-      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=75&auto=format&fit=crop" alt="Boutique Hotel Social Media">
-      <div class="rel-card-body">
-        <p class="rel-card-tag">Hotel & Studio</p>
-        <h4>Was Boutique Hotels von grossen Chains lernen konnten.</h4>
+      <div class="faq-item">
+        <div class="faq-q">Welche Orte sind für Erstmal-Nomads am besten geeignet?<span class="faq-icon">+</span></div>
+        <div class="faq-a">Bali (Canggu/Ubud), Chiang Mai, Lissabon, Medellin und natürlich Australien sind klassische Einstiegsorte mit etablierter Nomad-Community, gutem Internet und bezahlbaren Lebenshaltungskosten. Auf Nomad List findest du aktuelle Rankings.</div>
       </div>
-    </a>
-  </div>
-</section>
+    </div>
+
+    <div class="article-cta">
+      <h3>Starte dein Remote-Leben in Australien.</h3>
+      <p>Der PackPlanGo Starter Guide zeigt dir Schritt für Schritt, wie Work and Travel Down Under wirklich funktioniert.</p>
+      <div class="cta-buttons">
+        <a href="/travel/" class="cta-btn primary">Guide kostenlos holen</a>
+        <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" class="cta-btn secondary">WhatsApp Community</a>
+      </div>
+    </div>
+
+    <div class="article-signature">
+      <img src="/images/about-photo.jpg" alt="Jacky West, PackPlanGo Gründerin" class="signature-avatar" />
+      <div class="signature-text">
+        <strong>Jacky West</strong>
+        <p>Remote Workerin, Content Creatorin und PackPlanGo-Gründerin. Hat in Australien, Bali und Südostasien gelebt und gearbeitet. Schreibt über das Leben, das möglich ist, wenn du aufhörst zu warten.</p>
+      </div>
+    </div>
+
+    <div class="related-articles">
+      <h3>Das könnte dich auch interessieren</h3>
+      <div class="related-grid">
+        <a href="/blog/routine-auf-reisen/" class="related-card">
+          <p class="related-cat">Realtalk</p><h4>Die Reise-Routine, die Digital Nomads produktiv hält</h4>
+        </a>
+        <a href="/blog/passion-finden-durch-reisen/" class="related-card">
+          <p class="related-cat">Realtalk</p><h4>Wie Reisen deine Passion findet, bevor du es selbst tust</h4>
+        </a>
+        <a href="/blog/boutique-hotels-social-media-learnings/" class="related-card">
+          <p class="related-cat">Hotel &amp; Studio</p><h4>Was Boutique Hotels von großen Chains lernen könnten</h4>
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-toc">
+      <h4>Inhalt</h4>
+      <ul class="toc-list">
+        <li><a href="#warum">Warum Reisen deinen Fokus schärft</a></li>
+        <li><a href="#fehler">Die 3 größten Fehler</a></li>
+        <li><a href="#strategien">5 Strategien die funktionieren</a></li>
+        <li><a href="#tools">Die wichtigsten Tools</a></li>
+        <li><a href="#faq">Häufige Fragen</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-cta">
+      <h4>PackPlanGo Studio</h4>
+      <p>Instagram &amp; Meta Ads für Boutique Hotels und Reise-Brands, die mehr wollen als Standard.</p>
+      <a href="/studio/" class="sidebar-btn">Mehr erfahren</a>
+    </div>
+  </aside>
+</div>
 
 <footer>
   <div class="footer-inner">
-    <a href="https://www.packplango.com/" class="footer-logo">PackPlanGo<span>.</span></a>
-    <div class="footer-links">
-      <a href="https://www.packplango.com/travel/">Travel</a>
-      <a href="https://www.packplango.com/studio/">Studio</a>
-      <a href="https://www.packplango.com/datenschutz">Datenschutz</a>
-      <a href="https://www.packplango.com/impressum">Impressum</a>
-      <a href="https://instagram.com/jackywest.remote">Instagram</a>
-    </div>
-    <span class="footer-copy">&copy; 2026 PackPlanGo.</span>
+    <a href="/" class="footer-logo"><img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo">PackPlanGo<span style="color:rgba(255,255,255,0.5)">.</span></a>
+    <nav class="footer-links">
+      <a href="/">Home</a><a href="/travel/">Travel</a><a href="/studio/">Studio</a>
+      <a href="/blog/">Blog</a><a href="/blog/community/">Community</a>
+      <a href="/datenschutz">Datenschutz</a><a href="/impressum">Impressum</a>
+    </nav>
+    <span class="footer-copy">© 2026 PackPlanGo.</span>
   </div>
 </footer>
 
+<script>
+window.addEventListener('scroll',()=>{const e=document.documentElement;document.getElementById('progress-bar').style.width=(e.scrollTop/(e.scrollHeight-e.clientHeight)*100)+'%'});
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const item=q.parentElement;item.classList.toggle('open')})});
+const headings=document.querySelectorAll('.article-body h2[id]');
+const tocLinks=document.querySelectorAll('.toc-list a');
+headings.forEach(h=>{new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){tocLinks.forEach(l=>l.classList.remove('active'));const a=document.querySelector('.toc-list a[href="#'+e.target.id+'"]');if(a)a.classList.add('active')}})},{rootMargin:'-10% 0px -80% 0px'}).observe(h)});
+</script>
 </body>
 </html>
