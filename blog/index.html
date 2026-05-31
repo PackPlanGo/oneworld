@@ -341,12 +341,13 @@
   <div class="newsletter-banner">
     <div class="newsletter-text">
       <h3>Kein Spam. Nur die guten Sachen.</h3>
-      <p>Neue Artikel, ehrliche Guides und Tipps direkt in dein Postfach. Abmeldung jederzeit.</p>
+      <p>Neue Artikel, ehrliche Tipps und der kostenlose Australien Starter Guide direkt in dein Postfach. Abmeldung jederzeit.</p>
     </div>
-    <form class="newsletter-form" onsubmit="return false;">
-      <input type="email" placeholder="deine@email.com" />
-      <button type="submit">Dabei sein</button>
+    <form class="newsletter-form" id="blog-nl-form" onsubmit="blogNlSubmit(event)">
+      <input type="email" id="blog-nl-email" placeholder="deine@email.com" required />
+      <button type="submit" id="blog-nl-btn">Dabei sein + Guide holen</button>
     </form>
+    <p id="blog-nl-success" style="display:none;color:var(--white);font-size:0.9rem;margin-top:12px;">Danke! Check dein Postfach und bestätige die Anmeldung.</p>
   </div>
 
 </main>
@@ -386,6 +387,26 @@
 </footer>
 
 <script>
+  function blogNlSubmit(e) {
+    e.preventDefault();
+    var email = document.getElementById('blog-nl-email').value;
+    if (!email) return;
+    var btn = document.getElementById('blog-nl-btn');
+    btn.textContent = 'Wird gesendet...';
+    btn.disabled = true;
+    fetch('https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'fields[email]=' + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true'
+    }).then(function() {
+      document.getElementById('blog-nl-form').style.display = 'none';
+      document.getElementById('blog-nl-success').style.display = 'block';
+    }).catch(function() {
+      document.getElementById('blog-nl-form').style.display = 'none';
+      document.getElementById('blog-nl-success').style.display = 'block';
+    });
+  }
+
   document.getElementById('burger').addEventListener('click', function() {
     document.getElementById('nav-mobile').classList.toggle('open');
   });
