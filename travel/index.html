@@ -768,4 +768,27 @@ function animateCounter(el, target, suffix) {
   const step = timestamp => {
     if(!start) start = timestamp;
     const progress = Math.min((timestamp - start) / duration, 1);
-    const ease = 1
+      let start = 0, duration = 1800;
+  const step = timestamp => {
+    if(!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(ease * target).toLocaleString('de-DE') + suffix;
+    if(progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const counterIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      const el = e.target;
+      animateCounter(el, parseInt(el.dataset.count), el.dataset.suffix || '');
+      counterIO.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
+
+</script>
+</body>
+</html>
