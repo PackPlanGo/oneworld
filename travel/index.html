@@ -768,10 +768,6 @@ function animateCounter(el, target, suffix) {
   const step = timestamp => {
     if(!start) start = timestamp;
     const progress = Math.min((timestamp - start) / duration, 1);
-      let start = 0, duration = 1800;
-  const step = timestamp => {
-    if(!start) start = timestamp;
-    const progress = Math.min((timestamp - start) / duration, 1);
     const ease = 1 - Math.pow(1 - progress, 3);
     el.textContent = Math.floor(ease * target).toLocaleString('de-DE') + suffix;
     if(progress < 1) requestAnimationFrame(step);
