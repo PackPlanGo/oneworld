@@ -691,17 +691,44 @@ document.getElementById('guide-form').addEventListener('submit', function(e) {
   var btn = document.getElementById('guide-btn');
   btn.textContent = 'Wird gesendet...';
   btn.disabled = true;
-  fetch('https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: 'fields[email]=' + encodeURIComponent(email) + '&ml-submit=1&anticsrf=true'
-  }).then(function() {
+
+  // JSONP submission (kein CORS-Problem)
+  var cbName = 'mlCb_' + Date.now();
+  var script = document.createElement('script');
+  var done = false;
+
+  window[cbName] = function(resp) {
+    done = true;
+    if (script.parentNode) script.parentNode.removeChild(script);
+    delete window[cbName];
     document.getElementById('guide-form').style.display = 'none';
     document.getElementById('guide-success').style.display = 'block';
-  }).catch(function() {
-    document.getElementById('guide-form').style.display = 'none';
-    document.getElementById('guide-success').style.display = 'block';
-  });
+  };
+
+  script.onerror = function() {
+    if (!done) {
+      done = true;
+      delete window[cbName];
+      document.getElementById('guide-form').style.display = 'none';
+      document.getElementById('guide-success').style.display = 'block';
+    }
+  };
+
+  var params = 'callback=' + cbName
+    + '&fields%5Bemail%5D=' + encodeURIComponent(email)
+    + '&ml-submit=1&anticsrf=true';
+  script.src = 'https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe?' + params;
+  document.body.appendChild(script);
+
+  // Fallback nach 8s
+  setTimeout(function() {
+    if (!done) {
+      done = true;
+      delete window[cbName];
+      document.getElementById('guide-form').style.display = 'none';
+      document.getElementById('guide-success').style.display = 'block';
+    }
+  }, 8000);
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
@@ -741,25 +768,4 @@ function animateCounter(el, target, suffix) {
   const step = timestamp => {
     if(!start) start = timestamp;
     const progress = Math.min((timestamp - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(ease * target).toLocaleString('de-DE') + suffix;
-    if(progress < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-const counterIO = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      const el = e.target;
-      const raw = el.dataset.count;
-      const suffix = el.dataset.suffix || '';
-      animateCounter(el, parseInt(raw), suffix);
-      counterIO.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
-
-</script>
-</body>
-</html>
+    const ease = 1
