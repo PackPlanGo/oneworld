@@ -86,17 +86,26 @@ nav {
 .hero {
   min-height: 100vh; display: flex; align-items: center;
   position: relative; overflow: hidden;
-  background:
-    linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.48)),
-    url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2074&auto=format&fit=crop');
-  background-size: cover; background-position: center center;
+  background: #0a1a18;
   color: white;
 }
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at top right, rgba(193,122,69,0.25), transparent 40%);
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2074&auto=format&fit=crop') center/cover no-repeat;
+  transform-origin: center center;
+  animation: heroZoom 12s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  will-change: transform;
 }
-.hero-content { position: relative; z-index: 2; max-width: 760px; }
+@keyframes heroZoom {
+  0%   { transform: scale(1.0); }
+  100% { transform: scale(1.18); }
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.52));
+}
+.hero::before { content: ''; position: absolute; inset: 0; z-index: 2; background: radial-gradient(circle at top right, rgba(193,122,69,0.25), transparent 40%); }
+.hero-content { position: relative; z-index: 3; max-width: 760px; }
 .hero-tag {
   font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px;
   color: var(--accent-light); margin-bottom: 1.5rem;
@@ -575,6 +584,8 @@ footer {
 </nav>
 
 <section class="hero">
+  <div class="hero-bg" id="studio-hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
       <p class="hero-tag" id="hero-tag">Social Media Management and Ads for Hospitality Brands</p>
@@ -1203,6 +1214,20 @@ const counterIO = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
 
+</script>
+
+<script>
+/* Studio Hero Parallax */
+(function(){
+  var bg = document.getElementById('studio-hero-bg');
+  if(!bg) return;
+  window.addEventListener('scroll', function(){
+    var s = window.scrollY;
+    if(s < window.innerHeight * 1.5){
+      bg.style.transform = 'scale(1.18) translateY(' + (s * 0.15) + 'px)';
+    }
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>
