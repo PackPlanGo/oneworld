@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warum Hotels schlechtes Instagram haben — und wie das jeder ändern kann | PackPlanGo</title>
+  <meta name="description" content="Die meisten Boutique Hotels und Hostels sind auf Instagram unsichtbar. Nicht weil sie schlecht sind, sondern weil niemand sich darum kümmert. Was das kostet und wie du es änderst." />
+  <meta property="og:title" content="Warum Hotels schlechtes Instagram haben. Und wie das jeder ändern kann." />
+  <meta property="og:description" content="Traumhafter Pool, handgefertigte Einrichtung. Und dann ihr Instagram: drei Fotos aus 2022." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&q=80&auto=format&fit=crop" />
+  <meta property="og:type" content="article" />
+  <link rel="icon" href="https://www.packplango.com/images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --teal: #2D6E69; --teal-light: #3a8880; --teal-pale: rgba(45,110,105,0.07); --orange: #E89A5B; --sand: #ECE6DA; --bg: #F3EFE7; --text: #1B1B19; --pink: #E8005A; --pink-light: #ff2d75; --white: #ffffff; --muted: #6b6b68; --border: #ddd8cf; --radius: 12px; --radius-lg: 20px; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(243,239,231,0.93); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; height: 62px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .nav-logo img { width: 26px; height: 26px; border-radius: 6px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; padding: 6px 14px; border-radius: 999px; color: var(--muted); transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--text); background: var(--sand); }
+    .nav-links a.active { color: var(--teal); font-weight: 600; background: rgba(45,110,105,0.08); }
+    .nav-cta { background: var(--teal) !important; color: var(--white) !important; padding: 7px 18px !important; border-radius: 999px !important; font-weight: 600 !important; font-size: 0.85rem !important; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+    .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--text); }
+    .nav-mobile { display: none; flex-direction: column; background: var(--bg); border-top: 1px solid var(--border); padding: 12px 24px 20px; }
+    .nav-mobile a { display: block; font-size: 0.95rem; font-weight: 500; padding: 12px 0; color: var(--text); border-bottom: 1px solid var(--border); }
+    .nav-mobile a:last-child { border: none; }
+    .nav-mobile.open { display: flex; }
+    .article-hero { position: relative; overflow: hidden; background: var(--text); min-height: 540px; display: flex; align-items: flex-end; }
+    .article-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: 0.38; }
+    .article-hero-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; padding: 100px 24px 60px; width: 100%; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-bottom: 20px; }
+    .breadcrumb a { color: rgba(255,255,255,0.55); }
+    .breadcrumb span { color: rgba(255,255,255,0.3); }
+    .article-cat-badge { display: inline-flex; align-items: center; gap: 7px; background: var(--teal); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; margin-bottom: 18px; }
+    .article-hero-inner h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.4rem); color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+    .article-hero-inner .hook-text { font-size: 1.12rem; color: rgba(255,255,255,0.78); line-height: 1.6; margin-bottom: 28px; max-width: 600px; }
+    .article-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .meta-chip { font-size: 0.8rem; color: rgba(255,255,255,0.6); display: flex; align-items: center; gap: 6px; }
+    .meta-sep { color: rgba(255,255,255,0.25); }
+    .article-layout { max-width: 1160px; margin: 0 auto; padding: 56px 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start; }
+    .article-body { min-width: 0; }
+    .article-body p { font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .article-body h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.2; margin: 2.8rem 0 1rem; }
+    .article-body h2:first-child { margin-top: 0; }
+    .article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
+    .article-body li { font-size: 1.05rem; line-height: 1.75; margin-bottom: 0.5rem; }
+    .article-body a { color: var(--teal); text-decoration: underline; text-decoration-color: rgba(45,110,105,0.35); text-underline-offset: 3px; }
+    .article-body a:hover { color: var(--teal-light); }
+    .callout { border-left: 4px solid var(--teal); background: var(--teal-pale); border-radius: 0 var(--radius) var(--radius) 0; padding: 20px 24px; margin: 1.8rem 0; }
+    .callout.orange { border-left-color: var(--orange); background: rgba(232,154,91,0.08); }
+    .callout.pink { border-left-color: var(--pink); background: rgba(232,0,90,0.06); }
+    .callout strong { display: block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+    .callout.orange strong { color: var(--orange); }
+    .callout.pink strong { color: var(--pink); }
+    .callout p { font-size: 0.97rem; margin: 0; line-height: 1.65; }
+    .article-img { border-radius: var(--radius-lg); overflow: hidden; margin: 2.4rem 0; }
+    .article-img img { width: 100%; height: 340px; object-fit: cover; }
+    .article-img figcaption { font-size: 0.8rem; color: var(--muted); padding: 10px 0 0; line-height: 1.5; }
+    .checklist { list-style: none; padding: 0; margin: 1.5rem 0; }
+    .checklist li { display: flex; gap: 12px; font-size: 1.05rem; line-height: 1.7; margin-bottom: 0.7rem; }
+    .checklist li::before { content: "✓"; color: var(--teal); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .article-signature { margin-top: 3rem; padding: 28px 32px; background: var(--sand); border-radius: var(--radius-lg); display: flex; align-items: center; gap: 20px; }
+    .signature-avatar { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .signature-text strong { display: block; font-size: 0.95rem; margin-bottom: 4px; }
+    .signature-text p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.5; }
+    .article-cta { background: var(--teal); border-radius: var(--radius-lg); padding: 40px 36px; text-align: center; margin: 3rem 0; position: relative; overflow: hidden; }
+    .article-cta::before { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: rgba(45,110,105,0.2); top: -80px; right: -60px; }
+    .article-cta h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--white); margin-bottom: 10px; position: relative; }
+    .article-cta p { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 22px; position: relative; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--teal); color: var(--white); font-weight: 700; font-size: 0.9rem; padding: 13px 28px; border-radius: 999px; transition: background 0.2s, gap 0.2s; position: relative; }
+    .cta-btn:hover { background: var(--teal-light); gap: 12px; }
+    .cta-btn.pink-btn { background: var(--pink); }
+    .cta-btn.pink-btn:hover { background: var(--pink-light); }
+    .article-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 2.5rem 0 0; }
+    .tag { font-size: 0.78rem; font-weight: 600; color: var(--teal); background: var(--teal-pale); padding: 5px 14px; border-radius: 999px; border: 1px solid rgba(45,110,105,0.2); }
+    .sidebar { position: sticky; top: 82px; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 20px; }
+    .sidebar-card h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .toc-list { list-style: none; }
+    .toc-list li { margin-bottom: 2px; }
+    .toc-list a { display: block; font-size: 0.875rem; color: var(--muted); padding: 7px 12px; border-radius: 8px; transition: background 0.2s, color 0.2s; line-height: 1.4; }
+    .toc-list a:hover { background: var(--sand); color: var(--text); }
+    .toc-list a.toc-active { background: var(--teal-pale); color: var(--teal); font-weight: 600; }
+    .sidebar-studio { background: var(--teal); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 20px; }
+    .sidebar-studio .pill { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 12px; }
+    .sidebar-studio h4 { font-size: 1.05rem; color: var(--white); margin-bottom: 8px; font-family: 'DM Serif Display', serif; }
+    .sidebar-studio p { font-size: 0.84rem; color: rgba(255,255,255,0.72); line-height: 1.55; margin-bottom: 18px; }
+    .sidebar-studio a { display: block; background: var(--white); color: var(--teal); text-align: center; font-size: 0.85rem; font-weight: 700; padding: 11px; border-radius: 999px; transition: background 0.2s; }
+    .sidebar-studio a:hover { background: var(--sand); }
+    .progress-bar-wrap { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200; }
+    .progress-bar { height: 100%; background: var(--pink); width: 0%; transition: width 0.1s linear; }
+    .related-section { background: var(--sand); padding: 60px 24px; }
+    .related-inner { max-width: 1160px; margin: 0 auto; }
+    .related-inner h2 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; margin-bottom: 32px; }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .related-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; color: var(--text); display: block; }
+    .related-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(27,27,25,0.1); }
+    .related-card-img { aspect-ratio: 16/9; overflow: hidden; }
+    .related-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .related-card:hover .related-card-img img { transform: scale(1.05); }
+    .related-card-body { padding: 18px 20px 20px; }
+    .related-card-body span { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--teal); }
+    .related-card-body h3 { font-family: 'DM Serif Display', serif; font-size: 1rem; margin-top: 6px; line-height: 1.3; }
+    footer { background: var(--teal); color: rgba(255,255,255,0.75); padding: 48px 24px 32px; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,0.18); }
+    .footer-brand .logo { font-weight: 700; font-size: 1.05rem; color: var(--white); display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .footer-brand .logo img { width: 24px; border-radius: 5px; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.6; max-width: 280px; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+    .footer-col a { display: block; font-size: 0.88rem; color: rgba(255,255,255,0.75); padding: 5px 0; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1160px; margin: 24px auto 0; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; }
+    .footer-bottom a { color: rgba(255,255,255,0.5); margin-left: 16px; }
+    .footer-bottom a:hover { color: var(--white); }
+    @media (max-width: 980px) { .article-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .related-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .nav-links { display: none; } .nav-burger { display: flex; } .article-hero { min-height: 420px; } .article-layout { padding: 32px 16px 60px; } .article-body p, .article-body li { font-size: 1rem; } .article-signature { flex-direction: column; text-align: center; } .related-grid { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; gap: 12px; text-align: center; } .footer-bottom a { margin: 0 8px; } }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://www.packplango.com/" class="nav-logo">
+      <img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo" />
+      PackPlanGo.
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://www.packplango.com/">Home</a></li>
+      <li><a href="https://www.packplango.com/travel/">Travel</a></li>
+      <li><a href="https://www.packplango.com/studio/">Studio</a></li>
+      <li><a href="/blog/" class="active">Blog</a></li>
+      <li><a href="https://www.packplango.com/travel/#download" class="nav-cta">Guide holen</a></li>
+    </ul>
+    <button class="nav-burger" id="burger" aria-label="Menü öffnen">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="https://www.packplango.com/">Home</a>
+    <a href="https://www.packplango.com/travel/">Travel</a>
+    <a href="https://www.packplango.com/studio/">Studio</a>
+    <a href="/blog/">Blog</a>
+    <a href="https://www.packplango.com/travel/#download">Guide kostenlos holen</a>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <img class="article-hero-img"
+    src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1600&q=80&auto=format&fit=crop&crop=center"
+    alt="Stilvolles Boutique Hotel Instagram Marketing"
+  />
+  <div class="article-hero-inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/blog/">Blog</a>
+      <span>›</span>
+      <span>Jobs &amp; Geld</span>
+    </nav>
+    <div class="article-cat-badge">
+      <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="white"/></svg>
+      Jobs &amp; Geld
+    </div>
+    <h1>Warum Hotels schlechtes Instagram haben. Und wie das jeder ändern kann.</h1>
+    <p class="hook-text">Traumhafter Pool, handgefertigte Einrichtung, fünf Sterne auf Google. Und dann ihr Instagram: drei Fotos aus 2022 und eine Story, die seit sechs Monaten niemand mehr angetastet hat.</p>
+    <div class="article-meta">
+      <span class="meta-chip">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/><path d="M7 4v3l2 2" stroke="rgba(255,255,255,0.5)" stroke-width="1.3" stroke-linecap="round"/></svg>
+        7 Min Lesezeit
+      </span>
+      <span class="meta-sep">·</span>
+      <span class="meta-chip">Jacky West</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-chip">17. Juli 2026</span>
+    </div>
+  </div>
+</section>
+
+<div class="article-layout">
+  <article class="article-body" id="article-body">
+
+    <p>Ich scrolle durch Instagram. Boutique Hotel in Bali. Wunderschöne Lage, traumhafter Pool, handgefertigte Inneneinrichtung. Und dann ihr Instagram: Drei Fotos aus 2022. Stock-Bilder. Eine Story, die vor sechs Monaten zuletzt aktualisiert wurde.</p>
+
+    <p>Das ist kein Einzelfall. Das ist die Regel.</p>
+
+    <p>Die meisten Boutique Hotels, Hostels und Villas sind online unsichtbar. Nicht weil sie nicht gut sind, sondern weil niemand sich systematisch um ihren digitalen Auftritt kümmert. Und das kostet Buchungen. Jeden Tag.</p>
+
+    <figure class="article-img">
+      <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80&auto=format&fit=crop" alt="Stilvoller Hotel Pool der online kaum sichtbar ist" loading="lazy" />
+      <figcaption>Ein Pool wie dieser verdient mehr als drei Instagram-Posts aus dem Jahr 2022.</figcaption>
+    </figure>
+
+    <h2 id="warum">Warum das passiert. Die ehrliche Erklärung.</h2>
+
+    <p>Hotelbetreiber sind gut darin, Gäste glücklich zu machen. Frühstück pünktlich, Zimmer makellos, Check-in reibungslos. Das sind die Dinge, die sie gelernt haben und die sie lieben.</p>
+
+    <p>Content Strategist, Fotograf, Texter und Social Media Manager sein gleichzeitig ist ein komplett anderer Skill-Set. Das ist kein Vorwurf. Das sind zwei völlig verschiedene Welten.</p>
+
+    <p>Das Problem im Jahr 2026: Reisende zwischen 18 und 35 Jahren entscheiden immer häufiger anhand von Instagram, ob sie ein Hotel buchen oder nicht. Wer dort nicht existiert, existiert für diese Zielgruppe schlicht nicht.</p>
+
+    <div class="callout pink">
+      <strong>Realtalk</strong>
+      <p>Ein Hotel mit 4,8 Sternen auf Google aber 200 Instagram-Followern verliert Buchungen an ein Hotel mit 3,9 Sternen und 12.000 Followern. Das klingt unfair. Es ist aber die Realität des digitalen Buchungsverhaltens junger Reisender.</p>
+    </div>
+
+    <h2 id="was-es-braucht">Was gutes Hotel-Instagram wirklich braucht</h2>
+
+    <p>Es geht nicht um Hochglanz-Fotografie für teures Geld. Und es geht nicht darum, täglich zu posten. Es geht um drei konkrete Dinge:</p>
+
+    <p><strong>Konsistenz:</strong> Regelmäßige Posts, erkennbare Ästhetik, aktive Stories. Nicht perfekt, aber präsent. Der Algorithmus belohnt Regelmäßigkeit mehr als Perfektion.</p>
+
+    <p><strong>Authentizität:</strong> Echte Gäste, echte Momente, echte Einblicke hinter die Kulissen. Stock-Fotos überzeugen niemanden mehr. Ein Zeitraffer des Sonnenuntergangs vom Pool schlägt jedes professionelle Foto.</p>
+
+    <p><strong>Conversion-Fokus:</strong> Jeder Post sollte eine Aufgabe haben. Sichtbarkeit erhöhen, Link in Bio klicken, eine DM auslösen. Instagram ist kein Schaufenster, es ist ein Verkaufstool.</p>
+
+    <div class="callout">
+      <strong>Gut zu wissen</strong>
+      <p>Der beste Hotel-Content ist oft der einfachste: ein Zeitraffer des Sonnenuntergangs vom Pool, das Frühstück im ersten Morgenlicht, ein strahlendes Gästelächeln beim Check-in. Authentisch schlägt aufwendig, immer.</p>
+    </div>
+
+    <figure class="article-img">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80&auto=format&fit=crop" alt="Hotel Team arbeitet an Social Media Strategie für mehr Buchungen" loading="lazy" />
+      <figcaption>Eine Social Media Strategie für Hotels braucht kein großes Team. Es braucht Klarheit und Konsequenz.</figcaption>
+    </figure>
+
+    <h2 id="kosten-roi">Was es kostet und was es bringt</h2>
+
+    <p>Ein guter Social Media Manager speziell für Hospitality kostet zwischen 500 und 2.000 Euro pro Monat, je nach Scope und Umfang.</p>
+
+    <p>Was das bringt: Sichtbarkeit bei genau den Menschen, die buchen wollen. Direkte Buchungsanfragen über Instagram DMs. Und spürbar weniger Abhängigkeit von Booking.com und den damit verbundenen Provisionen von bis zu 20 Prozent pro Buchung.</p>
+
+    <p>Einfache Rechnung: Ein Hotel, das durch besseres Social Media auch nur drei Direktbuchungen pro Monat zusätzlich generiert, bei einem durchschnittlichen Zimmerpreis von 150 Euro, macht damit 450 Euro mehr, spart gleichzeitig Provision und hat einen deutlich besseren ROI als erwartet.</p>
+
+    <div class="callout orange">
+      <strong>Nächster Schritt</strong>
+      <p>Wenn du als Hotelbetreiber nicht weißt, wo du anfangen sollst: <a href="https://www.packplango.com/studio/" target="_blank" rel="noopener">PackPlanGo Studio</a> macht genau das für Boutique Hotels, Hostels und Villas. Instagram Management und Meta Ads, die so aussehen und klingen wie dein Ort wirklich ist.</p>
+    </div>
+
+    <h2 id="sofortmassnahmen">Was du heute noch tun kannst</h2>
+
+    <ul class="checklist">
+      <li><strong>Bio optimieren:</strong> Klar wer du bist, wo du bist, wie man bucht. Link zu direkter Buchung, nicht zu Booking.com.</li>
+      <li><strong>3 Posts pro Woche minimum:</strong> Reels performen deutlich besser als statische Posts. Zeig das Erlebnis, nicht nur das Zimmer.</li>
+      <li><strong>Stories täglich:</strong> Auch wenn es nur ein Foto des heutigen Sonnenuntergangs ist. Präsenz schlägt Perfektion.</li>
+      <li><strong>Guest Content nutzen:</strong> Frag Gäste aktiv, ob du ihre Fotos verwenden darfst. Der beste Content kommt von echten Erlebnissen.</li>
+      <li><strong>Auf DMs antworten:</strong> Jede unbeantwortete Anfrage ist eine verpasste Buchung. Innerhalb von einer Stunde antworten macht einen messbaren Unterschied.</li>
+    </ul>
+
+    <div class="article-cta">
+      <h3>Dein Hotel verdient besseres Instagram.</h3>
+      <p>PackPlanGo Studio baut Boutique Hotels und Hostels eine Online-Präsenz, die so aussieht wie dein Ort sich in echt anfühlt.</p>
+      <a href="https://www.packplango.com/studio/" class="cta-btn pink-btn" target="_blank" rel="noopener">
+        PackPlanGo Studio entdecken
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <p>Dein Hotel ist besser als dein Instagram zeigt. Das muss sich ändern. Und die gute Nachricht: Es ist einfacher als du denkst.</p>
+
+    <div class="article-tags">
+      <span class="tag">Hotel Instagram Marketing</span>
+      <span class="tag">Boutique Hotel Social Media</span>
+      <span class="tag">Hospitality Marketing</span>
+      <span class="tag">Instagram Strategie</span>
+      <span class="tag">Direktbuchungen</span>
+    </div>
+
+    <div class="article-signature">
+      <img class="signature-avatar" src="/images/about-photo.jpg" alt="Jacky West" loading="lazy" />
+      <div class="signature-text">
+        <strong>Jacky West</strong>
+        <p>Content Creatorin und Online Marketing Managerin. Seit mehreren Jahren zwischen Australien und Südostasien unterwegs. Gründerin von PackPlanGo.</p>
+      </div>
+    </div>
+
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h4>Inhalt</h4>
+      <ul class="toc-list" id="toc">
+        <li><a href="#warum">Warum das passiert</a></li>
+        <li><a href="#was-es-braucht">Was Instagram braucht</a></li>
+        <li><a href="#kosten-roi">Kosten und ROI</a></li>
+        <li><a href="#sofortmassnahmen">Sofortmaßnahmen</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-studio">
+      <span class="pill">PackPlanGo Studio</span>
+      <h4>Dein Hotel. Online sichtbar.</h4>
+      <p>Instagram Management und Meta Ads für Boutique Hotels, Hostels und Villas.</p>
+      <a href="https://www.packplango.com/studio/" target="_blank" rel="noopener">Mehr erfahren</a>
+    </div>
+    <div class="sidebar-card">
+      <h4>Artikel teilen</h4>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--text);padding:8px 12px;border:1.5px solid var(--border);border-radius:999px;" onmouseover="this.style.background='var(--sand)'" onmouseout="this.style.background='transparent'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#1B1B19" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#1B1B19" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="#1B1B19"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;font-size:0.88rem;color:var(--text);padding:8px 12px;border:1.5px solid var(--border);border-radius:999px;" onmouseover="this.style.background='var(--sand)'" onmouseout="this.style.background='transparent'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="3" stroke="#1B1B19" stroke-width="1.8"/><path d="M7 10v7M7 7v.5" stroke="#1B1B19" stroke-width="1.8" stroke-linecap="round"/><path d="M12 10v7m0-5c0-2 5-2 5 0v5" stroke="#1B1B19" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="related-section">
+  <div class="related-inner">
+    <h2>Mehr zum Thema</h2>
+    <div class="related-grid">
+      <a href="/blog/boutique-hotels-social-media-learnings/" class="related-card">
+        <div class="related-card-img">
+          <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=700&q=75&auto=format&fit=crop" alt="Boutique Hotel Social Media Learnings" loading="lazy" />
+        </div>
+        <div class="related-card-body">
+          <span>Jobs &amp; Geld · 6 Min</span>
+          <h3>Was Boutique Hotels über Social Media von großen Chains lernen könnten.</h3>
+        </div>
+      </a>
+      <a href="/blog/social-media-marketing-lernen/" class="related-card">
+        <div class="related-card-img">
+          <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=700&q=75&auto=format&fit=crop" alt="Social Media Marketing lernen Remote Job" loading="lazy" />
+        </div>
+        <div class="related-card-body">
+          <span>Jobs &amp; Geld · 8 Min</span>
+          <h3>Social Media Marketing lernen. Dein Ticket zur Ortsunabhängigkeit.</h3>
+        </div>
+      </a>
+      <a href="/blog/remote-arbeiten-selbststaendig/" class="related-card">
+        <div class="related-card-img">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&q=75&auto=format&fit=crop" alt="Remote arbeiten selbstständig Digital Nomad" loading="lazy" />
+        </div>
+        <div class="related-card-body">
+          <span>Jobs &amp; Geld · 9 Min</span>
+          <h3>Remote arbeiten und selbstständig. So startest du von überall auf der Welt.</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo"><img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo">PackPlanGo.</div>
+      <p>Travel Guides und Social Media für Hospitality. Von Reisenden, für Reisende und die Orte, die sie lieben.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="https://www.packplango.com/">Home</a><a href="https://www.packplango.com/travel/">Travel</a><a href="https://www.packplango.com/studio/">Studio</a><a href="/blog/">Blog</a><a href="/blog/community/">Community</a>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <a href="https://www.packplango.com/datenschutz">Datenschutz</a><a href="https://www.packplango.com/impressum">Impressum</a><a href="https://instagram.com/jackywest.remote" target="_blank" rel="noopener">Instagram</a><a href="https://tiktok.com/@jacky_west" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PackPlanGo. All rights reserved.</span>
+    <div><a href="https://www.packplango.com/datenschutz">Datenschutz</a><a href="https://www.packplango.com/impressum">Impressum</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('burger').addEventListener('click', function() { document.getElementById('nav-mobile').classList.toggle('open'); });
+  window.addEventListener('scroll', function() {
+    var article = document.getElementById('article-body');
+    if (!article) return;
+    var progress = Math.min(100, Math.max(0, ((window.pageYOffset - (article.getBoundingClientRect().top + window.pageYOffset)) / article.offsetHeight) * 100));
+    document.getElementById('progress-bar').style.width = progress + '%';
+  });
+  var headings = document.querySelectorAll('article h2[id]');
+  var tocLinks = document.querySelectorAll('.toc-list a');
+  window.addEventListener('scroll', function() {
+    var current = '';
+    headings.forEach(function(h) { if (window.pageYOffset >= h.offsetTop - 120) current = h.id; });
+    tocLinks.forEach(function(link) { link.classList.toggle('toc-active', link.getAttribute('href') === '#' + current); });
+  });
+</script>
+<a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" target="_blank" rel="noopener" aria-label="WhatsApp Community" style="position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.45);transition:transform .2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+</body>
+</html>

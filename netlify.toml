@@ -22,28 +22,16 @@
   to = "/blog/boutique-hotels-social-media-learnings/index.html"
   status = 200
 
-
 [[redirects]]
-  from = "/passion-finden-durch-reisen"
-  to = "/blog/passion-finden-durch-reisen/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/reisen-produktivitaet"
+  from = "/blog/reisen-produktivitaet"
   to = "/blog/reisen-produktivitaet/index.html"
   status = 200
 
 [[redirects]]
-  from = "/routine-auf-reisen"
+  from = "/blog/routine-auf-reisen"
   to = "/blog/routine-auf-reisen/index.html"
   status = 200
 
-
-# Sicherheits-Header
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+[[redirects]]
+  from = "/blog/passion-finden-durch-reisen"
+  to = "/blog/passion-finden-durch-reisen/index.
