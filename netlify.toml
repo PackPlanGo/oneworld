@@ -34,4 +34,80 @@
 
 [[redirects]]
   from = "/blog/passion-finden-durch-reisen"
-  to = "/blog/passion-finden-durch-reisen/index.
+  to = "/blog/passion-finden-durch-reisen/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/community"
+  to = "/blog/community/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/auswandern-aus-deutschland"
+  to = "/blog/auswandern-aus-deutschland/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/bali-backpacker"
+  to = "/blog/bali-backpacker/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/nomad-basis-vergleich"
+  to = "/blog/nomad-basis-vergleich/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/hotels-schlechtes-instagram"
+  to = "/blog/hotels-schlechtes-instagram/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/du-bist-nicht-alleine"
+  to = "/blog/du-bist-nicht-alleine/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/lern-dich-kennen"
+  to = "/blog/lern-dich-kennen/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/kein-geld-kein-plan-trotzdem-gegangen"
+  to = "/blog/kein-geld-kein-plan-trotzdem-gegangen/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/thailand-work-and-travel"
+  to = "/blog/thailand-work-and-travel/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/sea-digital-nomad-budget"
+  to = "/blog/sea-digital-nomad-budget/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/remote-arbeiten-selbststaendig"
+  to = "/blog/remote-arbeiten-selbststaendig/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/social-media-marketing-lernen"
+  to = "/blog/social-media-marketing-lernen/index.html"
+  status = 200
+
+# 404 Fallback
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
+# Sicherheits-Header
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
