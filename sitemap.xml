@@ -59,9 +59,86 @@
 
   <url>
     <loc>https://www.packplango.com/blog/community/</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/auswandern-aus-deutschland/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/bali-backpacker/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/nomad-basis-vergleich/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/hotels-schlechtes-instagram/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/du-bist-nicht-alleine/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/lern-dich-kennen/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/kein-geld-kein-plan-trotzdem-gegangen/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/thailand-work-and-travel/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/sea-digital-nomad-budget/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/remote-arbeiten-selbststaendig/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/social-media-marketing-lernen/</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
