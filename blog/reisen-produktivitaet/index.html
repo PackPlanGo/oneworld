@@ -348,6 +348,83 @@ headings.forEach(h=>{new IntersectionObserver(entries=>{entries.forEach(e=>{if(e
 <a href="https://chat.whatsapp.com/EZCocsR1tNE1TCtbSHpFOf" target="_blank" rel="noopener" aria-label="WhatsApp Community beitreten" style="position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.45);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,0.55)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.45)'">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+<!-- PPG Blog-Dropdown (auto-injected) -->
+<style id="ppg-bdd-style">
+.ppg-bdd-caret{display:inline-block;margin-left:5px;font-size:.62em;vertical-align:middle;transition:transform .2s;opacity:.75}
+.ppg-bdd-active .ppg-bdd-caret{transform:rotate(180deg)}
+#ppg-bdd-panel{position:fixed;z-index:99999;background:#fff;border:1px solid #e4dfd5;border-radius:16px;box-shadow:0 20px 60px rgba(27,27,25,.18);padding:16px;display:none;gap:14px 26px;max-width:92vw;box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,sans-serif}
+#ppg-bdd-panel.show{display:grid}
+.ppg-bdd-col{display:flex;flex-direction:column;gap:1px;min-width:0}
+.ppg-bdd-head{font-size:.66rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:#E89A5B;padding:4px 10px 6px;margin:0}
+#ppg-bdd-panel a{display:block;padding:8px 10px;border-radius:9px;font-size:.85rem;line-height:1.3;color:#1B1B19;text-decoration:none;background:none;white-space:normal;font-weight:500;letter-spacing:0}
+#ppg-bdd-panel a:hover{background:#F3EFE7;color:#2D6E69}
+.ppg-bdd-all{grid-column:1/-1;margin-top:6px;padding-top:12px;border-top:1px solid #ececec;font-weight:700;color:#2D6E69;text-align:center}
+</style>
+<script>
+(function(){
+  if(window.__ppgBdd) return; window.__ppgBdd=1;
+  var GROUPS=[
+    {h:'\u{1F525} Realtalk',items:[
+      ['/blog/auswandern-aus-deutschland/','Auswandern aus Deutschland'],
+      ['/blog/du-bist-nicht-alleine/','Du bist nicht alleine'],
+      ['/blog/lern-dich-kennen/','Reisen als Selbstfindung'],
+      ['/blog/kein-geld-kein-plan-trotzdem-gegangen/','Kein Geld, kein Plan – trotzdem gegangen'],
+      ['/blog/passion-finden-durch-reisen/','Wie Reisen deine Passion findet']]},
+    {h:'\u{1F3C4} Leben vor Ort',items:[
+      ['/blog/bali-backpacker/','Bali als Backpacker 2026'],
+      ['/blog/nomad-basis-vergleich/','Ko Pha-ngan, Chiang Mai oder Bali?'],
+      ['/blog/thailand-work-and-travel/','Thailand Work & Travel 2026'],
+      ['/blog/reisen-produktivitaet/','Produktiver unterwegs als zuhause'],
+      ['/blog/routine-auf-reisen/','Die Morgenroutine für Nomads']]},
+    {h:'\u{1F4BC} Jobs & Geld',items:[
+      ['/blog/boutique-hotels-social-media-learnings/','Was Boutique Hotels lernen können'],
+      ['/blog/hotels-schlechtes-instagram/','Warum Hotels schlechtes Instagram haben'],
+      ['/blog/sea-digital-nomad-budget/','Budget als Digital Nomad in Südostasien'],
+      ['/blog/remote-arbeiten-selbststaendig/','Remote arbeiten & selbstständig'],
+      ['/blog/social-media-marketing-lernen/','Social Media Marketing lernen']]}
+  ];
+  function build(){
+    var p=document.createElement('div'); p.id='ppg-bdd-panel';
+    GROUPS.forEach(function(g){
+      var col=document.createElement('div'); col.className='ppg-bdd-col';
+      var h=document.createElement('p'); h.className='ppg-bdd-head'; h.textContent=g.h; col.appendChild(h);
+      g.items.forEach(function(it){ var a=document.createElement('a'); a.href=it[0]; a.textContent=it[1]; col.appendChild(a); });
+      p.appendChild(col);
+    });
+    var all=document.createElement('a'); all.href='/blog/'; all.className='ppg-bdd-all'; all.textContent='Alle Artikel ansehen →';
+    p.appendChild(all);
+    document.body.appendChild(p);
+    return p;
+  }
+  var panel, openLink=null;
+  function place(link){
+    var narrow=window.innerWidth<640;
+    panel.style.gridTemplateColumns = narrow ? '1fr' : 'repeat(3,minmax(168px,1fr))';
+    panel.classList.add('show');
+    var pw=panel.offsetWidth, ph=panel.offsetHeight, r=link.getBoundingClientRect();
+    var left=r.left; if(left+pw>window.innerWidth-8) left=window.innerWidth-pw-8; if(left<8) left=8;
+    var top=r.bottom+8;
+    if(top+ph>window.innerHeight-8){ var above=r.top-8-ph; if(above>8) top=above; }
+    panel.style.left=left+'px'; panel.style.top=top+'px';
+  }
+  function close(){ if(!panel) return; panel.classList.remove('show'); if(openLink) openLink.classList.remove('ppg-bdd-active'); openLink=null; }
+  function open(link){ if(!panel) panel=build(); place(link); link.classList.add('ppg-bdd-active'); openLink=link; }
+  function isBlog(a){ var h=(a.getAttribute('href')||'').replace(/[#?].*$/,''); return /(^|\/)blog\/?$/.test(h) && a.textContent.trim().replace(/▾/,'').trim()==='Blog'; }
+  function init(){
+    var links=[].slice.call(document.querySelectorAll('nav a, .nav-links a, .nav-mobile a')).filter(isBlog);
+    if(!links.length) return;
+    links.forEach(function(link){
+      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; link.appendChild(c);
+      link.addEventListener('click',function(e){ e.preventDefault(); if(openLink===link){ close(); } else { close(); open(link); } });
+    });
+    document.addEventListener('click',function(e){ if(openLink && panel && !panel.contains(e.target) && !openLink.contains(e.target)) close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+    window.addEventListener('resize',function(){ if(openLink) place(openLink); });
+    window.addEventListener('scroll',function(){ if(openLink) place(openLink); }, true);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+<!-- /PPG Blog-Dropdown -->
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

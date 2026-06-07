@@ -154,7 +154,7 @@
     .footer-links a:hover{color:var(--white)}
     .footer-copy{font-size:.8rem;color:rgba(255,255,255,0.45)}
     @media(max-width:900px){.insta-grid{grid-template-columns:repeat(2,1fr)}.reels-grid{grid-template-columns:repeat(2,1fr)}.reviews-grid{grid-template-columns:1fr}.stories-grid{grid-template-columns:1fr}.join-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.nav-links{display:none}.nav-burger{display:flex}.reviews-header{flex-direction:column;align-items:flex-start}}
-  
+
     /* FOOTER */
     footer{background:#2D6E69;color:rgba(255,255,255,0.75);padding:48px 24px 32px}
     .footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.1)}
@@ -446,4 +446,141 @@
       </div>
       <div class="join-card">
         <div class="join-icon orange">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><po
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Newsletter</h3>
+        <p>Neue Artikel, ehrliche Tipps und der kostenlose Australien Starter Guide direkt in dein Postfach. Kein Spam.</p>
+        <a href="/travel/#download" class="join-link">Guide holen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo" />
+        PackPlanGo.
+      </div>
+      <p>Travel Guides und Social Media für Hospitality. Von Reisenden, für Reisende und die Orte, die sie lieben.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/studio/">Studio</a>
+      <a href="/blog/">Blog</a>
+      <a href="/blog/community/">Community</a>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum">Impressum</a>
+      <a href="https://instagram.com/jackywest.remote" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://tiktok.com/@jacky_west" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PackPlanGo. All rights reserved.</span>
+    <span>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum">Impressum</a>
+    </span>
+  </div>
+</footer>
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('.submit-btn');
+  if(btn){ btn.disabled = true; btn.textContent = 'Wird gesendet…'; }
+  fetch('/', { method: 'POST', body: new FormData(form) })
+    .then(function(){
+      form.innerHTML = '<p style="color:#fff;font-size:1.05rem;text-align:center;padding:24px 0;">Danke! Deine Story ist angekommen. Wir melden uns bei dir.</p>';
+    })
+    .catch(function(){
+      if(btn){ btn.disabled = false; btn.textContent = 'Story einreichen'; }
+      alert('Etwas ist schiefgelaufen. Bitte versuch es später noch einmal.');
+    });
+}
+</script>
+<!-- PPG Blog-Dropdown (auto-injected) -->
+<style id="ppg-bdd-style">
+.ppg-bdd-caret{display:inline-block;margin-left:5px;font-size:.62em;vertical-align:middle;transition:transform .2s;opacity:.75}
+.ppg-bdd-active .ppg-bdd-caret{transform:rotate(180deg)}
+#ppg-bdd-panel{position:fixed;z-index:99999;background:#fff;border:1px solid #e4dfd5;border-radius:16px;box-shadow:0 20px 60px rgba(27,27,25,.18);padding:16px;display:none;gap:14px 26px;max-width:92vw;box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,sans-serif}
+#ppg-bdd-panel.show{display:grid}
+.ppg-bdd-col{display:flex;flex-direction:column;gap:1px;min-width:0}
+.ppg-bdd-head{font-size:.66rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:#E89A5B;padding:4px 10px 6px;margin:0}
+#ppg-bdd-panel a{display:block;padding:8px 10px;border-radius:9px;font-size:.85rem;line-height:1.3;color:#1B1B19;text-decoration:none;background:none;white-space:normal;font-weight:500;letter-spacing:0}
+#ppg-bdd-panel a:hover{background:#F3EFE7;color:#2D6E69}
+.ppg-bdd-all{grid-column:1/-1;margin-top:6px;padding-top:12px;border-top:1px solid #ececec;font-weight:700;color:#2D6E69;text-align:center}
+</style>
+<script>
+(function(){
+  if(window.__ppgBdd) return; window.__ppgBdd=1;
+  var GROUPS=[
+    {h:'\u{1F525} Realtalk',items:[
+      ['/blog/auswandern-aus-deutschland/','Auswandern aus Deutschland'],
+      ['/blog/du-bist-nicht-alleine/','Du bist nicht alleine'],
+      ['/blog/lern-dich-kennen/','Reisen als Selbstfindung'],
+      ['/blog/kein-geld-kein-plan-trotzdem-gegangen/','Kein Geld, kein Plan – trotzdem gegangen'],
+      ['/blog/passion-finden-durch-reisen/','Wie Reisen deine Passion findet']]},
+    {h:'\u{1F3C4} Leben vor Ort',items:[
+      ['/blog/bali-backpacker/','Bali als Backpacker 2026'],
+      ['/blog/nomad-basis-vergleich/','Ko Pha-ngan, Chiang Mai oder Bali?'],
+      ['/blog/thailand-work-and-travel/','Thailand Work & Travel 2026'],
+      ['/blog/reisen-produktivitaet/','Produktiver unterwegs als zuhause'],
+      ['/blog/routine-auf-reisen/','Die Morgenroutine für Nomads']]},
+    {h:'\u{1F4BC} Jobs & Geld',items:[
+      ['/blog/boutique-hotels-social-media-learnings/','Was Boutique Hotels lernen können'],
+      ['/blog/hotels-schlechtes-instagram/','Warum Hotels schlechtes Instagram haben'],
+      ['/blog/sea-digital-nomad-budget/','Budget als Digital Nomad in Südostasien'],
+      ['/blog/remote-arbeiten-selbststaendig/','Remote arbeiten & selbstständig'],
+      ['/blog/social-media-marketing-lernen/','Social Media Marketing lernen']]}
+  ];
+  function build(){
+    var p=document.createElement('div'); p.id='ppg-bdd-panel';
+    GROUPS.forEach(function(g){
+      var col=document.createElement('div'); col.className='ppg-bdd-col';
+      var h=document.createElement('p'); h.className='ppg-bdd-head'; h.textContent=g.h; col.appendChild(h);
+      g.items.forEach(function(it){ var a=document.createElement('a'); a.href=it[0]; a.textContent=it[1]; col.appendChild(a); });
+      p.appendChild(col);
+    });
+    var all=document.createElement('a'); all.href='/blog/'; all.className='ppg-bdd-all'; all.textContent='Alle Artikel ansehen →';
+    p.appendChild(all);
+    document.body.appendChild(p);
+    return p;
+  }
+  var panel, openLink=null;
+  function place(link){
+    var narrow=window.innerWidth<640;
+    panel.style.gridTemplateColumns = narrow ? '1fr' : 'repeat(3,minmax(168px,1fr))';
+    panel.classList.add('show');
+    var pw=panel.offsetWidth, ph=panel.offsetHeight, r=link.getBoundingClientRect();
+    var left=r.left; if(left+pw>window.innerWidth-8) left=window.innerWidth-pw-8; if(left<8) left=8;
+    var top=r.bottom+8;
+    if(top+ph>window.innerHeight-8){ var above=r.top-8-ph; if(above>8) top=above; }
+    panel.style.left=left+'px'; panel.style.top=top+'px';
+  }
+  function close(){ if(!panel) return; panel.classList.remove('show'); if(openLink) openLink.classList.remove('ppg-bdd-active'); openLink=null; }
+  function open(link){ if(!panel) panel=build(); place(link); link.classList.add('ppg-bdd-active'); openLink=link; }
+  function isBlog(a){ var h=(a.getAttribute('href')||'').replace(/[#?].*$/,''); return /(^|\/)blog\/?$/.test(h) && a.textContent.trim().replace(/▾/,'').trim()==='Blog'; }
+  function init(){
+    var links=[].slice.call(document.querySelectorAll('nav a, .nav-links a, .nav-mobile a')).filter(isBlog);
+    if(!links.length) return;
+    links.forEach(function(link){
+      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; link.appendChild(c);
+      link.addEventListener('click',function(e){ e.preventDefault(); if(openLink===link){ close(); } else { close(); open(link); } });
+    });
+    document.addEventListener('click',function(e){ if(openLink && panel && !panel.contains(e.target) && !openLink.contains(e.target)) close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+    window.addEventListener('resize',function(){ if(openLink) place(openLink); });
+    window.addEventListener('scroll',function(){ if(openLink) place(openLink); }, true);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+<!-- /PPG Blog-Dropdown -->
+</body>
+</html>
