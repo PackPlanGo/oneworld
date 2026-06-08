@@ -68,7 +68,7 @@ section{padding:100px 32px}
 .btn-primary:hover{background:#d9874a;transform:translateY(-2px);color:#fff}
 .btn-teal{background:var(--teal);color:#fff}
 .btn-teal:hover{background:var(--teal-deep);transform:translateY(-2px);color:#fff}
-    .mid-cta{background:var(--bg);text-align:center;padding:84px 32px}
+    .mid-cta{background:var(--bg);text-align:center;padding:44px 32px}
     .mid-cta-text{font-family:var(--serif);font-size:clamp(24px,3.2vw,34px);color:var(--teal);margin:0 0 8px;line-height:1.2}
     .mid-cta-sub{font-size:16px;color:var(--muted);margin:0 auto 26px;max-width:520px;line-height:1.6}
 
@@ -289,7 +289,7 @@ footer.site-footer{background:var(--teal);color:var(--text-light);padding:70px 3
     .video-ad-mute{position:absolute;bottom:16px;right:16px;width:46px;height:46px;border-radius:50%;border:none;background:rgba(15,61,54,.55);color:#fff;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .2s,transform .2s}
     .video-ad-mute:hover{background:rgba(15,61,54,.85);transform:scale(1.06)}
     /* ── Features split (video links / Benefits rechts) ── */
-    .features-split{display:grid;grid-template-columns:minmax(280px,340px) 1fr;gap:56px;align-items:center}
+    .features-split{display:grid;grid-template-columns:minmax(280px,340px) 1fr;gap:56px;align-items:start}
     .features-media{display:flex;justify-content:center}
     .features-media .video-ad-wrap{margin-top:0}
     .features-content .features-head{text-align:left;margin-bottom:30px}
@@ -381,6 +381,14 @@ b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v
 })();
 </script>
 
+<section class="mid-cta reveal">
+  <div class="container">
+    <p class="mid-cta-text">Klingt nach deinem Plan?</p>
+    <p class="mid-cta-sub">Hol dir den kompletten Guide. Kostenlos und sofort.</p>
+    <a href="#download" class="btn btn-primary">📥 Kostenlosen Guide sichern</a>
+  </div>
+</section>
+
 <section class="mockup reveal">
   <div class="container">
     <p class="section-tag">Der Guide</p>
@@ -463,14 +471,6 @@ b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v
         <li>Zugang zur exklusiven WhatsApp Community</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<section class="mid-cta reveal">
-  <div class="container">
-    <p class="mid-cta-text">Bereit, wenn du es bist.</p>
-    <p class="mid-cta-sub">Dein Start nach Australien beginnt mit einem Klick.</p>
-    <a href="#download" class="btn btn-primary">📥 Jetzt Guide sichern</a>
   </div>
 </section>
 
