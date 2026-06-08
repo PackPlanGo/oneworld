@@ -68,6 +68,9 @@ section{padding:100px 32px}
 .btn-primary:hover{background:#d9874a;transform:translateY(-2px);color:#fff}
 .btn-teal{background:var(--teal);color:#fff}
 .btn-teal:hover{background:var(--teal-deep);transform:translateY(-2px);color:#fff}
+    .mid-cta{background:var(--bg);text-align:center;padding:84px 32px}
+    .mid-cta-text{font-family:var(--serif);font-size:clamp(24px,3.2vw,34px);color:var(--teal);margin:0 0 8px;line-height:1.2}
+    .mid-cta-sub{font-size:16px;color:var(--muted);margin:0 auto 26px;max-width:520px;line-height:1.6}
 
 /* HERO */
 .hero{padding:100px 32px 90px;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--teal-deep) 0%,var(--teal) 100%);color:#fff}
@@ -410,6 +413,14 @@ b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v
 </section>
 
 <!-- GUIDE OVERVIEW BEFORE WHAT-YOU-GET -->
+<section class="mid-cta reveal">
+  <div class="container">
+    <p class="mid-cta-text">Genug gesehen?</p>
+    <p class="mid-cta-sub">Hol dir den kompletten Guide. Kostenlos, sofort, ohne Backpacker Blabla.</p>
+    <a href="#download" class="btn btn-primary">📥 Kostenlosen Guide sichern</a>
+  </div>
+</section>
+
 <section class="guide-overview reveal">
   <div class="container">
     <p class="section-tag">Auf einen Blick</p>
@@ -452,6 +463,14 @@ b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v
         <li>Zugang zur exklusiven WhatsApp Community</li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="mid-cta reveal">
+  <div class="container">
+    <p class="mid-cta-text">Bereit, wenn du es bist.</p>
+    <p class="mid-cta-sub">Dein Start nach Australien beginnt mit einem Klick.</p>
+    <a href="#download" class="btn btn-primary">📥 Jetzt Guide sichern</a>
   </div>
 </section>
 
