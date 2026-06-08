@@ -290,7 +290,8 @@ footer.site-footer{background:var(--teal);color:var(--text-light);padding:70px 3
     .video-ad-mute:hover{background:rgba(15,61,54,.85);transform:scale(1.06)}
     /* ── Features split (video links / Benefits rechts) ── */
     .features-split{display:grid;grid-template-columns:minmax(280px,340px) 1fr;gap:56px;align-items:start}
-    .features-media{display:flex;justify-content:center}
+    .features-media{display:flex;flex-direction:column;align-items:center;gap:22px}
+    .features-cta-btn{width:100%;max-width:320px;justify-content:center}
     .features-media .video-ad-wrap{margin-top:0}
     .features-content .features-head{text-align:left;margin-bottom:30px}
     .features-content .features-head .section-sub{margin:0}
@@ -348,6 +349,7 @@ footer.site-footer{background:var(--teal);color:var(--text-light);padding:70px 3
         </video>
         <button class="video-ad-mute" id="adMute" type="button" aria-label="Ton einschalten">🔇</button>
       </div>
+      <a href="#download" class="btn btn-primary features-cta-btn">📥 Kostenlosen Guide sichern</a>
     </div>
     <div class="features-content">
       <div class="features-head">
@@ -380,14 +382,6 @@ footer.site-footer{background:var(--teal);color:var(--text-light);padding:70px 3
 b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v.play().catch(function(){});}b.textContent=v.muted?'\u{1F507}':'\u{1F50A}';b.setAttribute('aria-label',v.muted?'Ton einschalten':'Ton ausschalten');});
 })();
 </script>
-
-<section class="mid-cta reveal">
-  <div class="container">
-    <p class="mid-cta-text">Klingt nach deinem Plan?</p>
-    <p class="mid-cta-sub">Hol dir den kompletten Guide. Kostenlos und sofort.</p>
-    <a href="#download" class="btn btn-primary">📥 Kostenlosen Guide sichern</a>
-  </div>
-</section>
 
 <section class="mockup reveal">
   <div class="container">
