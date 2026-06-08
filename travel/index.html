@@ -325,6 +325,8 @@ footer.site-footer{background:var(--teal);color:var(--text-light);padding:70px 3
       <a href="/travel/" class="active">Travel</a>
       <a href="/studio/">Studio</a>
       <a href="/blog/">Blog</a>
+      <a href="/blog/community/">Community</a>
+      <a href="/founder/">Founder</a>
       <a href="#faq">FAQ</a>
       <a href="#download" class="nav-cta">Free Guide</a>
     </nav>
@@ -914,8 +916,7 @@ document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
     var links=[].slice.call(document.querySelectorAll('nav a, .nav-links a, .nav-mobile a')).filter(isBlog);
     if(!links.length) return;
     links.forEach(function(link){
-      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; link.appendChild(c);
-      link.addEventListener('click',function(e){ if(window.innerWidth<=900){ return; } e.preventDefault(); if(openLink===link){ close(); } else { close(); open(link); } });
+      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; c.addEventListener('click',function(e){ if(window.innerWidth<=900){ return; } e.preventDefault(); e.stopPropagation(); if(openLink===link){ close(); } else { close(); open(link); } }); link.appendChild(c);
     });
     document.addEventListener('click',function(e){ if(openLink && panel && !panel.contains(e.target) && !openLink.contains(e.target)) close(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });

@@ -25,7 +25,7 @@
     .nav-logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); display: flex; align-items: center; gap: 8px; }
     .nav-logo img { width: 26px; height: 26px; border-radius: 6px; }
     .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links a { font-size: 0.875rem; font-weight: 500; padding: 6px 14px; border-radius: 999px; color: var(--muted); transition: color 0.2s, background 0.2s; }
+    .nav-links a { font-size: 0.95rem; font-weight: 500; padding: 6px 14px; border-radius: 999px; color: var(--muted); transition: color 0.2s, background 0.2s; }
     .nav-links a:hover { color: var(--text); background: var(--sand); }
     .nav-links a.active { color: var(--teal); font-weight: 600; background: rgba(45,110,105,0.08); }
     .nav-cta { background: var(--teal) !important; color: var(--white) !important; padding: 7px 18px !important; border-radius: 999px !important; font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
@@ -144,7 +144,7 @@
   <div class="nav-inner">
     <a href="https://www.packplango.com/" class="nav-logo">
       <img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo" />
-      PackPlanGo.
+      PackPlanGo<span style="color:var(--teal)">.</span> Blog
     </a>
     <ul class="nav-links">
       <li><a href="https://www.packplango.com/">Home</a></li>
@@ -511,8 +511,7 @@
     var links=[].slice.call(document.querySelectorAll('nav a, .nav-links a, .nav-mobile a')).filter(isBlog);
     if(!links.length) return;
     links.forEach(function(link){
-      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; link.appendChild(c);
-      link.addEventListener('click',function(e){ if(window.innerWidth<=900){ return; } e.preventDefault(); if(openLink===link){ close(); } else { close(); open(link); } });
+      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; c.addEventListener('click',function(e){ if(window.innerWidth<=900){ return; } e.preventDefault(); e.stopPropagation(); if(openLink===link){ close(); } else { close(); open(link); } }); link.appendChild(c);
     });
     document.addEventListener('click',function(e){ if(openLink && panel && !panel.contains(e.target) && !openLink.contains(e.target)) close(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });

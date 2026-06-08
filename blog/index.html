@@ -38,7 +38,7 @@
     .nav-logo { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text); display: flex; align-items: center; gap: 8px; }
     .nav-logo img { width: 26px; height: 26px; border-radius: 6px; }
     .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links a { font-size: 0.875rem; font-weight: 500; padding: 6px 14px; border-radius: 999px; color: var(--muted); transition: color 0.2s, background 0.2s; }
+    .nav-links a { font-size: 0.95rem; font-weight: 500; padding: 6px 14px; border-radius: 999px; color: var(--muted); transition: color 0.2s, background 0.2s; }
     .nav-links a:hover { color: var(--text); background: var(--sand); }
     .nav-links a.active { color: var(--teal); font-weight: 600; background: rgba(45,110,105,0.08); }
     .nav-cta { background: var(--teal) !important; color: var(--white) !important; padding: 7px 18px !important; border-radius: 999px !important; font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
@@ -141,6 +141,17 @@
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
       .footer-bottom a { margin: 0 8px; }
     }
+      .blog-layout{display:grid;grid-template-columns:1fr 290px;gap:44px;align-items:start}
+    .blog-aside{position:sticky;top:80px}
+    .aside-search input{width:100%;padding:11px 16px;border:1.5px solid var(--border);border-radius:999px;font-family:inherit;font-size:0.9rem;background:var(--white);color:var(--text);outline:none;transition:border-color .2s;box-sizing:border-box}
+    .aside-search input:focus{border-color:var(--teal)}
+    .aside-list{margin-top:18px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 18px 10px}
+    .aside-title{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+    .aside-list ul{list-style:none;margin:0;padding:0}
+    .aside-list li a{display:block;font-size:0.9rem;line-height:1.4;color:var(--text);padding:8px 10px;border-radius:8px;transition:background .2s,color .2s;text-decoration:none}
+    .aside-list li a:hover{background:var(--sand);color:var(--teal)}
+    .aside-empty{font-size:0.85rem;color:var(--muted);padding:6px 10px 12px}
+    @media(max-width:860px){.blog-layout{grid-template-columns:1fr}.blog-aside{position:static;margin-top:48px}}
   </style>
   <meta property="og:title" content="Blog: Reisen, Remote Work &amp; Digital Nomad Life | PackPlanGo" />
   <meta property="og:description" content="Ehrliche Artikel über Work and Travel Australien, Digital Nomad Leben, Remote Work und das Leben, das möglich ist, wenn du aufhörst zu warten." />
@@ -155,7 +166,7 @@
   <div class="nav-inner">
     <a href="https://www.packplango.com/" class="nav-logo">
       <img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo" />
-      PackPlanGo.
+      PackPlanGo<span style="color:var(--teal)">.</span> Blog
     </a>
     <ul class="nav-links">
       <li><a href="https://www.packplango.com/">Home</a></li>
@@ -206,6 +217,8 @@
 </div>
 
 <main class="blog-section">
+<div class="blog-layout">
+<div class="blog-main">
 
   <p class="section-label">Neuster Artikel</p>
 
@@ -435,6 +448,34 @@
     <p id="blog-nl-success" style="display:none;color:var(--white);font-size:0.9rem;margin-top:12px;">Danke! Check dein Postfach und bestätige die Anmeldung.</p>
   </div>
 
+  </div>
+  <aside class="blog-aside">
+    <div class="aside-search">
+      <input type="search" id="articleSearch" placeholder="Artikel suchen..." aria-label="Artikel suchen" autocomplete="off" />
+    </div>
+    <nav class="aside-list" aria-label="Alle Artikel">
+      <p class="aside-title">Alle Artikel</p>
+      <ul id="articleList">
+          <li><a href="/blog/boutique-hotels-social-media-learnings/">Was Boutique Hotels über Social Media von großen Chains lernen könnten</a></li>
+          <li><a href="/blog/auswandern-aus-deutschland/">Auswandern aus Deutschland. Warum es die beste Entscheidung deines Lebens sein könnte.</a></li>
+          <li><a href="/blog/bali-backpacker/">Bali als Backpacker 2026. Was es kostet und was du wissen musst.</a></li>
+          <li><a href="/blog/nomad-basis-vergleich/">Ko Pha-ngan, Chiang Mai oder Bali. Wo wohnst du als Nomad am günstigsten?</a></li>
+          <li><a href="/blog/hotels-schlechtes-instagram/">Warum Hotels schlechtes Instagram haben. Und wie das jeder ändern kann.</a></li>
+          <li><a href="/blog/du-bist-nicht-alleine/">Du bist nicht alleine. Wie du unterwegs echte Verbindungen findest.</a></li>
+          <li><a href="/blog/lern-dich-kennen/">Reisen ist das beste Selbstfindungsprogramm. Kein Kurs nötig.</a></li>
+          <li><a href="/blog/kein-geld-kein-plan-trotzdem-gegangen/">Kein Geld, kein Plan und trotzdem gegangen. Was das wirklich bedeutet.</a></li>
+          <li><a href="/blog/thailand-work-and-travel/">Thailand Work and Travel 2026. Der ehrliche Guide.</a></li>
+          <li><a href="/blog/sea-digital-nomad-budget/">Wie viel Geld brauchst du als Digital Nomad in Südostasien wirklich?</a></li>
+          <li><a href="/blog/remote-arbeiten-selbststaendig/">Remote arbeiten und selbstständig unterwegs sein. Was wirklich funktioniert.</a></li>
+          <li><a href="/blog/social-media-marketing-lernen/">Social Media Marketing lernen. Dein Ticket zur Ortsunabhängigkeit.</a></li>
+          <li><a href="/blog/passion-finden-durch-reisen/">Wie Reisen deine Passion findet, bevor du es selbst tust</a></li>
+          <li><a href="/blog/reisen-produktivitaet/">Warum du unterwegs produktiver bist als zuhause</a></li>
+          <li><a href="/blog/routine-auf-reisen/">Die Morgenroutine, die Digital Nomads wirklich produktiv hält</a></li>
+      </ul>
+      <p class="aside-empty" id="searchEmpty" style="display:none">Keine Artikel gefunden.</p>
+    </nav>
+  </aside>
+</div>
 </main>
 
 <footer>
@@ -581,8 +622,7 @@
     var links=[].slice.call(document.querySelectorAll('nav a, .nav-links a, .nav-mobile a')).filter(isBlog);
     if(!links.length) return;
     links.forEach(function(link){
-      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; link.appendChild(c);
-      link.addEventListener('click',function(e){ if(window.innerWidth<=900){ return; } e.preventDefault(); if(openLink===link){ close(); } else { close(); open(link); } });
+      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='▾'; c.addEventListener('click',function(e){ if(window.innerWidth<=900){ return; } e.preventDefault(); e.stopPropagation(); if(openLink===link){ close(); } else { close(); open(link); } }); link.appendChild(c);
     });
     document.addEventListener('click',function(e){ if(openLink && panel && !panel.contains(e.target) && !openLink.contains(e.target)) close(); });
     document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
@@ -593,5 +633,6 @@
 })();
 </script>
 <!-- /PPG Blog-Dropdown -->
+<script>(function(){var inp=document.getElementById("articleSearch");if(!inp)return;var items=[].slice.call(document.querySelectorAll("#articleList li"));var empty=document.getElementById("searchEmpty");inp.addEventListener("input",function(){var q=inp.value.trim().toLowerCase();var any=false;items.forEach(function(li){var show=li.textContent.toLowerCase().indexOf(q)>-1;li.style.display=show?"":"none";if(show)any=true;});if(empty)empty.style.display=any?"none":"block";});})();</script>
 </body>
 </html>
