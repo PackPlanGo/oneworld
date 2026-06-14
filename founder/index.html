@@ -60,6 +60,10 @@
     .dDeep{background:radial-gradient(125% 95% at 50% 122%,rgba(0,229,206,.6),rgba(4,80,92,0) 60%);opacity:0;mix-blend-mode:screen}
     .dRays{opacity:0;mix-blend-mode:screen;background:repeating-linear-gradient(98deg,transparent 0 9%,rgba(190,255,248,.16) 10.5% 12.5%,transparent 14% 22%);transform-origin:top center;animation:sway 9s ease-in-out infinite}
     @keyframes sway{0%,100%{transform:translateX(-4%) skewX(-2.5deg)}50%{transform:translateX(4%) skewX(2.5deg)}}
+    .dCaustics{opacity:0;mix-blend-mode:screen;z-index:3}
+    .dCaustics svg{width:100%;height:100%;display:block}
+    .dDust{position:absolute;border-radius:50%;background:rgba(225,255,250,.75);box-shadow:0 0 7px rgba(200,255,250,.6);opacity:0;z-index:5;bottom:-10vh;animation:dust linear infinite}
+    @keyframes dust{0%{transform:translateY(0) translateX(0);opacity:0}18%{opacity:.7}100%{transform:translateY(-128vh) translateX(18px);opacity:0}}
     .dVignette{opacity:0;background:radial-gradient(120% 78% at 50% 42%,transparent 52%,rgba(0,18,26,.62));box-shadow:inset 0 0 220px 70px rgba(0,22,28,.6)}
     .dFloat{position:absolute;border-radius:18px;overflow:hidden;border:5px solid rgba(255,255,255,.82);box-shadow:0 34px 90px rgba(0,42,48,.6);opacity:0;z-index:4;will-change:transform,opacity}
     .dFloat::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,210,196,.16),rgba(0,80,104,.4))}
@@ -205,9 +209,11 @@
     <div class="dLayer dGrade" id="dGrade"></div>
     <div class="dLayer dDeep" id="dDeep"></div>
     <div class="dLayer dRays" id="dRays"></div>
+    <div class="dLayer dCaustics" id="dCaus"><svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><defs><filter id="causF"><feTurbulence type="fractalNoise" baseFrequency="0.014 0.022" numOctaves="2" seed="7" result="n"><animate attributeName="baseFrequency" dur="20s" values="0.014 0.022;0.021 0.015;0.014 0.022" repeatCount="indefinite"/></feTurbulence><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.42  0 0 0 0 0.96  0 0 0 0 0.90  0 0 0 16 -6.2"/></filter></defs><rect width="100%" height="100%" filter="url(#causF)"/></svg></div>
     <div class="dFloat dF1" id="dF1"><img src="/images/mariama-207.jpg" alt="Jacky beim Tauchen"></div>
     <div class="dFloat dF2" id="dF2"><img src="/images/mariama-215.jpg" alt="Jacky unter Wasser"></div>
     <span class="dBub" style="left:8%;width:60px;height:60px;animation-duration:15s;animation-delay:0s"></span><span class="dBub" style="left:18%;width:34px;height:34px;animation-duration:11s;animation-delay:2s;filter:blur(1.5px)"></span><span class="dBub" style="left:30%;width:84px;height:84px;animation-duration:18s;animation-delay:1s"></span><span class="dBub" style="left:42%;width:46px;height:46px;animation-duration:13s;animation-delay:4s"></span><span class="dBub" style="left:54%;width:28px;height:28px;animation-duration:9s;animation-delay:3s;filter:blur(2.5px)"></span><span class="dBub" style="left:63%;width:72px;height:72px;animation-duration:16s;animation-delay:0s"></span><span class="dBub" style="left:74%;width:40px;height:40px;animation-duration:12s;animation-delay:5s;filter:blur(1.2px)"></span><span class="dBub" style="left:82%;width:58px;height:58px;animation-duration:14s;animation-delay:2s"></span><span class="dBub" style="left:90%;width:30px;height:30px;animation-duration:10s;animation-delay:3s;filter:blur(2px)"></span><span class="dBub" style="left:96%;width:50px;height:50px;animation-duration:15s;animation-delay:1s"></span><span class="dBub" style="left:48%;width:66px;height:66px;animation-duration:17s;animation-delay:6s"></span>
+    <span class="dDust" style="left:82%;width:5px;height:5px;animation-duration:28s;animation-delay:5.5s"></span><span class="dDust" style="left:97%;width:3px;height:6px;animation-duration:28s;animation-delay:7.5s"></span><span class="dDust" style="left:86%;width:3px;height:4px;animation-duration:17s;animation-delay:3.0s"></span><span class="dDust" style="left:34%;width:6px;height:3px;animation-duration:25s;animation-delay:2.0s"></span><span class="dDust" style="left:96%;width:4px;height:6px;animation-duration:20s;animation-delay:1.5s"></span><span class="dDust" style="left:52%;width:4px;height:3px;animation-duration:18s;animation-delay:4.9s"></span><span class="dDust" style="left:59%;width:4px;height:4px;animation-duration:16s;animation-delay:7.8s"></span><span class="dDust" style="left:3%;width:4px;height:4px;animation-duration:18s;animation-delay:7.0s"></span><span class="dDust" style="left:40%;width:5px;height:4px;animation-duration:24s;animation-delay:7.0s"></span><span class="dDust" style="left:83%;width:4px;height:4px;animation-duration:27s;animation-delay:1.6s"></span><span class="dDust" style="left:52%;width:5px;height:3px;animation-duration:21s;animation-delay:3.3s"></span><span class="dDust" style="left:21%;width:5px;height:3px;animation-duration:21s;animation-delay:2.4s"></span><span class="dDust" style="left:80%;width:3px;height:5px;animation-duration:17s;animation-delay:2.5s"></span><span class="dDust" style="left:42%;width:6px;height:5px;animation-duration:18s;animation-delay:3.8s"></span><span class="dDust" style="left:93%;width:4px;height:3px;animation-duration:20s;animation-delay:7.8s"></span><span class="dDust" style="left:5%;width:5px;height:6px;animation-duration:16s;animation-delay:4.4s"></span>
     <div class="dLayer dVignette" id="dVig"></div>
     <span class="vlabel vlabel-l">die Gründerin</span>
     <span class="vlabel vlabel-r">Gold Coast · Australien</span>
@@ -392,7 +398,7 @@
   if(b&&m)b.addEventListener('click',function(){m.classList.toggle('open');});
   var hero=document.getElementById('diveHero');
   if(!hero) return;
-  var surf=document.getElementById('dSurface'),grade=document.getElementById('dGrade'),deep=document.getElementById('dDeep'),rays=document.getElementById('dRays'),vig=document.getElementById('dVig'),f1=document.getElementById('dF1'),f2=document.getElementById('dF2'),st=document.getElementById('dSurfTxt'),dt=document.getElementById('dDeepTxt');
+  var caus=document.getElementById('dCaus'),surf=document.getElementById('dSurface'),grade=document.getElementById('dGrade'),deep=document.getElementById('dDeep'),rays=document.getElementById('dRays'),vig=document.getElementById('dVig'),f1=document.getElementById('dF1'),f2=document.getElementById('dF2'),st=document.getElementById('dSurfTxt'),dt=document.getElementById('dDeepTxt');
   var cur=0,tgt=0;
   function clamp(v){return v<0?0:v>1?1:v;}
   function compute(){var total=hero.offsetHeight-window.innerHeight;tgt=clamp((-hero.getBoundingClientRect().top)/(total||1));}
@@ -403,6 +409,7 @@
     surf.style.transform='scale('+(1.08+p*0.22)+')';
     grade.style.opacity=(0.55+p*0.45).toFixed(3);
     deep.style.opacity=clamp(p*1.25).toFixed(3);
+    if(caus)caus.style.opacity=clamp((p-0.26)*1.5).toFixed(3);
     rays.style.opacity=clamp((p-0.05)*1.1).toFixed(3);
     vig.style.opacity=(p*0.92).toFixed(3);
     var u=clamp((p-0.34)/0.6);
