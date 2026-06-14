@@ -20,31 +20,28 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
-      --teal:#2D6E69;--teal-dark:#234f4b;--teal-pale:rgba(45,110,105,.07);
-      --orange:#E89A5B;--orange-soft:#f6d9bf;
+      --teal:#2D6E69;--teal-deep:#234f4b;--turq:#4FB3A8;--turq-light:#9fe0d7;
+      --sand:#EAD9C2;--sand-pale:#F4EBDC;--cream:#F7F2E8;
       --pink:#E8005A;--pink-soft:#F7C9D9;--pink-pale:#FCE7EE;
-      --cream:#F3EFE7;--sand:#ECE6DA;--ink:#1B1B19;--white:#fff;--muted:#6b6b68;--border:#ddd8cf;
-      --radius:22px;--radius-sm:14px;
+      --ink:#1f2e2c;--muted:#5f6f6c;--white:#fff;--border:#e2d8c8;
+      --radius:24px;--radius-sm:14px;
     }
-    body{font-family:'Inter',sans-serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
-      background:
-        radial-gradient(circle at 1px 1px, rgba(45,110,105,.06) 1px, transparent 0) 0 0/26px 26px,
-        var(--cream);
-      overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;background:var(--cream);overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1120px;margin:0 auto;padding:0 24px}
-    .eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
+    .eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--pink)}
     .serif{font-family:'DM Serif Display',serif;font-weight:400}
     /* NAV */
-    nav{position:sticky;top:0;z-index:100;background:rgba(243,239,231,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    nav{position:sticky;top:0;z-index:100;background:rgba(247,242,232,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
     .nav-inner{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
     .nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.05rem}
     .nav-logo img{width:26px;border-radius:6px}
     .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
     .nav-links a{font-size:15px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:999px;transition:.2s}
-    .nav-links a:hover{color:var(--ink);background:var(--sand)}
-    .nav-links a.active{color:var(--teal);font-weight:600;background:var(--teal-pale)}
+    .nav-links a:hover{color:var(--ink);background:var(--sand-pale)}
+    .nav-links a.active{color:var(--teal);font-weight:600;background:rgba(79,179,168,.16)}
     .nav-cta{background:var(--teal)!important;color:#fff!important;font-weight:600}
     .nav-burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer}
     .nav-mobile{display:none;flex-direction:column;background:var(--cream);border-top:1px solid var(--border);padding:12px 24px 18px}
@@ -52,109 +49,105 @@
     .nav-mobile a:last-child{border:none}
     .nav-mobile.open{display:flex}
     @media(max-width:820px){.nav-links{display:none}.nav-burger{display:flex}}
-
+    /* palm decoration */
+    .palm{position:absolute;pointer-events:none;z-index:3;opacity:.9}
+    .palm svg{width:100%;height:100%;display:block}
     /* HERO */
-    .hero{position:relative;overflow:hidden;padding:78px 24px 64px}
-    .hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:3}
-    .vlabel{position:absolute;top:50%;font-size:.66rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);z-index:3}
-    .vlabel-l{left:18px;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl}
-    .vlabel-r{right:18px;transform:translateY(-50%);writing-mode:vertical-rl}
-    .blob{position:absolute;z-index:1;pointer-events:none;filter:blur(.5px)}
-    .blob-pink{width:480px;top:-90px;right:-70px;opacity:.9}
-    .blob-orange{width:300px;bottom:-120px;left:-80px;opacity:.8}
-    .hero h1{font-size:clamp(3rem,11vw,7.5rem);line-height:.92;letter-spacing:-.01em;margin:8px 0 6px}
-    .hero h1 .pre{display:block;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(1.1rem,3vw,1.7rem);letter-spacing:.01em;color:var(--ink);margin-bottom:2px}
-    .hero h1 .name{font-family:'DM Serif Display',serif;font-style:italic;color:var(--teal);position:relative;display:inline-block}
-    .hero h1 .name .hl{background:linear-gradient(transparent 60%, var(--pink-soft) 60% 92%, transparent 92%);padding:0 .04em}
-    .hero h1 .dot{color:var(--pink)}
-    .hero-lead{max-width:560px;margin:22px 0 0;font-size:1.12rem;color:#42423f}
-    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-    .badge{font-size:.78rem;font-weight:700;letter-spacing:.02em;padding:8px 16px;border-radius:999px;border:1.5px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.5)}
-    .badge-pink{border-color:var(--pink);color:var(--pink)}
-    .badge-orange{border-color:var(--orange);color:#c9762f}
-    .hero-portrait{position:absolute;z-index:2;right:60px;top:40px;width:248px;rotate:4deg}
-    .hero-portrait img{border-radius:var(--radius);box-shadow:0 26px 60px rgba(27,27,25,.22);border:7px solid #fff;aspect-ratio:4/5;object-fit:cover}
-    @media(max-width:980px){.hero-portrait{display:none}}
-
-    /* PALETTE STRIP */
-    .palette{max-width:1120px;margin:8px auto 0;padding:30px 24px}
-    .palette-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
-    .palette-head h2{font-family:'DM Serif Display',serif;font-size:1.7rem}
-    .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .sw{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;display:flex;flex-direction:column;gap:8px}
-    .sw .chip{height:64px;border-radius:10px;background:var(--c)}
-    .sw strong{font-size:.92rem}
-    .sw small{font-size:.72rem;color:var(--muted);letter-spacing:.08em;font-weight:600}
-    @media(max-width:680px){.swatches{grid-template-columns:repeat(2,1fr)}}
-
-    /* SECTION SHELL */
-    section.block{padding:54px 0}
-    .sec-tag{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.3rem);color:var(--ink);text-align:center;margin:10px auto 30px;max-width:760px}
-    .sec-tag .o{color:var(--orange)}
-    .sec-tag .p{color:var(--pink)}
-
-    /* FEATURE */
-    .feat{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center;max-width:1120px;margin:0 auto;padding:0 24px}
-    .feat + .feat{margin-top:64px}
+    .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;background:url('/images/jacky-strand2.jpg') center/cover no-repeat;background-attachment:fixed;z-index:0}
+    .hero-wash{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(45,110,105,.30) 0%,rgba(79,179,168,.10) 35%,rgba(31,46,44,.62) 100%)}
+    .hero .vlabel{position:absolute;top:46%;font-size:.66rem;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.85);z-index:4;writing-mode:vertical-rl}
+    .vlabel-l{left:20px;transform:translateY(-50%) rotate(180deg)}
+    .vlabel-r{right:20px;transform:translateY(-50%)}
+    .hero-inner{position:relative;z-index:4;max-width:1120px;margin:0 auto;width:100%;padding:0 40px 9vh}
+    .hero .kick{color:var(--turq-light);font-weight:800;letter-spacing:.24em;text-transform:uppercase;font-size:.8rem;margin-bottom:10px}
+    .hero h1{font-family:'DM Serif Display',serif;color:#fff;line-height:.86;letter-spacing:-.01em;text-shadow:0 6px 40px rgba(20,40,38,.45)}
+    .hero h1 .big{display:block;font-size:clamp(4.5rem,19vw,15rem);font-style:italic}
+    .hero h1 .big .pk{color:var(--pink-soft)}
+    .hero h1 .pre{display:block;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(1rem,3vw,1.5rem);letter-spacing:.02em;margin-bottom:4px;text-shadow:0 2px 14px rgba(20,40,38,.5)}
+    .hero-sub{color:rgba(255,255,255,.92);max-width:540px;margin-top:18px;font-size:1.1rem;text-shadow:0 2px 14px rgba(20,40,38,.5)}
+    .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .hbadge{font-size:.76rem;font-weight:700;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.6);color:#fff;backdrop-filter:blur(4px)}
+    .hbadge.pk{background:var(--pink);border-color:var(--pink)}
+    .scrollcue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:4;color:rgba(255,255,255,.8);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+    .scrollcue span{display:block;width:1px;height:34px;background:rgba(255,255,255,.6);margin:8px auto 0;animation:cue 1.8s ease-in-out infinite}
+    @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+    @media(hover:none){.hero-bg{background-attachment:scroll}}
+    /* ABOUT */
+    .about{position:relative;padding:90px 24px;background:radial-gradient(120% 100% at 80% 0%,var(--sand-pale),var(--cream))}
+    .about-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+    .arch{position:relative;width:100%;max-width:360px;margin:0 auto;aspect-ratio:3/4;border-radius:200px 200px 22px 22px;overflow:hidden;box-shadow:0 30px 70px rgba(35,79,75,.28);border:7px solid #fff}
+    .arch img{width:100%;height:100%;object-fit:cover}
+    .arch-badge{position:absolute;right:-14px;bottom:24px;background:var(--pink);color:#fff;font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;padding:12px 18px;border-radius:999px;box-shadow:0 10px 24px rgba(232,0,90,.4);rotate:-6deg}
+    .about h2{font-family:'DM Serif Display',serif;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.04;margin:10px 0 16px}
+    .about h2 em{font-style:italic;color:var(--teal)}
+    .about p{color:#374a47;font-size:1.08rem;max-width:560px}
+    .about .hero-badges{margin-top:24px}
+    .about .hbadge{background:#fff;border:1.5px solid var(--teal);color:var(--teal)}
+    .about .hbadge.pk{background:var(--pink);border-color:var(--pink);color:#fff}
+    .about .hbadge.tq{border-color:var(--turq);color:#2d8a7f}
+    @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:34px}}
+    /* STORY FEATURE */
+    section.block{padding:74px 0;position:relative}
+    .feat{display:grid;grid-template-columns:1.05fr 1fr;gap:54px;align-items:center;max-width:1120px;margin:0 auto;padding:0 24px}
     .feat.rev .feat-media{order:2}
-    .feat-text h2{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.08;margin:10px 0 14px}
-    .feat-text p{color:#3c3c39;font-size:1.04rem}
+    .feat-text h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.08;margin:10px 0 14px}
+    .feat-text p{color:#374a47;font-size:1.05rem}
     .feat-media{position:relative}
-    .frame{border-radius:var(--radius);overflow:hidden;box-shadow:0 22px 50px rgba(27,27,25,.16);border:6px solid #fff}
+    .frame{border-radius:var(--radius);overflow:hidden;box-shadow:0 24px 55px rgba(35,79,75,.18);border:6px solid #fff}
     .frame img{width:100%;aspect-ratio:4/3;object-fit:cover}
     .media-stack{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .media-stack .frame:first-child{grid-row:span 2;align-self:stretch}
+    .media-stack .frame:first-child{grid-row:span 2}
     .media-stack .frame:first-child img{aspect-ratio:3/4;height:100%}
-    .tilt-l{rotate:-3deg}.tilt-r{rotate:3deg}
+    .tilt-l{rotate:-2.5deg}.tilt-r{rotate:2.5deg}
     @media(max-width:820px){.feat{grid-template-columns:1fr;gap:26px}.feat.rev .feat-media{order:0}}
-
-    /* QUOTE CARD */
-    .quote{max-width:880px;margin:46px auto 0;padding:0 24px}
-    .quote-inner{background:var(--teal);color:#fff;border-radius:var(--radius);padding:44px 48px;position:relative;box-shadow:0 24px 60px rgba(35,79,75,.30)}
-    .quote-inner .mark{font-family:'DM Serif Display',serif;font-size:4.4rem;line-height:.5;color:var(--pink-soft);position:absolute;top:34px;left:30px;opacity:.7}
-    .quote-inner h3{font-family:'DM Serif Display',serif;font-size:1.5rem;margin:0 0 12px;padding-left:48px}
-    .quote-inner p{color:rgba(255,255,255,.9);padding-left:48px;font-size:1.05rem}
-    @media(max-width:560px){.quote-inner{padding:34px 26px}.quote-inner h3,.quote-inner p{padding-left:0}.quote-inner .mark{position:static;display:block;margin-bottom:-18px}}
-
+    /* QUOTE */
+    .quote{max-width:900px;margin:0 auto;padding:0 24px}
+    .quote-inner{background:linear-gradient(135deg,var(--teal),var(--turq));color:#fff;border-radius:var(--radius);padding:46px 50px;position:relative;box-shadow:0 26px 60px rgba(45,110,105,.34);overflow:hidden}
+    .quote-inner .palm{top:-30px;right:-20px;width:200px;height:200px;color:#fff;opacity:.16}
+    .quote-inner .mark{font-family:'DM Serif Display',serif;font-size:4rem;line-height:.4;color:var(--pink-soft);display:block;margin-bottom:6px}
+    .quote-inner h3{font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0 0 12px;position:relative;z-index:2}
+    .quote-inner p{color:rgba(255,255,255,.95);position:relative;z-index:2;font-size:1.05rem}
+    /* PARALLAX STRIP */
+    .par{position:relative;min-height:62vh;display:flex;align-items:center;justify-content:center;background-size:cover;background-position:center;background-attachment:fixed;text-align:center;overflow:hidden}
+    .par::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(45,110,105,.55),rgba(79,179,168,.32) 55%,rgba(232,0,90,.30))}
+    .par-q{position:relative;z-index:2;color:#fff;padding:0 24px}
+    .par-q .k{font-weight:800;letter-spacing:.24em;text-transform:uppercase;font-size:.78rem;color:var(--turq-light);margin-bottom:8px}
+    .par-q h2{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(2.2rem,6.4vw,4.6rem);line-height:1.02;text-shadow:0 6px 40px rgba(20,40,38,.4)}
+    .par-q h2 .pk{color:var(--pink-soft)}
+    @media(hover:none){.par{background-attachment:scroll}}
     /* GALLERY */
     .gallery{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .gallery .frame img{aspect-ratio:1/1}
     @media(max-width:680px){.gallery{grid-template-columns:repeat(2,1fr)}}
-
-    /* PANEL (pink editorial) */
-    .panel{max-width:1000px;margin:0 auto;padding:0 24px}
-    .panel-inner{background:var(--pink-pale);border:1px solid var(--pink-soft);border-radius:var(--radius);padding:46px 44px;text-align:center}
-    .panel-inner h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.6vw,2.4rem);margin-bottom:14px}
-    .panel-inner p{max-width:660px;margin:0 auto;color:#48383e;font-size:1.06rem}
-
-    /* PILLS */
-    .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px auto 0;max-width:760px}
-    .pill{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.05rem;padding:9px 22px;border-radius:999px;background:#fff;border:1.5px solid var(--ink)}
-    .pill.t{border-color:var(--teal);color:var(--teal)}
-    .pill.p{border-color:var(--pink);color:var(--pink)}
-    .pill.o{border-color:var(--orange);color:#c9762f}
-
     /* STATS */
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:820px;margin:50px auto 0;padding:0 24px}
-    .stat{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:26px 18px;text-align:center}
-    .stat .n{font-family:'DM Serif Display',serif;font-size:2.8rem;color:var(--teal);line-height:1}
-    .stat:nth-child(2) .n{color:var(--orange)}
-    .stat:nth-child(3) .n{color:var(--pink)}
-    .stat .l{font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:840px;margin:54px auto 0;padding:0 24px}
+    .stat{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:28px 18px;text-align:center;box-shadow:0 14px 34px rgba(35,79,75,.08)}
+    .stat .n{font-family:'DM Serif Display',serif;font-size:3rem;color:var(--teal);line-height:1}
+    .stat:nth-child(2) .n{color:var(--turq)}.stat:nth-child(3) .n{color:var(--pink)}
+    .stat .l{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:8px}
     @media(max-width:560px){.stats{grid-template-columns:1fr;gap:12px}}
-
+    /* WARUM PANEL */
+    .panel{max-width:1000px;margin:0 auto;padding:0 24px}
+    .panel-inner{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--sand-pale),var(--pink-pale));border:1px solid var(--sand);border-radius:var(--radius);padding:54px 46px;text-align:center}
+    .panel-inner .palm{bottom:-40px;left:-30px;width:230px;height:230px;color:var(--turq);opacity:.22}
+    .panel-inner h2{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:14px;position:relative;z-index:2}
+    .panel-inner p{max-width:680px;margin:0 auto;color:#3a4a47;font-size:1.06rem;position:relative;z-index:2}
+    .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:26px auto 0;position:relative;z-index:2}
+    .pill{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.05rem;padding:9px 22px;border-radius:999px;background:#fff;border:1.5px solid var(--teal);color:var(--teal)}
+    .pill.p{border-color:var(--pink);color:var(--pink)}.pill.t{border-color:var(--turq);color:#2d8a7f}
     /* CTA */
-    .cta{max-width:880px;margin:64px auto 80px;padding:0 24px}
-    .cta-inner{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-radius:var(--radius);padding:58px 44px;text-align:center}
-    .cta-inner .cblob{position:absolute;width:320px;right:-90px;bottom:-130px;opacity:.6;pointer-events:none}
-    .cta-inner h3{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:14px;position:relative;z-index:2}
-    .cta-inner p{color:rgba(255,255,255,.82);max-width:500px;margin:0 auto 26px;position:relative;z-index:2}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:.95rem;margin:6px;position:relative;z-index:2}
-    .btn-pink{background:var(--pink);color:#fff}
-    .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.4)}
-
+    .cta{max-width:920px;margin:74px auto 84px;padding:0 24px}
+    .cta-inner{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--teal) 0%,var(--turq) 100%);color:#fff;border-radius:var(--radius);padding:64px 44px;text-align:center;box-shadow:0 30px 70px rgba(45,110,105,.32)}
+    .cta-inner .palm.a{top:-40px;left:-30px;width:220px;height:220px;color:#fff;opacity:.18}
+    .cta-inner .palm.b{bottom:-50px;right:-30px;width:250px;height:250px;color:var(--pink-soft);opacity:.3;transform:scaleX(-1)}
+    .cta-inner h3{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4.4vw,2.8rem);margin-bottom:14px;position:relative;z-index:2}
+    .cta-inner p{color:rgba(255,255,255,.92);max-width:520px;margin:0 auto 28px;position:relative;z-index:2}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:999px;font-weight:700;font-size:.95rem;margin:6px;position:relative;z-index:2}
+    .btn-pink{background:var(--pink);color:#fff;box-shadow:0 12px 28px rgba(232,0,90,.4)}
+    .btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.6)}
     /* FOOTER */
-    footer{background:var(--teal);color:rgba(255,255,255,.75);padding:48px 24px 30px}
+    footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px 30px}
     .footer-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.12)}
     .footer-brand .logo{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;margin-bottom:12px}
     .footer-brand .logo img{width:24px;border-radius:5px}
@@ -189,34 +182,41 @@
 
 <!-- HERO -->
 <header class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-wash"></div>
+  <span class="palm" data-par="-0.06" style="top:6%;left:-30px;width:230px;height:230px;color:var(--turq-light);opacity:.55"><svg viewBox="-130 -170 260 190"><g fill="currentColor"><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-58)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-32)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-8)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(18)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(44)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(66)"/></g><path d="M0 0 Q4 30 0 70" stroke="currentColor" stroke-width="4" fill="none"/></svg></span>
+  <span class="palm" data-par="-0.1" style="top:4%;right:-40px;width:280px;height:280px;color:#fff;opacity:.4;transform:scaleX(-1)"><svg viewBox="-130 -170 260 190"><g fill="currentColor"><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-58)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-32)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-8)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(18)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(44)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(66)"/></g><path d="M0 0 Q4 30 0 70" stroke="currentColor" stroke-width="4" fill="none"/></svg></span>
   <span class="vlabel vlabel-l">die Gründerin</span>
   <span class="vlabel vlabel-r">Gold Coast · Australien</span>
-  <svg class="blob blob-pink" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#F7C9D9" d="M44.7,-58.2C57.4,-49.1,66.4,-34.6,69.8,-19C73.2,-3.4,71,13.3,63.3,26.8C55.6,40.3,42.4,50.6,27.9,57.8C13.4,65,-2.4,69.1,-17.7,65.9C-33,62.7,-47.8,52.2,-57.9,38.3C-68,24.4,-73.4,7.1,-71.3,-9.2C-69.2,-25.5,-59.6,-40.8,-46.7,-50C-33.8,-59.2,-17.6,-62.3,-0.6,-61.5C16.4,-60.7,32.8,-56,44.7,-58.2Z" transform="translate(100 100)"/></svg>
-  <svg class="blob blob-orange" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#f6d9bf" d="M38.6,-50.5C49.3,-42.7,56.4,-30.1,60.4,-16.2C64.5,-2.3,65.5,12.9,59.7,25.1C53.9,37.3,41.2,46.5,27.4,53.4C13.6,60.3,-1.3,64.9,-15.6,62.2C-29.9,59.5,-43.6,49.5,-52.4,36.3C-61.2,23.1,-65.1,6.7,-62,-8.2C-58.9,-23.1,-48.8,-36.5,-36.5,-44.4C-24.2,-52.3,-9.7,-54.7,3.2,-58.9C16.1,-63.1,32.2,-69.1,38.6,-50.5Z" transform="translate(100 100)"/></svg>
-  <div class="hero-portrait"><img src="/images/jacky-gruen.jpg" alt="Jacky West, Gründerin von PackPlanGo" loading="eager"></div>
   <div class="hero-inner">
-    <p class="eyebrow">die Frau hinter PackPlanGo</p>
-    <h1><span class="pre">Hi, ich bin</span><span class="name"><span class="hl">Jacky</span><span class="dot">.</span></span></h1>
-    <p class="hero-lead">Aufgewachsen in Wuppertal, zehn Jahre Gastro, ein Marketingstudium und ein Flugticket, das alles verändert hat. Heute lebe ich da, wo andere Urlaub machen.</p>
-    <div class="badges">
-      <span class="badge">Hotelfachfrau</span>
-      <span class="badge badge-pink">Online Marketing Managerin</span>
-      <span class="badge badge-orange">Reisende</span>
+    <p class="kick">die Frau hinter PackPlanGo</p>
+    <h1><span class="pre">Hi, ich bin</span><span class="big">Jacky<span class="pk">.</span></span></h1>
+    <p class="hero-sub">Aufgewachsen in Wuppertal, zehn Jahre Gastro, ein Marketingstudium und ein Flugticket, das alles verändert hat. Heute lebe ich da, wo andere Urlaub machen.</p>
+    <div class="hero-badges">
+      <span class="hbadge">Hotelfachfrau</span>
+      <span class="hbadge pk">Online Marketing Managerin</span>
+      <span class="hbadge">Reisende</span>
     </div>
   </div>
+  <div class="scrollcue">scroll<span></span></div>
 </header>
 
-<!-- PALETTE -->
-<section class="palette">
-  <div class="palette-head">
-    <p class="eyebrow">meine Welt</p>
-    <h2 class="serif">in vier Farben</h2>
-  </div>
-  <div class="swatches">
-    <div class="sw" style="--c:#2D6E69"><span class="chip"></span><strong>Ozeangrün</strong><small>#2D6E69</small></div>
-    <div class="sw" style="--c:#E89A5B"><span class="chip"></span><strong>Sonnenorange</strong><small>#E89A5B</small></div>
-    <div class="sw" style="--c:#E8005A"><span class="chip"></span><strong>Pink Mood</strong><small>#E8005A</small></div>
-    <div class="sw" style="--c:#ECE6DA"><span class="chip"></span><strong>Strandsand</strong><small>#ECE6DA</small></div>
+<!-- ABOUT ME -->
+<section class="about">
+  <div class="about-grid">
+    <div class="feat-media">
+      <div class="arch"><img src="/images/jacky-gruen.jpg" alt="Jacky West, Gründerin von PackPlanGo" loading="eager"><span class="arch-badge">living the dream</span></div>
+    </div>
+    <div>
+      <p class="eyebrow">about me</p>
+      <h2>Salzwasser im Haar, <em>Plan</em> im Kopf.</h2>
+      <p>Ich bin Jacky, Gründerin von PackPlanGo. Zehn Jahre Gastro, ein Marketingstudium und jede Menge Fernweh haben mich genau hierher gebracht: an die australische Ostküste, mit Sand zwischen den Zehen und einer Mission im Gepäck. Ich zeige dir, wie du loslegst, ohne dich zu verzetteln.</p>
+      <div class="hero-badges">
+        <span class="hbadge">Boss Girl</span>
+        <span class="hbadge tq">Strandmensch</span>
+        <span class="hbadge pk">Macherin</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -236,23 +236,26 @@
       <p>Aufgewachsen in Wuppertal, gelernt auf Norderney: Hotelfachfrau, mit allem was dazugehört. Danach zehn Jahre gehobene Gastronomie, zwei davon in der Schweiz. Ich habe gelernt, was Gastfreundschaft wirklich heißt: Menschen ein Gefühl geben, nicht nur einen Teller hinstellen. Dann zog es mich nach Hamburg, wo ich mein Studium zum Online Marketing Manager draufgesetzt habe. Sicherer Plan, gutes Leben. Und trotzdem hat da ständig etwas gekribbelt.</p>
     </div>
   </div>
+  <div class="quote" style="margin-top:54px">
+    <div class="quote-inner">
+      <span class="palm"><svg viewBox="-130 -170 260 190"><g fill="currentColor"><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-58)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-32)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-8)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(18)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(44)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(66)"/></g></svg></span>
+      <span class="mark">&ldquo;</span>
+      <h3>Mit 16 raus</h3>
+      <p>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und früh auf mich allein gestellt gewesen. Ich weiß, wie sich Alleinsein anfühlt, dieser Mix aus Freiheit und "es muss ja irgendwie gehen". Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gefühl zu geben: Du bist nicht allein.</p>
+    </div>
+  </div>
 </section>
 
-<!-- QUOTE -->
-<div class="quote">
-  <div class="quote-inner">
-    <span class="mark">&ldquo;</span>
-    <h3>Mit 16 raus</h3>
-    <p>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und früh auf mich allein gestellt gewesen. Ich weiß, wie sich Alleinsein anfühlt, dieser Mix aus Freiheit und "es muss ja irgendwie gehen". Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gefühl zu geben: Du bist nicht allein.</p>
-  </div>
-</div>
+<!-- PARALLAX A -->
+<section class="par" style="background-image:url('/images/meer.jpg')">
+  <div class="par-q"><p class="k">tauch ein</p><h2>und dann kam das <span class="pk">Fernweh</span></h2></div>
+</section>
 
 <!-- STORY 2 -->
 <section class="block">
-  <p class="sec-tag">und dann kam das <span class="o">Fernweh</span></p>
   <div class="feat rev">
     <div class="feat-media">
-      <div class="frame tilt-r"><img src="/images/meer.jpg" alt="Das Meer" loading="lazy"></div>
+      <div class="frame tilt-r"><img src="/images/stein.jpg" alt="Auszeit in der Natur" loading="lazy"></div>
     </div>
     <div class="feat-text">
       <p class="eyebrow">Ko Phangan</p>
@@ -262,16 +265,21 @@
   </div>
 </section>
 
-<!-- STORY 3 AUSTRALIEN -->
+<!-- PARALLAX B -->
+<section class="par" style="background-image:url('/images/zipline.jpg')">
+  <div class="par-q"><p class="k">willkommen in meiner Welt</p><h2>Australien war nie der <span class="pk">Plan</span></h2></div>
+</section>
+
+<!-- AUSTRALIEN -->
 <section class="block">
-  <p class="sec-tag">Australien war nie der <span class="p">Plan</span></p>
   <div class="gallery">
     <div class="frame"><img src="/images/kangaroo.jpg" alt="Känguru in Australien" loading="lazy"></div>
     <div class="frame"><img src="/images/byron-bay.jpg" alt="Byron Bay" loading="lazy"></div>
     <div class="frame"><img src="/images/qld.jpg" alt="Queensland" loading="lazy"></div>
   </div>
-  <div class="quote">
+  <div class="quote" style="margin-top:30px">
     <div class="quote-inner">
+      <span class="palm"><svg viewBox="-130 -170 260 190"><g fill="currentColor"><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-58)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-32)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-8)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(18)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(44)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(66)"/></g></svg></span>
       <span class="mark">&ldquo;</span>
       <h3>But here we are.</h3>
       <p>Ehrlich? Australien stand nie auf meiner Bucketliste. Kein einziges Mal. Und jetzt lebe ich seit anderthalb Jahren mit dem Work and Holiday Visum an der australischen Ostküste, zwischen Meer und Palmen, genau da, wo ich morgens aufwache und kurz nicht glauben kann, dass das mein Alltag ist. Manchmal sind die besten Kapitel die, die man nie geplant hat.</p>
@@ -279,15 +287,14 @@
   </div>
 </section>
 
-<!-- STORY 4 HEUTE -->
+<!-- HEUTE -->
 <section class="block">
-  <p class="sec-tag">und <span class="o">heute</span>?</p>
   <div class="feat">
     <div class="feat-media">
       <div class="media-stack">
-        <div class="frame tilt-l"><img src="/images/stein.jpg" alt="Auszeit in der Natur" loading="lazy"></div>
-        <div class="frame"><img src="/images/byron.webp" alt="Sonnenuntergang" loading="lazy"></div>
-        <div class="frame tilt-r"><img src="/images/zipline.jpg" alt="Zipline Abenteuer" loading="lazy"></div>
+        <div class="frame tilt-l"><img src="/images/byron.webp" alt="Sonnenuntergang" loading="lazy"></div>
+        <div class="frame"><img src="/images/natur.jpg" alt="Natur" loading="lazy"></div>
+        <div class="frame tilt-r"><img src="/images/jacky-strand.jpg" alt="Strandtag" loading="lazy"></div>
       </div>
     </div>
     <div class="feat-text">
@@ -296,26 +303,25 @@
       <p>Vor Kurzem habe ich mir zwei Monate Auszeit in Asien gegönnt, einfach weil ich es konnte. Heute baue ich meine eigene Marketingagentur auf und bringe zusammen, was mich ausmacht: die Leidenschaft fürs Reisen, zehn Jahre Gastro-Background und eine ziemlich kreative Ader. Genau daraus ist PackPlanGo entstanden.</p>
     </div>
   </div>
+  <div class="stats">
+    <div class="stat"><div class="n">10</div><div class="l">Jahre Gastro</div></div>
+    <div class="stat"><div class="n">1,5</div><div class="l">Jahre Australien</div></div>
+    <div class="stat"><div class="n">&infin;</div><div class="l">Fernweh</div></div>
+  </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stat"><div class="n">10</div><div class="l">Jahre Gastro</div></div>
-  <div class="stat"><div class="n">1,5</div><div class="l">Jahre Australien</div></div>
-  <div class="stat"><div class="n">&infin;</div><div class="l">Fernweh</div></div>
-</div>
-
-<!-- PANEL WARUM -->
-<section class="block">
+<!-- WARUM -->
+<section class="block" style="padding-top:0">
   <div class="panel">
     <div class="panel-inner">
+      <span class="palm"><svg viewBox="-130 -170 260 190"><g fill="currentColor"><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-58)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-32)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-8)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(18)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(44)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(66)"/></g></svg></span>
       <p class="eyebrow">warum es PackPlanGo gibt</p>
       <h2 class="serif">Kein Hochglanz. Kein Bullshit.</h2>
       <p>PackPlanGo ist für alle, die spüren, dass "top" nicht immer genug ist. Für die, die losziehen wollen, aber nicht wissen wie. Ich rede frei Schnauze, nehme kein Blatt vor den Mund und mache meine eigenen Regeln. Nur echte Erfahrung und der ehrliche Stoff, den ich mir selbst vorher gewünscht hätte. Ich bin losgezogen, weil ich die Welt sehen wollte. Und jetzt bin ich hier, um dir zu zeigen, dass du das auch kannst.</p>
       <div class="pills">
-        <span class="pill t">Echte Erfahrung</span>
+        <span class="pill">Echte Erfahrung</span>
         <span class="pill p">Frei Schnauze</span>
-        <span class="pill o">Eigene Regeln</span>
+        <span class="pill t">Eigene Regeln</span>
       </div>
     </div>
   </div>
@@ -324,7 +330,8 @@
 <!-- CTA -->
 <div class="cta">
   <div class="cta-inner">
-    <svg class="cblob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#E8005A" d="M44.7,-58.2C57.4,-49.1,66.4,-34.6,69.8,-19C73.2,-3.4,71,13.3,63.3,26.8C55.6,40.3,42.4,50.6,27.9,57.8C13.4,65,-2.4,69.1,-17.7,65.9C-33,62.7,-47.8,52.2,-57.9,38.3C-68,24.4,-73.4,7.1,-71.3,-9.2C-69.2,-25.5,-59.6,-40.8,-46.7,-50C-33.8,-59.2,-17.6,-62.3,-0.6,-61.5C16.4,-60.7,32.8,-56,44.7,-58.2Z" transform="translate(100 100)"/></svg>
+    <span class="palm a"><svg viewBox="-130 -170 260 190"><g fill="currentColor"><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-58)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-32)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-8)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(18)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(44)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(66)"/></g></svg></span>
+    <span class="palm b"><svg viewBox="-130 -170 260 190"><g fill="currentColor"><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-58)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-32)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(-8)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(18)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(44)"/><path d="M0 0 Q14 -60 0 -130 Q-14 -60 0 0Z" transform="rotate(66)"/></g></svg></span>
     <h3>Bereit, deine eigene Story zu schreiben?</h3>
     <p>Hol dir meinen kostenlosen Guide, komm in die Community und zieh los. Ich war auch mal da, wo du gerade stehst.</p>
     <a href="/travel/#download" class="btn btn-pink">Kostenlosen Guide holen</a>
@@ -354,7 +361,12 @@
 </footer>
 
 <script>
-(function(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile');if(b&&m)b.addEventListener('click',function(){m.classList.toggle('open');});})();
+(function(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile');if(b&&m)b.addEventListener('click',function(){m.classList.toggle('open');});
+var pars=[].slice.call(document.querySelectorAll('[data-par]'));
+var ticking=false;
+function upd(){var y=window.pageYOffset;pars.forEach(function(el){el.style.transform=(el.style.transform.replace(/translateY\([^)]*\)/,'')+' translateY('+(y*parseFloat(el.dataset.par))+'px)').trim();});ticking=false;}
+window.addEventListener('scroll',function(){if(!ticking){window.requestAnimationFrame(upd);ticking=true;}},{passive:true});
+})();
 </script>
 </body>
 </html>
