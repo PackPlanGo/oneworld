@@ -55,8 +55,8 @@
     .diveHero{position:relative;height:280vh;z-index:0;background:#04343a}
     .diveStage{position:sticky;top:0;height:100vh;overflow:hidden;perspective:1200px;transform-style:preserve-3d;background:#04343a}
     .dLayer{position:absolute;inset:0;will-change:transform,opacity;backface-visibility:hidden}
-    .dSurface{background:url('/images/foundertemplate4.jpg') center top/cover no-repeat;transform:scale(1.08)}
-    .dGrade{background:linear-gradient(180deg,rgba(140,240,228,0) 0%,rgba(0,210,190,.05) 26%,rgba(0,150,150,.30) 56%,rgba(3,70,82,.62) 80%,rgba(1,28,38,.94) 100%);mix-blend-mode:multiply;opacity:.55}
+    .dSurface{background:url('/images/foundertemplate4.jpg') center top/cover no-repeat;transform:scale(1.04)}
+    .dGrade{background:linear-gradient(180deg,rgba(140,240,228,0) 0%,rgba(0,210,190,.05) 26%,rgba(0,150,150,.30) 56%,rgba(3,70,82,.62) 80%,rgba(1,28,38,.94) 100%);mix-blend-mode:multiply;opacity:.30}
     .dDeep{background:radial-gradient(125% 95% at 50% 122%,rgba(0,229,206,.6),rgba(4,80,92,0) 60%);opacity:0;mix-blend-mode:screen}
     .dRays{opacity:0;mix-blend-mode:screen;background:repeating-linear-gradient(98deg,transparent 0 9%,rgba(190,255,248,.16) 10.5% 12.5%,transparent 14% 22%);transform-origin:top center;animation:sway 9s ease-in-out infinite}
     @keyframes sway{0%,100%{transform:translateX(-4%) skewX(-2.5deg)}50%{transform:translateX(4%) skewX(2.5deg)}}
@@ -406,8 +406,8 @@
     cur+=(tgt-cur)*0.12;
     var p=cur;
     surf.style.backgroundPositionY=(p*100)+'%';
-    surf.style.transform='scale('+(1.08+p*0.22)+')';
-    grade.style.opacity=(0.55+p*0.45).toFixed(3);
+    surf.style.transform='scale('+(1.04+p*0.26)+')';
+    grade.style.opacity=(0.30+p*0.62).toFixed(3);
     deep.style.opacity=clamp(p*1.25).toFixed(3);
     if(caus)caus.style.opacity=clamp((p-0.26)*1.5).toFixed(3);
     rays.style.opacity=clamp((p-0.05)*1.1).toFixed(3);
