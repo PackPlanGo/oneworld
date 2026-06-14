@@ -15,86 +15,155 @@
   <link rel="icon" href="https://www.packplango.com/images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "@id": "https://www.packplango.com/founder/#person", "name": "Jacky West", "url": "https://www.packplango.com/founder/", "image": "https://www.packplango.com/images/jacky-gruen.jpg", "jobTitle": "Gruenderin von PackPlanGo, Online Marketing Managerin", "worksFor": {"@type": "Organization", "@id": "https://www.packplango.com/#org", "name": "PackPlanGo", "url": "https://www.packplango.com/"}, "homeLocation": {"@type": "Place", "name": "Australische Ostkueste"}, "knowsAbout": ["Work and Travel", "Australien", "Suedostasien", "Reisen", "Social Media Marketing", "Hospitality"], "sameAs": ["https://instagram.com/jackywest.remote", "https://tiktok.com/@jacky_west"]}</script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    :root{--teal:#2D6E69;--teal-light:#3a8880;--teal-pale:rgba(45,110,105,0.07);--orange:#E89A5B;--sand:#ECE6DA;--bg:#F3EFE7;--text:#1B1B19;--pink:#E8005A;--white:#fff;--muted:#6b6b68;--border:#ddd8cf;--radius-lg:20px}
-    body{font-family:'Inter',sans-serif;color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;background:#f4efe6}
+    :root{
+      --teal:#2D6E69;--teal-dark:#234f4b;--teal-pale:rgba(45,110,105,.07);
+      --orange:#E89A5B;--orange-soft:#f6d9bf;
+      --pink:#E8005A;--pink-soft:#F7C9D9;--pink-pale:#FCE7EE;
+      --cream:#F3EFE7;--sand:#ECE6DA;--ink:#1B1B19;--white:#fff;--muted:#6b6b68;--border:#ddd8cf;
+      --radius:22px;--radius-sm:14px;
+    }
+    body{font-family:'Inter',sans-serif;color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(45,110,105,.06) 1px, transparent 0) 0 0/26px 26px,
+        var(--cream);
+      overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    .eyebrow{font-size:.72rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--orange)}
+    .serif{font-family:'DM Serif Display',serif;font-weight:400}
     /* NAV */
     nav{position:sticky;top:0;z-index:100;background:rgba(243,239,231,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-    .nav-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-inner{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
     .nav-logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.05rem}
     .nav-logo img{width:26px;border-radius:6px}
     .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
     .nav-links a{font-size:15px;font-weight:500;color:var(--muted);padding:7px 14px;border-radius:999px;transition:.2s}
-    .nav-links a:hover{color:var(--text);background:var(--sand)}
+    .nav-links a:hover{color:var(--ink);background:var(--sand)}
     .nav-links a.active{color:var(--teal);font-weight:600;background:var(--teal-pale)}
     .nav-cta{background:var(--teal)!important;color:#fff!important;font-weight:600}
-    .nav-burger{display:none;background:none;border:0;color:var(--text);cursor:pointer}
-    .nav-mobile{display:none;flex-direction:column;background:var(--bg);border-top:1px solid var(--border);padding:12px 24px 18px}
+    .nav-burger{display:none;background:none;border:0;color:var(--ink);cursor:pointer}
+    .nav-mobile{display:none;flex-direction:column;background:var(--cream);border-top:1px solid var(--border);padding:12px 24px 18px}
     .nav-mobile a{padding:11px 0;font-weight:500;border-bottom:1px solid var(--border)}
     .nav-mobile a:last-child{border:none}
     .nav-mobile.open{display:flex}
     @media(max-width:820px){.nav-links{display:none}.nav-burger{display:flex}}
-    /* SCRAPBOOK */
-    .scrap{position:relative;overflow:hidden;background:
-      radial-gradient(circle at 1px 1px, rgba(45,110,105,.08) 1px, transparent 0) 0 0/24px 24px, #f4efe6}
-    .hand{font-family:'Caveat',cursive}
-    .scrap-hero{text-align:center;padding:60px 24px 30px;position:relative}
-    .kicker{font-family:'Caveat',cursive;font-size:1.7rem;color:var(--orange);transform:rotate(-2deg);margin-bottom:6px}
-    .scrap-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.3rem,6vw,4rem);line-height:1.05;margin-bottom:18px}
-    .scrap-hero h1 .u{background:linear-gradient(transparent 62%, rgba(232,154,91,.45) 62%)}
-    .hero-lead{max-width:600px;margin:0 auto 8px;font-size:1.1rem;color:#42423f}
-    /* polaroid */
-    .polaroid{display:inline-block;background:#fff;padding:12px 12px 44px;border-radius:3px;box-shadow:0 12px 30px rgba(27,27,25,.20);position:relative;margin:16px}
-    .polaroid img{width:240px;height:230px;object-fit:cover;border-radius:2px}
-    .polaroid.tall img{height:300px}
-    .polaroid.wide img{width:300px;height:200px}
-    .polaroid .cap{font-family:'Caveat',cursive;font-size:1.5rem;color:#444;text-align:center;position:absolute;left:0;right:0;bottom:8px;line-height:1}
-    .polaroid.tape::before{content:'';position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-5deg);width:96px;height:28px;background:rgba(232,154,91,.55);box-shadow:0 2px 5px rgba(0,0,0,.10)}
-    .polaroid.tape.teal::before{background:rgba(45,110,105,.4)}
-    .polaroid.tape.pink::before{background:rgba(232,0,90,.32)}
-    /* sticky note */
-    .note{position:relative;display:inline-block;background:#fff6b8;padding:30px 32px;box-shadow:0 10px 26px rgba(27,27,25,.16);max-width:440px;color:#36352f;font-size:1.04rem;line-height:1.75;margin:16px}
-    .note.pink{background:#ffd4e4}.note.teal{background:#c8e7e2}.note.blue{background:#d4e7ff}.note.green{background:#dcefb8}
-    .note h3{font-family:'Caveat',cursive;font-size:2rem;line-height:1;margin-bottom:10px;color:var(--teal)}
-    .note .pin{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:var(--pink);box-shadow:0 3px 6px rgba(0,0,0,.30),inset 0 -3px 4px rgba(0,0,0,.18)}
-    /* sticker */
-    .sticker{display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:#fff;box-shadow:0 6px 16px rgba(27,27,25,.18);font-size:30px;border:3px solid #fff}
-    .sticker.lg{width:78px;height:78px;font-size:40px}
-    /* collage rows */
-    .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;max-width:1080px;margin:0 auto;padding:34px 18px}
-    .row.tight{padding:14px 18px}
-    .stickers{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:10px 0 4px}
-    .section-tag{font-family:'Caveat',cursive;font-size:2rem;color:var(--orange);text-align:center;margin-top:30px}
-    /* stats */
-    .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;max-width:900px;margin:10px auto 0;padding:20px}
-    .stat{background:#fff;padding:18px 26px;border-radius:4px;box-shadow:0 8px 20px rgba(27,27,25,.12);text-align:center}
-    .stat .n{font-family:'DM Serif Display',serif;font-size:2.3rem;color:var(--teal);line-height:1}
-    .stat .l{font-family:'Caveat',cursive;font-size:1.3rem;color:#555;margin-top:2px}
-    /* cta */
-    .scrap-cta{max-width:680px;margin:36px auto 70px;background:var(--teal);color:#fff;border-radius:8px;padding:46px 36px;text-align:center;position:relative;box-shadow:0 16px 40px rgba(31,85,82,.28)}
-    .scrap-cta::before{content:'';position:absolute;top:-15px;left:50%;transform:translateX(-50%) rotate(-3deg);width:140px;height:30px;background:rgba(255,255,255,.35)}
-    .scrap-cta h3{font-family:'DM Serif Display',serif;font-size:1.9rem;margin-bottom:12px}
-    .scrap-cta p{color:rgba(255,255,255,.85);margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;margin:5px}
-    .btn-white{background:#fff;color:var(--teal)}
-    .btn-ghost{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
-    /* footer */
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden;padding:78px 24px 64px}
+    .hero-inner{max-width:1120px;margin:0 auto;position:relative;z-index:3}
+    .vlabel{position:absolute;top:50%;font-size:.66rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);z-index:3}
+    .vlabel-l{left:18px;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl}
+    .vlabel-r{right:18px;transform:translateY(-50%);writing-mode:vertical-rl}
+    .blob{position:absolute;z-index:1;pointer-events:none;filter:blur(.5px)}
+    .blob-pink{width:480px;top:-90px;right:-70px;opacity:.9}
+    .blob-orange{width:300px;bottom:-120px;left:-80px;opacity:.8}
+    .hero h1{font-size:clamp(3rem,11vw,7.5rem);line-height:.92;letter-spacing:-.01em;margin:8px 0 6px}
+    .hero h1 .pre{display:block;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(1.1rem,3vw,1.7rem);letter-spacing:.01em;color:var(--ink);margin-bottom:2px}
+    .hero h1 .name{font-family:'DM Serif Display',serif;font-style:italic;color:var(--teal);position:relative;display:inline-block}
+    .hero h1 .name .hl{background:linear-gradient(transparent 60%, var(--pink-soft) 60% 92%, transparent 92%);padding:0 .04em}
+    .hero h1 .dot{color:var(--pink)}
+    .hero-lead{max-width:560px;margin:22px 0 0;font-size:1.12rem;color:#42423f}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .badge{font-size:.78rem;font-weight:700;letter-spacing:.02em;padding:8px 16px;border-radius:999px;border:1.5px solid var(--teal);color:var(--teal);background:rgba(255,255,255,.5)}
+    .badge-pink{border-color:var(--pink);color:var(--pink)}
+    .badge-orange{border-color:var(--orange);color:#c9762f}
+    .hero-portrait{position:absolute;z-index:2;right:60px;top:40px;width:248px;rotate:4deg}
+    .hero-portrait img{border-radius:var(--radius);box-shadow:0 26px 60px rgba(27,27,25,.22);border:7px solid #fff;aspect-ratio:4/5;object-fit:cover}
+    @media(max-width:980px){.hero-portrait{display:none}}
+
+    /* PALETTE STRIP */
+    .palette{max-width:1120px;margin:8px auto 0;padding:30px 24px}
+    .palette-head{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+    .palette-head h2{font-family:'DM Serif Display',serif;font-size:1.7rem}
+    .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .sw{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px;display:flex;flex-direction:column;gap:8px}
+    .sw .chip{height:64px;border-radius:10px;background:var(--c)}
+    .sw strong{font-size:.92rem}
+    .sw small{font-size:.72rem;color:var(--muted);letter-spacing:.08em;font-weight:600}
+    @media(max-width:680px){.swatches{grid-template-columns:repeat(2,1fr)}}
+
+    /* SECTION SHELL */
+    section.block{padding:54px 0}
+    .sec-tag{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.3rem);color:var(--ink);text-align:center;margin:10px auto 30px;max-width:760px}
+    .sec-tag .o{color:var(--orange)}
+    .sec-tag .p{color:var(--pink)}
+
+    /* FEATURE */
+    .feat{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center;max-width:1120px;margin:0 auto;padding:0 24px}
+    .feat + .feat{margin-top:64px}
+    .feat.rev .feat-media{order:2}
+    .feat-text h2{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.08;margin:10px 0 14px}
+    .feat-text p{color:#3c3c39;font-size:1.04rem}
+    .feat-media{position:relative}
+    .frame{border-radius:var(--radius);overflow:hidden;box-shadow:0 22px 50px rgba(27,27,25,.16);border:6px solid #fff}
+    .frame img{width:100%;aspect-ratio:4/3;object-fit:cover}
+    .media-stack{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .media-stack .frame:first-child{grid-row:span 2;align-self:stretch}
+    .media-stack .frame:first-child img{aspect-ratio:3/4;height:100%}
+    .tilt-l{rotate:-3deg}.tilt-r{rotate:3deg}
+    @media(max-width:820px){.feat{grid-template-columns:1fr;gap:26px}.feat.rev .feat-media{order:0}}
+
+    /* QUOTE CARD */
+    .quote{max-width:880px;margin:46px auto 0;padding:0 24px}
+    .quote-inner{background:var(--teal);color:#fff;border-radius:var(--radius);padding:44px 48px;position:relative;box-shadow:0 24px 60px rgba(35,79,75,.30)}
+    .quote-inner .mark{font-family:'DM Serif Display',serif;font-size:4.4rem;line-height:.5;color:var(--pink-soft);position:absolute;top:34px;left:30px;opacity:.7}
+    .quote-inner h3{font-family:'DM Serif Display',serif;font-size:1.5rem;margin:0 0 12px;padding-left:48px}
+    .quote-inner p{color:rgba(255,255,255,.9);padding-left:48px;font-size:1.05rem}
+    @media(max-width:560px){.quote-inner{padding:34px 26px}.quote-inner h3,.quote-inner p{padding-left:0}.quote-inner .mark{position:static;display:block;margin-bottom:-18px}}
+
+    /* GALLERY */
+    .gallery{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .gallery .frame img{aspect-ratio:1/1}
+    @media(max-width:680px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+    /* PANEL (pink editorial) */
+    .panel{max-width:1000px;margin:0 auto;padding:0 24px}
+    .panel-inner{background:var(--pink-pale);border:1px solid var(--pink-soft);border-radius:var(--radius);padding:46px 44px;text-align:center}
+    .panel-inner h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.6vw,2.4rem);margin-bottom:14px}
+    .panel-inner p{max-width:660px;margin:0 auto;color:#48383e;font-size:1.06rem}
+
+    /* PILLS */
+    .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:28px auto 0;max-width:760px}
+    .pill{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.05rem;padding:9px 22px;border-radius:999px;background:#fff;border:1.5px solid var(--ink)}
+    .pill.t{border-color:var(--teal);color:var(--teal)}
+    .pill.p{border-color:var(--pink);color:var(--pink)}
+    .pill.o{border-color:var(--orange);color:#c9762f}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:820px;margin:50px auto 0;padding:0 24px}
+    .stat{background:#fff;border:1px solid var(--border);border-radius:var(--radius-sm);padding:26px 18px;text-align:center}
+    .stat .n{font-family:'DM Serif Display',serif;font-size:2.8rem;color:var(--teal);line-height:1}
+    .stat:nth-child(2) .n{color:var(--orange)}
+    .stat:nth-child(3) .n{color:var(--pink)}
+    .stat .l{font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+    @media(max-width:560px){.stats{grid-template-columns:1fr;gap:12px}}
+
+    /* CTA */
+    .cta{max-width:880px;margin:64px auto 80px;padding:0 24px}
+    .cta-inner{position:relative;overflow:hidden;background:var(--ink);color:#fff;border-radius:var(--radius);padding:58px 44px;text-align:center}
+    .cta-inner .cblob{position:absolute;width:320px;right:-90px;bottom:-130px;opacity:.6;pointer-events:none}
+    .cta-inner h3{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:14px;position:relative;z-index:2}
+    .cta-inner p{color:rgba(255,255,255,.82);max-width:500px;margin:0 auto 26px;position:relative;z-index:2}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:.95rem;margin:6px;position:relative;z-index:2}
+    .btn-pink{background:var(--pink);color:#fff}
+    .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.4)}
+
+    /* FOOTER */
     footer{background:var(--teal);color:rgba(255,255,255,.75);padding:48px 24px 30px}
-    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.12)}
+    .footer-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.12)}
     .footer-brand .logo{display:flex;align-items:center;gap:8px;color:#fff;font-weight:700;margin-bottom:12px}
     .footer-brand .logo img{width:24px;border-radius:5px}
     .footer-brand p{font-size:.85rem;line-height:1.6;max-width:280px}
     .footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
     .footer-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.8);padding:5px 0}
     .footer-col a:hover{color:#fff}
-    .footer-bottom{max-width:1100px;margin:0 auto;padding-top:18px;display:flex;justify-content:space-between;font-size:.8rem;flex-wrap:wrap;gap:10px}
-    @media(max-width:560px){.polaroid img{width:200px;height:190px}.polaroid.wide img{width:240px}.note{padding:24px 24px}.footer-inner{grid-template-columns:1fr;gap:26px}.footer-bottom{flex-direction:column;text-align:center}}
+    .footer-bottom{max-width:1120px;margin:0 auto;padding-top:18px;display:flex;justify-content:space-between;font-size:.8rem;flex-wrap:wrap;gap:10px}
+    @media(max-width:560px){.footer-inner{grid-template-columns:1fr;gap:26px}.footer-bottom{flex-direction:column;text-align:center}}
   </style>
 </head>
 <body>
@@ -118,71 +187,149 @@
   </div>
 </nav>
 
-<div class="scrap">
-
-  <header class="scrap-hero">
-    <div class="stickers">
-      <span class="sticker">🌴</span><span class="sticker lg">🦘</span><span class="sticker">☀️</span><span class="sticker">🇦🇺</span><span class="sticker">🌊</span>
-    </div>
-    <p class="kicker">die Frau hinter PackPlanGo</p>
-    <h1>Hi, ich bin <span class="u">Jacky</span>. 👋</h1>
+<!-- HERO -->
+<header class="hero">
+  <span class="vlabel vlabel-l">die Gründerin</span>
+  <span class="vlabel vlabel-r">Gold Coast · Australien</span>
+  <svg class="blob blob-pink" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#F7C9D9" d="M44.7,-58.2C57.4,-49.1,66.4,-34.6,69.8,-19C73.2,-3.4,71,13.3,63.3,26.8C55.6,40.3,42.4,50.6,27.9,57.8C13.4,65,-2.4,69.1,-17.7,65.9C-33,62.7,-47.8,52.2,-57.9,38.3C-68,24.4,-73.4,7.1,-71.3,-9.2C-69.2,-25.5,-59.6,-40.8,-46.7,-50C-33.8,-59.2,-17.6,-62.3,-0.6,-61.5C16.4,-60.7,32.8,-56,44.7,-58.2Z" transform="translate(100 100)"/></svg>
+  <svg class="blob blob-orange" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#f6d9bf" d="M38.6,-50.5C49.3,-42.7,56.4,-30.1,60.4,-16.2C64.5,-2.3,65.5,12.9,59.7,25.1C53.9,37.3,41.2,46.5,27.4,53.4C13.6,60.3,-1.3,64.9,-15.6,62.2C-29.9,59.5,-43.6,49.5,-52.4,36.3C-61.2,23.1,-65.1,6.7,-62,-8.2C-58.9,-23.1,-48.8,-36.5,-36.5,-44.4C-24.2,-52.3,-9.7,-54.7,3.2,-58.9C16.1,-63.1,32.2,-69.1,38.6,-50.5Z" transform="translate(100 100)"/></svg>
+  <div class="hero-portrait"><img src="/images/jacky-gruen.jpg" alt="Jacky West, Gründerin von PackPlanGo" loading="eager"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">die Frau hinter PackPlanGo</p>
+    <h1><span class="pre">Hi, ich bin</span><span class="name"><span class="hl">Jacky</span><span class="dot">.</span></span></h1>
     <p class="hero-lead">Aufgewachsen in Wuppertal, zehn Jahre Gastro, ein Marketingstudium und ein Flugticket, das alles verändert hat. Heute lebe ich da, wo andere Urlaub machen.</p>
-  </header>
-
-  <div class="row tight">
-    <div class="polaroid tape" style="transform:rotate(-4deg)"><img src="/images/jacky-strand.jpg" alt="Jacky am Strand" loading="lazy"><span class="cap">mein Büro für heute</span></div>
-    <div class="polaroid tall tape teal" style="transform:rotate(3deg)"><img src="/images/jacky-gruen.jpg" alt="Jacky in der Natur" loading="lazy"><span class="cap">Sonne im Gesicht 🌞</span></div>
-    <div class="polaroid tape pink" style="transform:rotate(-2deg)"><img src="/images/jacky-strand2.jpg" alt="Jacky am Meer" loading="lazy"><span class="cap">Strandtag, bester Tag</span></div>
+    <div class="badges">
+      <span class="badge">Hotelfachfrau</span>
+      <span class="badge badge-pink">Online Marketing Managerin</span>
+      <span class="badge badge-orange">Reisende</span>
+    </div>
   </div>
+</header>
 
-  <div class="row">
-    <div class="note" style="transform:rotate(-2deg)"><span class="pin"></span><h3>Zwischen Tellern gestartet</h3>Aufgewachsen in Wuppertal, gelernt auf Norderney: Hotelfachfrau, mit allem was dazugehört. Danach zehn Jahre gehobene Gastronomie, zwei davon in der Schweiz. Ich habe gelernt, was Gastfreundschaft wirklich heißt: Menschen ein Gefühl geben, nicht nur einen Teller hinstellen. Dann zog es mich nach Hamburg, wo ich mein Studium zum Online Marketing Manager draufgesetzt habe. Sicherer Plan, gutes Leben. Und trotzdem hat da ständig etwas gekribbelt.</div>
-    <div class="note teal" style="transform:rotate(2deg)"><span class="pin"></span><h3>Mit 16 raus</h3>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und früh auf mich allein gestellt gewesen. Ich weiß, wie sich Alleinsein anfühlt, dieser Mix aus Freiheit und "es muss ja irgendwie gehen". Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gefühl zu geben: Du bist nicht allein.</div>
+<!-- PALETTE -->
+<section class="palette">
+  <div class="palette-head">
+    <p class="eyebrow">meine Welt</p>
+    <h2 class="serif">in vier Farben</h2>
   </div>
+  <div class="swatches">
+    <div class="sw" style="--c:#2D6E69"><span class="chip"></span><strong>Ozeangrün</strong><small>#2D6E69</small></div>
+    <div class="sw" style="--c:#E89A5B"><span class="chip"></span><strong>Sonnenorange</strong><small>#E89A5B</small></div>
+    <div class="sw" style="--c:#E8005A"><span class="chip"></span><strong>Pink Mood</strong><small>#E8005A</small></div>
+    <div class="sw" style="--c:#ECE6DA"><span class="chip"></span><strong>Strandsand</strong><small>#ECE6DA</small></div>
+  </div>
+</section>
 
-  <p class="section-tag">und dann kam das Fernweh...</p>
-  <div class="row">
-    <div class="polaroid wide tape teal" style="transform:rotate(-3deg)"><img src="/images/meer.jpg" alt="Das Meer" loading="lazy"><span class="cap">das Meer ruft. immer.</span></div>
-    <div class="note pink" style="transform:rotate(2deg);max-width:380px"><span class="pin"></span><h3>Thailand hat mein Herz</h3>Reisen wurde meine große Liebe. Mexiko, Griechenland, Spanien. Und dann Ko Phangan. Diese Insel hat etwas mit mir gemacht, das ich bis heute kaum in Worte fasse. Thailand hat mein Herz erobert, und nebenbei die Menschen, die mir zum ersten Mal von Australien erzählt haben.</div>
-    <div class="polaroid tape" style="transform:rotate(4deg)"><img src="/images/natur.jpg" alt="Natur" loading="lazy"><span class="cap">raus in die Natur</span></div>
+<!-- STORY 1 -->
+<section class="block">
+  <div class="feat">
+    <div class="feat-media">
+      <div class="media-stack">
+        <div class="frame tilt-l"><img src="/images/jacky-strand.jpg" alt="Jacky am Strand" loading="lazy"></div>
+        <div class="frame"><img src="/images/jacky-strand2.jpg" alt="Jacky am Meer" loading="lazy"></div>
+        <div class="frame tilt-r"><img src="/images/natur.jpg" alt="Jacky in der Natur" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="feat-text">
+      <p class="eyebrow">Kapitel eins</p>
+      <h2>Zwischen Tellern gestartet</h2>
+      <p>Aufgewachsen in Wuppertal, gelernt auf Norderney: Hotelfachfrau, mit allem was dazugehört. Danach zehn Jahre gehobene Gastronomie, zwei davon in der Schweiz. Ich habe gelernt, was Gastfreundschaft wirklich heißt: Menschen ein Gefühl geben, nicht nur einen Teller hinstellen. Dann zog es mich nach Hamburg, wo ich mein Studium zum Online Marketing Manager draufgesetzt habe. Sicherer Plan, gutes Leben. Und trotzdem hat da ständig etwas gekribbelt.</p>
+    </div>
   </div>
+</section>
 
-  <p class="section-tag">Australien war nie der Plan 🦘</p>
-  <div class="stickers"><span class="sticker lg">🇦🇺</span><span class="sticker">✈️</span><span class="sticker lg">🏄</span><span class="sticker">📍</span></div>
-  <div class="row tight">
-    <div class="polaroid tall tape" style="transform:rotate(-3deg)"><img src="/images/kangaroo.jpg" alt="Känguru in Australien" loading="lazy"><span class="cap">meine Nachbarn 🦘</span></div>
-    <div class="polaroid tall tape pink" style="transform:rotate(3deg)"><img src="/images/byron-bay.jpg" alt="Byron Bay" loading="lazy"><span class="cap">Byron Bay, mein Happy Place</span></div>
-    <div class="polaroid tape teal" style="transform:rotate(-2deg)"><img src="/images/qld.jpg" alt="Queensland" loading="lazy"><span class="cap">Queensland, du Schöne</span></div>
+<!-- QUOTE -->
+<div class="quote">
+  <div class="quote-inner">
+    <span class="mark">&ldquo;</span>
+    <h3>Mit 16 raus</h3>
+    <p>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und früh auf mich allein gestellt gewesen. Ich weiß, wie sich Alleinsein anfühlt, dieser Mix aus Freiheit und "es muss ja irgendwie gehen". Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gefühl zu geben: Du bist nicht allein.</p>
   </div>
-  <div class="row tight">
-    <div class="note blue" style="transform:rotate(-1deg);max-width:480px"><span class="pin"></span><h3>But here we are.</h3>Ehrlich? Australien stand nie auf meiner Bucketliste. Kein einziges Mal. Und jetzt lebe ich seit anderthalb Jahren mit dem Work and Holiday Visum an der australischen Ostküste, zwischen Meer und Palmen, genau da, wo ich morgens aufwache und kurz nicht glauben kann, dass das mein Alltag ist. Manchmal sind die besten Kapitel die, die man nie geplant hat.</div>
-    <div class="polaroid wide tape" style="transform:rotate(3deg)"><img src="/images/zipline.jpg" alt="Zipline Abenteuer" loading="lazy"><span class="cap">Adrenalin? immer gern</span></div>
-  </div>
+</div>
 
-  <p class="section-tag">und heute?</p>
-  <div class="row">
-    <div class="polaroid tape teal" style="transform:rotate(-3deg)"><img src="/images/stein.jpg" alt="Auszeit in der Natur" loading="lazy"><span class="cap">einfach mal durchatmen</span></div>
-    <div class="note green" style="transform:rotate(2deg)"><span class="pin"></span><h3>Was ich heute mache</h3>Vor Kurzem habe ich mir zwei Monate Auszeit in Asien gegönnt, einfach weil ich es konnte. Heute baue ich meine eigene Marketingagentur auf und bringe zusammen, was mich ausmacht: die Leidenschaft fürs Reisen, zehn Jahre Gastro-Background und eine ziemlich kreative Ader. Genau daraus ist PackPlanGo entstanden.</div>
-    <div class="polaroid tape pink" style="transform:rotate(3deg)"><img src="/images/byron.webp" alt="Sonnenuntergang" loading="lazy"><span class="cap">ich liebe das Meer</span></div>
+<!-- STORY 2 -->
+<section class="block">
+  <p class="sec-tag">und dann kam das <span class="o">Fernweh</span></p>
+  <div class="feat rev">
+    <div class="feat-media">
+      <div class="frame tilt-r"><img src="/images/meer.jpg" alt="Das Meer" loading="lazy"></div>
+    </div>
+    <div class="feat-text">
+      <p class="eyebrow">Ko Phangan</p>
+      <h2>Thailand hat mein Herz</h2>
+      <p>Reisen wurde meine große Liebe. Mexiko, Griechenland, Spanien. Und dann Ko Phangan. Diese Insel hat etwas mit mir gemacht, das ich bis heute kaum in Worte fasse. Thailand hat mein Herz erobert, und nebenbei die Menschen, die mir zum ersten Mal von Australien erzählt haben.</p>
+    </div>
   </div>
+</section>
 
-  <div class="row tight">
-    <div class="note" style="transform:rotate(-1deg);max-width:560px;background:#fff6b8"><span class="pin"></span><h3>Warum es PackPlanGo gibt</h3>PackPlanGo ist für alle, die spüren, dass "top" nicht immer genug ist. Für die, die losziehen wollen, aber nicht wissen wie. Ich rede frei Schnauze, nehme kein Blatt vor den Mund und mache meine eigenen Regeln. Kein Hochglanz, kein Bullshit, nur echte Erfahrung und der ehrliche Stoff, den ich mir selbst vorher gewünscht hätte. Ich bin losgezogen, weil ich die Welt sehen wollte. Und jetzt bin ich hier, um dir zu zeigen, dass du das auch kannst.</div>
+<!-- STORY 3 AUSTRALIEN -->
+<section class="block">
+  <p class="sec-tag">Australien war nie der <span class="p">Plan</span></p>
+  <div class="gallery">
+    <div class="frame"><img src="/images/kangaroo.jpg" alt="Känguru in Australien" loading="lazy"></div>
+    <div class="frame"><img src="/images/byron-bay.jpg" alt="Byron Bay" loading="lazy"></div>
+    <div class="frame"><img src="/images/qld.jpg" alt="Queensland" loading="lazy"></div>
   </div>
-
-  <div class="stats">
-    <div class="stat" style="transform:rotate(-2deg)"><div class="n">10</div><div class="l">Jahre Gastro</div></div>
-    <div class="stat" style="transform:rotate(-1deg)"><div class="n">1,5</div><div class="l">Jahre Australien</div></div>
-    <div class="stat" style="transform:rotate(2deg)"><div class="n">∞</div><div class="l">Fernweh</div></div>
+  <div class="quote">
+    <div class="quote-inner">
+      <span class="mark">&ldquo;</span>
+      <h3>But here we are.</h3>
+      <p>Ehrlich? Australien stand nie auf meiner Bucketliste. Kein einziges Mal. Und jetzt lebe ich seit anderthalb Jahren mit dem Work and Holiday Visum an der australischen Ostküste, zwischen Meer und Palmen, genau da, wo ich morgens aufwache und kurz nicht glauben kann, dass das mein Alltag ist. Manchmal sind die besten Kapitel die, die man nie geplant hat.</p>
+    </div>
   </div>
+</section>
 
-  <div class="scrap-cta">
+<!-- STORY 4 HEUTE -->
+<section class="block">
+  <p class="sec-tag">und <span class="o">heute</span>?</p>
+  <div class="feat">
+    <div class="feat-media">
+      <div class="media-stack">
+        <div class="frame tilt-l"><img src="/images/stein.jpg" alt="Auszeit in der Natur" loading="lazy"></div>
+        <div class="frame"><img src="/images/byron.webp" alt="Sonnenuntergang" loading="lazy"></div>
+        <div class="frame tilt-r"><img src="/images/zipline.jpg" alt="Zipline Abenteuer" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="feat-text">
+      <p class="eyebrow">heute</p>
+      <h2>Was ich heute mache</h2>
+      <p>Vor Kurzem habe ich mir zwei Monate Auszeit in Asien gegönnt, einfach weil ich es konnte. Heute baue ich meine eigene Marketingagentur auf und bringe zusammen, was mich ausmacht: die Leidenschaft fürs Reisen, zehn Jahre Gastro-Background und eine ziemlich kreative Ader. Genau daraus ist PackPlanGo entstanden.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="n">10</div><div class="l">Jahre Gastro</div></div>
+  <div class="stat"><div class="n">1,5</div><div class="l">Jahre Australien</div></div>
+  <div class="stat"><div class="n">&infin;</div><div class="l">Fernweh</div></div>
+</div>
+
+<!-- PANEL WARUM -->
+<section class="block">
+  <div class="panel">
+    <div class="panel-inner">
+      <p class="eyebrow">warum es PackPlanGo gibt</p>
+      <h2 class="serif">Kein Hochglanz. Kein Bullshit.</h2>
+      <p>PackPlanGo ist für alle, die spüren, dass "top" nicht immer genug ist. Für die, die losziehen wollen, aber nicht wissen wie. Ich rede frei Schnauze, nehme kein Blatt vor den Mund und mache meine eigenen Regeln. Nur echte Erfahrung und der ehrliche Stoff, den ich mir selbst vorher gewünscht hätte. Ich bin losgezogen, weil ich die Welt sehen wollte. Und jetzt bin ich hier, um dir zu zeigen, dass du das auch kannst.</p>
+      <div class="pills">
+        <span class="pill t">Echte Erfahrung</span>
+        <span class="pill p">Frei Schnauze</span>
+        <span class="pill o">Eigene Regeln</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-inner">
+    <svg class="cblob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path fill="#E8005A" d="M44.7,-58.2C57.4,-49.1,66.4,-34.6,69.8,-19C73.2,-3.4,71,13.3,63.3,26.8C55.6,40.3,42.4,50.6,27.9,57.8C13.4,65,-2.4,69.1,-17.7,65.9C-33,62.7,-47.8,52.2,-57.9,38.3C-68,24.4,-73.4,7.1,-71.3,-9.2C-69.2,-25.5,-59.6,-40.8,-46.7,-50C-33.8,-59.2,-17.6,-62.3,-0.6,-61.5C16.4,-60.7,32.8,-56,44.7,-58.2Z" transform="translate(100 100)"/></svg>
     <h3>Bereit, deine eigene Story zu schreiben?</h3>
     <p>Hol dir meinen kostenlosen Guide, komm in die Community und zieh los. Ich war auch mal da, wo du gerade stehst.</p>
-    <a href="/travel/#download" class="btn btn-white">📥 Kostenlosen Guide holen</a>
+    <a href="/travel/#download" class="btn btn-pink">Kostenlosen Guide holen</a>
     <a href="https://instagram.com/jackywest.remote" target="_blank" rel="noopener" class="btn btn-ghost">Auf Instagram folgen</a>
   </div>
-
 </div>
 
 <footer>
