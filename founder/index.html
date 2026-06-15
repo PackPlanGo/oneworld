@@ -32,7 +32,7 @@
   --ocean-deep:#062a3e;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{font-family:var(--sans);background:var(--ocean-deep);color:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -64,52 +64,99 @@ header.site-header.scrolled .nav-cta{background:var(--accent)}
 /* ─── SCROLL PROGRESS ─── */
 #scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:9999;width:0%;transition:width .1s linear}
 
-/* ─── HERO — Strand & Palmen ─── */
-.hero-founder{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,#87CEEB 0%,#5BB5D5 30%,var(--ocean-surface) 70%,var(--ocean-mid) 100%)}
-.hero-founder::before{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
-  background:linear-gradient(180deg,transparent 0%,rgba(13,95,122,.6) 50%,rgba(6,42,62,.9) 100%);
-  z-index:2;pointer-events:none;
+/* ═══════════════════════════════════════════════
+   HERO — Sky, Sun, Beach, Palms, Water Surface
+   ═══════════════════════════════════════════════ */
+.hero-founder{
+  position:relative;min-height:120vh;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  overflow:hidden;
+  background:linear-gradient(180deg,
+    #1a3a5c 0%,
+    #e8945a 8%,
+    #f0b87a 14%,
+    #87CEEB 25%,
+    #5BB5D5 45%,
+    #1a8a9e 65%,
+    #0d6e8a 80%,
+    var(--ocean-mid) 100%
+  );
 }
 
-/* Palm silhouettes via CSS */
-.palm-left,.palm-right{position:absolute;top:0;z-index:3;width:280px;height:350px;pointer-events:none;opacity:.35}
-.palm-left{left:-30px}
-.palm-right{right:-30px;transform:scaleX(-1)}
+/* Sun */
+.sun{
+  position:absolute;top:6%;left:50%;transform:translateX(-50%);
+  width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,#ffe4a0 0%,rgba(232,154,91,.8) 30%,rgba(232,154,91,.2) 60%,transparent 80%);
+  z-index:2;filter:blur(8px);
+  animation:sunPulse 4s ease-in-out infinite;
+}
+@keyframes sunPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:1}50%{transform:translateX(-50%) scale(1.08);opacity:.9}}
+
+/* Sun rays */
+.sun-rays{
+  position:absolute;top:2%;left:50%;transform:translateX(-50%);
+  width:500px;height:400px;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 40%,rgba(255,228,160,.15) 0%,rgba(232,154,91,.05) 40%,transparent 70%);
+}
+
+/* Palm silhouettes — SVG-based */
+.palm{position:absolute;z-index:4;pointer-events:none;opacity:.7}
+.palm-left{left:-40px;top:-20px;width:320px;height:450px}
+.palm-right{right:-40px;top:-10px;width:300px;height:420px;transform:scaleX(-1)}
+.palm svg{width:100%;height:100%}
+
+/* Beach sand hint */
+.beach-line{
+  position:absolute;bottom:38%;left:0;right:0;height:3px;z-index:3;
+  background:linear-gradient(90deg,transparent 5%,rgba(210,180,140,.3) 30%,rgba(210,180,140,.4) 50%,rgba(210,180,140,.3) 70%,transparent 95%);
+}
 
 /* Animated water surface */
 .water-surface{
-  position:absolute;bottom:30%;left:0;right:0;height:120px;z-index:2;
-  background:linear-gradient(180deg,rgba(26,138,158,0) 0%,rgba(26,138,158,.4) 40%,rgba(13,95,122,.7) 100%);
-  animation:waterWave 6s ease-in-out infinite;
+  position:absolute;bottom:28%;left:-5%;right:-5%;height:160px;z-index:3;
+  overflow:hidden;pointer-events:none;
 }
-@keyframes waterWave{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
+.water-surface svg{
+  width:110%;position:absolute;bottom:0;left:-5%;
+  animation:waterMove 8s ease-in-out infinite;
+}
+@keyframes waterMove{0%,100%{transform:translateX(0) translateY(0)}50%{transform:translateX(-15px) translateY(-6px)}}
+
+/* Water surface shimmer */
+.water-shimmer{
+  position:absolute;bottom:22%;left:0;right:0;height:80px;z-index:3;
+  background:linear-gradient(180deg,
+    rgba(26,138,158,.0) 0%,
+    rgba(26,138,158,.15) 20%,
+    rgba(13,95,122,.4) 60%,
+    rgba(13,95,122,.6) 100%
+  );
+  animation:shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer{0%,100%{opacity:.8}50%{opacity:1}}
+
+/* Hero gradient overlay at bottom for smooth transition */
+.hero-founder::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:35%;
+  background:linear-gradient(180deg,transparent 0%,rgba(6,42,62,.5) 60%,rgba(6,42,62,.95) 100%);
+  z-index:5;pointer-events:none;
 }
 
-/* Sun glow */
-.sun-glow{
-  position:absolute;top:8%;left:50%;transform:translateX(-50%);
-  width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle,rgba(232,154,91,.5) 0%,rgba(232,154,91,.15) 40%,transparent 70%);
-  z-index:1;filter:blur(20px);
-}
-
-.hero-content{position:relative;z-index:5;max-width:800px;padding:120px 32px 80px;color:#fff}
-.hero-tag{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:20px}
-.hero-intro{font-family:var(--sans);font-weight:600;font-size:clamp(18px,2.5vw,24px);margin-bottom:10px;color:rgba(255,255,255,.9)}
-.hero-name{font-family:var(--serif);font-weight:600;font-size:clamp(72px,14vw,160px);line-height:.95;letter-spacing:-.03em;color:#fff;margin-bottom:24px}
+.hero-content{position:relative;z-index:10;max-width:800px;padding:120px 32px 160px;color:#fff}
+.hero-tag{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+.hero-intro{font-family:var(--sans);font-weight:600;font-size:clamp(18px,2.5vw,24px);margin-bottom:10px;color:rgba(255,255,255,.95);text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.hero-name{font-family:var(--serif);font-weight:600;font-size:clamp(72px,14vw,160px);line-height:.95;letter-spacing:-.03em;color:#fff;margin-bottom:24px;text-shadow:0 4px 30px rgba(0,0,0,.3)}
 .hero-name span.dot-pink{color:var(--accent);font-size:.6em;vertical-align:middle}
-.hero-lead{max-width:560px;margin:0 auto 32px;font-size:17px;color:rgba(255,255,255,.85);line-height:1.7}
+.hero-lead{max-width:560px;margin:0 auto 32px;font-size:17px;color:rgba(255,255,255,.9);line-height:1.7;text-shadow:0 2px 8px rgba(0,0,0,.3)}
 .hero-tags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.hero-tags span{padding:8px 20px;border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.02em}
-.hero-tags .tag-outline{border:1.5px solid rgba(255,255,255,.4);color:#fff}
+.hero-tags span{padding:8px 20px;border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.02em;backdrop-filter:blur(6px)}
+.hero-tags .tag-outline{border:1.5px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.08)}
 .hero-tags .tag-accent{background:var(--accent);color:#fff;border:1.5px solid var(--accent)}
 
-.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.scroll-hint .line{width:1px;height:40px;background:rgba(255,255,255,.3);animation:scrollPulse 2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:.3;height:40px}50%{opacity:.8;height:55px}}
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.scroll-hint .line{width:1px;height:40px;background:rgba(255,255,255,.4);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;height:40px}50%{opacity:.9;height:55px}}
 
 /* Side labels */
 .side-label{position:fixed;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);writing-mode:vertical-lr;z-index:50;pointer-events:none;transition:opacity .3s}
@@ -117,12 +164,15 @@ header.site-header.scrolled .nav-cta{background:var(--accent)}
 .side-label.right{right:20px;top:50%;transform:translateY(-50%)}
 @media(max-width:820px){.side-label{display:none}}
 
-/* ─── TRANSITION ZONE — above to below water ─── */
+/* ═══════════════════════════════════════════════
+   DIVE TRANSITION — entering the water
+   ═══════════════════════════════════════════════ */
 .dive-transition{
-  position:relative;padding:120px 32px;text-align:center;
-  background:linear-gradient(180deg,var(--ocean-mid) 0%,var(--ocean-deep) 100%);
+  position:relative;padding:140px 32px;text-align:center;
+  background:linear-gradient(180deg,var(--ocean-deep) 0%,#041e2e 100%);
   overflow:hidden;
 }
+/* Floating particles */
 .dive-transition::before{
   content:'';position:absolute;inset:0;
   background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="20" cy="30" r="3" fill="rgba(255,255,255,0.08)"/><circle cx="80" cy="90" r="2" fill="rgba(255,255,255,0.05)"/><circle cx="150" cy="50" r="4" fill="rgba(255,255,255,0.06)"/><circle cx="40" cy="160" r="2.5" fill="rgba(255,255,255,0.04)"/><circle cx="170" cy="140" r="3" fill="rgba(255,255,255,0.07)"/></svg>');
@@ -131,16 +181,41 @@ header.site-header.scrolled .nav-cta{background:var(--accent)}
 }
 @keyframes floatBubbles{0%{transform:translateY(0)}100%{transform:translateY(-200px)}}
 
+/* Light rays from above */
+.light-rays{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:700px;height:100%;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(26,138,158,.1) 0%,
+    rgba(26,138,158,.03) 30%,
+    transparent 60%
+  );
+  clip-path:polygon(35% 0%,65% 0%,85% 100%,15% 100%);
+  opacity:.5;
+}
+.light-rays-2{
+  position:absolute;top:0;left:30%;
+  width:400px;height:80%;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(135,206,235,.06) 0%,
+    transparent 50%
+  );
+  clip-path:polygon(40% 0%,70% 0%,90% 100%,10% 100%);
+  opacity:.3;
+}
+
 .dive-tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-soft);font-weight:600;margin-bottom:18px;position:relative;z-index:2}
 .dive-title{font-family:var(--serif);font-weight:600;font-size:clamp(36px,6vw,72px);line-height:1.05;color:#fff;margin-bottom:16px;position:relative;z-index:2}
 .dive-title em{font-style:italic;color:var(--accent)}
 .dive-sub{font-size:17px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto;position:relative;z-index:2}
 
-/* ─── DEEP OCEAN SECTIONS ─── */
+/* ═══════════════════════════════════════════════
+   DEEP OCEAN SECTIONS
+   ═══════════════════════════════════════════════ */
 .deep-section{position:relative;padding:100px 32px;overflow:hidden}
 .deep-section::before{
   content:'';position:absolute;inset:0;z-index:0;
-  background:linear-gradient(180deg,var(--ocean-deep) 0%,#041e2e 100%);
+  background:linear-gradient(180deg,#041e2e 0%,#031824 100%);
 }
 .container{max-width:1160px;margin:0 auto;position:relative;z-index:2}
 
@@ -161,7 +236,7 @@ header.site-header.scrolled .nav-cta{background:var(--accent)}
 
 /* Story Chapter */
 .chapter{position:relative;padding:100px 32px;overflow:hidden}
-.chapter::before{content:'';position:absolute;inset:0;background:rgba(6,42,62,.85);z-index:0}
+.chapter::before{content:'';position:absolute;inset:0;background:#031824;z-index:0}
 .chapter-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;position:relative;z-index:2}
 .chapter-grid.reverse{grid-template-columns:1.2fr 1fr}
 @media(max-width:900px){.chapter-grid,.chapter-grid.reverse{grid-template-columns:1fr;gap:32px}}
@@ -173,24 +248,56 @@ header.site-header.scrolled .nav-cta{background:var(--accent)}
 .chapter-text{font-size:16px;color:rgba(255,255,255,.75);line-height:1.75}
 
 /* Quote Box */
-.quote-box{background:rgba(45,110,105,.2);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;margin:80px auto;max-width:900px;position:relative;z-index:2;backdrop-filter:blur(8px)}
+.quote-box{background:rgba(13,95,122,.15);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;margin:80px auto;max-width:900px;position:relative;z-index:2;backdrop-filter:blur(8px)}
 .quote-box .q-mark{font-family:var(--serif);font-size:48px;color:var(--accent);line-height:1;margin-bottom:12px}
 .quote-box h3{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3vw,32px);color:#fff;margin-bottom:16px;font-style:italic}
 .quote-box p{font-size:16px;color:rgba(255,255,255,.75);line-height:1.75}
 
-/* Mariama Diving Section — immersive fullscreen parallax */
+/* ═══════════════════════════════════════════════
+   MARIAMA DIVING — Full immersive section
+   ═══════════════════════════════════════════════ */
 .diving-section{
-  position:relative;min-height:100vh;display:flex;align-items:center;
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  perspective:800px;
+}
+.diving-img-wrapper{
+  position:absolute;inset:0;z-index:0;
+  display:flex;align-items:center;justify-content:center;
+  background:#031520;
   overflow:hidden;
 }
-.diving-bg{
-  position:absolute;inset:0;z-index:0;
-  background:url('/images/mariama-207.jpg') center 30%/cover no-repeat;
-  filter:brightness(.65) saturate(1.3);
-  transform:scale(1.15);
+.diving-img-wrapper img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  filter:brightness(.6) saturate(1.3);
+  transform:scale(1.1);
+  transition:transform .1s linear;
 }
-.diving-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,42,62,.4) 0%,rgba(4,30,46,.2) 40%,rgba(6,42,62,.6) 100%)}
+.diving-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,
+    rgba(3,21,32,.6) 0%,
+    rgba(3,21,32,.15) 30%,
+    rgba(3,21,32,.15) 70%,
+    rgba(3,21,32,.7) 100%
+  );
+}
 .diving-content{position:relative;z-index:2;max-width:700px;padding:80px 32px;margin:0 auto;text-align:center}
+
+/* Bubbles */
+.bubble{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.3),rgba(255,255,255,.05));
+  animation:rise linear infinite;
+  z-index:3;pointer-events:none;
+}
+@keyframes rise{
+  0%{transform:translateY(0) scale(1);opacity:.6}
+  100%{transform:translateY(-600px) scale(.3);opacity:0}
+}
 
 /* Stats */
 .stats-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin:60px 0;position:relative;z-index:2}
@@ -198,9 +305,11 @@ header.site-header.scrolled .nav-cta{background:var(--accent)}
 .stat .num{font-family:var(--serif);font-size:clamp(42px,5vw,60px);color:var(--accent);font-weight:600;line-height:1}
 .stat .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:8px}
 
-/* Manifesto */
+/* ═══════════════════════════════════════════════
+   MANIFESTO — deep ocean, no green
+   ═══════════════════════════════════════════════ */
 .manifesto{position:relative;padding:100px 32px;text-align:center;overflow:hidden}
-.manifesto::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#041e2e 0%,var(--teal-deep) 50%,var(--teal) 100%);z-index:0}
+.manifesto::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#031824 0%,#041e2e 50%,#062a3e 100%);z-index:0}
 .manifesto .container{position:relative;z-index:2}
 .manifesto-tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-soft);font-weight:600;margin-bottom:20px}
 .manifesto-title{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.5vw,52px);line-height:1.15;color:#fff;margin-bottom:24px}
@@ -208,19 +317,30 @@ header.site-header.scrolled .nav-cta{background:var(--accent)}
 .manifesto-values{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
 .manifesto-values span{padding:10px 24px;border-radius:999px;font-size:13px;font-weight:600;border:1.5px solid rgba(255,255,255,.3);color:#fff}
 
-/* CTA */
-.cta-founder{position:relative;padding:80px 32px;text-align:center;background:var(--teal)}
-.cta-founder h2{font-family:var(--serif);font-size:clamp(26px,4vw,44px);font-style:italic;color:#fff;margin-bottom:14px}
-.cta-founder p{font-size:17px;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 32px}
-.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* ═══════════════════════════════════════════════
+   CTA — deep ocean blue, NO green
+   ═══════════════════════════════════════════════ */
+.cta-founder{
+  position:relative;padding:80px 32px;text-align:center;
+  background:linear-gradient(180deg,#062a3e 0%,var(--ocean-mid) 100%);
+  overflow:hidden;
+}
+.cta-founder::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(26,138,158,.15) 0%,transparent 60%);
+  pointer-events:none;
+}
+.cta-founder h2{font-family:var(--serif);font-size:clamp(26px,4vw,44px);font-style:italic;color:#fff;margin-bottom:14px;position:relative;z-index:1}
+.cta-founder p{font-size:17px;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 32px;position:relative;z-index:1}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
 .btn{padding:16px 32px;border-radius:999px;font-weight:500;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:0;text-decoration:none}
 .btn-primary{background:var(--accent);color:#fff}
 .btn-primary:hover{background:#d9874a;transform:translateY(-2px);color:#fff}
 .btn-outline-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
 .btn-outline-light:hover{background:rgba(255,255,255,.15);border-color:#fff}
 
-/* ─── FOOTER (exakt wie Hauptseite) ─── */
-footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px 32px}
+/* ─── FOOTER ─── */
+footer{background:#041e2e;color:rgba(255,255,255,.75);padding:48px 24px 32px}
 .footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
 .footer-brand .logo{font-weight:700;font-size:1.05rem;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .footer-brand .logo img{width:24px;border-radius:5px}
@@ -233,38 +353,111 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 .footer-bottom a:hover{color:#fff}
 @media(max-width:680px){.footer-inner{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.footer-bottom a{margin:0 8px}}
 
-/* ─── Animations ─── */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+/* ═══════════════════════════════════════════════
+   ANIMATIONS & PARALLAX
+   ═══════════════════════════════════════════════ */
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
 .reveal.visible{opacity:1;transform:none}
 
-/* ─── Light Ray Effects ─── */
-.light-rays{
-  position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:600px;height:100%;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,
-    rgba(135,206,235,.08) 0%,
-    rgba(26,138,158,.04) 30%,
-    transparent 60%
-  );
-  clip-path:polygon(40% 0%,60% 0%,80% 100%,20% 100%);
-  opacity:.4;
+/* Parallax layers */
+.parallax-layer{will-change:transform;transition:transform .05s linear}
+
+/* Depth card hover */
+.depth-card{
+  transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;
+}
+.depth-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
 }
 
-/* ─── Particle bubbles ─── */
-.bubble{
-  position:absolute;border-radius:50%;
-  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.3),rgba(255,255,255,.05));
-  animation:rise linear infinite;
-  z-index:1;pointer-events:none;
+/* Floating animation for elements */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
 }
-@keyframes rise{
-  0%{transform:translateY(0) scale(1);opacity:.6}
-  100%{transform:translateY(-600px) scale(.3);opacity:0}
+.float{animation:float 5s ease-in-out infinite}
+
+/* Scale in animation */
+.scale-in{
+  opacity:0;transform:scale(.9);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
 }
+.scale-in.visible{opacity:1;transform:scale(1)}
+
+/* Slide from left */
+.slide-left{
+  opacity:0;transform:translateX(-60px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
+}
+.slide-left.visible{opacity:1;transform:none}
+
+/* Slide from right */
+.slide-right{
+  opacity:0;transform:translateX(60px);
+  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
+}
+.slide-right.visible{opacity:1;transform:none}
+
+/* Stagger children */
+.stagger > *{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.stagger.visible > *{opacity:1;transform:none}
+.stagger.visible > *:nth-child(1){transition-delay:0s}
+.stagger.visible > *:nth-child(2){transition-delay:.12s}
+.stagger.visible > *:nth-child(3){transition-delay:.24s}
+.stagger.visible > *:nth-child(4){transition-delay:.36s}
+.stagger.visible > *:nth-child(5){transition-delay:.48s}
+.stagger.visible > *:nth-child(6){transition-delay:.6s}
+
+/* Underwater caustics light pattern */
+.caustics{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 20% 50%,rgba(26,138,158,.05) 0%,transparent 50%),
+    radial-gradient(ellipse at 80% 30%,rgba(135,206,235,.04) 0%,transparent 50%),
+    radial-gradient(ellipse at 50% 80%,rgba(26,138,158,.03) 0%,transparent 40%);
+  animation:causticShift 12s ease-in-out infinite;
+}
+@keyframes causticShift{
+  0%,100%{opacity:.4;transform:scale(1)}
+  50%{opacity:.7;transform:scale(1.05)}
+}
+
+/* Depth indicator */
+.depth-indicator{
+  position:fixed;right:24px;top:50%;transform:translateY(-50%);
+  z-index:60;display:flex;flex-direction:column;align-items:center;gap:6px;
+  pointer-events:none;transition:opacity .3s;
+}
+.depth-indicator .depth-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,.15);
+  transition:all .3s;
+}
+.depth-indicator .depth-dot.active{
+  background:var(--accent);
+  box-shadow:0 0 10px rgba(232,154,91,.4);
+  transform:scale(1.3);
+}
+@media(max-width:820px){.depth-indicator{display:none}}
+
 </style>
 </head>
 <body>
 <div id="scroll-progress"></div>
+
+<!-- Depth Indicator (right side dots) -->
+<div class="depth-indicator" id="depthIndicator">
+  <div class="depth-dot active" data-section="hero"></div>
+  <div class="depth-dot" data-section="dive"></div>
+  <div class="depth-dot" data-section="about"></div>
+  <div class="depth-dot" data-section="chapter1"></div>
+  <div class="depth-dot" data-section="diving"></div>
+  <div class="depth-dot" data-section="manifesto"></div>
+  <div class="depth-dot" data-section="cta"></div>
+</div>
 
 <!-- NAV -->
 <header class="site-header" id="siteHeader">
@@ -278,67 +471,96 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
       <a href="/founder/" class="active">Founder</a>
       <a href="/#contact" class="nav-cta">Kontakt</a>
     </nav>
-    <button class="burger" id="burger" aria-label="Menu">☰</button>
+    <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
   </div>
 </header>
 
 <!-- Side Labels -->
-<div class="side-label left">DIE GRÜNDERIN</div>
-<div class="side-label right">GOLD COAST · AUSTRALIEN</div>
+<div class="side-label left">DIE GR&Uuml;NDERIN</div>
+<div class="side-label right">GOLD COAST &middot; AUSTRALIEN</div>
 
-<!-- ═══ HERO — Strand & Palmen, Übergang ins Meer ═══ -->
-<section class="hero-founder" id="hero">
-  <div class="sun-glow"></div>
-  <div class="light-rays"></div>
+<!-- ═══ HERO — Sky, Sun, Beach, Palms, Water Surface ═══ -->
+<section class="hero-founder" id="hero" data-depth="0">
 
-  <!-- Bubbles -->
-  <div class="bubble" style="width:12px;height:12px;left:15%;bottom:20%;animation-duration:8s;animation-delay:0s"></div>
-  <div class="bubble" style="width:8px;height:8px;left:75%;bottom:15%;animation-duration:10s;animation-delay:2s"></div>
-  <div class="bubble" style="width:16px;height:16px;left:45%;bottom:10%;animation-duration:12s;animation-delay:1s"></div>
-  <div class="bubble" style="width:6px;height:6px;left:85%;bottom:25%;animation-duration:9s;animation-delay:4s"></div>
-  <div class="bubble" style="width:10px;height:10px;left:25%;bottom:5%;animation-duration:11s;animation-delay:3s"></div>
+  <!-- Sun glow -->
+  <div class="sun parallax-layer" data-speed="0.15"></div>
+  <div class="sun-rays parallax-layer" data-speed="0.1"></div>
 
-  <div class="hero-content">
+  <!-- Palm Silhouettes (SVG) -->
+  <div class="palm palm-left parallax-layer" data-speed="0.05">
+    <svg viewBox="0 0 320 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M160 450 L158 280 C155 240 140 200 100 170 C70 148 30 145 5 155 C35 130 75 125 110 135 C130 141 148 155 155 175 L153 170 C140 130 110 95 65 75 C35 60 5 60 -15 65 C15 40 55 35 90 50 C115 60 135 80 148 108 L146 100 C130 55 95 20 50 0 C85 5 120 25 142 60 C155 82 160 108 158 135 L160 140 C165 110 180 80 210 58 C235 40 270 35 300 42 C270 30 240 40 215 58 C195 72 182 94 175 120 L178 105 C190 70 215 40 252 22 C280 10 310 8 335 15 C305 0 270 5 240 22 C215 37 198 60 188 88 L185 95 C192 65 210 40 240 25 C260 15 285 15 310 20 C285 5 258 5 235 18 C210 32 195 58 185 90 L180 130 C178 155 182 178 190 200 C175 170 168 145 168 120 L165 200 Z" fill="rgba(0,20,10,.65)"/>
+    </svg>
+  </div>
+  <div class="palm palm-right parallax-layer" data-speed="0.05">
+    <svg viewBox="0 0 320 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M160 450 L158 280 C155 240 140 200 100 170 C70 148 30 145 5 155 C35 130 75 125 110 135 C130 141 148 155 155 175 L153 170 C140 130 110 95 65 75 C35 60 5 60 -15 65 C15 40 55 35 90 50 C115 60 135 80 148 108 L146 100 C130 55 95 20 50 0 C85 5 120 25 142 60 C155 82 160 108 158 135 L160 140 C165 110 180 80 210 58 C235 40 270 35 300 42 C270 30 240 40 215 58 C195 72 182 94 175 120 L178 105 C190 70 215 40 252 22 C280 10 310 8 335 15 C305 0 270 5 240 22 C215 37 198 60 188 88 L185 95 C192 65 210 40 240 25 C260 15 285 15 310 20 C285 5 258 5 235 18 C210 32 195 58 185 90 L180 130 C178 155 182 178 190 200 C175 170 168 145 168 120 L165 200 Z" fill="rgba(0,20,10,.65)"/>
+    </svg>
+  </div>
+
+  <!-- Beach line -->
+  <div class="beach-line parallax-layer" data-speed="0.08"></div>
+
+  <!-- Water surface wave SVG -->
+  <div class="water-surface parallax-layer" data-speed="0.12">
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,64 C180,20 360,100 540,64 C720,28 900,100 1080,64 C1260,28 1350,80 1440,64 L1440,160 L0,160 Z" fill="rgba(13,95,122,.5)"/>
+      <path d="M0,80 C200,50 400,110 600,80 C800,50 1000,110 1200,80 C1350,58 1400,90 1440,80 L1440,160 L0,160 Z" fill="rgba(6,42,62,.7)"/>
+    </svg>
+  </div>
+  <div class="water-shimmer"></div>
+
+  <!-- Bubbles in water area -->
+  <div class="bubble" style="width:10px;height:10px;left:20%;bottom:18%;animation-duration:9s;animation-delay:0s"></div>
+  <div class="bubble" style="width:6px;height:6px;left:70%;bottom:12%;animation-duration:11s;animation-delay:2s"></div>
+  <div class="bubble" style="width:14px;height:14px;left:45%;bottom:8%;animation-duration:8s;animation-delay:1s"></div>
+  <div class="bubble" style="width:5px;height:5px;left:85%;bottom:22%;animation-duration:10s;animation-delay:3s"></div>
+
+  <div class="hero-content parallax-layer" data-speed="0.25">
     <p class="hero-tag">Die Frau hinter PackPlanGo</p>
     <p class="hero-intro">Hi, ich bin</p>
     <h1 class="hero-name">Jacky<span class="dot-pink">.</span></h1>
-    <p class="hero-lead">Komm mit unter die Oberfläche. Aufgewachsen in Wuppertal, zehn Jahre Gastro, ein Flugticket und der Mut, alles hinter mir zu lassen. Scroll dich rein.</p>
-    <div class="hero-tags">
+    <p class="hero-lead">Komm mit unter die Oberfl&auml;che. Aufgewachsen in Wuppertal, zehn Jahre Gastro, ein Flugticket und der Mut, alles hinter mir zu lassen. Scroll dich rein.</p>
+    <div class="hero-tags stagger">
       <span class="tag-outline">Hotelfachfrau</span>
       <span class="tag-accent">Online Marketing Managerin</span>
       <span class="tag-outline">Strandmensch</span>
     </div>
     <div class="scroll-hint">
-      <span>Scroll · Tauch ein</span>
+      <span>Scroll &middot; Tauch ein</span>
       <div class="line"></div>
     </div>
   </div>
 </section>
 
 <!-- ═══ DIVE TRANSITION ═══ -->
-<section class="dive-transition reveal">
+<section class="dive-transition reveal" data-depth="1">
+  <div class="light-rays"></div>
+  <div class="light-rays-2"></div>
+  <div class="caustics"></div>
   <div class="bubble" style="width:14px;height:14px;left:20%;bottom:30%;animation-duration:9s;animation-delay:0s"></div>
   <div class="bubble" style="width:8px;height:8px;left:60%;bottom:20%;animation-duration:11s;animation-delay:2s"></div>
   <div class="bubble" style="width:18px;height:18px;left:80%;bottom:10%;animation-duration:7s;animation-delay:1s"></div>
   <p class="dive-tag">Jetzt bist du drin</p>
   <h2 class="dive-title">Willkommen in<br><em>meiner Welt</em></h2>
-  <p class="dive-sub">Salzwasser, Sonne und kein Plan B. So fühlt sich mein Alltag an.</p>
+  <p class="dive-sub">Salzwasser, Sonne und kein Plan B. So f&uuml;hlt sich mein Alltag an.</p>
 </section>
 
 <!-- ═══ ABOUT ME — Deep Ocean ═══ -->
-<section class="deep-section reveal" id="about">
-  <div class="light-rays" style="opacity:.2"></div>
+<section class="deep-section" id="about" data-depth="2">
+  <div class="caustics"></div>
+  <div class="light-rays" style="opacity:.15"></div>
   <div class="container">
     <div class="about-grid">
-      <div class="about-img-wrap">
+      <div class="about-img-wrap slide-left depth-card">
         <img src="/images/jacky-strand.jpg" alt="Jacky – Gründerin von PackPlanGo" loading="lazy">
         <span class="img-label">living the dream</span>
       </div>
-      <div class="about-text">
+      <div class="about-text slide-right">
         <p class="section-tag">About Me</p>
         <h2 class="section-title">Salzwasser im Haar,<br><em>Plan</em> im Kopf.</h2>
-        <p>Ich bin Jacky, Gründerin von PackPlanGo. Zehn Jahre Gastro, ein Marketingstudium und jede Menge Fernweh haben mich genau hierher gebracht: an die australische Ostküste, mit Sand zwischen den Zehen und einer Mission im Gepäck. Ich zeige dir, wie du loslegst, ohne dich zu verzetteln.</p>
-        <div class="about-tags">
+        <p>Ich bin Jacky, Gr&uuml;nderin von PackPlanGo. Zehn Jahre Gastro, ein Marketingstudium und jede Menge Fernweh haben mich genau hierher gebracht: an die australische Ostk&uuml;ste, mit Sand zwischen den Zehen und einer Mission im Gep&auml;ck. Ich zeige dir, wie du loslegst, ohne dich zu verzetteln.</p>
+        <div class="about-tags stagger">
           <span class="tag-o">Boss Girl</span>
           <span class="tag-o">Strandmensch</span>
           <span class="tag-a">Macherin</span>
@@ -349,19 +571,20 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 </section>
 
 <!-- ═══ KAPITEL EINS ═══ -->
-<section class="chapter reveal">
+<section class="chapter" id="chapter1" data-depth="3">
+  <div class="caustics"></div>
   <div class="bubble" style="width:10px;height:10px;left:10%;bottom:40%;animation-duration:10s;animation-delay:0s"></div>
   <div class="bubble" style="width:6px;height:6px;left:90%;bottom:30%;animation-duration:13s;animation-delay:3s"></div>
   <div class="container">
     <div class="chapter-grid">
-      <div class="chapter-images">
+      <div class="chapter-images scale-in">
         <img src="/images/jacky-strand2.jpg" alt="Jacky am Strand" loading="lazy">
         <img src="/images/natur.jpg" alt="Natur Australien" loading="lazy">
       </div>
-      <div>
+      <div class="slide-right">
         <p class="chapter-tag">Kapitel Eins</p>
         <h3 class="chapter-title">Zwischen Tellern gestartet</h3>
-        <p class="chapter-text">Aufgewachsen in Wuppertal, gelernt auf Norderney: Hotelfachfrau, mit allem was dazugehört. Danach zehn Jahre gehobene Gastronomie, zwei davon in der Schweiz. Ich habe gelernt, was Gastfreundschaft wirklich heißt: Menschen ein Gefühl geben, nicht nur einen Teller hinstellen. Dann zog es mich nach Hamburg, wo ich mein Studium zum Online Marketing Manager draufgesetzt habe. Sicherer Plan, gutes Leben. Und trotzdem hat da ständig etwas gekribbelt.</p>
+        <p class="chapter-text">Aufgewachsen in Wuppertal, gelernt auf Norderney: Hotelfachfrau, mit allem was dazugeh&ouml;rt. Danach zehn Jahre gehobene Gastronomie, zwei davon in der Schweiz. Ich habe gelernt, was Gastfreundschaft wirklich hei&szlig;t: Menschen ein Gef&uuml;hl geben, nicht nur einen Teller hinstellen. Dann zog es mich nach Hamburg, wo ich mein Studium zum Online Marketing Manager draufgesetzt habe. Sicherer Plan, gutes Leben. Und trotzdem hat da st&auml;ndig etwas gekribbelt.</p>
       </div>
     </div>
   </div>
@@ -369,36 +592,40 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 
 <!-- Quote -->
 <div class="quote-box reveal">
-  <div class="q-mark">"</div>
+  <div class="q-mark">&ldquo;</div>
   <h3>Mit 16 raus</h3>
-  <p>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und früh auf mich allein gestellt gewesen. Ich weiß, wie sich Alleinsein anfühlt, dieser Mix aus Freiheit und "es muss ja irgendwie gehen". Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gefühl zu geben: Du bist nicht allein.</p>
+  <p>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und fr&uuml;h auf mich allein gestellt gewesen. Ich wei&szlig;, wie sich Alleinsein anf&uuml;hlt, dieser Mix aus Freiheit und &ldquo;es muss ja irgendwie gehen&rdquo;. Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gef&uuml;hl zu geben: Du bist nicht allein.</p>
 </div>
 
-<!-- ═══ DIVING SECTION — Mariama BG (Behance-Style Immersive) ═══ -->
-<section class="diving-section reveal">
-  <div class="diving-bg" id="parallaxBg"></div>
+<!-- ═══ DIVING SECTION — Full Mariama BG (Behance-Style Immersive) ═══ -->
+<section class="diving-section" id="divingSection" data-depth="4">
+  <div class="diving-img-wrapper">
+    <img src="/images/mariama-207.jpg" alt="Jacky beim Tauchen mit Meeresschildkröte" id="parallaxImg" loading="lazy">
+  </div>
   <div class="diving-overlay"></div>
-  <div class="bubble" style="width:20px;height:20px;left:15%;bottom:15%;animation-duration:8s;animation-delay:0s"></div>
-  <div class="bubble" style="width:10px;height:10px;left:80%;bottom:25%;animation-duration:12s;animation-delay:1s"></div>
-  <div class="bubble" style="width:14px;height:14px;left:50%;bottom:5%;animation-duration:9s;animation-delay:3s"></div>
-  <div class="bubble" style="width:8px;height:8px;left:35%;bottom:35%;animation-duration:11s;animation-delay:2s"></div>
-  <div class="diving-content">
+  <div class="bubble" style="width:22px;height:22px;left:12%;bottom:15%;animation-duration:8s;animation-delay:0s"></div>
+  <div class="bubble" style="width:10px;height:10px;left:82%;bottom:28%;animation-duration:12s;animation-delay:1s"></div>
+  <div class="bubble" style="width:16px;height:16px;left:50%;bottom:5%;animation-duration:9s;animation-delay:3s"></div>
+  <div class="bubble" style="width:7px;height:7px;left:35%;bottom:40%;animation-duration:11s;animation-delay:2s"></div>
+  <div class="bubble" style="width:12px;height:12px;left:65%;bottom:10%;animation-duration:10s;animation-delay:4s"></div>
+  <div class="diving-content reveal">
     <p class="section-tag" style="letter-spacing:.3em">Tauch ein</p>
     <h2 style="font-family:var(--serif);font-weight:600;font-size:clamp(42px,8vw,90px);line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-.02em">und dann kam<br><em style="color:var(--accent);font-style:italic">das Fernweh</em></h2>
-    <p style="font-size:17px;color:rgba(255,255,255,.8);max-width:500px;margin:0 auto;line-height:1.7">Unter Wasser hat sich alles verändert. Die Stille, die Weite, das Gefühl — hier gehöre ich hin.</p>
+    <p style="font-size:17px;color:rgba(255,255,255,.85);max-width:500px;margin:0 auto;line-height:1.7">Unter Wasser hat sich alles ver&auml;ndert. Die Stille, die Weite, das Gef&uuml;hl &mdash; hier geh&ouml;re ich hin.</p>
   </div>
 </section>
 
 <!-- ═══ KO PHANGAN ═══ -->
-<section class="deep-section reveal">
+<section class="deep-section" data-depth="5">
+  <div class="caustics"></div>
   <div class="container">
     <div class="about-grid" style="grid-template-columns:1.2fr 1fr">
-      <div>
+      <div class="slide-left">
         <p class="section-tag">Ko Phangan</p>
         <h2 class="chapter-title">Thailand hat mein Herz</h2>
-        <p class="chapter-text">Reisen wurde meine große Liebe. Mexiko, Griechenland, Spanien. Und dann Ko Phangan. Diese Insel hat etwas mit mir gemacht, das ich bis heute kaum in Worte fasse. Thailand hat mein Herz erobert, und nebenbei die Menschen, die mir zum ersten Mal von Australien erzählt haben.</p>
+        <p class="chapter-text">Reisen wurde meine gro&szlig;e Liebe. Mexiko, Griechenland, Spanien. Und dann Ko Phangan. Diese Insel hat etwas mit mir gemacht, das ich bis heute kaum in Worte fasse. Thailand hat mein Herz erobert, und nebenbei die Menschen, die mir zum ersten Mal von Australien erz&auml;hlt haben.</p>
       </div>
-      <div class="about-img-wrap">
+      <div class="about-img-wrap slide-right depth-card">
         <img src="/images/zipline.jpg" alt="Jacky in Thailand" loading="lazy" style="aspect-ratio:3/4">
       </div>
     </div>
@@ -406,14 +633,15 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 </section>
 
 <!-- ═══ AUSTRALIEN ═══ -->
-<section class="chapter reveal">
+<section class="chapter" data-depth="5">
+  <div class="caustics"></div>
   <div class="container">
     <div class="chapter-grid reverse">
-      <div>
+      <div class="slide-left">
         <p class="chapter-tag">Willkommen in meiner Welt</p>
         <h3 class="chapter-title">Australien war nie der Plan</h3>
       </div>
-      <div>
+      <div class="scale-in">
         <div class="chapter-images" style="grid-template-columns:1fr 1fr 1fr">
           <img src="/images/kangaroo.jpg" alt="Känguru Australien" loading="lazy" style="aspect-ratio:1/1;grid-row:auto">
           <img src="/images/byron-bay.jpg" alt="Byron Bay" loading="lazy" style="aspect-ratio:1/1;grid-row:auto">
@@ -426,25 +654,26 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 
 <!-- Quote -->
 <div class="quote-box reveal">
-  <div class="q-mark">"</div>
+  <div class="q-mark">&ldquo;</div>
   <h3>But here we are.</h3>
-  <p>Ehrlich? Australien stand nie auf meiner Bucketliste. Kein einziges Mal. Und jetzt lebe ich seit anderthalb Jahren mit dem Work and Holiday Visum an der australischen Ostküste, zwischen Meer und Palmen, genau da, wo ich morgens aufwache und kurz nicht glauben kann, dass das mein Alltag ist. Manchmal sind die besten Kapitel die, die man nie geplant hat.</p>
+  <p>Ehrlich? Australien stand nie auf meiner Bucketliste. Kein einziges Mal. Und jetzt lebe ich seit anderthalb Jahren mit dem Work and Holiday Visum an der australischen Ostk&uuml;ste, zwischen Meer und Palmen, genau da, wo ich morgens aufwache und kurz nicht glauben kann, dass das mein Alltag ist. Manchmal sind die besten Kapitel die, die man nie geplant hat.</p>
 </div>
 
 <!-- ═══ HEUTE ═══ -->
-<section class="deep-section reveal">
+<section class="deep-section" data-depth="6">
+  <div class="caustics"></div>
   <div class="container">
     <div class="about-grid">
-      <div>
+      <div class="slide-left">
         <p class="section-tag">Heute</p>
         <h2 class="section-title">Was ich heute mache</h2>
-        <p class="about-text" style="color:rgba(255,255,255,.8);line-height:1.75;font-size:17px">Vor Kurzem habe ich mir zwei Monate Auszeit in Asien gegönnt, einfach weil ich es konnte. Heute baue ich meine eigene Marketingagentur auf und bringe zusammen, was mich ausmacht: die Leidenschaft fürs Reisen, zehn Jahre Gastro-Background und eine ziemlich kreative Ader. Genau daraus ist PackPlanGo entstanden.</p>
+        <p class="about-text" style="color:rgba(255,255,255,.8);line-height:1.75;font-size:17px">Vor Kurzem habe ich mir zwei Monate Auszeit in Asien geg&ouml;nnt, einfach weil ich es konnte. Heute baue ich meine eigene Marketingagentur auf und bringe zusammen, was mich ausmacht: die Leidenschaft f&uuml;rs Reisen, zehn Jahre Gastro-Background und eine ziemlich kreative Ader. Genau daraus ist PackPlanGo entstanden.</p>
       </div>
-      <div>
-        <div class="stats-row" style="flex-direction:column;gap:32px;align-items:flex-start">
-          <div class="stat"><div class="num">10</div><div class="lbl">Jahre Gastro</div></div>
-          <div class="stat"><div class="num">1,5</div><div class="lbl">Jahre Australien</div></div>
-          <div class="stat"><div class="num">∞</div><div class="lbl">Fernweh</div></div>
+      <div class="slide-right">
+        <div class="stats-row stagger" style="flex-direction:column;gap:32px;align-items:flex-start">
+          <div class="stat float" style="animation-delay:0s"><div class="num">10</div><div class="lbl">Jahre Gastro</div></div>
+          <div class="stat float" style="animation-delay:.5s"><div class="num">1,5</div><div class="lbl">Jahre Australien</div></div>
+          <div class="stat float" style="animation-delay:1s"><div class="num">&infin;</div><div class="lbl">Fernweh</div></div>
         </div>
       </div>
     </div>
@@ -452,12 +681,13 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 </section>
 
 <!-- ═══ MANIFESTO ═══ -->
-<section class="manifesto reveal">
-  <div class="container">
+<section class="manifesto" id="manifesto" data-depth="7">
+  <div class="caustics"></div>
+  <div class="container reveal">
     <p class="manifesto-tag">Warum es PackPlanGo gibt</p>
     <h2 class="manifesto-title">Kein Hochglanz.<br>Kein Bullshit.</h2>
-    <p class="manifesto-text">PackPlanGo ist für alle, die spüren, dass "top" nicht immer genug ist. Für die, die losziehen wollen, aber nicht wissen wie. Ich rede frei Schnauze, nehme kein Blatt vor den Mund und mache meine eigenen Regeln. Nur echte Erfahrung und der ehrliche Stoff, den ich mir selbst vorher gewünscht hätte. Ich bin losgezogen, weil ich die Welt sehen wollte. Und jetzt bin ich hier, um dir zu zeigen, dass du das auch kannst.</p>
-    <div class="manifesto-values">
+    <p class="manifesto-text">PackPlanGo ist f&uuml;r alle, die sp&uuml;ren, dass &ldquo;top&rdquo; nicht immer genug ist. F&uuml;r die, die losziehen wollen, aber nicht wissen wie. Ich rede frei Schnauze, nehme kein Blatt vor den Mund und mache meine eigenen Regeln. Nur echte Erfahrung und der ehrliche Stoff, den ich mir selbst vorher gew&uuml;nscht h&auml;tte. Ich bin losgezogen, weil ich die Welt sehen wollte. Und jetzt bin ich hier, um dir zu zeigen, dass du das auch kannst.</p>
+    <div class="manifesto-values stagger">
       <span>Echte Erfahrung</span>
       <span>Frei Schnauze</span>
       <span>Eigene Regeln</span>
@@ -466,7 +696,9 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 </section>
 
 <!-- ═══ CTA ═══ -->
-<section class="cta-founder">
+<section class="cta-founder" id="cta" data-depth="8">
+  <div class="bubble" style="width:8px;height:8px;left:15%;bottom:20%;animation-duration:10s;animation-delay:0s"></div>
+  <div class="bubble" style="width:12px;height:12px;left:75%;bottom:30%;animation-duration:8s;animation-delay:2s"></div>
   <h2>Bereit, deine eigene Story zu schreiben?</h2>
   <p>Hol dir meinen kostenlosen Guide, komm in die Community und zieh los. Ich war auch mal da, wo du gerade stehst.</p>
   <div class="cta-buttons">
@@ -480,7 +712,7 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="logo"><img src="/images/favicon.png" alt="PackPlanGo">PackPlanGo<span class="dot" style="color:var(--accent)">.</span></div>
-      <p>Travel Guides und Social Media für Hospitality. Von Reisenden, für Reisende und die Orte, die sie lieben.</p>
+      <p>Travel Guides und Social Media f&uuml;r Hospitality. Von Reisenden, f&uuml;r Reisende und die Orte, die sie lieben.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
@@ -500,7 +732,7 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 PackPlanGo. All rights reserved.</span>
+    <span>&copy; 2026 PackPlanGo. All rights reserved.</span>
     <div>
       <a href="/datenschutz.html">Datenschutz</a>
       <a href="/impressum.html">Impressum</a>
@@ -509,46 +741,111 @@ footer{background:var(--teal-deep);color:rgba(255,255,255,.75);padding:48px 24px
 </footer>
 
 <script>
-// Burger menu
+// ─── Burger menu ───
 document.getElementById('burger').addEventListener('click',()=>{
   document.getElementById('navLinks').classList.toggle('open');
 });
 
-// Scroll progress
+// ─── Scroll progress bar ───
 window.addEventListener('scroll',()=>{
   const h=document.documentElement;
   const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('scroll-progress').style.width=pct+'%';
 });
 
-// Nav color change on scroll
+// ─── Nav color change ───
 const header=document.getElementById('siteHeader');
 window.addEventListener('scroll',()=>{
   header.classList.toggle('scrolled',window.scrollY>100);
 });
 
-// Reveal on scroll
-const revealEls=document.querySelectorAll('.reveal');
-const revealObs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target)}});
-},{threshold:.15});
-revealEls.forEach(el=>revealObs.observe(el));
+// ─── PARALLAX ENGINE ───
+// Multi-layer parallax with different speeds
+const parallaxLayers=document.querySelectorAll('.parallax-layer');
+let ticking=false;
 
-// Parallax on diving BG
+function updateParallax(){
+  const scrollY=window.scrollY;
+  parallaxLayers.forEach(layer=>{
+    const speed=parseFloat(layer.dataset.speed)||0.1;
+    const y=scrollY*speed;
+    layer.style.transform=layer.style.transform?.includes('scaleX')
+      ? `scaleX(-1) translateY(${y}px)`
+      : `translateY(${y}px)`;
+  });
+
+  // Diving section parallax (full image)
+  const divingSection=document.getElementById('divingSection');
+  const parallaxImg=document.getElementById('parallaxImg');
+  if(divingSection&&parallaxImg){
+    const rect=divingSection.getBoundingClientRect();
+    const viewH=window.innerHeight;
+    if(rect.top<viewH&&rect.bottom>0){
+      const progress=(viewH-rect.top)/(viewH+rect.height);
+      const translateY=(progress-0.5)*80;
+      parallaxImg.style.transform=`scale(1.1) translateY(${translateY}px)`;
+    }
+  }
+
+  ticking=false;
+}
+
 window.addEventListener('scroll',()=>{
-  const bg=document.getElementById('parallaxBg');
-  if(!bg)return;
-  const rect=bg.parentElement.getBoundingClientRect();
-  const speed=.3;
-  bg.style.transform='scale(1.1) translateY('+rect.top*speed+'px)';
+  if(!ticking){
+    requestAnimationFrame(updateParallax);
+    ticking=true;
+  }
 });
 
-// Side labels fade based on scroll
+// ─── REVEAL ANIMATIONS ───
+// Unified observer for all animated elements
+const animatedEls=document.querySelectorAll('.reveal,.slide-left,.slide-right,.scale-in,.stagger');
+const animObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      animObs.unobserve(e.target);
+    }
+  });
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+animatedEls.forEach(el=>animObs.observe(el));
+
+// ─── DEPTH INDICATOR ───
+const sections=document.querySelectorAll('[data-depth]');
+const depthDots=document.querySelectorAll('.depth-dot');
+
+const depthObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const idx=parseInt(e.target.dataset.depth);
+      depthDots.forEach((d,i)=>{
+        d.classList.toggle('active',i<=idx);
+      });
+    }
+  });
+},{threshold:.3});
+sections.forEach(s=>depthObs.observe(s));
+
+// ─── Side labels fade ───
 const sideLabels=document.querySelectorAll('.side-label');
 window.addEventListener('scroll',()=>{
-  const opacity=Math.max(0,1-window.scrollY/800);
+  const opacity=Math.max(0,1-window.scrollY/600);
   sideLabels.forEach(l=>l.style.opacity=opacity*.3);
 });
+
+// ─── 3D tilt on hero name on mouse move ───
+const heroName=document.querySelector('.hero-name');
+if(heroName){
+  document.addEventListener('mousemove',(e)=>{
+    const x=(e.clientX/window.innerWidth-.5)*10;
+    const y=(e.clientY/window.innerHeight-.5)*8;
+    heroName.style.transform=`perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
+    heroName.style.transition='transform .15s ease-out';
+  });
+}
+
+// Initial parallax
+updateParallax();
 </script>
 </body>
 </html>
