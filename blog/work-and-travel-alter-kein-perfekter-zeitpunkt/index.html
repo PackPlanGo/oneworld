@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kein Geld, kein Plan und trotzdem gegangen. Was das wirklich bedeutet. — PackPlanGo Blog</title>
-  <meta name="description" content="Kein Geld, kein Plan, aber doch gegangen. So fangen die besten Trips an. Was wirklich dahintersteckt und wie du es selbst angehst." />
-  <meta property="og:title" content="Kein Geld, kein Plan und trotzdem gegangen. Was das wirklich bedeutet." />
-  <meta property="og:description" content="Der perfekte Moment zum Reisen kommt nicht. Du machst ihn." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=80&auto=format&fit=crop" />
+  <title>Work and Travel Alter. Gibt es zu jung oder zu alt dafür? Nein. Hier warum. — PackPlanGo Blog</title>
+  <meta name="description" content="Du bist 29 und denkst, du hast den richtigen Zeitpunkt verpasst? Lass mich dir was sagen." />
+  <meta property="og:title" content="Work and Travel Alter. Gibt es zu jung oder zu alt dafür? Nein. Hier warum." />
+  <meta property="og:description" content="Du bist 29 und denkst, du hast den richtigen Zeitpunkt verpasst? Lass mich dir was sagen." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&q=80&auto=format&fit=crop" />
   <meta property="og:type" content="article" />
   <link rel="icon" href="https://www.packplango.com/images/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,6 +52,7 @@
     .article-body p { font-size: 1.05rem; line-height: 1.8; color: var(--text); margin-bottom: 1.5rem; }
     .article-body h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.1rem); line-height: 1.2; margin: 2.8rem 0 1rem; color: var(--text); }
     .article-body h2:first-child { margin-top: 0; }
+    .article-body h3 { font-family: 'DM Serif Display', serif; font-size: 1.25rem; line-height: 1.3; margin: 2rem 0 0.8rem; color: var(--text); }
     .article-body ul, .article-body ol { padding-left: 1.4rem; margin-bottom: 1.5rem; }
     .article-body li { font-size: 1.05rem; line-height: 1.75; margin-bottom: 0.5rem; color: var(--text); }
     .article-body a { color: var(--teal); text-decoration: underline; text-decoration-color: rgba(45,110,105,0.35); text-underline-offset: 3px; transition: color 0.2s; }
@@ -117,8 +118,12 @@
     .footer-bottom { max-width: 1160px; margin: 24px auto 0; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; }
     .footer-bottom a { color: rgba(255,255,255,0.5); margin-left: 16px; transition: color 0.2s; }
     .footer-bottom a:hover { color: var(--white); }
+    .article-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+    .article-table th { text-align: left; padding: 10px 14px; background: var(--teal-pale); border-bottom: 2px solid var(--border); font-weight: 700; font-size: 0.85rem; color: var(--teal); }
+    .article-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .article-table tr:last-child td { border-bottom: none; }
     @media (max-width: 980px) { .article-layout { grid-template-columns: 1fr; gap: 40px; } .sidebar { position: static; } .related-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .nav-links { display: none; } .nav-burger { display: flex; } .article-hero { min-height: 420px; } .article-layout { padding: 32px 16px 60px; } .article-body p, .article-body li { font-size: 1rem; } .article-signature { flex-direction: column; text-align: center; } .related-grid { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; gap: 12px; text-align: center; } .footer-bottom a { margin: 0 8px; } .related-section { padding: 40px 16px; } }
+    @media (max-width: 640px) { .nav-links { display: none; } .nav-burger { display: flex; } .article-hero { min-height: 420px; } .article-layout { padding: 32px 16px 60px; } .article-body p, .article-body li { font-size: 1rem; } .article-signature { flex-direction: column; text-align: center; } .related-grid { grid-template-columns: 1fr; } .footer-inner { grid-template-columns: 1fr; gap: 28px; } .footer-bottom { flex-direction: column; gap: 12px; text-align: center; } .footer-bottom a { margin: 0 8px; } .related-section { padding: 40px 16px; } .article-table { font-size: 0.85rem; } .article-table th, .article-table td { padding: 8px 10px; } }
   </style>
 </head>
 <body>
@@ -137,7 +142,7 @@
       <li><a href="/blog/" class="active">Blog</a></li>
       <li><a href="https://www.packplango.com/travel/#download" class="nav-cta">Guide holen</a></li>
     </ul>
-    <button class="nav-burger" id="burger" aria-label="Menü öffnen">
+    <button class="nav-burger" id="burger" aria-label="Men&uuml; &ouml;ffnen">
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
   </div>
@@ -152,25 +157,25 @@
 
 <section class="article-hero">
   <img class="article-hero-img"
-    src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=80&auto=format&fit=crop&crop=center"
-    alt="Blick aus Flugzeugfenster auf Wolken"
+    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1600&q=80&auto=format&fit=crop"
+    alt="Work and Travel Alter. Gibt es zu jung oder zu alt dafür? Nein. Hier warum."
   />
   <div class="article-hero-inner">
     <div class="article-cat-badge">
       <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="white"/></svg>
       Realtalk
     </div>
-    <h1>Kein Geld, kein Plan und trotzdem gegangen.</h1>
-    <p class="hook-text">Der perfekte Moment zum Reisen kommt nicht. Du machst ihn. Und er muss nicht perfekt sein.</p>
+    <h1>Work and Travel Alter. Gibt es zu jung oder zu alt dafür? Nein. Hier warum.</h1>
+    <p class="hook-text">Du bist 29 und denkst, du hast den richtigen Zeitpunkt verpasst? Lass mich dir was sagen.</p>
     <div class="article-meta">
       <span class="meta-chip">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="rgba(255,255,255,0.5)" stroke-width="1.3"/><path d="M7 4v3l2 2" stroke="rgba(255,255,255,0.5)" stroke-width="1.3" stroke-linecap="round"/></svg>
-        7 Min Lesezeit
+        6 Min Lesezeit
       </span>
-      <span class="meta-sep">·</span>
+      <span class="meta-sep">&middot;</span>
       <span class="meta-chip">Jacky West</span>
-      <span class="meta-sep">·</span>
-      <span class="meta-chip">5. Juni 2026</span>
+      <span class="meta-sep">&middot;</span>
+      <span class="meta-chip">16. Juni 2026</span>
     </div>
   </div>
 </section>
@@ -178,112 +183,54 @@
 <div class="article-layout">
   <article class="article-body" id="article-body">
 
-    <p>Es gibt eine Romanzen-Version von Work and Travel, die du auf Instagram siehst: Sonnenuntergänge, Laptops am Pool, perfekte Bräune und ein Gesicht, das sagt: "Ich hab alles raus."</p>
+    <p>Irgendjemand hat irgendwann entschieden, dass Work and Travel etwas f&uuml;r 19-J&auml;hrige ist, die direkt nach dem Abi gehen. Und seitdem denken alle, die &auml;lter sind, sie h&auml;tten den Zug verpasst.</p>
 
-    <p>Und dann gibt es die Realversion. Die fängt meistens so an: Kein richtiger Plan. Zu wenig Geld. Zu viel Angst. Und irgendwann der Punkt, an dem du sagst: Scheiß drauf, ich geh trotzdem.</p>
+    <p>Das ist Quatsch. Und hier ist warum.</p>
 
-    <p>Das ist die Version, die niemand zeigt. Und sie ist ehrlicher, mutiger und am Ende oft die bessere Geschichte.</p>
+    <h2 id="die-luege-vom-perfekten-alter">Die L&uuml;ge vom perfekten Alter</h2>
+
+    <p>Das Working Holiday Visum f&uuml;r Australien kannst du bis 35 beantragen. Nicht bis 25. Nicht bis 30. Bis 35. Das hei&szlig;t, du hast ein Jahrzehnt mehr, als die meisten denken.</p>
+
+    <p>Und selbst wenn das Visum eine Altersgrenze hat, das Reisen hat keine. People travel at every age. Die Altersgrenze betrifft ein spezifisches Visum, nicht deine F&auml;higkeit, die Welt zu sehen.</p>
 
     <div class="callout pink">
       <strong>Realtalk</strong>
-      <p>Die meisten, die gegangen sind, hatten nicht alles im Griff. Sie hatten einfach beschlossen, dass Warten teurer ist als Gehen.</p>
+      <p>Wenn dir jemand sagt, du seist zu alt f&uuml;r Work and Travel, sagt das mehr &uuml;ber deren Angst als &uuml;ber dein Alter.</p>
     </div>
 
-    <h2 id="warten">Das Problem mit dem "perfekten Moment"</h2>
-
-    <p>Wenn du auf den perfekten Moment wartest, wirst du warten. Lange. Vielleicht für immer.</p>
-
-    <p>Weil der perfekte Moment eine Lüge ist. Es wird immer etwas geben, das noch nicht stimmt. Zu wenig Erspartes. Noch ein Projekt fertig machen. Der Mietvertrag läuft noch. Die Familie erwartet, dass du zu Weihnachten da bist. Der neue Job fängt im Herbst an.</p>
-
-    <p>Das Leben schiebt sich nicht beiseite, damit du reisen kannst. Du musst dir den Raum nehmen. Aktiv. Bewusst. Manchmal ein bisschen rücksichtslos.</p>
-
-    <p>Das klingt hart. Es ist auch hart. Aber das Gute: Du brauchst dafür kein Vermögen und keinen perfekten Plan. Du brauchst ein Ticket und einen Startpunkt.</p>
-
-    <figure class="article-img">
-      <img
-        src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=80&auto=format&fit=crop"
-        alt="Rucksack auf einem Bahnsteig, Zug kommt"
-        loading="lazy"
-      />
-      <figcaption>Du brauchst keinen perfekten Plan. Du brauchst einen ersten Schritt.</figcaption>
-    </figure>
-
-    <h2 id="geld">Was es wirklich kostet</h2>
-
-    <p>Lass uns konkret werden. Weil "kein Geld haben" relativ ist.</p>
-
-    <p>Work and Travel in Südostasien ist mit 800 bis 1.200 Euro im Monat machbar, inklusive Unterkunft, Essen, Transport und Aktivitäten. Das ist weniger als eine Einzimmerwohnung plus Lebenshaltungskosten in einer deutschen Großstadt.</p>
-
-    <p>Für den Start brauchst du: genug fürs Ticket (200 bis 500 Euro je nach Destination), plus 2 bis 3 Monate Buffer (1.500 bis 3.000 Euro), damit du nicht mit dem Rücken zur Wand ankommen musst. Das ist alles. Das ist der echte Startpunkt.</p>
+    <h2 id="was-mit-29-besser-ist">Was mit 29 besser ist</h2>
 
     <ul>
-      <li><strong>Flug nach Bali:</strong> 400 bis 700 Euro (Hin)</li>
-      <li><strong>Flug nach Bangkok:</strong> 350 bis 600 Euro (Hin)</li>
-      <li><strong>Erste Unterkunft:</strong> 15 bis 30 Euro pro Nacht (Hostel/Budget)</li>
-      <li><strong>Essen vor Ort:</strong> 5 bis 15 Euro pro Tag</li>
-      <li><strong>SIM-Karte + lokales Internet:</strong> 10 bis 20 Euro/Monat</li>
+      <li><strong>Du kennst dich selbst.</strong> Mit 19 wei&szlig;t du oft nicht, was du willst. Mit 29 hast du eine Vorstellung. Das macht jede Entscheidung vor Ort besser.</li>
+      <li><strong>Du hast echte Skills.</strong> Berufserfahrung, Sprachkenntnisse, vielleicht eine Ausbildung. Das &ouml;ffnet dir T&uuml;ren, die 19-J&auml;hrigen verschlossen bleiben.</li>
+      <li><strong>Du machst weniger naive Fehler.</strong> Nicht keine Fehler. Aber die wirklich dummen Entscheidungen passieren seltener, wenn du schon ein paar Jahre Lebenserfahrung hast.</li>
+      <li><strong>Du geniesst es bewusster.</strong> Mit 19 rast du oft durch alles durch. Mit Ende 20 nimmst du dir Zeit, Dinge wirklich wahrzunehmen.</li>
     </ul>
 
-    <div class="callout">
-      <strong>Gut zu wissen</strong>
-      <p>Die teuerste Zeit beim Reisen ist die erste Woche. Danach weißt du, wie es geht, und deine Ausgaben sinken deutlich. Der Einstieg ist teurer als das Drin-Bleiben.</p>
-    </div>
+    <h2 id="der-echte-grund">Der echte Grund, warum du z&ouml;gerst</h2>
 
-    <h2 id="plan">Was "kein Plan" wirklich bedeutet</h2>
+    <p>Es ist nicht das Alter. Es sind die Erwartungen. Deiner Familie. Deiner Freunde. Der Gesellschaft.</p>
 
-    <p>Kein Plan zu haben heißt nicht, dass du naiv losziehst. Es heißt, dass du Flexibilität als Strategie behandelst.</p>
+    <p>Mit 29 &ldquo;solltest&rdquo; du Karriere machen, eine Wohnung haben, vielleicht in einer festen Beziehung sein. Und dann kommst du an und sagst: &ldquo;Ich geh erstmal nach Australien arbeiten und reisen.&rdquo;</p>
 
-    <p>Die besten Reisepläne sind oft die, die keiner waren. Die Person, der du im Zug begegnest, die dir von einem Ort erzählt, von dem du noch nie gehört hast. Das Hostel, das so gut ist, dass du drei Wochen länger bleibst. Der Tipp von lokalen, der deinen ganzen Kurs ändert.</p>
+    <p>Das erfordert Mut. Nicht weil es schwer ist, sondern weil es gegen die Norm geht. Und genau deshalb ist es so wertvoll.</p>
 
-    <p>Das passiert nicht, wenn du jeden Tag durchgeplant hast. Es passiert, wenn du Raum lässt.</p>
+    <h2 id="was-zu-alt-kostet">Was &ldquo;zu alt&rdquo; wirklich kostet</h2>
 
-    <p>Was du aber haben solltest, bevor du gehst:</p>
+    <p>Jedes Jahr, das du wartest, ist ein Jahr weniger, das du nach dem WHV-Limit hast. Wenn du 34 bist und &ldquo;n&auml;chstes Jahr&rdquo; sagst, gibt es kein n&auml;chstes Jahr f&uuml;r dieses Visum.</p>
 
-    <ul>
-      <li>Visa geklärt (oder zumindest wissen, wie du eines bekommst)</li>
-      <li>Auslandskrankenversicherung abgeschlossen</li>
-      <li>Erste zwei bis drei Nächte gebucht</li>
-      <li>Notfallkontakt zuhause informiert</li>
-      <li>Ungefähren Budget-Überblick</li>
-    </ul>
+    <p>Aber es geht nicht nur um das Visum. Es geht um das Gef&uuml;hl, sp&auml;ter zur&uuml;ckzublicken und zu wissen: Ich hab's gemacht. Oder eben nicht.</p>
 
-    <p>Das reicht. Alles andere lernst du on the road.</p>
-
-    <figure class="article-img">
-      <img
-        src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1200&q=80&auto=format&fit=crop"
-        alt="Person sitzt auf Gepäck am Flughafen"
-        loading="lazy"
-      />
-      <figcaption>Ein Startpunkt ist alles was du brauchst. Der Rest ergibt sich.</figcaption>
-    </figure>
-
-    <h2 id="angst">Was du wirklich hinter der Angst findest</h2>
-
-    <p>Hinter "ich hab nicht genug Geld" und "ich hab keinen Plan" steckt meistens noch was anderes. Angst. Vor dem Scheitern. Vor dem Urteil anderer. Davor, dass es nicht so wird, wie du es dir vorstellst.</p>
-
-    <p>Das ist verständlich. Es ist auch meistens unbegründet.</p>
-
-    <p>Die Frage ist nicht: "Was, wenn es schiefgeht?" Die Frage ist: "Was, wenn du in zwei Jahren immer noch an genau derselben Stelle stehst, weil du gewartet hast?"</p>
-
-    <p>Reisen scheitert selten aus den Gründen, die man vorher befürchtet. Manchmal läuft es nicht wie geplant. Meistens wird es trotzdem die beste Entscheidung, die du je getroffen hast.</p>
+    <p>Und das zweite Szenario, das mit dem &ldquo;eben nicht&rdquo;, das kostet dich mehr als jeder Flug.</p>
 
     <div class="callout orange">
-      <strong>Nächster Schritt</strong>
-      <p>Hol dir den <a href="https://www.packplango.com/travel/#download" target="_blank" rel="noopener">PackPlanGo Travel Guide</a>. Da ist alles drin, was du brauchst: Visa, Budget, Destinations-Tipps, Packliste. Damit wird aus "kein Plan" ein konkreter erster Schritt.</p>
+      <strong>N&auml;chster Schritt</strong>
+      <p>Lies, <a href="/blog/selbstfindung-reisen-was-stimmt/">was Reisen wirklich mit dir macht</a>. Nicht die Instagram-Version. Die echte.</p>
     </div>
-
-    <h2 id="fazit">Gehen ist der Plan</h2>
-
-    <p>Du musst nicht bereit sein. Du wirst nicht bereit sein. Bereit ist eine Illusion, die das Leben dir verkauft, damit du wartest.</p>
-
-    <p>Der Plan ist, anzufangen. Das Geld sammeln sich, auf das Ticket. Die Erfahrung bauen sich, auf den ersten Schritt. Die Freunde, die Klarheit, die Geschichten, kommen nach dem Gehen.</p>
-
-    <p>Kein Geld, kein Plan, trotzdem gegangen. Das ist keine Romanzen-Story. Das ist eine echte.</p>
 
     <div class="article-cta">
       <h3>Dein erster Schritt beginnt hier.</h3>
-      <p>Der Travel Guide ist kostenlos. Er gibt dir Budget, Visa-Infos und Packliste für deine erste Reise. Keine Ausreden mehr.</p>
+      <p>Der Travel Guide ist kostenlos. Er gibt dir Budget, Visa-Infos und Packliste f&uuml;r deine erste Reise. Keine Ausreden mehr.</p>
       <a href="https://www.packplango.com/travel/#download" target="_blank" rel="noopener" class="cta-btn">
         Travel Guide holen
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -292,17 +239,17 @@
 
     <div class="article-tags">
       <span class="tag">Realtalk</span>
+      <span class="tag">Alter</span>
       <span class="tag">Work and Travel</span>
-      <span class="tag">Budget Travel</span>
-      <span class="tag">Erster Trip</span>
       <span class="tag">Mindset</span>
+      <span class="tag">Australien</span>
     </div>
 
     <div class="article-signature">
       <img class="signature-avatar" src="/images/about-photo.jpg" alt="Jacky West" loading="lazy" />
       <div class="signature-text">
         <strong>Jacky West</strong>
-        <p>Content Creatorin und Online Marketing Managerin. Seit mehreren Jahren zwischen Australien und Südostasien unterwegs. Gründerin von PackPlanGo.</p>
+        <p>Content Creatorin und Online Marketing Managerin. Seit mehreren Jahren zwischen Australien und S&uuml;dostasien unterwegs. Gr&uuml;nderin von PackPlanGo.</p>
       </div>
     </div>
 
@@ -312,17 +259,16 @@
     <div class="sidebar-card">
       <h4>Inhalt</h4>
       <ul class="toc-list" id="toc">
-        <li><a href="#warten">Der perfekte Moment</a></li>
-        <li><a href="#geld">Was es wirklich kostet</a></li>
-        <li><a href="#plan">Was "kein Plan" bedeutet</a></li>
-        <li><a href="#angst">Was hinter der Angst steckt</a></li>
-        <li><a href="#fazit">Gehen ist der Plan</a></li>
+        <li><a href="#die-luege-vom-perfekten-alter">Die Lüge vom perfekten Alter</a></li>
+        <li><a href="#was-mit-29-besser-ist">Was mit 29 besser ist</a></li>
+        <li><a href="#der-echte-grund">Der echte Grund</a></li>
+        <li><a href="#was-zu-alt-kostet">Was "zu alt" kostet</a></li>
       </ul>
     </div>
     <div class="sidebar-studio">
       <span class="pill">Kostenloser Guide</span>
       <h4>Work &amp; Travel Guide</h4>
-      <p>Budget, Visa, Packliste. Alles was du für deinen Einstieg brauchst.</p>
+      <p>Budget, Visa, Packliste. Alles was du f&uuml;r deinen Einstieg brauchst.</p>
       <a href="https://www.packplango.com/travel/#download" target="_blank" rel="noopener">Jetzt kostenlos holen</a>
     </div>
     <div class="sidebar-card">
@@ -345,17 +291,17 @@
   <div class="related-inner">
     <h2>Mehr zum Thema</h2>
     <div class="related-grid">
-      <a href="/blog/auswandern-aus-deutschland/" class="related-card">
-        <div class="related-card-img"><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=700&q=75&auto=format&fit=crop" alt="Auswandern" loading="lazy" /></div>
-        <div class="related-card-body"><span>Realtalk · 7 Min</span><h3>Auswandern aus Deutschland. Warum es die beste Entscheidung sein könnte.</h3></div>
+      <a href="/blog/selbstfindung-reisen-was-stimmt/" class="related-card">
+        <div class="related-card-img"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=75&auto=format&fit=crop" alt="Selbstfindung auf Reisen" loading="lazy" /></div>
+        <div class="related-card-body"><span>Realtalk &middot; 6 Min</span><h3>Selbstfindung auf Reisen</h3></div>
       </a>
-      <a href="/blog/lern-dich-kennen/" class="related-card">
-        <div class="related-card-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=75&auto=format&fit=crop" alt="Selbstfindung" loading="lazy" /></div>
-        <div class="related-card-body"><span>Mindset · 6 Min</span><h3>Reisen ist das beste Selbstfindungsprogramm. Kein Kurs nötig.</h3></div>
+      <a href="/blog/heimweh-ausland-work-and-travel/" class="related-card">
+        <div class="related-card-img"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=700&q=75&auto=format&fit=crop" alt="Heimweh im Ausland" loading="lazy" /></div>
+        <div class="related-card-body"><span>Realtalk &middot; 6 Min</span><h3>Heimweh im Ausland</h3></div>
       </a>
-      <a href="/blog/bali-backpacker/" class="related-card">
-        <div class="related-card-img"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=700&q=75&auto=format&fit=crop" alt="Bali Backpacker" loading="lazy" /></div>
-        <div class="related-card-body"><span>Reise-Guides · 8 Min</span><h3>Bali als Backpacker 2026. Was es kostet und was du wissen musst.</h3></div>
+      <a href="/blog/australien-alleine-frau-reisen/" class="related-card">
+        <div class="related-card-img"><img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=700&q=75&auto=format&fit=crop" alt="Australien alleine als Frau reisen" loading="lazy" /></div>
+        <div class="related-card-body"><span>Leben vor Ort &middot; 7 Min</span><h3>Australien alleine als Frau reisen</h3></div>
       </a>
     </div>
   </div>
@@ -365,7 +311,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="logo"><img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo">PackPlanGo.</div>
-      <p>Travel Guides und Social Media für Hospitality. Von Reisenden, für Reisende und die Orte, die sie lieben.</p>
+      <p>Travel Guides und Social Media f&uuml;r Hospitality. Von Reisenden, f&uuml;r Reisende und die Orte, die sie lieben.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
@@ -379,7 +325,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 PackPlanGo. All rights reserved.</span>
+    <span>&copy; 2026 PackPlanGo. All rights reserved.</span>
     <div><a href="/datenschutz">Datenschutz</a><a href="/impressum">Impressum</a></div>
   </div>
 </footer>
@@ -421,8 +367,8 @@
       ['/blog/auswandern-aus-deutschland/','Auswandern aus Deutschland'],
       ['/blog/du-bist-nicht-alleine/','Du bist nicht alleine'],
       ['/blog/lern-dich-kennen/','Reisen als Selbstfindung'],
-      ['/blog/kein-geld-kein-plan-trotzdem-gegangen/','Kein Geld, kein Plan, trotzdem gegangen'],
-      ['/blog/passion-finden-durch-reisen/','Wie Reisen deine Passion findet'],
+      ['/blog/kein-geld-kein-plan-trotzdem-gegangen/','Kein Geld, kein Plan'],
+      ['/blog/passion-finden-durch-reisen/','Passion finden durch Reisen'],
       ['/blog/work-and-travel-alter-kein-perfekter-zeitpunkt/','Work and Travel Alter'],
       ['/blog/selbstfindung-reisen-was-stimmt/','Selbstfindung auf Reisen'],
       ['/blog/heimweh-ausland-work-and-travel/','Heimweh im Ausland']]},
@@ -430,27 +376,27 @@
       ['/blog/bali-backpacker/','Bali als Backpacker 2026'],
       ['/blog/nomad-basis-vergleich/','Ko Pha-ngan, Chiang Mai oder Bali?'],
       ['/blog/thailand-work-and-travel/','Thailand Work & Travel 2026'],
-      ['/blog/reisen-produktivitaet/','Produktiver unterwegs als zuhause'],
-      ['/blog/routine-auf-reisen/','Die Morgenroutine für Nomads'],
+      ['/blog/reisen-produktivitaet/','Produktiver unterwegs'],
+      ['/blog/routine-auf-reisen/','Morgenroutine für Nomads'],
       ['/blog/guenstig-wohnen-australien-backpacker/','Günstig wohnen in Australien'],
-      ['/blog/reise-dokumentieren-content-creator/','Reise dokumentieren als Creator'],
-      ['/blog/australien-alleine-frau-reisen/','Australien alleine als Frau'],
-      ['/blog/top-regionen-australien-backpacker/','Top Regionen Australien']]},
+      ['/blog/reise-dokumentieren-content-creator/','Reise dokumentieren'],
+      ['/blog/australien-alleine-frau-reisen/','Alleine als Frau in Australien'],
+      ['/blog/top-regionen-australien-backpacker/','Top 5 Regionen Australiens']]},
     {h:'\u{1F4BC} Jobs & Geld',items:[
-      ['/blog/boutique-hotels-social-media-learnings/','Was Boutique Hotels lernen können'],
-      ['/blog/hotels-schlechtes-instagram/','Warum Hotels schlechtes Instagram haben'],
-      ['/blog/sea-digital-nomad-budget/','Budget als Digital Nomad in Südostasien'],
-      ['/blog/remote-arbeiten-selbststaendig/','Remote arbeiten & selbstständig'],
+      ['/blog/boutique-hotels-social-media-learnings/','Boutique Hotels & Social Media'],
+      ['/blog/hotels-schlechtes-instagram/','Hotels & Instagram'],
+      ['/blog/sea-digital-nomad-budget/','Budget in Südostasien'],
+      ['/blog/remote-arbeiten-selbststaendig/','Remote arbeiten'],
       ['/blog/social-media-marketing-lernen/','Social Media Marketing lernen'],
-      ['/blog/work-and-travel-ohne-ersparnisse-finanzieren/','Work and Travel finanzieren'],
+      ['/blog/work-and-travel-ohne-ersparnisse-finanzieren/','W&T ohne Ersparnisse'],
       ['/blog/farmarbeit-australien-ehrlicher-guide/','Farmarbeit in Australien'],
       ['/blog/jobs-australien-was-wirklich-bezahlt/','Jobs in Australien'],
       ['/blog/bewerbung-australien-deutsche-tipps/','Bewerben in Australien'],
       ['/blog/lebenslauf-englisch-australien-tipps/','Lebenslauf auf Englisch']]},
     {h:'\u{1F6C2} Visum & Bürokratie',items:[
-      ['/blog/australien-visum-deutsche-working-holiday/','Working Holiday Visum Australien'],
-      ['/blog/australisches-bankkonto-backpacker-guide/','Bankkonto in Australien'],
-      ['/blog/australien-second-year-visa-erklaert/','Second Year Visa erklärt']]}
+      ['/blog/australien-visum-deutsche-working-holiday/','Australien-Visum für Deutsche'],
+      ['/blog/australisches-bankkonto-backpacker-guide/','Bankkonto eröffnen'],
+      ['/blog/australien-second-year-visa-erklaert/','Second & Third Year Visa']]}
   ];
   function build(){
     var p=document.createElement('div'); p.id='ppg-bdd-panel';
@@ -460,7 +406,7 @@
       g.items.forEach(function(it){ var a=document.createElement('a'); a.href=it[0]; a.textContent=it[1]; col.appendChild(a); });
       p.appendChild(col);
     });
-    var all=document.createElement('a'); all.href='/blog/'; all.className='ppg-bdd-all'; all.textContent='Alle Artikel ansehen →';
+    var all=document.createElement('a'); all.href='/blog/'; all.className='ppg-bdd-all'; all.textContent='Alle Artikel ansehen \u2192';
     p.appendChild(all);
     document.body.appendChild(p);
     return p;
@@ -477,4 +423,23 @@
     panel.style.left=left+'px'; panel.style.top=top+'px';
   }
   function close(){ if(!panel) return; panel.classList.remove('show'); if(openLink) openLink.classList.remove('ppg-bdd-active'); openLink=null; }
-  function open(link){ if(!panel) panel=build(); place(link
+  function open(link){ if(!panel) panel=build(); place(link); link.classList.add('ppg-bdd-active'); openLink=link; }
+  function isBlog(a){ var h=(a.getAttribute('href')||'').replace(/[#?].*$/,''); return /(^|\/)blog\/?$/.test(h) && a.textContent.trim().replace(/\u25BE/,'').trim()==='Blog'; }
+  function init(){
+    var links=[].slice.call(document.querySelectorAll('nav a, .nav-links a, .nav-mobile a')).filter(isBlog);
+    if(!links.length) return;
+    links.forEach(function(link){
+      var c=document.createElement('span'); c.className='ppg-bdd-caret'; c.textContent='\u25BE'; link.appendChild(c);
+      link.addEventListener('click',function(e){ if(window.innerWidth<=900){ return; } e.preventDefault(); if(openLink===link){ close(); } else { close(); open(link); } });
+    });
+    document.addEventListener('click',function(e){ if(openLink && panel && !panel.contains(e.target) && !openLink.contains(e.target)) close(); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+    window.addEventListener('resize',function(){ if(openLink) place(openLink); });
+    window.addEventListener('scroll',function(){ if(openLink) place(openLink); }, true);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
+<!-- /PPG Blog-Dropdown -->
+</body>
+</html>
