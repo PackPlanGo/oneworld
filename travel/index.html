@@ -533,6 +533,52 @@ b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v
       <h3 style="font-family:var(--serif);color:var(--teal);font-size:24px;margin:0 0 12px">Danke! Fast geschafft.</h3>
       <p style="color:var(--muted);font-size:16px;line-height:1.6;margin:0">Deine Bestätigungsmail ist auf dem Weg.<br>Öffne sie und klick auf den Bestätigungslink um deinen Guide zu erhalten.<br><small>Check vorsichtshalber auch den Spam-Ordner.</small></p>
     </div>
+
+      <script>
+function sendGuideData(event) {
+  // Verhindert den automatischen Seiten-Reload auf Handys
+  event.preventDefault();
+
+  var emailInput = document.getElementById('guide-email');
+  var consentInput = document.getElementById('guide-consent');
+  var submitButton = document.getElementById('guide-submit');
+  var successMessage = document.getElementById('guide-success');
+
+  // .trim() entfernt Leerzeichen, die mobile Tastaturen oft automatisch anhängen
+  var email = emailInput.value.trim();
+  var consent = consentInput.checked;
+
+  if (!email || !consent) {
+    return;
+  }
+
+  // Button sperren gegen Mehrfach-Klicks
+  submitButton.disabled = true;
+  submitButton.innerText = "Wird gesendet...";
+
+  var params = 'fields[email]=' + encodeURIComponent(email) + '&ml-submit=1';
+  var script = document.createElement('script');
+  
+  // Deine echten MailerLite-IDs
+  script.src = 'https://assets.mailerlite.com/jsonp/1241511/forms/132470678648096174/subscribe?' + params;
+
+  // MailerLite Erfolgs-Callback
+  window.ml_webform_success_1241511 = function() {
+    successMessage.style.display = 'block';
+    document.getElementById('guide-form').style.display = 'none';
+  };
+
+  // Mobiler Fallback nach 3 Sekunden
+  setTimeout(function() {
+    if (successMessage.style.display !== 'block') {
+      successMessage.style.display = 'block';
+      document.getElementById('guide-form').style.display = 'none';
+    }
+  }, 3000);
+
+  document.body.appendChild(script);
+}
+</script>
     <!-- /Erfolgsmeldung -->
     <!-- /Formular -->
 
