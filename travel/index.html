@@ -811,17 +811,25 @@ document.getElementById('guide-form').addEventListener('submit', function(e) {
     btn.disabled = false;
   }
 
+<<<<<<< Updated upstream
+=======
+  // Primary: fetch POST (zuverlässiger auf Mobile als JSONP)
+>>>>>>> Stashed changes
   var params = new URLSearchParams();
   params.append('fields[email]', email);
   params.append('ml-submit', '1');
   params.append('anticsrf', 'true');
 
+<<<<<<< Updated upstream
   // fetch POST als primäre Methode (mobile-kompatibel)
+=======
+>>>>>>> Stashed changes
   fetch('https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: params.toString()
   })
+<<<<<<< Updated upstream
   .then(function() {
     showSuccess();
   })
@@ -830,12 +838,27 @@ document.getElementById('guide-form').addEventListener('submit', function(e) {
     var cbName = 'mlCb_' + Date.now();
     var script = document.createElement('script');
     var done = false;
+=======
+  .then(function(r) {
+    showSuccess();
+  })
+  .catch(function() {
+    // Fallback: JSONP (falls fetch blockiert wird)
+    var cbName = 'mlCb_' + Date.now();
+    var script = document.createElement('script');
+    var done = false;
+
+>>>>>>> Stashed changes
     window[cbName] = function() {
       done = true;
       if (script.parentNode) script.parentNode.removeChild(script);
       delete window[cbName];
       showSuccess();
     };
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     script.onerror = function() {
       if (!done) {
         done = true;
@@ -843,11 +866,19 @@ document.getElementById('guide-form').addEventListener('submit', function(e) {
         showError();
       }
     };
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     var qp = 'callback=' + cbName
       + '&fields%5Bemail%5D=' + encodeURIComponent(email)
       + '&ml-submit=1&anticsrf=true';
     script.src = 'https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe?' + qp;
     document.body.appendChild(script);
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     setTimeout(function() {
       if (!done) {
         done = true;
