@@ -57,6 +57,13 @@
     .hero h1 em { font-style: italic; color: var(--orange); }
     .hero-sub { color: rgba(255,255,255,0.72); font-size: 1.05rem; max-width: 520px; line-height: 1.6; }
 
+    .search-wrap { background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 24px; }
+    .search-inner { max-width: 1160px; margin: 0 auto; position: relative; }
+    .search-inner svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+    .search-input { width: 100%; padding: 10px 16px 10px 42px; border: 1.5px solid var(--border); border-radius: 999px; font-size: 0.88rem; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); outline: none; transition: border-color 0.2s; }
+    .search-input:focus { border-color: var(--teal); }
+    .search-input::placeholder { color: var(--muted); }
+
     .filter-bar { background: var(--white); border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     .filter-bar::-webkit-scrollbar { display: none; }
     .filter-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; display: flex; gap: 6px; align-items: center; height: 54px; }
@@ -188,14 +195,21 @@
   </div>
 </section>
 
+<div class="search-wrap">
+  <div class="search-inner">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.5" cy="6.5" r="4.5" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <input class="search-input" id="blog-search" type="text" placeholder="Artikel suchen..." autocomplete="off" />
+  </div>
+</div>
+
 <div class="filter-bar">
   <div class="filter-inner">
     <button class="filter-btn active" data-cat="all">Alle</button>
-    <button class="filter-btn cat-realtalk" data-cat="realtalk">🔥 Realtalk</button>
-    <button class="filter-btn cat-geld" data-cat="geld">💼 Jobs &amp; Geld</button>
-    <button class="filter-btn cat-life" data-cat="life">🏄 Leben vor Ort</button>
-    <button class="filter-btn cat-australien" data-cat="australien">🇦🇺 Australien Guide</button>
-    <button class="filter-btn" data-cat="visum">🛂 Visum &amp; Bürokratie</button>
+    <button class="filter-btn cat-realtalk" data-cat="realtalk">Realtalk</button>
+    <button class="filter-btn cat-geld" data-cat="geld">Jobs &amp; Geld</button>
+    <button class="filter-btn cat-life" data-cat="life">Leben vor Ort</button>
+    <button class="filter-btn cat-australien" data-cat="australien">Australien Guide</button>
+    <button class="filter-btn" data-cat="visum">Visum &amp; Bürokratie</button>
   </div>
 </div>
 
@@ -236,7 +250,7 @@
     <a href="/blog/auswandern-aus-deutschland/" class="card" data-cat="realtalk">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=700&q=75&auto=format&fit=crop" alt="Auswandern aus Deutschland" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Auswandern aus Deutschland. Warum es die beste Entscheidung deines Lebens sein könnte.</h3>
@@ -248,7 +262,7 @@
     <a href="/blog/bali-backpacker/" class="card" data-cat="life">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=700&q=75&auto=format&fit=crop" alt="Bali Backpacker 2026" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Bali als Backpacker 2026. Was es kostet und was du wissen musst.</h3>
@@ -260,7 +274,7 @@
     <a href="/blog/nomad-basis-vergleich/" class="card" data-cat="life">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=75&auto=format&fit=crop" alt="Nomad Basis Vergleich SEA" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Ko Pha-ngan, Chiang Mai oder Bali. Wo wohnst du als Nomad am günstigsten?</h3>
@@ -272,7 +286,7 @@
     <a href="/blog/hotels-schlechtes-instagram/" class="card" data-cat="geld">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=700&q=75&auto=format&fit=crop" alt="Hotel Instagram Marketing" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Warum Hotels schlechtes Instagram haben. Und wie das jeder ändern kann.</h3>
@@ -284,7 +298,7 @@
     <a href="/blog/du-bist-nicht-alleine/" class="card" data-cat="realtalk">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=75&auto=format&fit=crop" alt="Community unterwegs" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Du bist nicht alleine. Wie du unterwegs echte Verbindungen findest.</h3>
@@ -296,7 +310,7 @@
     <a href="/blog/lern-dich-kennen/" class="card" data-cat="realtalk">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=75&auto=format&fit=crop" alt="Selbstfindung auf Reisen" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Reisen ist das beste Selbstfindungsprogramm. Kein Kurs nötig.</h3>
@@ -308,7 +322,7 @@
     <a href="/blog/kein-geld-kein-plan-trotzdem-gegangen/" class="card" data-cat="realtalk">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=75&auto=format&fit=crop" alt="Reisen ohne Plan" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Kein Geld, kein Plan und trotzdem gegangen. Was das wirklich bedeutet.</h3>
@@ -320,7 +334,7 @@
     <a href="/blog/thailand-work-and-travel/" class="card" data-cat="life">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=75&auto=format&fit=crop" alt="Thailand Work and Travel" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Thailand Work and Travel 2026. Der ehrliche Guide.</h3>
@@ -332,7 +346,7 @@
     <a href="/blog/sea-digital-nomad-budget/" class="card" data-cat="geld">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=700&q=75&auto=format&fit=crop" alt="SEA Digital Nomad Budget" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Wie viel Geld brauchst du als Digital Nomad in Südostasien wirklich?</h3>
@@ -344,7 +358,7 @@
     <a href="/blog/remote-arbeiten-selbststaendig/" class="card" data-cat="geld">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=75&auto=format&fit=crop" alt="Remote arbeiten Laptop" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Remote arbeiten und selbstständig unterwegs sein. Was wirklich funktioniert.</h3>
@@ -356,7 +370,7 @@
     <a href="/blog/social-media-marketing-lernen/" class="card" data-cat="geld">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=700&q=75&auto=format&fit=crop" alt="Social Media Marketing lernen" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Social Media Marketing lernen. Dein Ticket zur Ortsunabhängigkeit.</h3>
@@ -368,7 +382,7 @@
     <a href="/blog/passion-finden-durch-reisen/" class="card" data-cat="realtalk">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=700&q=75&auto=format&fit=crop" alt="Passion finden auf Reisen" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Wie Reisen deine Passion findet, bevor du es selbst tust</h3>
@@ -380,7 +394,7 @@
     <a href="/blog/reisen-produktivitaet/" class="card" data-cat="life">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=700&q=75&auto=format&fit=crop" alt="Produktivität auf Reisen" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Warum du unterwegs produktiver bist als zuhause</h3>
@@ -392,7 +406,7 @@
     <a href="/blog/routine-auf-reisen/" class="card" data-cat="life">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=75&auto=format&fit=crop" alt="Morgenroutine auf Reisen" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Die Morgenroutine, die Digital Nomads wirklich produktiv hält</h3>
@@ -404,7 +418,7 @@
     <a href="/blog/work-and-travel-ohne-ersparnisse-finanzieren/" class="card" data-cat="geld australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1553729459-afe8f2e2ed65?w=700&q=75&auto=format&fit=crop" alt="Work and Travel finanzieren" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Work and Travel ohne große Ersparnisse. Wie du dein Abenteuer wirklich finanzierst.</h3>
@@ -416,7 +430,7 @@
     <a href="/blog/farmarbeit-australien-ehrlicher-guide/" class="card" data-cat="geld australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=700&q=75&auto=format&fit=crop" alt="Farmarbeit Australien" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Farmarbeit in Australien. Bevor du zusagst, lies das.</h3>
@@ -428,7 +442,7 @@
     <a href="/blog/jobs-australien-was-wirklich-bezahlt/" class="card" data-cat="geld australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=75&auto=format&fit=crop" alt="Jobs in Australien" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Jobs in Australien. Was wirklich bezahlt und was ein Mythos ist.</h3>
@@ -440,7 +454,7 @@
     <a href="/blog/australisches-bankkonto-backpacker-guide/" class="card" data-cat="visum australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=75&auto=format&fit=crop" alt="Bankkonto Australien" loading="lazy" />
-        <span class="card-cat">🛂 Visum &amp; Bürokratie</span>
+        <span class="card-cat">Visum &amp; Bürokratie</span>
       </div>
       <div class="card-body">
         <h3>Australisches Bankkonto eröffnen als Backpacker. So einfach geht's.</h3>
@@ -452,7 +466,7 @@
     <a href="/blog/guenstig-wohnen-australien-backpacker/" class="card" data-cat="life australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700&q=75&auto=format&fit=crop" alt="Günstig wohnen Australien" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Günstig wohnen in Australien. Was Hostels dir nicht sagen.</h3>
@@ -464,7 +478,7 @@
     <a href="/blog/work-and-travel-alter-kein-perfekter-zeitpunkt/" class="card" data-cat="realtalk australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=700&q=75&auto=format&fit=crop" alt="Work and Travel Alter" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Work and Travel Alter. Gibt es zu jung oder zu alt dafür? Nein.</h3>
@@ -476,7 +490,7 @@
     <a href="/blog/selbstfindung-reisen-was-stimmt/" class="card" data-cat="realtalk">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=75&auto=format&fit=crop" alt="Selbstfindung auf Reisen" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Selbstfindung auf Reisen. Was das wirklich bedeutet und was Bullshit ist.</h3>
@@ -488,7 +502,7 @@
     <a href="/blog/bewerbung-australien-deutsche-tipps/" class="card" data-cat="geld australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=700&q=75&auto=format&fit=crop" alt="Bewerbung Australien" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Bewerben in Australien als Deutsche. Was Arbeitgeber wirklich wollen.</h3>
@@ -500,7 +514,7 @@
     <a href="/blog/reise-dokumentieren-content-creator/" class="card" data-cat="life">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=700&q=75&auto=format&fit=crop" alt="Reise dokumentieren Content Creator" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Deine Reise dokumentieren, ohne dein Leben für Content zu verpassen.</h3>
@@ -512,7 +526,7 @@
     <a href="/blog/australien-alleine-frau-reisen/" class="card" data-cat="life australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=700&q=75&auto=format&fit=crop" alt="Australien alleine als Frau reisen" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Australien alleine als Frau reisen. Was du wissen solltest.</h3>
@@ -524,7 +538,7 @@
     <a href="/blog/heimweh-ausland-work-and-travel/" class="card" data-cat="realtalk">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=700&q=75&auto=format&fit=crop" alt="Heimweh im Ausland" loading="lazy" />
-        <span class="card-cat">🔥 Realtalk</span>
+        <span class="card-cat">Realtalk</span>
       </div>
       <div class="card-body">
         <h3>Heimweh im Ausland. Was wirklich hilft und was du am Anfang nicht hören willst.</h3>
@@ -536,7 +550,7 @@
     <a href="/blog/top-regionen-australien-backpacker/" class="card" data-cat="life australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=700&q=75&auto=format&fit=crop" alt="Top Regionen Australien" loading="lazy" />
-        <span class="card-cat">🏄 Leben vor Ort</span>
+        <span class="card-cat">Leben vor Ort</span>
       </div>
       <div class="card-body">
         <h3>Die Top 5 abenteuerlichsten Regionen Australiens für Backpacker.</h3>
@@ -548,7 +562,7 @@
     <a href="/blog/lebenslauf-englisch-australien-tipps/" class="card" data-cat="geld australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=700&q=75&auto=format&fit=crop" alt="Lebenslauf Englisch Australien" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Lebenslauf auf Englisch für Australien. Was rein muss und was aussortiert wird.</h3>
@@ -560,7 +574,7 @@
     <a href="/blog/australien-second-year-visa-erklaert/" class="card" data-cat="visum australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=700&q=75&auto=format&fit=crop" alt="Second Year Visa Australien" loading="lazy" />
-        <span class="card-cat">🛂 Visum &amp; Bürokratie</span>
+        <span class="card-cat">Visum &amp; Bürokratie</span>
       </div>
       <div class="card-body">
         <h3>Working Holiday Visum verlängern. Second Year und Third Year erklärt.</h3>
@@ -569,10 +583,22 @@
       <div class="card-footer"><span>7 Min Lesezeit</span></div>
     </a>
 
+    <a href="/blog/meine-tools-australien/" class="card" data-cat="geld australien">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=75&auto=format&fit=crop" alt="Meine Tools für Australien" loading="lazy" />
+        <span class="card-cat">Jobs &amp; Geld</span>
+      </div>
+      <div class="card-body">
+        <h3>Meine Tools für Australien. Was ich wirklich nutze.</h3>
+        <p>Von eSIM bis Bankkonto. Die Reise-Tools, die ich selbst getestet habe und täglich benutze.</p>
+      </div>
+      <div class="card-footer"><span>6 Min Lesezeit</span></div>
+    </a>
+
     <a href="/blog/boutique-hotels-social-media-learnings/" class="card" data-cat="geld">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=75&auto=format&fit=crop" alt="Boutique Hotels Social Media" loading="lazy" />
-        <span class="card-cat">💼 Jobs &amp; Geld</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Was Boutique Hotels über Social Media von großen Chains lernen könnten</h3>
@@ -613,3 +639,107 @@
 
 <footer>
   <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <img src="https://www.packplango.com/images/favicon.png" alt="PackPlanGo" />
+        PackPlanGo.
+      </div>
+      <p>Travel Guides und Social Media für Hospitality. Von Reisenden, für Reisende und die Orte, die sie lieben.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="/">Home</a>
+      <a href="/travel/">Travel</a>
+      <a href="/studio/">Studio</a>
+      <a href="/blog/">Blog</a>
+      <a href="/blog/community/">Community</a>
+      <a href="/founder/">Founder</a>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum">Impressum</a>
+      <div style="display:flex;gap:14px;align-items:center;margin-top:8px;">
+        <a href="https://instagram.com/jackywest.remote" target="_blank" rel="noopener" title="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="22" height="22" alt="Instagram" />
+        </a>
+        <a href="https://www.pinterest.com/jackypackplango/" target="_blank" rel="noopener" title="Pinterest">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145808.png" width="22" height="22" alt="Pinterest" />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PackPlanGo</span>
+    <div>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum">Impressum</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav burger
+var burger = document.getElementById('burger');
+var navMobile = document.getElementById('nav-mobile');
+if (burger) burger.addEventListener('click', function() { navMobile.classList.toggle('open'); });
+
+// Category filter
+var filterBtns = document.querySelectorAll('.filter-btn');
+var allCards = document.querySelectorAll('.card, .featured-card');
+var activeFilter = 'all';
+
+filterBtns.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    filterBtns.forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    activeFilter = btn.getAttribute('data-cat');
+    applyFilters();
+  });
+});
+
+// Search
+var searchInput = document.getElementById('blog-search');
+if (searchInput) {
+  searchInput.addEventListener('input', function() {
+    applyFilters();
+  });
+}
+
+function applyFilters() {
+  var query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  allCards.forEach(function(card) {
+    var cat = card.getAttribute('data-cat') || '';
+    var text = card.textContent.toLowerCase();
+    var catMatch = activeFilter === 'all' || cat.indexOf(activeFilter) !== -1;
+    var searchMatch = query === '' || text.indexOf(query) !== -1;
+    card.style.display = (catMatch && searchMatch) ? '' : 'none';
+  });
+}
+
+// Newsletter form
+function blogNlSubmit(e) {
+  e.preventDefault();
+  var email = document.getElementById('blog-nl-email').value;
+  var btn = document.getElementById('blog-nl-btn');
+  btn.textContent = 'Wird gesendet...';
+  btn.disabled = true;
+  var params = new URLSearchParams();
+  params.append('fields[email]', email);
+  params.append('ml-submit', '1');
+  params.append('anticsrf', 'true');
+  fetch('https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: params.toString()
+  }).then(function() {
+    document.getElementById('blog-nl-form').style.display = 'none';
+    document.getElementById('blog-nl-success').style.display = 'block';
+  }).catch(function() {
+    btn.textContent = 'Erneut versuchen';
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>
