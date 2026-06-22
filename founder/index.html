@@ -17,452 +17,617 @@
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f3efe7;--bg-alt:#ece6da;
-  --teal:#2D6E69;--teal-deep:#1F5552;--teal-light:#4A8E89;
-  --accent:#e89a5b;--accent-soft:#f1c79a;
-  --dark:#1B1B19;--text:#1a1a1a;--text-light:#f3efe7;
-  --muted:#5a6661;--white:#FEFCF8;
+  --cream:#FFFAF2;
+  --cream-alt:#FFF3E6;
+  --cream-deep:#F5EDD8;
+  --teal:#2D6E69;
+  --teal-light:#4A9F99;
+  --teal-pale:#E4F3F1;
+  --orange:#E89A5B;
+  --orange-light:#F5BC8A;
+  --orange-pale:#FFF0E4;
+  --blush:#FFB5C8;
+  --blush-pale:#FFF0F5;
+  --yellow-soft:#FFF3CC;
+  --dark:#1B1B19;
+  --muted:#6B6B68;
+  --white:#FFFFFF;
   --serif:'Playfair Display',Georgia,serif;
-  --sans:'Inter',system-ui,-apple-system,sans-serif;
-  --ocean-surface:#1a8a9e;
-  --ocean-mid:#0d5f7a;
-  --ocean-deep:#062a3e;
+  --sans:'Inter',system-ui,sans-serif;
+  --script:'Dancing Script',cursive;
+  --shadow-soft:0 8px 40px rgba(45,110,105,.08);
+  --shadow-card:0 12px 48px rgba(27,27,25,.10);
+  --shadow-pop:0 24px 80px rgba(27,27,25,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{font-family:var(--sans);background:var(--ocean-deep);color:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--cream);color:var(--dark);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 
-/* ─── NAV (exakt wie Hauptseite) ─── */
-header.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(243,239,231,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(45,110,105,.08);transition:background .3s}
-header.site-header.scrolled{background:rgba(6,42,62,.95);border-bottom:1px solid rgba(255,255,255,.08)}
-header.site-header.scrolled .logo,header.site-header.scrolled .nav-links a{color:#fff}
-header.site-header.scrolled .nav-cta{background:var(--accent)}
-.nav{max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:22px;font-weight:600;color:var(--dark);transition:color .3s}
-.logo img{width:32px;height:32px;border-radius:6px}
-.logo span.dot{color:var(--accent)}
-.nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{color:var(--dark);font-weight:500;font-size:15px;transition:color .2s}
-.nav-links a:hover{color:var(--teal)}
-.nav-links a.active{color:var(--teal);font-weight:600}
-.nav-cta{background:var(--teal);color:#fff!important;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:500;transition:all .2s}
-.nav-cta:hover{background:var(--teal-deep);transform:translateY(-1px);color:#fff}
-.burger{display:none;background:none;border:0;font-size:24px;color:var(--dark);cursor:pointer;transition:color .3s}
+/* ══════════════════════
+   SCROLL PROGRESS
+══════════════════════ */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--orange));z-index:9999;width:0%;transition:width .1s linear}
+
+/* ══════════════════════
+   NAV
+══════════════════════ */
+header.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,250,242,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(45,110,105,.08);
+  transition:background .3s,border-color .3s;
+}
+header.site-header.scrolled{
+  background:rgba(255,250,242,.98);
+  border-bottom:1px solid rgba(45,110,105,.15);
+  box-shadow:0 2px 20px rgba(45,110,105,.08);
+}
+.nav{max-width:1280px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:20px;font-weight:600;color:var(--dark)}
+.logo img{width:30px;height:30px;border-radius:6px}
+.logo .dot{color:var(--orange)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--muted);font-weight:500;font-size:14px;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-links a.active{font-weight:600}
+.nav-cta{background:var(--teal);color:#fff!important;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:600!important;transition:all .2s}
+.nav-cta:hover{background:var(--teal-light);transform:translateY(-1px)}
+.burger{display:none;background:none;border:0;font-size:22px;color:var(--dark);cursor:pointer}
 @media(max-width:820px){
   .nav-links{display:none}
   .burger{display:block}
-  .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:24px 32px;border-bottom:1px solid rgba(45,110,105,.1);gap:20px}
-  header.site-header.scrolled .nav-links.open{background:rgba(6,42,62,.97)}
-  header.site-header.scrolled .burger{color:#fff}
+  .nav-links.open{display:flex;position:absolute;top:62px;left:0;right:0;background:var(--cream);flex-direction:column;padding:20px 32px;border-bottom:1px solid rgba(45,110,105,.1);gap:18px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
 }
 
-/* ─── SCROLL PROGRESS ─── */
-#scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:9999;width:0%;transition:width .1s linear}
+/* ══════════════════════
+   DECORATIVE SVG HELPERS
+══════════════════════ */
+.deco{position:absolute;pointer-events:none;z-index:3}
+.parallax-deco{will-change:transform}
 
-/* ═══════════════════════════════════════════════
-   HERO — Sky, Sun, Beach, Palms, Water Surface
-   ═══════════════════════════════════════════════ */
+/* ══════════════════════
+   HERO
+══════════════════════ */
 .hero-founder{
-  position:relative;min-height:120vh;
-  display:flex;align-items:center;justify-content:center;text-align:center;
+  position:relative;
+  min-height:100vh;
+  display:flex;align-items:center;
   overflow:hidden;
-  background:linear-gradient(180deg,
-    #1a3a5c 0%,
-    #e8945a 8%,
-    #f0b87a 14%,
-    #87CEEB 25%,
-    #5BB5D5 45%,
-    #1a8a9e 65%,
-    #0d6e8a 80%,
-    var(--ocean-mid) 100%
-  );
+  background:linear-gradient(135deg,var(--cream) 0%,var(--cream-alt) 50%,#FFE8D6 100%);
+  padding-top:80px;
+}
+/* Soft background blobs */
+.hero-blob{
+  position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;
+}
+.hero-blob-1{width:600px;height:600px;background:rgba(232,154,91,.12);top:-100px;right:-150px}
+.hero-blob-2{width:400px;height:400px;background:rgba(45,110,105,.08);bottom:0;left:-100px}
+.hero-blob-3{width:300px;height:300px;background:rgba(255,181,200,.15);top:30%;left:20%}
+
+.hero-inner{
+  max-width:1280px;margin:0 auto;padding:60px 32px 80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  position:relative;z-index:5;width:100%;
+}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}}
+
+/* Hero text */
+.hero-text{}
+.hero-eyebrow{
+  font-family:var(--sans);font-size:11px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--teal);
+  display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'✦';font-size:8px;color:var(--orange)}
+.hero-handwritten{
+  font-family:var(--script);font-size:clamp(28px,4vw,40px);color:var(--orange);
+  display:block;margin-bottom:-8px;line-height:1.1;
+}
+.hero-name{
+  font-family:var(--serif);font-size:clamp(80px,13vw,140px);font-weight:700;
+  line-height:.92;letter-spacing:-.03em;color:var(--dark);
+  margin-bottom:24px;
+  transform-style:preserve-3d;
+  transition:transform .15s ease-out;
+}
+.hero-name .dot-orange{color:var(--orange)}
+.hero-lead{
+  font-size:17px;color:var(--muted);line-height:1.75;
+  max-width:480px;margin-bottom:32px;
+}
+@media(max-width:900px){.hero-lead{margin:0 auto 32px}}
+
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:48px}
+@media(max-width:900px){.hero-tags{justify-content:center}}
+.hero-tags .tag{
+  padding:8px 18px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.03em;
+}
+.tag-teal{background:var(--teal-pale);color:var(--teal);border:1.5px solid rgba(45,110,105,.2)}
+.tag-orange{background:var(--orange);color:#fff}
+.tag-blush{background:var(--blush-pale);color:#c2547a;border:1.5px solid rgba(255,181,200,.4)}
+
+.scroll-hint{
+  display:flex;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+}
+@media(max-width:900px){.scroll-hint{justify-content:center}}
+.scroll-hint .arrow{
+  width:36px;height:36px;border-radius:50%;border:1.5px solid var(--orange);
+  display:flex;align-items:center;justify-content:center;color:var(--orange);
+  animation:scrollBounce 2s ease-in-out infinite;
+}
+@keyframes scrollBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* Hero photo side */
+.hero-photo-wrap{
+  position:relative;
+  display:flex;justify-content:center;align-items:center;
+}
+.hero-photo-card{
+  position:relative;
+  background:#fff;
+  padding:14px 14px 52px;
+  box-shadow:var(--shadow-pop);
+  border-radius:4px;
+  max-width:380px;
+  width:100%;
+  transform:rotate(1.5deg);
+  transition:transform .15s ease-out;
+  z-index:2;
+}
+.hero-photo-card img{
+  width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;
+  display:block;
+}
+.polaroid-caption{
+  text-align:center;
+  font-family:var(--script);font-size:22px;color:var(--muted);
+  padding-top:10px;
 }
 
-/* Sun */
-.sun{
-  position:absolute;top:6%;left:50%;transform:translateX(-50%);
-  width:180px;height:180px;border-radius:50%;
-  background:radial-gradient(circle,#ffe4a0 0%,rgba(232,154,91,.8) 30%,rgba(232,154,91,.2) 60%,transparent 80%);
-  z-index:2;filter:blur(8px);
-  animation:sunPulse 4s ease-in-out infinite;
+/* Floating sticker badges around photo */
+.sticker{
+  position:absolute;background:#fff;border-radius:16px;
+  padding:10px 16px;font-size:13px;font-weight:700;
+  box-shadow:0 6px 24px rgba(0,0,0,.12);
+  display:flex;align-items:center;gap:8px;
+  z-index:4;
 }
-@keyframes sunPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:1}50%{transform:translateX(-50%) scale(1.08);opacity:.9}}
+.sticker-1{top:-20px;left:-30px;background:var(--teal);color:#fff;transform:rotate(-4deg)}
+.sticker-2{bottom:30px;left:-40px;background:var(--yellow-soft);color:var(--dark);transform:rotate(3deg)}
+.sticker-3{top:40%;right:-30px;background:var(--blush);color:#fff;transform:rotate(-2deg)}
 
-/* Sun rays */
-.sun-rays{
-  position:absolute;top:2%;left:50%;transform:translateX(-50%);
-  width:500px;height:400px;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse at 50% 40%,rgba(255,228,160,.15) 0%,rgba(232,154,91,.05) 40%,transparent 70%);
+/* Decorative stars */
+.star-deco{position:absolute;color:var(--orange);font-size:24px;animation:starSpin 8s linear infinite;pointer-events:none}
+@keyframes starSpin{0%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.1)}100%{transform:rotate(360deg) scale(1)}}
+.star-teal{color:var(--teal)!important}
+
+/* Squiggle line */
+.squiggle{position:absolute;pointer-events:none}
+
+/* ══════════════════════
+   WAVY DIVIDER
+══════════════════════ */
+.wave-divider{display:block;width:100%;overflow:hidden;line-height:0}
+.wave-divider svg{display:block;width:100%}
+
+/* ══════════════════════
+   SECTION BASE
+══════════════════════ */
+.section-eyebrow{
+  font-family:var(--script);font-size:22px;color:var(--orange);
+  display:block;margin-bottom:8px;
 }
-
-/* Palm silhouettes — SVG-based */
-.palm{position:absolute;z-index:4;pointer-events:none;opacity:.7}
-.palm-left{left:-40px;top:-20px;width:320px;height:450px}
-.palm-right{right:-40px;top:-10px;width:300px;height:420px;transform:scaleX(-1)}
-.palm svg{width:100%;height:100%}
-
-/* Beach sand hint */
-.beach-line{
-  position:absolute;bottom:38%;left:0;right:0;height:3px;z-index:3;
-  background:linear-gradient(90deg,transparent 5%,rgba(210,180,140,.3) 30%,rgba(210,180,140,.4) 50%,rgba(210,180,140,.3) 70%,transparent 95%);
+.section-title{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(28px,4.5vw,48px);line-height:1.1;
+  color:var(--dark);margin-bottom:18px;
 }
-
-/* Animated water surface */
-.water-surface{
-  position:absolute;bottom:28%;left:-5%;right:-5%;height:160px;z-index:3;
-  overflow:hidden;pointer-events:none;
+.section-title em{font-style:italic;color:var(--teal)}
+.section-title .accent{color:var(--orange)}
+.section-body{font-size:17px;color:var(--muted);line-height:1.8}
+.section-label-small{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:12px;display:block;
 }
-.water-surface svg{
-  width:110%;position:absolute;bottom:0;left:-5%;
-  animation:waterMove 8s ease-in-out infinite;
+.container{max-width:1160px;margin:0 auto;padding:0 32px}
+@media(max-width:600px){.container{padding:0 20px}}
+
+/* ══════════════════════
+   INTRO STRIP ("Willkommen in meiner Welt")
+══════════════════════ */
+.intro-strip{
+  background:var(--teal);
+  position:relative;overflow:hidden;
+  padding:80px 32px;text-align:center;
 }
-@keyframes waterMove{0%,100%{transform:translateX(0) translateY(0)}50%{transform:translateX(-15px) translateY(-6px)}}
-
-/* Water surface shimmer */
-.water-shimmer{
-  position:absolute;bottom:22%;left:0;right:0;height:80px;z-index:3;
-  background:linear-gradient(180deg,
-    rgba(26,138,158,.0) 0%,
-    rgba(26,138,158,.15) 20%,
-    rgba(13,95,122,.4) 60%,
-    rgba(13,95,122,.6) 100%
-  );
-  animation:shimmer 3s ease-in-out infinite;
-}
-@keyframes shimmer{0%,100%{opacity:.8}50%{opacity:1}}
-
-/* Hero gradient overlay at bottom for smooth transition */
-.hero-founder::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:35%;
-  background:linear-gradient(180deg,transparent 0%,rgba(6,42,62,.5) 60%,rgba(6,42,62,.95) 100%);
-  z-index:5;pointer-events:none;
-}
-
-.hero-content{position:relative;z-index:10;max-width:800px;padding:120px 32px 160px;color:#fff}
-.hero-tag{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-soft);font-weight:500;margin-bottom:20px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
-.hero-intro{font-family:var(--sans);font-weight:600;font-size:clamp(18px,2.5vw,24px);margin-bottom:10px;color:rgba(255,255,255,.95);text-shadow:0 2px 12px rgba(0,0,0,.4)}
-.hero-name{font-family:var(--serif);font-weight:600;font-size:clamp(72px,14vw,160px);line-height:.95;letter-spacing:-.03em;color:#fff;margin-bottom:24px;text-shadow:0 4px 30px rgba(0,0,0,.3)}
-.hero-name span.dot-pink{color:var(--accent);font-size:.6em;vertical-align:middle}
-.hero-lead{max-width:560px;margin:0 auto 32px;font-size:17px;color:rgba(255,255,255,.9);line-height:1.7;text-shadow:0 2px 8px rgba(0,0,0,.3)}
-.hero-tags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.hero-tags span{padding:8px 20px;border-radius:999px;font-size:13px;font-weight:500;letter-spacing:.02em;backdrop-filter:blur(6px)}
-.hero-tags .tag-outline{border:1.5px solid rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.08)}
-.hero-tags .tag-accent{background:var(--accent);color:#fff;border:1.5px solid var(--accent)}
-
-.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.7)}
-.scroll-hint .line{width:1px;height:40px;background:rgba(255,255,255,.4);animation:scrollPulse 2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:.3;height:40px}50%{opacity:.9;height:55px}}
-
-/* Side labels */
-.side-label{position:fixed;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);writing-mode:vertical-lr;z-index:50;pointer-events:none;transition:opacity .3s}
-.side-label.left{left:20px;top:50%;transform:translateY(-50%) rotate(180deg)}
-.side-label.right{right:20px;top:50%;transform:translateY(-50%)}
-@media(max-width:820px){.side-label{display:none}}
-
-/* ═══════════════════════════════════════════════
-   DIVE TRANSITION — entering the water
-   ═══════════════════════════════════════════════ */
-.dive-transition{
-  position:relative;padding:140px 32px;text-align:center;
-  background:linear-gradient(180deg,var(--ocean-deep) 0%,#041e2e 100%);
-  overflow:hidden;
-}
-/* Floating particles */
-.dive-transition::before{
+.intro-strip::before{
   content:'';position:absolute;inset:0;
-  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="20" cy="30" r="3" fill="rgba(255,255,255,0.08)"/><circle cx="80" cy="90" r="2" fill="rgba(255,255,255,0.05)"/><circle cx="150" cy="50" r="4" fill="rgba(255,255,255,0.06)"/><circle cx="40" cy="160" r="2.5" fill="rgba(255,255,255,0.04)"/><circle cx="170" cy="140" r="3" fill="rgba(255,255,255,0.07)"/></svg>');
-  animation:floatBubbles 20s linear infinite;
-  opacity:.6;
+  background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="20" r="1.5" fill="rgba(255,255,255,0.07)"/><circle cx="80" cy="50" r="2.5" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.08)"/><circle cx="65" cy="15" r="2" fill="rgba(255,255,255,0.06)"/><circle cx="25" cy="65" r="1.5" fill="rgba(255,255,255,0.05)"/></svg>');
+  animation:dotsDrift 20s linear infinite;
 }
-@keyframes floatBubbles{0%{transform:translateY(0)}100%{transform:translateY(-200px)}}
-
-/* Light rays from above */
-.light-rays{
-  position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:700px;height:100%;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,
-    rgba(26,138,158,.1) 0%,
-    rgba(26,138,158,.03) 30%,
-    transparent 60%
-  );
-  clip-path:polygon(35% 0%,65% 0%,85% 100%,15% 100%);
-  opacity:.5;
+@keyframes dotsDrift{0%{background-position:0 0}100%{background-position:100px 100px}}
+.intro-strip .eyebrow-white{
+  font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:12px;display:block;
 }
-.light-rays-2{
-  position:absolute;top:0;left:30%;
-  width:400px;height:80%;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,
-    rgba(135,206,235,.06) 0%,
-    transparent 50%
-  );
-  clip-path:polygon(40% 0%,70% 0%,90% 100%,10% 100%);
-  opacity:.3;
+.intro-strip h2{
+  font-family:var(--serif);font-size:clamp(28px,5vw,52px);
+  color:#fff;font-weight:600;line-height:1.15;margin-bottom:14px;
 }
+.intro-strip h2 em{font-style:italic;color:var(--orange-light)}
+.intro-strip p{font-size:17px;color:rgba(255,255,255,.8);max-width:500px;margin:0 auto;line-height:1.7}
 
-.dive-tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-soft);font-weight:600;margin-bottom:18px;position:relative;z-index:2}
-.dive-title{font-family:var(--serif);font-weight:600;font-size:clamp(36px,6vw,72px);line-height:1.05;color:#fff;margin-bottom:16px;position:relative;z-index:2}
-.dive-title em{font-style:italic;color:var(--accent)}
-.dive-sub{font-size:17px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto;position:relative;z-index:2}
-
-/* ═══════════════════════════════════════════════
-   DEEP OCEAN SECTIONS
-   ═══════════════════════════════════════════════ */
-.deep-section{position:relative;padding:100px 32px;overflow:hidden}
-.deep-section::before{
-  content:'';position:absolute;inset:0;z-index:0;
-  background:linear-gradient(180deg,#041e2e 0%,#031824 100%);
-}
-.container{max-width:1160px;margin:0 auto;position:relative;z-index:2}
-
-/* About Me */
-.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
+/* ══════════════════════
+   ABOUT ME
+══════════════════════ */
+.about-section{padding:100px 32px;background:var(--cream);position:relative;overflow:hidden}
+.about-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:center}
 @media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
-.about-img-wrap{position:relative}
-.about-img-wrap img{border-radius:20px;width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid rgba(255,255,255,.1)}
-.about-img-wrap .img-label{position:absolute;bottom:20px;right:20px;background:var(--accent);color:#fff;font-family:var(--serif);font-style:italic;font-size:14px;padding:8px 18px;border-radius:8px}
-.section-tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-soft);font-weight:600;margin-bottom:18px}
-.section-title{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4.5vw,48px);line-height:1.1;color:#fff;margin-bottom:20px}
-.section-title em{font-style:italic;color:var(--accent)}
-.about-text p{font-size:17px;color:rgba(255,255,255,.8);margin-bottom:18px;line-height:1.75}
-.about-tags{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
-.about-tags span{padding:8px 20px;border-radius:999px;font-size:13px;font-weight:500}
-.about-tags .tag-o{border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
-.about-tags .tag-a{background:var(--accent);color:#fff}
 
-/* Story Chapter */
-.chapter{position:relative;padding:100px 32px;overflow:hidden}
-.chapter::before{content:'';position:absolute;inset:0;background:#031824;z-index:0}
-.chapter-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;position:relative;z-index:2}
-.chapter-grid.reverse{grid-template-columns:1.2fr 1fr}
-@media(max-width:900px){.chapter-grid,.chapter-grid.reverse{grid-template-columns:1fr;gap:32px}}
-.chapter-images{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.chapter-images img{border-radius:16px;width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid rgba(255,255,255,.08)}
-.chapter-images img:first-child{grid-row:span 2;aspect-ratio:2/3}
-.chapter-tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
-.chapter-title{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.5vw,40px);line-height:1.15;color:#fff;margin-bottom:18px;font-style:italic}
-.chapter-text{font-size:16px;color:rgba(255,255,255,.75);line-height:1.75}
+/* Polaroid image */
+.polaroid-wrap{
+  position:relative;
+  display:flex;justify-content:center;
+}
+.polaroid{
+  background:#fff;padding:16px 16px 56px;
+  box-shadow:var(--shadow-pop);border-radius:3px;
+  position:relative;
+  transform:rotate(-2deg);
+  transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;
+  max-width:340px;width:100%;
+}
+.polaroid:hover{transform:rotate(0deg) scale(1.02);box-shadow:0 32px 100px rgba(27,27,25,.2)}
+.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block}
+.polaroid .caption{
+  text-align:center;
+  font-family:var(--script);font-size:20px;color:var(--muted);
+  padding-top:8px;
+}
+.polaroid-label{
+  position:absolute;bottom:-18px;right:-18px;
+  background:var(--orange);color:#fff;
+  font-family:var(--script);font-size:16px;
+  padding:8px 18px;border-radius:8px;
+  box-shadow:0 6px 20px rgba(232,154,91,.35);
+  transform:rotate(2deg);
+}
 
-/* Quote Box */
-.quote-box{background:rgba(13,95,122,.15);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:48px;margin:80px auto;max-width:900px;position:relative;z-index:2;backdrop-filter:blur(8px)}
-.quote-box .q-mark{font-family:var(--serif);font-size:48px;color:var(--accent);line-height:1;margin-bottom:12px}
-.quote-box h3{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3vw,32px);color:#fff;margin-bottom:16px;font-style:italic}
-.quote-box p{font-size:16px;color:rgba(255,255,255,.75);line-height:1.75}
+.about-text{}
+.about-text .section-body{margin-bottom:28px}
+.about-chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{
+  padding:9px 20px;border-radius:999px;font-size:13px;font-weight:600;
+  transition:transform .2s;cursor:default;
+}
+.chip:hover{transform:translateY(-2px)}
+.chip-outline{border:1.5px solid rgba(45,110,105,.3);color:var(--teal)}
+.chip-filled{background:var(--teal);color:#fff}
 
-/* ═══════════════════════════════════════════════
-   MARIAMA DIVING — Full immersive section
-   ═══════════════════════════════════════════════ */
-.diving-section{
-  position:relative;min-height:100vh;
+/* ══════════════════════
+   CHAPTER 1 — "Zwischen Tellern gestartet"
+══════════════════════ */
+.chapter-section{padding:80px 32px;background:var(--cream-alt);position:relative;overflow:hidden}
+.chapter-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
+@media(max-width:900px){.chapter-grid{grid-template-columns:1fr;gap:40px}}
+.chapter-grid.reverse{grid-template-columns:1fr 1.1fr}
+@media(max-width:900px){.chapter-grid.reverse{grid-template-columns:1fr}}
+
+/* Photo collage for chapters */
+.photo-collage{position:relative;height:420px}
+@media(max-width:600px){.photo-collage{height:280px}}
+.collage-photo{
+  position:absolute;
+  background:#fff;
+  padding:10px 10px 36px;
+  box-shadow:var(--shadow-card);
+  border-radius:3px;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;
+}
+.collage-photo:hover{transform:scale(1.04) rotate(0deg)!important;box-shadow:var(--shadow-pop);z-index:10}
+.collage-photo img{display:block;object-fit:cover;width:100%;height:100%}
+.collage-photo-1{width:200px;height:280px;top:0;left:0;transform:rotate(-3deg);z-index:2}
+.collage-photo-2{width:175px;height:235px;top:60px;left:160px;transform:rotate(2.5deg);z-index:3}
+.collage-photo-3{width:155px;height:200px;top:180px;left:80px;transform:rotate(-1.5deg);z-index:4}
+@media(max-width:600px){
+  .collage-photo-1{width:140px;height:190px}
+  .collage-photo-2{width:120px;height:160px;left:110px;top:40px}
+  .collage-photo-3{width:110px;height:145px;left:55px;top:120px}
+}
+
+.chapter-text{}
+.chapter-tag{
+  font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:12px;display:block;
+}
+.chapter-title{
+  font-family:var(--serif);font-weight:600;font-style:italic;
+  font-size:clamp(26px,3.5vw,40px);color:var(--dark);
+  line-height:1.15;margin-bottom:18px;
+}
+.chapter-body{font-size:16px;color:var(--muted);line-height:1.8}
+
+/* ══════════════════════
+   PULL QUOTE
+══════════════════════ */
+.pull-quote{
+  position:relative;padding:72px 32px;
+  background:var(--teal-pale);overflow:hidden;
+}
+.pull-quote::before{
+  content:'"';
+  font-family:var(--serif);font-size:200px;color:rgba(45,110,105,.1);
+  position:absolute;top:-20px;left:20px;line-height:1;pointer-events:none;
+}
+.pull-quote-inner{max-width:780px;margin:0 auto;position:relative;z-index:2}
+.pull-quote-eyebrow{
+  font-family:var(--script);font-size:20px;color:var(--orange);margin-bottom:12px;display:block;
+}
+.pull-quote h3{
+  font-family:var(--serif);font-weight:600;font-style:italic;
+  font-size:clamp(24px,3.5vw,40px);color:var(--teal);
+  line-height:1.2;margin-bottom:18px;
+}
+.pull-quote p{font-size:17px;color:var(--dark);line-height:1.8;opacity:.8}
+
+/* Decorative wave between pull-quote and next section */
+.wave-teal-to-cream svg path{fill:var(--cream-alt)}
+.wave-cream-to-teal-pale svg path{fill:var(--teal-pale)}
+.wave-teal-pale-to-cream svg path{fill:var(--cream)}
+
+/* ══════════════════════
+   FERNWEH FULL-BLEED
+══════════════════════ */
+.fernweh-section{
+  position:relative;min-height:90vh;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
-  perspective:800px;
 }
-.diving-img-wrapper{
+.fernweh-bg{
   position:absolute;inset:0;z-index:0;
-  display:flex;align-items:center;justify-content:center;
-  background:#031520;
-  overflow:hidden;
 }
-.diving-img-wrapper img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 30%;
-  filter:brightness(.6) saturate(1.3);
+.fernweh-bg img{
+  width:100%;height:100%;object-fit:cover;object-position:center 30%;
   transform:scale(1.1);
   transition:transform .1s linear;
+  filter:brightness(.65) saturate(1.2);
 }
-.diving-overlay{
+.fernweh-overlay{
   position:absolute;inset:0;z-index:1;
-  background:linear-gradient(180deg,
-    rgba(3,21,32,.6) 0%,
-    rgba(3,21,32,.15) 30%,
-    rgba(3,21,32,.15) 70%,
-    rgba(3,21,32,.7) 100%
+  background:linear-gradient(
+    to bottom,
+    rgba(27,27,25,.4) 0%,
+    rgba(27,27,25,.1) 40%,
+    rgba(27,27,25,.5) 100%
   );
 }
-.diving-content{position:relative;z-index:2;max-width:700px;padding:80px 32px;margin:0 auto;text-align:center}
+.fernweh-content{
+  position:relative;z-index:2;
+  text-align:center;padding:80px 32px;max-width:700px;margin:0 auto;
+}
+.fernweh-content .script-white{
+  font-family:var(--script);font-size:26px;color:rgba(255,255,255,.85);
+  display:block;margin-bottom:8px;
+}
+.fernweh-content h2{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(44px,9vw,96px);color:#fff;
+  line-height:.95;letter-spacing:-.02em;margin-bottom:20px;
+}
+.fernweh-content h2 em{font-style:italic;color:var(--orange-light)}
+.fernweh-content p{font-size:18px;color:rgba(255,255,255,.88);line-height:1.7;max-width:480px;margin:0 auto}
 
-/* Bubbles */
+/* Bubbles in fernweh */
 .bubble{
   position:absolute;border-radius:50%;
-  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.3),rgba(255,255,255,.05));
-  animation:rise linear infinite;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.25),rgba(255,255,255,.05));
+  animation:bubbleRise linear infinite;
   z-index:3;pointer-events:none;
 }
-@keyframes rise{
-  0%{transform:translateY(0) scale(1);opacity:.6}
-  100%{transform:translateY(-600px) scale(.3);opacity:0}
+@keyframes bubbleRise{0%{transform:translateY(0) scale(1);opacity:.5}100%{transform:translateY(-500px) scale(.2);opacity:0}}
+
+/* ══════════════════════
+   KO PHANGAN / AUSTRALIEN
+══════════════════════ */
+.story-section{padding:90px 32px;position:relative;overflow:hidden}
+.story-section.bg-cream{background:var(--cream)}
+.story-section.bg-alt{background:var(--cream-alt)}
+.story-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+.story-grid.flip{grid-template-columns:1.1fr 1fr}
+@media(max-width:900px){.story-grid,.story-grid.flip{grid-template-columns:1fr;gap:40px}}
+
+/* Three-photo mini grid */
+.photo-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.photo-trio .trio-photo{
+  background:#fff;padding:8px 8px 28px;
+  box-shadow:var(--shadow-card);border-radius:3px;
+  transition:transform .3s;
 }
+.photo-trio .trio-photo:hover{transform:translateY(-6px) rotate(0deg)!important;box-shadow:var(--shadow-pop)}
+.photo-trio .trio-photo:nth-child(1){transform:rotate(-2.5deg)}
+.photo-trio .trio-photo:nth-child(2){transform:rotate(1.5deg);margin-top:20px}
+.photo-trio .trio-photo:nth-child(3){transform:rotate(-1deg)}
+.photo-trio .trio-photo img{width:100%;aspect-ratio:1;object-fit:cover}
 
-/* Stats */
-.stats-row{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin:60px 0;position:relative;z-index:2}
-.stat{text-align:center}
-.stat .num{font-family:var(--serif);font-size:clamp(42px,5vw,60px);color:var(--accent);font-weight:600;line-height:1}
-.stat .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:8px}
-
-/* ═══════════════════════════════════════════════
-   MANIFESTO — deep ocean, no green
-   ═══════════════════════════════════════════════ */
-.manifesto{position:relative;padding:100px 32px;text-align:center;overflow:hidden}
-.manifesto::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#031824 0%,#041e2e 50%,#062a3e 100%);z-index:0}
-.manifesto .container{position:relative;z-index:2}
-.manifesto-tag{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent-soft);font-weight:600;margin-bottom:20px}
-.manifesto-title{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.5vw,52px);line-height:1.15;color:#fff;margin-bottom:24px}
-.manifesto-text{font-size:17px;color:rgba(255,255,255,.8);max-width:720px;margin:0 auto 36px;line-height:1.75}
-.manifesto-values{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.manifesto-values span{padding:10px 24px;border-radius:999px;font-size:13px;font-weight:600;border:1.5px solid rgba(255,255,255,.3);color:#fff}
-
-/* ═══════════════════════════════════════════════
-   CTA — deep ocean blue, NO green
-   ═══════════════════════════════════════════════ */
-.cta-founder{
-  position:relative;padding:80px 32px;text-align:center;
-  background:linear-gradient(180deg,#062a3e 0%,var(--ocean-mid) 100%);
-  overflow:hidden;
+/* Single story polaroid */
+.story-polaroid{
+  background:#fff;padding:14px 14px 52px;
+  box-shadow:var(--shadow-pop);border-radius:3px;
+  transition:transform .3s cubic-bezier(.22,1,.36,1);
+  max-width:320px;
 }
-.cta-founder::before{
+.story-polaroid:hover{transform:rotate(0deg) scale(1.03)!important;box-shadow:0 40px 120px rgba(27,27,25,.2)}
+.story-polaroid img{width:100%;aspect-ratio:3/4;object-fit:cover}
+
+/* ══════════════════════
+   HEUTE & STATS
+══════════════════════ */
+.heute-section{padding:90px 32px;background:var(--cream);position:relative;overflow:hidden}
+.heute-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media(max-width:900px){.heute-grid{grid-template-columns:1fr;gap:40px}}
+.stats-col{display:flex;flex-direction:column;gap:36px}
+.stat-item{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:24px 28px;
+  background:#fff;border-radius:20px;
+  border:1.5px solid rgba(45,110,105,.1);
+  box-shadow:var(--shadow-soft);
+  transition:transform .3s,box-shadow .3s;
+}
+.stat-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-card)}
+.stat-num{
+  font-family:var(--serif);font-size:clamp(44px,5vw,60px);
+  color:var(--teal);font-weight:700;line-height:1;
+  flex-shrink:0;width:100px;
+}
+.stat-info{}
+.stat-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:4px;display:block}
+.stat-desc{font-size:14px;color:var(--muted);line-height:1.5}
+
+/* ══════════════════════
+   MANIFESTO (Teal section)
+══════════════════════ */
+.manifesto-section{
+  position:relative;padding:100px 32px;
+  background:var(--teal);
+  text-align:center;overflow:hidden;
+}
+.manifesto-section::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 0%,rgba(26,138,158,.15) 0%,transparent 60%);
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.06) 0%,transparent 60%);
   pointer-events:none;
 }
-.cta-founder h2{font-family:var(--serif);font-size:clamp(26px,4vw,44px);font-style:italic;color:#fff;margin-bottom:14px;position:relative;z-index:1}
-.cta-founder p{font-size:17px;color:rgba(255,255,255,.8);max-width:580px;margin:0 auto 32px;position:relative;z-index:1}
-.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
-.btn{padding:16px 32px;border-radius:999px;font-weight:500;font-size:15px;transition:all .2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:0;text-decoration:none}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{background:#d9874a;transform:translateY(-2px);color:#fff}
-.btn-outline-light{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
-.btn-outline-light:hover{background:rgba(255,255,255,.15);border-color:#fff}
+.manifesto-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:14px;display:block;position:relative;z-index:2;
+}
+.manifesto-title{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(32px,5.5vw,60px);
+  color:#fff;line-height:1.1;margin-bottom:24px;
+  position:relative;z-index:2;
+}
+.manifesto-title .line-through-teal{text-decoration:line-through;text-decoration-color:rgba(255,255,255,.3)}
+.manifesto-text{
+  font-size:18px;color:rgba(255,255,255,.85);
+  max-width:700px;margin:0 auto 40px;line-height:1.8;
+  position:relative;z-index:2;
+}
+.manifesto-values{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:0}
+.manifesto-value{
+  padding:10px 24px;border-radius:999px;font-size:13px;font-weight:600;
+  border:1.5px solid rgba(255,255,255,.4);color:#fff;
+  transition:all .2s;cursor:default;
+}
+.manifesto-value:hover{background:rgba(255,255,255,.15);border-color:#fff}
 
-/* ─── FOOTER ─── */
-footer{background:#041e2e;color:rgba(255,255,255,.75);padding:48px 24px 32px}
+/* ══════════════════════
+   CTA SECTION
+══════════════════════ */
+.cta-section{
+  padding:100px 32px;text-align:center;
+  background:linear-gradient(135deg,var(--cream-alt) 0%,var(--orange-pale) 100%);
+  position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(232,154,91,.15) 0%,transparent 60%);
+}
+.cta-title{
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:clamp(28px,4.5vw,52px);color:var(--dark);
+  line-height:1.2;margin-bottom:16px;
+  position:relative;z-index:2;
+}
+.cta-sub{
+  font-size:17px;color:var(--muted);max-width:560px;margin:0 auto 36px;
+  line-height:1.7;position:relative;z-index:2;
+}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
+.btn{
+  padding:15px 32px;border-radius:999px;font-weight:600;font-size:15px;
+  transition:all .22s;display:inline-flex;align-items:center;gap:8px;
+  border:0;cursor:pointer;text-decoration:none;
+}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-light);transform:translateY(-2px);box-shadow:0 12px 32px rgba(45,110,105,.25);color:#fff}
+.btn-outline{background:transparent;color:var(--dark);border:1.5px solid rgba(27,27,25,.25)}
+.btn-outline:hover{background:rgba(27,27,25,.05);border-color:var(--dark)}
+
+/* ══════════════════════
+   FOOTER
+══════════════════════ */
+footer{background:var(--teal);color:rgba(255,255,255,.75);padding:48px 24px 32px}
 .footer-inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
-.footer-brand .logo{font-weight:700;font-size:1.05rem;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.footer-brand .logo{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:#fff;display:flex;align-items:center;gap:8px;margin-bottom:12px}
 .footer-brand .logo img{width:24px;border-radius:5px}
 .footer-brand p{font-size:.85rem;line-height:1.6;max-width:280px;color:rgba(255,255,255,.75)}
-.footer-col h4{font-size:.75rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px}
-.footer-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.8);padding:5px 0;transition:color .2s}
+.footer-col h4{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+.footer-col a{display:block;font-size:.88rem;color:rgba(255,255,255,.75);padding:5px 0;transition:color .2s}
 .footer-col a:hover{color:#fff}
-.footer-bottom{max-width:1160px;margin:24px auto 0;display:flex;align-items:center;justify-content:space-between;font-size:.8rem;color:rgba(255,255,255,.45)}
-.footer-bottom a{color:rgba(255,255,255,.65);margin-left:16px;transition:color .2s}
+.footer-bottom{max-width:1160px;margin:24px auto 0;display:flex;align-items:center;justify-content:space-between;font-size:.8rem;color:rgba(255,255,255,.4)}
+.footer-bottom a{color:rgba(255,255,255,.6);margin-left:16px;transition:color .2s}
 .footer-bottom a:hover{color:#fff}
 @media(max-width:680px){.footer-inner{grid-template-columns:1fr;gap:28px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.footer-bottom a{margin:0 8px}}
 
-/* ═══════════════════════════════════════════════
-   ANIMATIONS & PARALLAX
-   ═══════════════════════════════════════════════ */
-
-/* Reveal on scroll */
-.reveal{opacity:0;transform:translateY(50px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+/* ══════════════════════
+   ANIMATIONS & REVEAL
+══════════════════════ */
+.reveal{opacity:0;transform:translateY(44px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
 .reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(50px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.reveal-right.visible{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.9);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+.stagger>*{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.stagger.visible>*{opacity:1;transform:none}
+.stagger.visible>*:nth-child(1){transition-delay:0s}
+.stagger.visible>*:nth-child(2){transition-delay:.1s}
+.stagger.visible>*:nth-child(3){transition-delay:.2s}
+.stagger.visible>*:nth-child(4){transition-delay:.3s}
+.stagger.visible>*:nth-child(5){transition-delay:.4s}
 
-/* Parallax layers */
-.parallax-layer{will-change:transform;transition:transform .05s linear}
+/* Float animation */
+@keyframes floatUp{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(var(--r,0deg))}}
 
-/* Depth card hover */
-.depth-card{
-  transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s;
+/* ══════════════════════
+   RESPONSIVE TWEAKS
+══════════════════════ */
+@media(max-width:900px){
+  .about-section,.chapter-section,.story-section,.heute-section,.cta-section{padding:64px 24px}
+  .intro-strip,.pull-quote,.manifesto-section{padding:60px 24px}
+  .fernweh-section{min-height:70vh}
 }
-.depth-card:hover{
-  transform:translateY(-8px) scale(1.02);
-  box-shadow:0 20px 60px rgba(0,0,0,.4);
+@media(max-width:600px){
+  .hero-inner{padding:40px 20px 60px}
+  .hero-name{font-size:72px}
+  .hero-photo-card{max-width:280px}
+  .sticker-1,.sticker-2,.sticker-3{font-size:11px;padding:8px 12px}
+  .sticker-2{left:-10px}
+  .sticker-3{right:-10px}
+  .photo-collage{height:260px}
+  .heute-section,.chapter-section{padding:60px 20px}
 }
-
-/* Floating animation for elements */
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
-}
-.float{animation:float 5s ease-in-out infinite}
-
-/* Scale in animation */
-.scale-in{
-  opacity:0;transform:scale(.9);
-  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
-}
-.scale-in.visible{opacity:1;transform:scale(1)}
-
-/* Slide from left */
-.slide-left{
-  opacity:0;transform:translateX(-60px);
-  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
-}
-.slide-left.visible{opacity:1;transform:none}
-
-/* Slide from right */
-.slide-right{
-  opacity:0;transform:translateX(60px);
-  transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1);
-}
-.slide-right.visible{opacity:1;transform:none}
-
-/* Stagger children */
-.stagger > *{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
-.stagger.visible > *{opacity:1;transform:none}
-.stagger.visible > *:nth-child(1){transition-delay:0s}
-.stagger.visible > *:nth-child(2){transition-delay:.12s}
-.stagger.visible > *:nth-child(3){transition-delay:.24s}
-.stagger.visible > *:nth-child(4){transition-delay:.36s}
-.stagger.visible > *:nth-child(5){transition-delay:.48s}
-.stagger.visible > *:nth-child(6){transition-delay:.6s}
-
-/* Underwater caustics light pattern */
-.caustics{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 20% 50%,rgba(26,138,158,.05) 0%,transparent 50%),
-    radial-gradient(ellipse at 80% 30%,rgba(135,206,235,.04) 0%,transparent 50%),
-    radial-gradient(ellipse at 50% 80%,rgba(26,138,158,.03) 0%,transparent 40%);
-  animation:causticShift 12s ease-in-out infinite;
-}
-@keyframes causticShift{
-  0%,100%{opacity:.4;transform:scale(1)}
-  50%{opacity:.7;transform:scale(1.05)}
-}
-
-/* Depth indicator */
-.depth-indicator{
-  position:fixed;right:24px;top:50%;transform:translateY(-50%);
-  z-index:60;display:flex;flex-direction:column;align-items:center;gap:6px;
-  pointer-events:none;transition:opacity .3s;
-}
-.depth-indicator .depth-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(255,255,255,.15);
-  transition:all .3s;
-}
-.depth-indicator .depth-dot.active{
-  background:var(--accent);
-  box-shadow:0 0 10px rgba(232,154,91,.4);
-  transform:scale(1.3);
-}
-@media(max-width:820px){.depth-indicator{display:none}}
-
 </style>
 </head>
 <body>
 <div id="scroll-progress"></div>
 
-<!-- Depth Indicator (right side dots) -->
-<div class="depth-indicator" id="depthIndicator">
-  <div class="depth-dot active" data-section="hero"></div>
-  <div class="depth-dot" data-section="dive"></div>
-  <div class="depth-dot" data-section="about"></div>
-  <div class="depth-dot" data-section="chapter1"></div>
-  <div class="depth-dot" data-section="diving"></div>
-  <div class="depth-dot" data-section="manifesto"></div>
-  <div class="depth-dot" data-section="cta"></div>
-</div>
-
 <!-- NAV -->
 <header class="site-header" id="siteHeader">
   <div class="nav">
-    <a href="/" class="logo"><img src="/images/favicon.png" alt="PackPlanGo">PackPlanGo<span class="dot">.</span></a>
+    <a href="/" class="logo">
+      <img src="/images/favicon.png" alt="PackPlanGo">
+      PackPlanGo<span class="dot">.</span>
+    </a>
     <nav class="nav-links" id="navLinks">
       <a href="/">Home</a>
       <a href="/travel/">Travel</a>
@@ -475,244 +640,392 @@ footer{background:#041e2e;color:rgba(255,255,255,.75);padding:48px 24px 32px}
   </div>
 </header>
 
-<!-- Side Labels -->
-<div class="side-label left">DIE GR&Uuml;NDERIN</div>
-<div class="side-label right">GOLD COAST &middot; AUSTRALIEN</div>
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="hero-founder" id="hero">
 
-<!-- ═══ HERO — Sky, Sun, Beach, Palms, Water Surface ═══ -->
-<section class="hero-founder" id="hero" data-depth="0">
+  <!-- Background blobs -->
+  <div class="hero-blob hero-blob-1 parallax-deco" data-speed="-0.06"></div>
+  <div class="hero-blob hero-blob-2 parallax-deco" data-speed="0.04"></div>
+  <div class="hero-blob hero-blob-3 parallax-deco" data-speed="-0.03"></div>
 
-  <!-- Sun glow -->
-  <div class="sun parallax-layer" data-speed="0.15"></div>
-  <div class="sun-rays parallax-layer" data-speed="0.1"></div>
+  <!-- Floating star decorators -->
+  <div class="star-deco parallax-deco" data-speed="0.08" style="top:18%;left:8%;font-size:28px;--r:0deg;animation:floatUp 6s ease-in-out infinite">✦</div>
+  <div class="star-deco star-teal parallax-deco" data-speed="-0.05" style="top:65%;left:6%;font-size:18px;animation:floatUp 7s ease-in-out 1s infinite">✦</div>
+  <div class="star-deco parallax-deco" data-speed="0.07" style="top:25%;right:5%;font-size:22px;animation:floatUp 5.5s ease-in-out .5s infinite">✦</div>
+  <div class="star-deco star-teal parallax-deco" data-speed="-0.04" style="top:75%;right:8%;font-size:32px;animation:floatUp 8s ease-in-out 2s infinite">✦</div>
 
-  <!-- Palm Silhouettes (SVG) -->
-  <div class="palm palm-left parallax-layer" data-speed="0.05">
-    <svg viewBox="0 0 320 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M160 450 L158 280 C155 240 140 200 100 170 C70 148 30 145 5 155 C35 130 75 125 110 135 C130 141 148 155 155 175 L153 170 C140 130 110 95 65 75 C35 60 5 60 -15 65 C15 40 55 35 90 50 C115 60 135 80 148 108 L146 100 C130 55 95 20 50 0 C85 5 120 25 142 60 C155 82 160 108 158 135 L160 140 C165 110 180 80 210 58 C235 40 270 35 300 42 C270 30 240 40 215 58 C195 72 182 94 175 120 L178 105 C190 70 215 40 252 22 C280 10 310 8 335 15 C305 0 270 5 240 22 C215 37 198 60 188 88 L185 95 C192 65 210 40 240 25 C260 15 285 15 310 20 C285 5 258 5 235 18 C210 32 195 58 185 90 L180 130 C178 155 182 178 190 200 C175 170 168 145 168 120 L165 200 Z" fill="rgba(0,20,10,.65)"/>
-    </svg>
-  </div>
-  <div class="palm palm-right parallax-layer" data-speed="0.05">
-    <svg viewBox="0 0 320 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M160 450 L158 280 C155 240 140 200 100 170 C70 148 30 145 5 155 C35 130 75 125 110 135 C130 141 148 155 155 175 L153 170 C140 130 110 95 65 75 C35 60 5 60 -15 65 C15 40 55 35 90 50 C115 60 135 80 148 108 L146 100 C130 55 95 20 50 0 C85 5 120 25 142 60 C155 82 160 108 158 135 L160 140 C165 110 180 80 210 58 C235 40 270 35 300 42 C270 30 240 40 215 58 C195 72 182 94 175 120 L178 105 C190 70 215 40 252 22 C280 10 310 8 335 15 C305 0 270 5 240 22 C215 37 198 60 188 88 L185 95 C192 65 210 40 240 25 C260 15 285 15 310 20 C285 5 258 5 235 18 C210 32 195 58 185 90 L180 130 C178 155 182 178 190 200 C175 170 168 145 168 120 L165 200 Z" fill="rgba(0,20,10,.65)"/>
-    </svg>
-  </div>
+  <!-- Squiggles -->
+  <svg class="squiggle parallax-deco" data-speed="0.05" style="top:60%;left:2%;opacity:.25;width:80px" viewBox="0 0 80 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 15 C12 4,22 26,32 15 C42 4,52 26,62 15 C72 4,78 20,78 15" stroke="#E89A5B" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="squiggle parallax-deco" data-speed="-0.06" style="top:20%;right:2%;opacity:.2;width:60px" viewBox="0 0 60 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 12 C10 3,18 21,26 12 C34 3,42 21,50 12 C56 5,58 16,58 12" stroke="#2D6E69" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </svg>
 
-  <!-- Beach line -->
-  <div class="beach-line parallax-layer" data-speed="0.08"></div>
-
-  <!-- Water surface wave SVG -->
-  <div class="water-surface parallax-layer" data-speed="0.12">
-    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,64 C180,20 360,100 540,64 C720,28 900,100 1080,64 C1260,28 1350,80 1440,64 L1440,160 L0,160 Z" fill="rgba(13,95,122,.5)"/>
-      <path d="M0,80 C200,50 400,110 600,80 C800,50 1000,110 1200,80 C1350,58 1400,90 1440,80 L1440,160 L0,160 Z" fill="rgba(6,42,62,.7)"/>
-    </svg>
-  </div>
-  <div class="water-shimmer"></div>
-
-  <!-- Bubbles in water area -->
-  <div class="bubble" style="width:10px;height:10px;left:20%;bottom:18%;animation-duration:9s;animation-delay:0s"></div>
-  <div class="bubble" style="width:6px;height:6px;left:70%;bottom:12%;animation-duration:11s;animation-delay:2s"></div>
-  <div class="bubble" style="width:14px;height:14px;left:45%;bottom:8%;animation-duration:8s;animation-delay:1s"></div>
-  <div class="bubble" style="width:5px;height:5px;left:85%;bottom:22%;animation-duration:10s;animation-delay:3s"></div>
-
-  <div class="hero-content parallax-layer" data-speed="0.25">
-    <p class="hero-tag">Die Frau hinter PackPlanGo</p>
-    <p class="hero-intro">Hi, ich bin</p>
-    <h1 class="hero-name">Jacky<span class="dot-pink">.</span></h1>
-    <p class="hero-lead">Komm mit unter die Oberfl&auml;che. Aufgewachsen in Wuppertal, zehn Jahre Gastro, ein Flugticket und der Mut, alles hinter mir zu lassen. Scroll dich rein.</p>
-    <div class="hero-tags stagger">
-      <span class="tag-outline">Hotelfachfrau</span>
-      <span class="tag-accent">Online Marketing Managerin</span>
-      <span class="tag-outline">Strandmensch</span>
+  <div class="hero-inner">
+    <!-- Text side -->
+    <div class="hero-text reveal-left">
+      <span class="hero-eyebrow">Die Frau hinter PackPlanGo</span>
+      <span class="hero-handwritten">Hi, ich bin</span>
+      <h1 class="hero-name" id="heroName">Jacky<span class="dot-orange">.</span></h1>
+      <p class="hero-lead">Komm mit unter die Oberfläche. Aufgewachsen in Wuppertal, zehn Jahre Gastro, ein Flugticket und der Mut, alles hinter mir zu lassen. Scroll dich rein.</p>
+      <div class="hero-tags stagger">
+        <span class="tag tag-teal">Hotelfachfrau</span>
+        <span class="tag tag-orange">Online Marketing Managerin</span>
+        <span class="tag tag-blush">Strandmensch</span>
+      </div>
+      <div class="scroll-hint">
+        <div class="arrow">↓</div>
+        <span>Scroll &middot; Tauch ein</span>
+      </div>
     </div>
-    <div class="scroll-hint">
-      <span>Scroll &middot; Tauch ein</span>
-      <div class="line"></div>
+
+    <!-- Photo side -->
+    <div class="hero-photo-wrap reveal-right">
+      <!-- Floating stickers -->
+      <div class="sticker sticker-1 parallax-deco" data-speed="0.06">
+        ✦ Gold Coast
+      </div>
+      <div class="sticker sticker-2 parallax-deco" data-speed="-0.04">
+        ☀️ Australien
+      </div>
+      <div class="sticker sticker-3 parallax-deco" data-speed="0.05">
+        🌊 Strandmensch
+      </div>
+
+      <div class="hero-photo-card" id="heroPhotoCard">
+        <img src="/images/about-photo.jpg" alt="Jacky – Gründerin von PackPlanGo" />
+        <div class="polaroid-caption">living the dream</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ DIVE TRANSITION ═══ -->
-<section class="dive-transition reveal" data-depth="1">
-  <div class="light-rays"></div>
-  <div class="light-rays-2"></div>
-  <div class="caustics"></div>
-  <div class="bubble" style="width:14px;height:14px;left:20%;bottom:30%;animation-duration:9s;animation-delay:0s"></div>
-  <div class="bubble" style="width:8px;height:8px;left:60%;bottom:20%;animation-duration:11s;animation-delay:2s"></div>
-  <div class="bubble" style="width:18px;height:18px;left:80%;bottom:10%;animation-duration:7s;animation-delay:1s"></div>
-  <p class="dive-tag">Jetzt bist du drin</p>
-  <h2 class="dive-title">Willkommen in<br><em>meiner Welt</em></h2>
-  <p class="dive-sub">Salzwasser, Sonne und kein Plan B. So f&uuml;hlt sich mein Alltag an.</p>
+<!-- ═══════════════════════════════════════
+     WAVE DIVIDER
+═══════════════════════════════════════ -->
+<div class="wave-divider" style="background:var(--cream)">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C180,0 360,60 540,30 C720,0 900,60 1080,30 C1260,0 1380,50 1440,30 L1440,60 L0,60 Z" fill="#2D6E69"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     INTRO STRIP "Willkommen in meiner Welt"
+═══════════════════════════════════════ -->
+<section class="intro-strip reveal" id="intro">
+  <!-- Stars -->
+  <div style="position:absolute;top:20px;left:32px;font-size:20px;color:rgba(255,255,255,.3)">✦</div>
+  <div style="position:absolute;top:30px;right:48px;font-size:14px;color:rgba(255,255,255,.2)">✦</div>
+  <div style="position:absolute;bottom:24px;left:20%;font-size:16px;color:rgba(255,255,255,.2)">✦</div>
+  <span class="eyebrow-white">Jetzt bist du drin</span>
+  <h2>Willkommen in<br><em>meiner Welt</em></h2>
+  <p>Salzwasser, Sonne und kein Plan B. So fühlt sich mein Alltag an.</p>
 </section>
 
-<!-- ═══ ABOUT ME — Deep Ocean ═══ -->
-<section class="deep-section" id="about" data-depth="2">
-  <div class="caustics"></div>
-  <div class="light-rays" style="opacity:.15"></div>
+<!-- WAVE OUT -->
+<div class="wave-divider" style="background:#2D6E69">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 C200,60 400,0 600,40 C800,80 1000,10 1200,40 C1320,60 1380,20 1440,30 L1440,60 L0,60 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ABOUT ME
+═══════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <!-- Decorative star -->
+  <div class="deco" style="top:20px;right:40px;font-size:48px;color:rgba(45,110,105,.07);font-family:var(--serif)">✦</div>
+
   <div class="container">
     <div class="about-grid">
-      <div class="about-img-wrap slide-left depth-card">
-        <img src="/images/jacky-strand.jpg" alt="Jacky – Gründerin von PackPlanGo" loading="lazy">
-        <span class="img-label">living the dream</span>
+
+      <div class="polaroid-wrap reveal-left">
+        <div class="polaroid">
+          <img src="/images/jacky-strand.jpg" alt="Jacky – Gründerin von PackPlanGo" loading="lazy">
+          <div class="caption">Gold Coast vibes ✦</div>
+        </div>
+        <div class="polaroid-label">living the dream</div>
       </div>
-      <div class="about-text slide-right">
-        <p class="section-tag">About Me</p>
+
+      <div class="about-text reveal-right">
+        <span class="section-eyebrow">About Me</span>
         <h2 class="section-title">Salzwasser im Haar,<br><em>Plan</em> im Kopf.</h2>
-        <p>Ich bin Jacky, Gr&uuml;nderin von PackPlanGo. Zehn Jahre Gastro, ein Marketingstudium und jede Menge Fernweh haben mich genau hierher gebracht: an die australische Ostk&uuml;ste, mit Sand zwischen den Zehen und einer Mission im Gep&auml;ck. Ich zeige dir, wie du loslegst, ohne dich zu verzetteln.</p>
-        <div class="about-tags stagger">
-          <span class="tag-o">Boss Girl</span>
-          <span class="tag-o">Strandmensch</span>
-          <span class="tag-a">Macherin</span>
+        <p class="section-body">Ich bin Jacky, Gründerin von PackPlanGo. Zehn Jahre Gastro, ein Marketingstudium und jede Menge Fernweh haben mich genau hierher gebracht: an die australische Ostküste, mit Sand zwischen den Zehen und einer Mission im Gepäck. Ich zeige dir, wie du loslegst, ohne dich zu verzetteln.</p>
+        <div class="about-chips stagger">
+          <span class="chip chip-outline">Boss Girl</span>
+          <span class="chip chip-outline">Strandmensch</span>
+          <span class="chip chip-filled">Macherin</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═══ KAPITEL EINS ═══ -->
-<section class="chapter" id="chapter1" data-depth="3">
-  <div class="caustics"></div>
-  <div class="bubble" style="width:10px;height:10px;left:10%;bottom:40%;animation-duration:10s;animation-delay:0s"></div>
-  <div class="bubble" style="width:6px;height:6px;left:90%;bottom:30%;animation-duration:13s;animation-delay:3s"></div>
+<!-- WAVE -->
+<div class="wave-divider" style="background:var(--cream)">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="var(--cream-alt)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     KAPITEL EINS
+═══════════════════════════════════════ -->
+<section class="chapter-section" id="chapter1">
   <div class="container">
     <div class="chapter-grid">
-      <div class="chapter-images scale-in">
-        <img src="/images/jacky-strand2.jpg" alt="Jacky am Strand" loading="lazy">
-        <img src="/images/natur.jpg" alt="Natur Australien" loading="lazy">
+
+      <!-- Photos -->
+      <div class="photo-collage reveal-scale">
+        <div class="collage-photo collage-photo-1">
+          <img src="/images/jacky-strand2.jpg" alt="Jacky am Strand" loading="lazy" style="height:100%">
+        </div>
+        <div class="collage-photo collage-photo-2">
+          <img src="/images/natur.jpg" alt="Natur Australien" loading="lazy" style="height:100%">
+        </div>
+        <!-- Sticker on collage -->
+        <div style="position:absolute;bottom:0;right:20px;background:var(--orange);color:#fff;font-family:var(--script);font-size:16px;padding:8px 16px;border-radius:8px;transform:rotate(-3deg);z-index:10;box-shadow:0 6px 20px rgba(232,154,91,.35)">Wuppertal → Welt ✈</div>
       </div>
-      <div class="slide-right">
-        <p class="chapter-tag">Kapitel Eins</p>
+
+      <!-- Text -->
+      <div class="chapter-text reveal-right">
+        <span class="chapter-tag">Kapitel Eins</span>
         <h3 class="chapter-title">Zwischen Tellern gestartet</h3>
-        <p class="chapter-text">Aufgewachsen in Wuppertal, gelernt auf Norderney: Hotelfachfrau, mit allem was dazugeh&ouml;rt. Danach zehn Jahre gehobene Gastronomie, zwei davon in der Schweiz. Ich habe gelernt, was Gastfreundschaft wirklich hei&szlig;t: Menschen ein Gef&uuml;hl geben, nicht nur einen Teller hinstellen. Dann zog es mich nach Hamburg, wo ich mein Studium zum Online Marketing Manager draufgesetzt habe. Sicherer Plan, gutes Leben. Und trotzdem hat da st&auml;ndig etwas gekribbelt.</p>
+        <p class="chapter-body">Aufgewachsen in Wuppertal, gelernt auf Norderney: Hotelfachfrau, mit allem was dazugehört. Danach zehn Jahre gehobene Gastronomie, zwei davon in der Schweiz. Ich habe gelernt, was Gastfreundschaft wirklich heißt: Menschen ein Gefühl geben, nicht nur einen Teller hinstellen. Dann zog es mich nach Hamburg, wo ich mein Studium zum Online Marketing Manager draufgesetzt habe. Sicherer Plan, gutes Leben. Und trotzdem hat da ständig etwas gekribbelt.</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Quote -->
-<div class="quote-box reveal">
-  <div class="q-mark">&ldquo;</div>
-  <h3>Mit 16 raus</h3>
-  <p>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und fr&uuml;h auf mich allein gestellt gewesen. Ich wei&szlig;, wie sich Alleinsein anf&uuml;hlt, dieser Mix aus Freiheit und &ldquo;es muss ja irgendwie gehen&rdquo;. Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gef&uuml;hl zu geben: Du bist nicht allein.</p>
+<!-- WAVE -->
+<div class="wave-divider" style="background:var(--cream-alt)">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 C360,48 720,0 1080,36 C1260,54 1380,16 1440,24 L1440,48 L0,48 Z" fill="var(--teal-pale)"/>
+  </svg>
 </div>
 
-<!-- ═══ DIVING SECTION — Full Mariama BG (Behance-Style Immersive) ═══ -->
-<section class="diving-section" id="divingSection" data-depth="4">
-  <div class="diving-img-wrapper">
-    <img src="/images/mariama-207.jpg" alt="Jacky beim Tauchen mit Meeresschildkröte" id="parallaxImg" loading="lazy">
-  </div>
-  <div class="diving-overlay"></div>
-  <div class="bubble" style="width:22px;height:22px;left:12%;bottom:15%;animation-duration:8s;animation-delay:0s"></div>
-  <div class="bubble" style="width:10px;height:10px;left:82%;bottom:28%;animation-duration:12s;animation-delay:1s"></div>
-  <div class="bubble" style="width:16px;height:16px;left:50%;bottom:5%;animation-duration:9s;animation-delay:3s"></div>
-  <div class="bubble" style="width:7px;height:7px;left:35%;bottom:40%;animation-duration:11s;animation-delay:2s"></div>
-  <div class="bubble" style="width:12px;height:12px;left:65%;bottom:10%;animation-duration:10s;animation-delay:4s"></div>
-  <div class="diving-content reveal">
-    <p class="section-tag" style="letter-spacing:.3em">Tauch ein</p>
-    <h2 style="font-family:var(--serif);font-weight:600;font-size:clamp(42px,8vw,90px);line-height:1;color:#fff;margin-bottom:20px;letter-spacing:-.02em">und dann kam<br><em style="color:var(--accent);font-style:italic">das Fernweh</em></h2>
-    <p style="font-size:17px;color:rgba(255,255,255,.85);max-width:500px;margin:0 auto;line-height:1.7">Unter Wasser hat sich alles ver&auml;ndert. Die Stille, die Weite, das Gef&uuml;hl &mdash; hier geh&ouml;re ich hin.</p>
+<!-- ═══════════════════════════════════════
+     PULL QUOTE 1
+═══════════════════════════════════════ -->
+<section class="pull-quote">
+  <div class="pull-quote-inner reveal">
+    <span class="pull-quote-eyebrow">Mit 16 raus</span>
+    <h3>Freigeist von Anfang an</h3>
+    <p>Ich war schon immer ein Freigeist. Mit 16 bin ich ausgezogen und früh auf mich allein gestellt gewesen. Ich weiß, wie sich Alleinsein anfühlt, dieser Mix aus Freiheit und „es muss ja irgendwie gehen". Genau deshalb liebe ich heute nichts mehr, als anderen Mut zu machen und ihnen das Gefühl zu geben: Du bist nicht allein.</p>
   </div>
 </section>
 
-<!-- ═══ KO PHANGAN ═══ -->
-<section class="deep-section" data-depth="5">
-  <div class="caustics"></div>
-  <div class="container">
-    <div class="about-grid" style="grid-template-columns:1.2fr 1fr">
-      <div class="slide-left">
-        <p class="section-tag">Ko Phangan</p>
-        <h2 class="chapter-title">Thailand hat mein Herz</h2>
-        <p class="chapter-text">Reisen wurde meine gro&szlig;e Liebe. Mexiko, Griechenland, Spanien. Und dann Ko Phangan. Diese Insel hat etwas mit mir gemacht, das ich bis heute kaum in Worte fasse. Thailand hat mein Herz erobert, und nebenbei die Menschen, die mir zum ersten Mal von Australien erz&auml;hlt haben.</p>
-      </div>
-      <div class="about-img-wrap slide-right depth-card">
-        <img src="/images/zipline.jpg" alt="Jacky in Thailand" loading="lazy" style="aspect-ratio:3/4">
-      </div>
-    </div>
+<!-- WAVE -->
+<div class="wave-divider" style="background:var(--teal-pale)">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,24 C300,0 600,48 900,24 C1100,8 1300,40 1440,24 L1440,48 L0,48 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FERNWEH FULL-BLEED
+═══════════════════════════════════════ -->
+<section class="fernweh-section" id="fernweh">
+  <div class="fernweh-bg">
+    <img src="/images/mariama-207.jpg" alt="Jacky beim Tauchen" id="parallaxImg" loading="lazy">
+  </div>
+  <div class="fernweh-overlay"></div>
+
+  <!-- Bubbles -->
+  <div class="bubble" style="width:18px;height:18px;left:15%;bottom:20%;animation-duration:9s;animation-delay:0s"></div>
+  <div class="bubble" style="width:10px;height:10px;left:70%;bottom:15%;animation-duration:12s;animation-delay:2s"></div>
+  <div class="bubble" style="width:14px;height:14px;left:45%;bottom:8%;animation-duration:8s;animation-delay:1s"></div>
+  <div class="bubble" style="width:6px;height:6px;left:82%;bottom:30%;animation-duration:11s;animation-delay:3s"></div>
+
+  <div class="fernweh-content reveal">
+    <span class="script-white">Tauch ein</span>
+    <h2>und dann kam<br><em>das Fernweh</em></h2>
+    <p>Unter Wasser hat sich alles verändert. Die Stille, die Weite, das Gefühl &mdash; hier gehöre ich hin.</p>
   </div>
 </section>
 
-<!-- ═══ AUSTRALIEN ═══ -->
-<section class="chapter" data-depth="5">
-  <div class="caustics"></div>
+<!-- ═══════════════════════════════════════
+     KO PHANGAN
+═══════════════════════════════════════ -->
+<section class="story-section bg-cream" id="thailand">
+  <!-- Deco star -->
+  <div class="deco" style="top:30px;right:40px;font-size:40px;color:rgba(232,154,91,.15);font-family:var(--serif)">✦</div>
   <div class="container">
-    <div class="chapter-grid reverse">
-      <div class="slide-left">
-        <p class="chapter-tag">Willkommen in meiner Welt</p>
-        <h3 class="chapter-title">Australien war nie der Plan</h3>
+    <div class="story-grid">
+
+      <div class="chapter-text reveal-left">
+        <span class="chapter-tag">Ko Phangan</span>
+        <h3 class="chapter-title">Thailand hat mein Herz</h3>
+        <p class="chapter-body">Reisen wurde meine große Liebe. Mexiko, Griechenland, Spanien. Und dann Ko Phangan. Diese Insel hat etwas mit mir gemacht, das ich bis heute kaum in Worte fasse. Thailand hat mein Herz erobert, und nebenbei die Menschen, die mir zum ersten Mal von Australien erzählt haben.</p>
       </div>
-      <div class="scale-in">
-        <div class="chapter-images" style="grid-template-columns:1fr 1fr 1fr">
-          <img src="/images/kangaroo.jpg" alt="Känguru Australien" loading="lazy" style="aspect-ratio:1/1;grid-row:auto">
-          <img src="/images/byron-bay.jpg" alt="Byron Bay" loading="lazy" style="aspect-ratio:1/1;grid-row:auto">
-          <img src="/images/qld.jpg" alt="Queensland" loading="lazy" style="aspect-ratio:1/1;grid-row:auto">
+
+      <div style="display:flex;justify-content:center;" class="reveal-right">
+        <div class="story-polaroid" style="transform:rotate(2deg)">
+          <img src="/images/zipline.jpg" alt="Jacky in Thailand" loading="lazy">
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- Quote -->
-<div class="quote-box reveal">
-  <div class="q-mark">&ldquo;</div>
-  <h3>But here we are.</h3>
-  <p>Ehrlich? Australien stand nie auf meiner Bucketliste. Kein einziges Mal. Und jetzt lebe ich seit anderthalb Jahren mit dem Work and Holiday Visum an der australischen Ostk&uuml;ste, zwischen Meer und Palmen, genau da, wo ich morgens aufwache und kurz nicht glauben kann, dass das mein Alltag ist. Manchmal sind die besten Kapitel die, die man nie geplant hat.</p>
+<!-- ═══════════════════════════════════════
+     AUSTRALIEN
+═══════════════════════════════════════ -->
+<section class="story-section bg-alt" id="australien">
+  <div class="container">
+    <div class="chapter-text reveal" style="margin-bottom:40px;max-width:560px">
+      <span class="chapter-tag">Willkommen in meiner Welt</span>
+      <h3 class="chapter-title">Australien war nie der Plan</h3>
+    </div>
+    <div class="photo-trio reveal-scale">
+      <div class="trio-photo">
+        <img src="/images/kangaroo.jpg" alt="Känguru Australien" loading="lazy">
+      </div>
+      <div class="trio-photo">
+        <img src="/images/byron-bay.jpg" alt="Byron Bay" loading="lazy">
+      </div>
+      <div class="trio-photo">
+        <img src="/images/qld.jpg" alt="Queensland" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PULL QUOTE 2
+═══════════════════════════════════════ -->
+<div class="wave-divider" style="background:var(--cream-alt)">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 C480,48 960,0 1440,36 L1440,48 L0,48 Z" fill="var(--teal-pale)"/>
+  </svg>
 </div>
 
-<!-- ═══ HEUTE ═══ -->
-<section class="deep-section" data-depth="6">
-  <div class="caustics"></div>
+<section class="pull-quote" style="background:var(--orange-pale)">
+  <div class="pull-quote-inner reveal">
+    <span class="pull-quote-eyebrow" style="color:var(--orange)">Ehrlich gesagt</span>
+    <h3 style="color:var(--orange)">But here we are.</h3>
+    <p>Ehrlich? Australien stand nie auf meiner Bucketliste. Kein einziges Mal. Und jetzt lebe ich seit anderthalb Jahren mit dem Work and Holiday Visum an der australischen Ostküste, zwischen Meer und Palmen, genau da, wo ich morgens aufwache und kurz nicht glauben kann, dass das mein Alltag ist. Manchmal sind die besten Kapitel die, die man nie geplant hat.</p>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--orange-pale)">
+  <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,24 C360,0 720,48 1080,24 C1260,12 1380,36 1440,24 L1440,48 L0,48 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HEUTE & STATS
+═══════════════════════════════════════ -->
+<section class="heute-section" id="heute">
   <div class="container">
-    <div class="about-grid">
-      <div class="slide-left">
-        <p class="section-tag">Heute</p>
+    <div class="heute-grid">
+
+      <div class="reveal-left">
+        <span class="section-eyebrow">Heute</span>
         <h2 class="section-title">Was ich heute mache</h2>
-        <p class="about-text" style="color:rgba(255,255,255,.8);line-height:1.75;font-size:17px">Vor Kurzem habe ich mir zwei Monate Auszeit in Asien geg&ouml;nnt, einfach weil ich es konnte. Heute baue ich meine eigene Marketingagentur auf und bringe zusammen, was mich ausmacht: die Leidenschaft f&uuml;rs Reisen, zehn Jahre Gastro-Background und eine ziemlich kreative Ader. Genau daraus ist PackPlanGo entstanden.</p>
+        <p class="section-body">Vor Kurzem habe ich mir zwei Monate Auszeit in Asien gegönnt, einfach weil ich es konnte. Heute baue ich meine eigene Marketingagentur auf und bringe zusammen, was mich ausmacht: die Leidenschaft fürs Reisen, zehn Jahre Gastro-Background und eine ziemlich kreative Ader. Genau daraus ist PackPlanGo entstanden.</p>
       </div>
-      <div class="slide-right">
-        <div class="stats-row stagger" style="flex-direction:column;gap:32px;align-items:flex-start">
-          <div class="stat float" style="animation-delay:0s"><div class="num">10</div><div class="lbl">Jahre Gastro</div></div>
-          <div class="stat float" style="animation-delay:.5s"><div class="num">1,5</div><div class="lbl">Jahre Australien</div></div>
-          <div class="stat float" style="animation-delay:1s"><div class="num">&infin;</div><div class="lbl">Fernweh</div></div>
+
+      <div class="stats-col stagger">
+        <div class="stat-item">
+          <div class="stat-num">10</div>
+          <div class="stat-info">
+            <span class="stat-label">Jahre Gastro</span>
+            <div class="stat-desc">Vom Norderney bis zur Schweiz. Gastfreundschaft als Lebensprinzip.</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1,5</div>
+          <div class="stat-info">
+            <span class="stat-label">Jahre Australien</span>
+            <div class="stat-desc">Work and Holiday Visum, Ostküste, Meer. Kein Plan B, kein Retourtticket.</div>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" style="font-size:52px">∞</div>
+          <div class="stat-info">
+            <span class="stat-label">Fernweh</span>
+            <div class="stat-desc">Einmal Reisefieber, immer Reisefieber. Impfschutz unbekannt.</div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═══ MANIFESTO ═══ -->
-<section class="manifesto" id="manifesto" data-depth="7">
-  <div class="caustics"></div>
-  <div class="container reveal">
-    <p class="manifesto-tag">Warum es PackPlanGo gibt</p>
-    <h2 class="manifesto-title">Kein Hochglanz.<br>Kein Bullshit.</h2>
-    <p class="manifesto-text">PackPlanGo ist f&uuml;r alle, die sp&uuml;ren, dass &ldquo;top&rdquo; nicht immer genug ist. F&uuml;r die, die losziehen wollen, aber nicht wissen wie. Ich rede frei Schnauze, nehme kein Blatt vor den Mund und mache meine eigenen Regeln. Nur echte Erfahrung und der ehrliche Stoff, den ich mir selbst vorher gew&uuml;nscht h&auml;tte. Ich bin losgezogen, weil ich die Welt sehen wollte. Und jetzt bin ich hier, um dir zu zeigen, dass du das auch kannst.</p>
-    <div class="manifesto-values stagger">
-      <span>Echte Erfahrung</span>
-      <span>Frei Schnauze</span>
-      <span>Eigene Regeln</span>
+<!-- WAVE TO TEAL -->
+<div class="wave-divider" style="background:var(--cream)">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#2D6E69"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MANIFESTO
+═══════════════════════════════════════ -->
+<section class="manifesto-section" id="manifesto">
+  <!-- Floating stars on teal -->
+  <div style="position:absolute;top:24px;left:10%;font-size:28px;color:rgba(255,255,255,.15)">✦</div>
+  <div style="position:absolute;top:40px;right:12%;font-size:16px;color:rgba(255,255,255,.1)">✦</div>
+  <div style="position:absolute;bottom:32px;left:6%;font-size:20px;color:rgba(255,255,255,.12)">✦</div>
+  <div style="position:absolute;bottom:24px;right:18%;font-size:24px;color:rgba(255,255,255,.1)">✦</div>
+
+  <div class="container">
+    <div class="reveal">
+      <span class="manifesto-eyebrow">Warum es PackPlanGo gibt</span>
+      <h2 class="manifesto-title">Kein Hochglanz.<br>Kein Bullshit.</h2>
+      <p class="manifesto-text">PackPlanGo ist für alle, die spüren, dass „top" nicht immer genug ist. Für die, die losziehen wollen, aber nicht wissen wie. Ich rede frei Schnauze, nehme kein Blatt vor den Mund und mache meine eigenen Regeln. Nur echte Erfahrung und der ehrliche Stoff, den ich mir selbst vorher gewünscht hätte. Ich bin losgezogen, weil ich die Welt sehen wollte. Und jetzt bin ich hier, um dir zu zeigen, dass du das auch kannst.</p>
+      <div class="manifesto-values stagger">
+        <span class="manifesto-value">Echte Erfahrung</span>
+        <span class="manifesto-value">Frei Schnauze</span>
+        <span class="manifesto-value">Eigene Regeln</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
-<section class="cta-founder" id="cta" data-depth="8">
-  <div class="bubble" style="width:8px;height:8px;left:15%;bottom:20%;animation-duration:10s;animation-delay:0s"></div>
-  <div class="bubble" style="width:12px;height:12px;left:75%;bottom:30%;animation-duration:8s;animation-delay:2s"></div>
-  <h2>Bereit, deine eigene Story zu schreiben?</h2>
-  <p>Hol dir meinen kostenlosen Guide, komm in die Community und zieh los. Ich war auch mal da, wo du gerade stehst.</p>
-  <div class="cta-buttons">
-    <a href="/travel/" class="btn btn-primary">Kostenlosen Guide holen</a>
-    <a href="https://www.instagram.com/packplango" target="_blank" rel="noopener" class="btn btn-outline-light">Auf Instagram folgen</a>
+<!-- WAVE FROM TEAL -->
+<div class="wave-divider" style="background:#2D6E69">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,0 C360,60 720,0 1080,48 C1260,66 1380,20 1440,30 L1440,60 L0,60 Z" fill="var(--cream-alt)"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CTA
+═══════════════════════════════════════ -->
+<section class="cta-section" id="cta">
+  <!-- Decorative -->
+  <div style="position:absolute;top:24px;left:8%;font-size:36px;color:rgba(232,154,91,.2)">✦</div>
+  <div style="position:absolute;bottom:32px;right:10%;font-size:24px;color:rgba(45,110,105,.15)">✦</div>
+
+  <div class="reveal">
+    <span style="font-family:var(--script);font-size:22px;color:var(--orange);display:block;margin-bottom:8px">your turn ✦</span>
+    <h2 class="cta-title">Bereit, deine eigene Story zu schreiben?</h2>
+    <p class="cta-sub">Hol dir meinen kostenlosen Guide, komm in die Community und zieh los. Ich war auch mal da, wo du gerade stehst.</p>
+    <div class="cta-buttons">
+      <a href="/travel/" class="btn btn-teal">Kostenlosen Guide holen</a>
+      <a href="https://www.instagram.com/packplango" target="_blank" rel="noopener" class="btn btn-outline">Auf Instagram folgen</a>
+    </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="logo"><img src="/images/favicon.png" alt="PackPlanGo">PackPlanGo<span class="dot" style="color:var(--accent)">.</span></div>
-      <p>Travel Guides und Social Media f&uuml;r Hospitality. Von Reisenden, f&uuml;r Reisende und die Orte, die sie lieben.</p>
+      <div class="logo"><img src="/images/favicon.png" alt="PackPlanGo">PackPlanGo<span style="color:var(--orange)">.</span></div>
+      <p>Travel Guides und Social Media für Hospitality. Von Reisenden, für Reisende und die Orte, die sie lieben.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
@@ -746,44 +1059,44 @@ document.getElementById('burger').addEventListener('click',()=>{
   document.getElementById('navLinks').classList.toggle('open');
 });
 
-// ─── Scroll progress bar ───
+// ─── Scroll progress ───
 window.addEventListener('scroll',()=>{
   const h=document.documentElement;
   const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
   document.getElementById('scroll-progress').style.width=pct+'%';
 });
 
-// ─── Nav color change ───
+// ─── Nav scrolled state ───
 const header=document.getElementById('siteHeader');
 window.addEventListener('scroll',()=>{
-  header.classList.toggle('scrolled',window.scrollY>100);
-});
+  header.classList.toggle('scrolled',window.scrollY>80);
+},{passive:true});
 
 // ─── PARALLAX ENGINE ───
-// Multi-layer parallax with different speeds
-const parallaxLayers=document.querySelectorAll('.parallax-layer');
+const decos=document.querySelectorAll('.parallax-deco');
 let ticking=false;
 
 function updateParallax(){
-  const scrollY=window.scrollY;
-  parallaxLayers.forEach(layer=>{
-    const speed=parseFloat(layer.dataset.speed)||0.1;
-    const y=scrollY*speed;
-    layer.style.transform=layer.style.transform?.includes('scaleX')
-      ? `scaleX(-1) translateY(${y}px)`
-      : `translateY(${y}px)`;
-  });
+  const sy=window.scrollY;
 
-  // Diving section parallax (full image)
-  const divingSection=document.getElementById('divingSection');
-  const parallaxImg=document.getElementById('parallaxImg');
-  if(divingSection&&parallaxImg){
-    const rect=divingSection.getBoundingClientRect();
-    const viewH=window.innerHeight;
-    if(rect.top<viewH&&rect.bottom>0){
-      const progress=(viewH-rect.top)/(viewH+rect.height);
-      const translateY=(progress-0.5)*80;
-      parallaxImg.style.transform=`scale(1.1) translateY(${translateY}px)`;
+  // Desktop only (parallax off on mobile for perf)
+  if(window.innerWidth>820){
+    decos.forEach(el=>{
+      const speed=parseFloat(el.dataset.speed)||0;
+      el.style.transform=`translateY(${sy*speed}px)`;
+    });
+
+    // Fernweh parallax image
+    const divingSection=document.getElementById('fernweh');
+    const pImg=document.getElementById('parallaxImg');
+    if(divingSection&&pImg){
+      const rect=divingSection.getBoundingClientRect();
+      const vh=window.innerHeight;
+      if(rect.top<vh&&rect.bottom>0){
+        const progress=(vh-rect.top)/(vh+rect.height);
+        const ty=(progress-.5)*90;
+        pImg.style.transform=`scale(1.1) translateY(${ty}px)`;
+      }
     }
   }
 
@@ -791,61 +1104,160 @@ function updateParallax(){
 }
 
 window.addEventListener('scroll',()=>{
-  if(!ticking){
-    requestAnimationFrame(updateParallax);
-    ticking=true;
+  if(!ticking){requestAnimationFrame(updateParallax);ticking=true;}
+},{passive:true});
+
+// ─── 3D TILT on hero elements ───
+const heroName=document.getElementById('heroName');
+const heroCard=document.getElementById('heroPhotoCard');
+
+document.addEventListener('mousemove',(e)=>{
+  const x=(e.clientX/window.innerWidth-.5);
+  const y=(e.clientY/window.innerHeight-.5);
+
+  if(heroName){
+    heroName.style.transform=`perspective(600px) rotateY(${x*10}deg) rotateX(${-y*7}deg)`;
+  }
+  if(heroCard){
+    heroCard.style.transform=`rotate(1.5deg) perspective(800px) rotateY(${x*8}deg) rotateX(${-y*5}deg)`;
   }
 });
 
-// ─── REVEAL ANIMATIONS ───
-// Unified observer for all animated elements
-const animatedEls=document.querySelectorAll('.reveal,.slide-left,.slide-right,.scale-in,.stagger');
-const animObs=new IntersectionObserver((entries)=>{
+// Reset on mouse leave
+document.addEventListener('mouseleave',()=>{
+  if(heroName) heroName.style.transform='';
+  if(heroCard) heroCard.style.transform='rotate(1.5deg)';
+});
+
+// ─── 3D TILT on polaroid / photo cards ───
+document.querySelectorAll('.polaroid,.story-polaroid,.collage-photo,.stat-item').forEach(card=>{
+  card.addEventListener('mousemove',(e)=>{
+    const rect=card.getBoundingClientRect();
+    const x=((e.clientX-rect.left)/rect.width-.5)*2;
+    const y=((e.clientY-rect.top)/rect.height-.5)*2;
+    card.style.transform=`perspective(600px) rotateY(${x*10}deg) rotateX(${-y*7}deg) scale(1.03)`;
+    card.style.boxShadow=`${-x*12}px ${y*12}px 40px rgba(27,27,25,.18), 0 32px 80px rgba(27,27,25,.1)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+    card.style.boxShadow='';
+  });
+});
+
+// ─── REVEAL ON SCROLL (IntersectionObserver) ───
+const revealEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger');
+const revealObs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.classList.add('visible');
-      animObs.unobserve(e.target);
+      revealObs.unobserve(e.target);
     }
   });
-},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-animatedEls.forEach(el=>animObs.observe(el));
+},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+revealEls.forEach(el=>revealObs.observe(el));
 
-// ─── DEPTH INDICATOR ───
-const sections=document.querySelectorAll('[data-depth]');
-const depthDots=document.querySelectorAll('.depth-dot');
-
-const depthObs=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const idx=parseInt(e.target.dataset.depth);
-      depthDots.forEach((d,i)=>{
-        d.classList.toggle('active',i<=idx);
-      });
-    }
-  });
-},{threshold:.3});
-sections.forEach(s=>depthObs.observe(s));
-
-// ─── Side labels fade ───
-const sideLabels=document.querySelectorAll('.side-label');
-window.addEventListener('scroll',()=>{
-  const opacity=Math.max(0,1-window.scrollY/600);
-  sideLabels.forEach(l=>l.style.opacity=opacity*.3);
-});
-
-// ─── 3D tilt on hero name on mouse move ───
-const heroName=document.querySelector('.hero-name');
-if(heroName){
-  document.addEventListener('mousemove',(e)=>{
-    const x=(e.clientX/window.innerWidth-.5)*10;
-    const y=(e.clientY/window.innerHeight-.5)*8;
-    heroName.style.transform=`perspective(600px) rotateY(${x}deg) rotateX(${-y}deg)`;
-    heroName.style.transition='transform .15s ease-out';
-  });
-}
-
-// Initial parallax
+// ─── Initial call ───
 updateParallax();
+</script>
+
+<!-- PPG Blog-Dropdown (auto-injected) -->
+<style id="ppg-bdd-style">
+.ppg-bdd-caret{display:inline-block;margin-left:5px;font-size:.62em;vertical-align:middle;transition:transform .2s;opacity:.75}
+.ppg-bdd-active .ppg-bdd-caret{transform:rotate(180deg)}
+#ppg-bdd-panel{position:fixed;z-index:99999;background:#fff;border:1px solid #e4dfd5;border-radius:16px;box-shadow:0 20px 60px rgba(27,27,25,.18);padding:16px;display:none;gap:14px 26px;max-width:92vw;box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,sans-serif}
+#ppg-bdd-panel.show{display:grid}
+.ppg-bdd-col{display:flex;flex-direction:column;gap:1px;min-width:0}
+.ppg-bdd-head{font-size:.66rem;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:#E89A5B;padding:4px 10px 6px;margin:0}
+#ppg-bdd-panel a{display:block;padding:8px 10px;border-radius:9px;font-size:.85rem;line-height:1.3;color:#1B1B19;text-decoration:none;background:none;white-space:normal;font-weight:500;letter-spacing:0}
+#ppg-bdd-panel a:hover{background:#F3EFE7;color:#2D6E69}
+.ppg-bdd-all{grid-column:1/-1;margin-top:6px;padding-top:12px;border-top:1px solid #ececec;font-weight:700;color:#2D6E69;text-align:center}
+</style>
+<script>
+(function(){
+  if(window.__ppgBdd) return; window.__ppgBdd=1;
+  var GROUPS=[
+    {h:'Realtalk',items:[
+      ['/blog/auswandern-aus-deutschland/','Auswandern aus Deutschland'],
+      ['/blog/du-bist-nicht-alleine/','Du bist nicht alleine'],
+      ['/blog/lern-dich-kennen/','Reisen als Selbstfindung'],
+      ['/blog/kein-geld-kein-plan-trotzdem-gegangen/','Kein Geld, kein Plan, trotzdem gegangen'],
+      ['/blog/passion-finden-durch-reisen/','Wie Reisen deine Passion findet'],
+      ['/blog/work-and-travel-alter-kein-perfekter-zeitpunkt/','Work and Travel Alter'],
+      ['/blog/selbstfindung-reisen-was-stimmt/','Selbstfindung auf Reisen'],
+      ['/blog/heimweh-ausland-work-and-travel/','Heimweh im Ausland']]},
+    {h:'Leben vor Ort',items:[
+      ['/blog/bali-backpacker/','Bali als Backpacker 2026'],
+      ['/blog/nomad-basis-vergleich/','Ko Pha-ngan, Chiang Mai oder Bali?'],
+      ['/blog/thailand-work-and-travel/','Thailand Work & Travel 2026'],
+      ['/blog/reisen-produktivitaet/','Produktiver unterwegs als zuhause'],
+      ['/blog/routine-auf-reisen/','Die Morgenroutine für Nomads'],
+      ['/blog/guenstig-wohnen-australien-backpacker/','Günstig wohnen in Australien'],
+      ['/blog/reise-dokumentieren-content-creator/','Reise dokumentieren als Creator'],
+      ['/blog/australien-alleine-frau-reisen/','Australien alleine als Frau'],
+      ['/blog/top-regionen-australien-backpacker/','Top Regionen Australien']]},
+    {h:'Jobs & Geld',items:[
+      ['/blog/boutique-hotels-social-media-learnings/','Was Boutique Hotels lernen können'],
+      ['/blog/hotels-schlechtes-instagram/','Warum Hotels schlechtes Instagram haben'],
+      ['/blog/sea-digital-nomad-budget/','Budget als Digital Nomad in Südostasien'],
+      ['/blog/remote-arbeiten-selbststaendig/','Remote arbeiten & selbstständig'],
+      ['/blog/social-media-marketing-lernen/','Social Media Marketing lernen'],
+      ['/blog/work-and-travel-ohne-ersparnisse-finanzieren/','Work and Travel finanzieren'],
+      ['/blog/farmarbeit-australien-ehrlicher-guide/','Farmarbeit in Australien'],
+      ['/blog/jobs-australien-was-wirklich-bezahlt/','Jobs in Australien'],
+      ['/blog/bewerbung-australien-deutsche-tipps/','Bewerben in Australien'],
+      ['/blog/lebenslauf-englisch-australien-tipps/','Lebenslauf auf Englisch']]},
+    {h:'Visum & Bürokratie',items:[
+      ['/blog/australien-visum-deutsche-working-holiday/','Working Holiday Visum Australien'],
+      ['/blog/australisches-bankkonto-backpacker-guide/','Bankkonto in Australien'],
+      ['/blog/australien-second-year-visa-erklaert/','Second Year Visa erklärt']]}
+  ];
+  function build(){
+    var p=document.createElement('div'); p.id='ppg-bdd-panel';
+    GROUPS.forEach(function(g){
+      var col=document.createElement('div'); col.className='ppg-bdd-col';
+      var h=document.createElement('p'); h.className='ppg-bdd-head'; h.textContent=g.h; col.appendChild(h);
+      g.items.forEach(function(it){ var a=document.createElement('a'); a.href=it[0]; a.textContent=it[1]; col.appendChild(a); });
+      p.appendChild(col);
+    });
+    var all=document.createElement('a'); all.href='/blog/'; all.className='ppg-bdd-all'; all.textContent='Alle Artikel ansehen →';
+    p.appendChild(all);
+    document.body.appendChild(p);
+    return p;
+  }
+  var panel, openLink=null;
+  function place(link){
+    var narrow=window.innerWidth<640;
+    panel.style.gridTemplateColumns = narrow ? '1fr' : 'repeat(4,minmax(168px,1fr))';
+    panel.classList.add('show');
+    var pw=panel.offsetWidth, ph=panel.offsetHeight, r=link.getBoundingClientRect();
+    var left=r.left; if(left+pw>window.innerWidth-8) left=window.innerWidth-pw-8; if(left<8) left=8;
+    var top=r.bottom+8;
+    if(top+ph>window.innerHeight-8){ var above=r.top-8-ph; if(above>8) top=above; }
+    panel.style.left=left+'px'; panel.style.top=top+'px';
+  }
+  function close(){ if(!panel) return; panel.classList.remove('show'); if(openLink) openLink.classList.remove('ppg-bdd-active'); openLink=null; }
+  function open(link){
+    if(!panel) panel=build();
+    if(openLink===link){ close(); return; }
+    close();
+    openLink=link;
+    link.classList.add('ppg-bdd-active');
+    place(link);
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(function(a){
+      if(a.textContent.trim()==='Blog'){
+        a.innerHTML=a.textContent+' <span class="ppg-bdd-caret">▾</span>';
+        a.addEventListener('click',function(e){ e.preventDefault(); open(a); });
+      }
+    });
+    document.addEventListener('click',function(e){
+      if(panel && panel.classList.contains('show') && !panel.contains(e.target) && e.target!==openLink) close();
+    });
+    window.addEventListener('resize',function(){ if(openLink) place(openLink); });
+    window.addEventListener('scroll',function(){ if(openLink) place(openLink); },{passive:true});
+  });
+})();
 </script>
 </body>
 </html>
