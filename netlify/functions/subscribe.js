@@ -23,7 +23,8 @@ exports.handler = async (event) => {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': Buffer.byteLength(postData),
         'Origin': 'https://www.packplango.com',
-        'Referer': 'https://www.packplango.com/travel/'
+        'Referer': 'https://www.packplango.com/travel/',
+        'User-Agent': 'Mozilla/5.0'
       }
     };
 
@@ -31,19 +32,20 @@ exports.handler = async (event) => {
       let data = '';
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => {
+        // Return the actual ML response so we can debug
         resolve({
           statusCode: 200,
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ success: true })
+          body: JSON.stringify({ success: true, ml_status: res.statusCode, ml_response: data })
         });
       });
     });
 
-    req.on('error', () => {
+    req.on('error', (err) => {
       resolve({
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ success: true })
+        body: JSON.stringify({ success: false, error: err.message })
       });
     });
 
