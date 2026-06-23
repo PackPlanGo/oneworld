@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 # Saubere URLs (kein .html in der Adresse)
 [[redirects]]

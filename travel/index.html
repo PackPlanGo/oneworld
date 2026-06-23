@@ -534,51 +534,6 @@ b.addEventListener('click',function(){v.muted=!v.muted;if(!v.muted){v.volume=1;v
       <p style="color:var(--muted);font-size:16px;line-height:1.6;margin:0">Deine Bestätigungsmail ist auf dem Weg.<br>Öffne sie und klick auf den Bestätigungslink um deinen Guide zu erhalten.<br><small>Check vorsichtshalber auch den Spam-Ordner.</small></p>
     </div>
 
-      <script>
-function sendGuideData(event) {
-  // Verhindert den automatischen Seiten-Reload auf Handys
-  event.preventDefault();
-
-  var emailInput = document.getElementById('guide-email');
-  var consentInput = document.getElementById('guide-consent');
-  var submitButton = document.getElementById('guide-submit');
-  var successMessage = document.getElementById('guide-success');
-
-  // .trim() entfernt Leerzeichen, die mobile Tastaturen oft automatisch anhängen
-  var email = emailInput.value.trim();
-  var consent = consentInput.checked;
-
-  if (!email || !consent) {
-    return;
-  }
-
-  // Button sperren gegen Mehrfach-Klicks
-  submitButton.disabled = true;
-  submitButton.innerText = "Wird gesendet...";
-
-  var params = 'fields[email]=' + encodeURIComponent(email) + '&ml-submit=1';
-  var script = document.createElement('script');
-  
-  // Deine echten MailerLite-IDs
-  script.src = 'https://assets.mailerlite.com/jsonp/1241511/forms/132470678648096174/subscribe?' + params;
-
-  // MailerLite Erfolgs-Callback
-  window.ml_webform_success_1241511 = function() {
-    successMessage.style.display = 'block';
-    document.getElementById('guide-form').style.display = 'none';
-  };
-
-  // Mobiler Fallback nach 3 Sekunden
-  setTimeout(function() {
-    if (successMessage.style.display !== 'block') {
-      successMessage.style.display = 'block';
-      document.getElementById('guide-form').style.display = 'none';
-    }
-  }, 3000);
-
-  document.body.appendChild(script);
-}
-</script>
     <!-- /Erfolgsmeldung -->
     <!-- /Formular -->
 
@@ -803,35 +758,26 @@ document.getElementById('guide-form').addEventListener('submit', function(e) {
   btn.textContent = 'Wird gesendet...';
   btn.disabled = true;
 
-  // Hidden iframe submit — umgeht CORS, funktioniert auf Desktop + Mobile
-  var iframe = document.createElement('iframe');
-  iframe.name = 'ml-submit-frame';
-  iframe.style.cssText = 'display:none;position:absolute;left:-9999px';
-  document.body.appendChild(iframe);
-
-  var form = document.createElement('form');
-  form.method = 'POST';
-  form.action = 'https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe';
-  form.target = 'ml-submit-frame';
-  form.style.display = 'none';
-
-  function addField(n, v) {
-    var i = document.createElement('input');
-    i.type = 'hidden'; i.name = n; i.value = v;
-    form.appendChild(i);
-  }
-  addField('fields[email]', email);
-  addField('ml-submit', '1');
-  addField('anticsrf', 'true');
-
-  document.body.appendChild(form);
-  form.submit();
-
-  // Erfolgsmeldung nach 1.5s anzeigen
-  setTimeout(function() {
+  function showSuccess() {
     document.getElementById('guide-form').style.display = 'none';
     document.getElementById('guide-success').style.display = 'block';
-  }, 1500);
+  }
+  function showError() {
+    btn.textContent = '📥 Guide kostenlos herunterladen';
+    btn.disabled = false;
+  }
+
+  fetch('/.netlify/functions/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'email=' + encodeURIComponent(email)
+  })
+  .then(function() {
+    showSuccess();
+  })
+  .catch(function() {
+    showError();
+  });
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
