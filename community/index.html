@@ -17,8 +17,8 @@
     img{display:block;max-width:100%}
     nav{position:sticky;top:0;z-index:100;background:rgba(243,239,231,0.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
     .nav-inner{max-width:1160px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:8px}
-    .nav-logo img{width:26px;height:26px;border-radius:6px}
+    .nav-logo{font-family:'Playfair Display',Georgia,serif;font-size:22px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:10px}
+    .nav-logo img{width:32px;height:32px;border-radius:6px}
     .nav-links{display:flex;align-items:center;gap:4px;list-style:none}
     .nav-links a{font-size:.875rem;font-weight:500;padding:6px 14px;border-radius:999px;color:var(--muted);transition:color .2s,background .2s}
     .nav-links a:hover{color:var(--text);background:var(--sand)}
@@ -177,6 +177,7 @@
     <ul class="nav-links">
       <li><a href="/">Home</a></li><li><a href="/travel/">Travel</a></li><li><a href="/studio/">Studio</a></li>
       <li><a href="/blog/">Blog</a></li><li><a href="/community/" class="active">Community</a></li>
+      <li><a href="/founder/">Founder</a></li>
       <li><a href="/travel/#download" class="nav-cta">Guide holen</a></li>
     </ul>
     <button class="nav-burger" onclick="this.closest('nav').querySelector('.nav-mobile').classList.toggle('open')" aria-label="Menü">
@@ -185,7 +186,7 @@
   </div>
   <div class="nav-mobile">
     <a href="/">Home</a><a href="/travel/">Travel</a><a href="/studio/">Studio</a>
-    <a href="/blog/">Blog</a><a href="/community/">Community</a><a href="/travel/#download">Guide holen</a>
+    <a href="/blog/">Blog</a><a href="/community/">Community</a><a href="/founder/">Founder</a><a href="/travel/#download">Guide holen</a>
   </div>
 </nav>
 
@@ -328,6 +329,7 @@
       <a href="/studio/">Studio</a>
       <a href="/blog/">Blog</a>
       <a href="/community/">Community</a>
+      <a href="/founder/">Founder</a>
     </div>
     <div class="footer-col">
       <h4>Rechtliches</h4>
