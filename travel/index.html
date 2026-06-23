@@ -798,68 +798,40 @@ document.getElementById('guide-form').addEventListener('submit', function(e) {
   var email = document.getElementById('guide-email').value.trim();
   var consent = document.getElementById('guide-consent').checked;
   if (!email || !consent) return;
+
   var btn = document.getElementById('guide-btn');
   btn.textContent = 'Wird gesendet...';
   btn.disabled = true;
 
-  function showSuccess() {
+  // Hidden iframe submit — umgeht CORS, funktioniert auf Desktop + Mobile
+  var iframe = document.createElement('iframe');
+  iframe.name = 'ml-submit-frame';
+  iframe.style.cssText = 'display:none;position:absolute;left:-9999px';
+  document.body.appendChild(iframe);
+
+  var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe';
+  form.target = 'ml-submit-frame';
+  form.style.display = 'none';
+
+  function addField(n, v) {
+    var i = document.createElement('input');
+    i.type = 'hidden'; i.name = n; i.value = v;
+    form.appendChild(i);
+  }
+  addField('fields[email]', email);
+  addField('ml-submit', '1');
+  addField('anticsrf', 'true');
+
+  document.body.appendChild(form);
+  form.submit();
+
+  // Erfolgsmeldung nach 1.5s anzeigen
+  setTimeout(function() {
     document.getElementById('guide-form').style.display = 'none';
     document.getElementById('guide-success').style.display = 'block';
-  }
-  function showError() {
-    btn.textContent = 'Erneut versuchen';
-    btn.disabled = false;
-  }
-
-  // Primary: fetch POST (mobile-kompatibel)
-  var params = new URLSearchParams();
-  params.append('fields[email]', email);
-  params.append('ml-submit', '1');
-  params.append('anticsrf', 'true');
-
-  fetch('https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: params.toString()
-  })
-  .then(function() {
-    showSuccess();
-  })
-  .catch(function() {
-    // Fallback: JSONP (falls fetch blockiert wird)
-    var cbName = 'mlCb_' + Date.now();
-    var script = document.createElement('script');
-    var done = false;
-
-    window[cbName] = function() {
-      done = true;
-      if (script.parentNode) script.parentNode.removeChild(script);
-      delete window[cbName];
-      showSuccess();
-    };
-
-    script.onerror = function() {
-      if (!done) {
-        done = true;
-        delete window[cbName];
-        showError();
-      }
-    };
-
-    var qp = 'callback=' + cbName
-      + '&fields%5Bemail%5D=' + encodeURIComponent(email)
-      + '&ml-submit=1&anticsrf=true';
-    script.src = 'https://assets.mailerlite.com/jsonp/2373720/forms/188256722595349681/subscribe?' + qp;
-    document.body.appendChild(script);
-
-    setTimeout(function() {
-      if (!done) {
-        done = true;
-        delete window[cbName];
-        showError();
-      }
-    }, 8000);
-  });
+  }, 1500);
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
