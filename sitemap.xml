@@ -155,4 +155,33 @@
     <priority>0.8</priority>
   </url>
 
+
+  <url>
+    <loc>https://www.packplango.com/blog/hansemerkur-reiseversicherung-work-and-travel/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/dkb-kreditkarte-reisen-work-and-travel/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/gold-coast-australien/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.packplango.com/blog/sim-karte-australien/</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
