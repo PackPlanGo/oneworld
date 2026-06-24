@@ -571,6 +571,79 @@ footer {
     .js .stagger > *{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
     .js .stagger > *.visible{opacity:1;transform:none}
 
+/* PROCESS */
+.process { background: var(--white); }
+.process-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2rem; margin-top: 3rem; position: relative;
+}
+.process-grid::before {
+  content: ''; position: absolute;
+  top: 2.7rem; left: 18%; right: 18%;
+  height: 1px; background: var(--line); z-index: 0;
+}
+.process-step { text-align: center; position: relative; z-index: 1; }
+.process-num {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--sea); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; font-weight: 600;
+  margin: 0 auto 1.5rem;
+}
+.process-step h3 { font-size: 1.3rem; margin-bottom: 0.7rem; }
+.process-step p { color: var(--soft); line-height: 1.8; font-size: 0.95rem; }
+
+/* ROI STRIP */
+.roi-strip {
+  background: linear-gradient(135deg, var(--sea), var(--sea-deep));
+  color: white; border-radius: 16px;
+  padding: 1.5rem 2rem; margin-bottom: 2.5rem;
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.roi-icon { font-size: 1.8rem; flex-shrink: 0; }
+.roi-strip p { font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.9); margin: 0; }
+.roi-strip strong { color: white; }
+
+/* TRUST STRIP */
+.trust-bar {
+  display: flex; justify-content: center;
+  gap: 2.5rem; flex-wrap: wrap;
+  margin-top: 2.5rem;
+  font-size: 0.85rem; color: var(--soft);
+}
+.trust-bar span::before { content: '✓ '; color: var(--sea); font-weight: 700; }
+
+/* FAQ */
+.faq { background: var(--cream); }
+.faq-list { margin-top: 3rem; }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-item:first-child { border-top: 1px solid var(--line); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 0; cursor: pointer; gap: 1rem;
+  font-size: 1.05rem; font-weight: 500; transition: color 0.2s;
+}
+.faq-q:hover { color: var(--accent); }
+.faq-icon {
+  font-size: 1.5rem; line-height: 1; flex-shrink: 0;
+  color: var(--accent); transition: transform 0.3s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { overflow: hidden; max-height: 0; transition: max-height 0.4s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p {
+  color: var(--soft); line-height: 1.8;
+  padding-bottom: 1.5rem; font-size: 0.95rem;
+}
+
+@media(max-width:900px){
+  .process-grid { grid-template-columns: 1fr; }
+  .process-grid::before { display: none; }
+  .roi-strip { flex-direction: column; text-align: center; }
+  .trust-bar { gap: 1.2rem; }
+}
+
   </style>
   <meta property="og:title" content="Pack Plan Go Studio. Instagram &amp; Ads for Hotels &amp; Travel Brands" />
   <meta property="og:description" content="PackPlanGo Studio: Social Media Management and Meta Ads for boutique hotels, hostels, villas and travel brands in Bali, Australia and Southeast Asia." />
@@ -613,38 +686,6 @@ footer {
       <p class="hero-sub" id="hero-sub">
         We grow Instagram accounts and run targeted Meta Ads for boutique hotels, hostels, villas and travel brands across Bali, Australia and Southeast Asia. More visibility, more bookings, more direct revenue.
       </p>
-      <div style="
-display:inline-block;
-padding:8px 16px;
-border:1px solid rgba(255,255,255,0.15);
-border-radius:999px;
-background:rgba(255,255,255,0.04);
-backdrop-filter:blur(10px);
--webkit-backdrop-filter:blur(10px);
-font-family:'DM Sans', sans-serif;
-letter-spacing:0.08em;
-text-transform:uppercase;
-line-height:1.4;
-box-shadow:0 4px 20px rgba(0,0,0,0.15);
-margin-bottom:28px;
-">
-  <div style="
-  font-size:12px;
-  font-weight:600;
-  color:#E5B07A;
-  ">
-    Launching 2026
-  </div>
-
-  <div style="
-  font-size:11px;
-  font-weight:400;
-  color:rgba(255,255,255,0.65);
-  margin-top:2px;
-  ">
-    Currently in development.
-  </div>
-</div>
       <div class="hero-buttons">
         <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="hero-btn primary" id="hero-btn1">Book a Free Call</a>
         <a href="#services" class="hero-btn secondary" id="hero-btn2">See What We Do</a>
@@ -773,20 +814,30 @@ margin-bottom:28px;
         <p id="about-p3">
           Pack Plan Go · Studio was created to help hospitality brands bridge the gap between how special they are in real life and how they come across online.
         </p>
-        <div class="stats">
-          <div class="stat">
-            <h4 data-count="109" data-suffix="K+">109K+</h4>
-            <p>Accounts Reached</p>
-          </div>
-          <div class="stat">
-            <h4 data-count="201" data-suffix="K+">201K+</h4>
-            <p>Total Views</p>
-          </div>
-          <div class="stat">
-            <h4 data-count="85" data-suffix="%">85%</h4>
-            <p>Non-Follower Reach</p>
-          </div>
-        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process reveal" id="process">
+  <div class="container">
+    <p class="section-tag">How It Works</p>
+    <h2 class="section-title">Three steps. Then we handle the rest.</h2>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Book a Free Call</h3>
+        <p>A relaxed 30-minute phone call. We find out about your property, your goals, and whether we're a good fit. No pitch, no pressure.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Get Your Strategy</h3>
+        <p>Within 48 hours you receive a custom proposal — content strategy, package recommendation and clear pricing, tailored specifically to your property.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>We Handle Everything</h3>
+        <p>Once you're on board, we take care of the rest. You focus on running your property — we handle content, strategy, community and results.</p>
       </div>
     </div>
   </div>
@@ -802,11 +853,16 @@ margin-bottom:28px;
       Two focused offerings. Or stack them together as a Growth Bundle for the full effect. Transparent monthly pricing, cancel anytime.
     </p>
 
+    <div class="roi-strip">
+      <span class="roi-icon">📈</span>
+      <p><strong>The numbers work out.</strong> One additional direct booking per week — at an average Australian hotel rate of A$180/night — generates A$2,500+ in monthly revenue. Your investment pays for itself before checkout.</p>
+    </div>
+
     <div class="packages-grid stagger">
 
       <div class="package-card">
         <p class="package-label">Instagram Growth</p>
-        <h3>The Engine</h3>
+        <h3>Social Presence</h3>
         <p class="package-tagline">Full Instagram management built for bookings.</p>
         <div class="price">A$1,200</div>
         <div class="price-note">Per month · Cancel anytime</div>
@@ -825,7 +881,7 @@ margin-bottom:28px;
       <div class="package-card featured">
         <span class="featured-badge">Best Value</span>
         <p class="package-label">Growth Bundle</p>
-        <h3>The Full Stack</h3>
+        <h3>Full Growth</h3>
         <p class="package-tagline">Instagram + Ads, working as one engine.</p>
         <div class="price">A$1,800</div>
         <div class="price-note">Per month · You save A$200 every month</div>
@@ -843,7 +899,7 @@ margin-bottom:28px;
 
       <div class="package-card">
         <p class="package-label">Meta Ads</p>
-        <h3>The Accelerator</h3>
+        <h3>Paid Reach</h3>
         <p class="package-tagline">Paid campaigns that bring direct bookings.</p>
         <div class="price">A$800</div>
         <div class="price-note">Per month + ad spend separate</div>
@@ -861,17 +917,64 @@ margin-bottom:28px;
 
     </div>
 
+    <div class="trust-bar">
+      <span>No lock-in contracts</span>
+      <span>Cancel anytime</span>
+      <span>Month-to-month</span>
+      <span>Results reported monthly</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq reveal" id="faq">
+  <div class="container">
+    <p class="section-tag">FAQ</p>
+    <h2 class="section-title">Questions you're probably thinking.</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q"><span>How long until I see results?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Most properties see measurable growth in reach and engagement within the first 30 days. Meaningful follower growth and direct booking attribution typically takes 60–90 days — this is organic growth, not an overnight switch. We report results every month so you always know exactly where things stand.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>What do I need to provide?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Access to your existing Instagram account and a short onboarding call so we understand your property, brand and tone. If you have existing photos or videos, great — but we can also work with what we source or guide you to create. Most clients spend less than 2 hours per month on their end after onboarding.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>What if I don't like the content?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>All content goes through an approval round before it's posted — you always have final sign-off. If something doesn't feel right, we revise it. The first month is also about finding your property's visual language together, so feedback isn't just welcome, it's part of the process.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Can I really cancel anytime?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes. No lock-in contracts, no cancellation fees. We work month-to-month because we'd rather earn your business every month than trap you in a 12-month agreement. That said — the properties that commit for 3+ months are the ones that see the strongest results.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>How is this different from a local marketing agency?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Most agencies manage dozens of clients across different industries. We work exclusively with hospitality brands — hotels, hostels, villas — and we're travelers ourselves. We understand what makes someone book a stay, because we've been that person. That difference shows in the content.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Do you work with properties outside Australia?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><p>Yes — we work with properties across Bali, Southeast Asia and Australia. The Pilot Partner Program is currently focused on Australian properties, but international enquiries are welcome. Book a call and we'll work out whether it's the right fit.</p></div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <section class="work reveal" id="work">
   <div class="container">
-    <p class="section-tag" id="work-tag">Founding Client Program</p>
+    <p class="section-tag" id="work-tag">Pilot Partner Program</p>
     <h2 class="section-title" id="work-title">
-      Be one of our first <em style="font-style:italic;color:var(--accent);">three featured brands</em>.
+      Three properties. <em style="font-style:italic;color:var(--accent);">Selected carefully.</em>
     </h2>
     <p class="section-sub" id="work-sub">
-      PackPlanGo Studio is brand new, and we're choosing three founding clients to launch with. You get more attention, better pricing and a permanent place in our portfolio as we grow.
+      We're opening three spots for properties we genuinely believe in — places with a story worth telling. Partners get direct access, priority attention and locked-in rates that don't change as we grow.
     </p>
 
     <div class="work-grid">
@@ -881,8 +984,8 @@ margin-bottom:28px;
           <span class="work-visual-icon">a.</span>
         </div>
         <div class="work-body">
-          <h4 id="work1-h">Founding Rates</h4>
-          <p id="work1-p">30% below standard pricing, locked in for your first 12 months, even as our rates grow with new clients.</p>
+          <h4 id="work1-h">Partner Pricing</h4>
+          <p id="work1-p">Priority pricing locked in for your first 12 months — regardless of how our rates develop as we grow. Your commitment is rewarded.</p>
         </div>
       </div>
 
@@ -910,8 +1013,8 @@ margin-bottom:28px;
 
       <div class="work-cta-card">
         <div>
-          <h3 id="work-cta-h">Three spots. First come, first signed.</h3>
-          <p id="work-cta-p">We're being selective about who joins as a founding client. We want brands we genuinely believe in. If that sounds like you, let's talk.</p>
+          <h3 id="work-cta-h">Three spots. Not first-come — right-fit.</h3>
+          <p id="work-cta-p">We're selective about who we take on. We want properties we genuinely believe in — places worth putting our name next to. If that sounds like yours, let's talk.</p>
         </div>
         <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="hero-btn primary" id="work-cta">Apply for a Spot</a>
       </div>
@@ -1064,17 +1167,17 @@ var translations = {
     'pkg-cta1': 'Instagram aufbauen',
     'pkg-cta2': 'Bundle-Gespräch buchen',
     'pkg-cta3': 'Ads schalten',
-    'work-tag': 'Founding Client Programm',
-    'work-title': 'Sei eine unserer ersten <em style="font-style:italic;color:var(--accent);">drei Partner-Brands</em>.',
-    'work-sub': 'PackPlanGo Studio ist neu am Markt und wir suchen drei Founding Clients für den Start. Du bekommst mehr persönliche Betreuung, bessere Konditionen und einen festen Platz in unserem Portfolio.',
-    'work1-h': 'Founding-Konditionen',
-    'work1-p': '30 Prozent unter unseren Standardpreisen, für die ersten 12 Monate festgeschrieben, auch wenn unsere Preise mit neuen Kunden steigen.',
+    'work-tag': 'Pilot Partner Programm',
+    'work-title': 'Drei Properties. <em style="font-style:italic;color:var(--accent);">Sorgfältig ausgewählt.</em>',
+    'work-sub': 'Wir öffnen drei Plätze für Brands, hinter denen wir wirklich stehen — Orte mit einer Geschichte, die es wert ist, erzählt zu werden. Partner bekommen direkten Zugang, priorisierten Support und festgeschriebene Konditionen.',
+    'work1-h': 'Partner-Konditionen',
+    'work1-p': 'Priorisierte Konditionen für die ersten 12 Monate festgeschrieben — unabhängig davon, wie sich unsere Preise mit neuen Kunden entwickeln.',
     'work2-h': 'Direkter Draht',
     'work2-p': 'Du arbeitest direkt mit Jacky. Kein Account-Manager dazwischen, keine langen Wege. WhatsApp-Antwort innerhalb weniger Stunden, direkte Kommunikation, schnelle Umsetzung.',
     'work3-h': 'Portfolio-Platz',
     'work3-p': 'Dauerhafter Platz in unserem Launch-Portfolio und unseren Case Studies. Deine Brand bleibt sichtbar als eine unserer ersten, auch wenn wir wachsen.',
-    'work-cta-h': 'Drei Plätze. Wer zuerst da ist, ist dabei.',
-    'work-cta-p': 'Wir sind wählerisch. Wir arbeiten mit Brands, hinter denen wir wirklich stehen. Wenn das nach dir klingt, melde dich einfach.',
+    'work-cta-h': 'Drei Plätze. Nicht nach Reihenfolge — nach Passung.',
+    'work-cta-p': 'Wir sind wählerisch. Wir arbeiten mit Properties, hinter denen wir wirklich stehen — Orte, neben denen wir unseren Namen setzen wollen. Wenn das nach dir klingt, melde dich.',
     'work-cta': 'Für einen Platz bewerben',
     'cta-tag': 'Kontakt',
     'cta-title': 'Bereit, deinen Ort unwiderstehlich zu machen?',
@@ -1343,6 +1446,16 @@ document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
 })();
 </script>
 <!-- /PPG Blog-Dropdown -->
+<script>
+/* FAQ Accordion */
+document.querySelectorAll('.faq-item').forEach(function(item) {
+  item.querySelector('.faq-q').addEventListener('click', function() {
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </body>
 </html>
