@@ -18,6 +18,7 @@
 <link rel="canonical" href="https://www.packplango.com/studio/" />
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <style>
 :root {
   --cream: #F6F1E8;
@@ -640,7 +641,7 @@ margin-bottom:28px;
   </div>
 </div>
       <div class="hero-buttons">
-        <a href="#contact" class="hero-btn primary" id="hero-btn1">Book a Free Call</a>
+        <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="hero-btn primary" id="hero-btn1">Book a Free Call</a>
         <a href="#services" class="hero-btn secondary" id="hero-btn2">See What We Do</a>
       </div>
     </div>
@@ -813,7 +814,7 @@ margin-bottom:28px;
           <li>Community engagement & DM management</li>
           <li>Monthly strategy call + report</li>
         </ul>
-        <a href="#contact" class="package-cta" id="pkg-cta1">Grow My Instagram</a>
+        <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="package-cta" id="pkg-cta1">Grow My Instagram</a>
       </div>
 
       <div class="package-card featured">
@@ -832,7 +833,7 @@ margin-bottom:28px;
           <li>Priority WhatsApp support</li>
           <li>Founding client perks (first 3 only)</li>
         </ul>
-        <a href="#contact" class="package-cta" id="pkg-cta2">Book a Bundle Call</a>
+        <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="package-cta" id="pkg-cta2">Book a Bundle Call</a>
       </div>
 
       <div class="package-card">
@@ -850,7 +851,7 @@ margin-bottom:28px;
           <li>Monthly performance reports</li>
           <li>Booking attribution tracking</li>
         </ul>
-        <a href="#contact" class="package-cta" id="pkg-cta3">Launch My Ads</a>
+        <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="package-cta" id="pkg-cta3">Launch My Ads</a>
       </div>
 
     </div>
@@ -907,7 +908,7 @@ margin-bottom:28px;
           <h3 id="work-cta-h">Three spots. First come, first signed.</h3>
           <p id="work-cta-p">We're being selective about who joins as a founding client. We want brands we genuinely believe in. If that sounds like you, let's talk.</p>
         </div>
-        <a href="#contact" class="hero-btn primary" id="work-cta">Apply for a Spot</a>
+        <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="hero-btn primary" id="work-cta">Apply for a Spot</a>
       </div>
     </div>
   </div>
@@ -922,9 +923,12 @@ margin-bottom:28px;
     <p class="section-sub" id="cta-sub">
       Whether you're building a boutique hotel, hostel, villa or travel brand, let's create something travelers actually remember.
     </p>
-    <div class="hero-buttons" style="justify-content:center;">
-      <a href="https://wa.me/61455454274" class="hero-btn primary" id="cta-btn1">WhatsApp Me</a>
-      <a href="mailto:jacky.west@packplango.de" class="hero-btn secondary" id="cta-btn2">Send an Email</a>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <a href="#" onclick="Calendly.initPopupWidget({url:'https://calendly.com/hello-packplango/30min'});return false;" class="hero-btn primary" id="cta-btn1" style="font-size:1rem;padding:1.1rem 2.5rem;">Book a Free Call</a>
+      <div style="display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;">
+        <a href="https://wa.me/61455454274" class="hero-btn secondary" id="cta-btn2">WhatsApp Me</a>
+        <a href="mailto:jacky.west@packplango.de" class="hero-btn secondary" id="cta-btn3">Send an Email</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1004,8 +1008,9 @@ var translations = {
     'cta-tag': "Let's Talk",
     'cta-title': 'Ready to make your place impossible to ignore?',
     'cta-sub': "Whether you're building a boutique hotel, hostel, villa or travel brand, let's create something travelers actually remember.",
-    'cta-btn1': 'WhatsApp Me',
-    'cta-btn2': 'Send an Email',
+    'cta-btn1': 'Book a Free Call',
+    'cta-btn2': 'WhatsApp Me',
+    'cta-btn3': 'Send an Email',
     'wa-tooltip': 'Chat on WhatsApp',
     'footer-text': '© 2026 Pack Plan Go · Studio. Instagram & Ads for Hospitality Brands',
     'lang-btn': '<span class="lang-flag">🇩🇪</span> Auf Deutsch ansehen',
@@ -1069,8 +1074,9 @@ var translations = {
     'cta-tag': 'Kontakt',
     'cta-title': 'Bereit, deinen Ort unwiderstehlich zu machen?',
     'cta-sub': 'Ob Boutique Hotel, Hostel, Villa oder Travel Brand, melde dich und wir bauen gemeinsam etwas, das Reisende wirklich in Erinnerung behalten.',
-    'cta-btn1': 'WhatsApp schreiben',
-    'cta-btn2': 'E-Mail senden',
+    'cta-btn1': 'Kostenloses Gespräch buchen',
+    'cta-btn2': 'WhatsApp schreiben',
+    'cta-btn3': 'E-Mail senden',
     'wa-tooltip': 'Auf WhatsApp schreiben',
     'footer-text': '© 2026 Pack Plan Go · Studio. Instagram & Ads für Hospitality Brands',
     'lang-btn': '<span class="lang-flag">🇬🇧</span> View in English',
@@ -1100,7 +1106,7 @@ function applyLang(lang) {
   // Simple text elements
   var simpleIds = ['nav-services','nav-pricing','nav-about','nav-contact','hero-tag',
     'hero-btn1','hero-btn2','svc-tag','addons-title','why-tag','about-tag','pkg-tag',
-    'work-tag','work-cta','cta-tag','cta-btn1','cta-btn2','wa-tooltip','footer-text',
+    'work-tag','work-cta','cta-tag','cta-btn1','cta-btn2','cta-btn3','wa-tooltip','footer-text',
     'pkg-cta1','pkg-cta2','pkg-cta3'];
   simpleIds.forEach(function(id) {
     var el = document.getElementById(id);
@@ -1332,5 +1338,6 @@ document.querySelectorAll('[data-count]').forEach(el => counterIO.observe(el));
 })();
 </script>
 <!-- /PPG Blog-Dropdown -->
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </body>
 </html>
