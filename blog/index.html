@@ -70,7 +70,7 @@
     .filter-btn { flex-shrink: 0; font-size: 0.82rem; font-weight: 600; padding: 6px 16px; border-radius: 999px; border: 1.5px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.2s; white-space: nowrap; font-family: 'Inter', sans-serif; }
     .filter-btn:hover, .filter-btn.active { background: var(--teal); border-color: var(--teal); color: var(--white); }
     .filter-btn.cat-realtalk.active { background: var(--pink); border-color: var(--pink); }
-    .filter-btn.cat-life.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
+    .filter-btn.cat-destinations.active { background: var(--orange); border-color: var(--orange); color: var(--white); }
     .filter-btn.cat-australien.active { background: #1B4F72; border-color: #1B4F72; color: var(--white); }
 
     .blog-section { max-width: 1160px; margin: 0 auto; padding: 56px 24px 80px; }
@@ -209,9 +209,9 @@
     <button class="filter-btn active" data-cat="all">Alle</button>
     <button class="filter-btn cat-realtalk" data-cat="realtalk">Realtalk</button>
     <button class="filter-btn cat-geld" data-cat="geld">Jobs &amp; Geld</button>
-    <button class="filter-btn cat-life" data-cat="life">Leben vor Ort</button>
+    <button class="filter-btn cat-destinations" data-cat="destinations">Destinations</button>
     <button class="filter-btn cat-australien" data-cat="australien">Australien Guide</button>
-    <button class="filter-btn" data-cat="visum">Visum &amp; Bürokratie</button>
+    <button class="filter-btn cat-planung" data-cat="planung">Planung &amp; Budget</button>
   </div>
 </div>
 
@@ -219,7 +219,7 @@
 
   <p class="section-label">Neuster Artikel</p>
 
-  <a href="/blog/australien-visum-deutsche-working-holiday/" class="featured-card" data-cat="visum">
+  <a href="/blog/australien-visum-deutsche-working-holiday/" class="featured-card" data-cat="planung australien">
     <div class="featured-img-wrap">
       <img
         src="https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=900&q=80&auto=format&fit=crop"
@@ -228,7 +228,7 @@
       <span class="featured-badge">Neu</span>
     </div>
     <div class="featured-body">
-      <span class="cat-tag"><span class="cat-dot"></span> Visum &amp; Bürokratie</span>
+      <span class="cat-tag"><span class="cat-dot"></span> Planung &amp; Budget</span>
       <h2>Australien-Visum für Deutsche. Was du wirklich wissen musst, bevor du buchst.</h2>
       <p class="hook">Das Visum ist der erste Schritt. Und der, bei dem die meisten unnötig viel Zeit verlieren. So machst du es in 20 Minuten.</p>
       <span class="read-btn">
@@ -261,10 +261,10 @@
       <div class="card-footer"><span>7 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/bali-backpacker/" class="card" data-cat="life">
+    <a href="/blog/bali-backpacker/" class="card" data-cat="destinations">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=700&q=75&auto=format&fit=crop" alt="Bali Backpacker 2026" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Bali als Backpacker 2026. Was es kostet und was du wissen musst.</h3>
@@ -273,10 +273,10 @@
       <div class="card-footer"><span>8 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/nomad-basis-vergleich/" class="card" data-cat="life">
+    <a href="/blog/nomad-basis-vergleich/" class="card" data-cat="destinations">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=75&auto=format&fit=crop" alt="Nomad Basis Vergleich SEA" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Ko Pha-ngan, Chiang Mai oder Bali. Wo wohnst du als Nomad am günstigsten?</h3>
@@ -333,10 +333,10 @@
       <div class="card-footer"><span>7 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/thailand-work-and-travel/" class="card" data-cat="life">
+    <a href="/blog/thailand-work-and-travel/" class="card" data-cat="destinations">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=75&auto=format&fit=crop" alt="Thailand Work and Travel" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Thailand Work and Travel 2026. Der ehrliche Guide.</h3>
@@ -345,10 +345,10 @@
       <div class="card-footer"><span>9 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/sea-digital-nomad-budget/" class="card" data-cat="geld">
+    <a href="/blog/sea-digital-nomad-budget/" class="card" data-cat="planung">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=700&q=75&auto=format&fit=crop" alt="SEA Digital Nomad Budget" loading="lazy" />
-        <span class="card-cat">Jobs &amp; Geld</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>Wie viel Geld brauchst du als Digital Nomad in Südostasien wirklich?</h3>
@@ -393,10 +393,10 @@
       <div class="card-footer"><span>7 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/reisen-produktivitaet/" class="card" data-cat="life">
+    <a href="/blog/reisen-produktivitaet/" class="card" data-cat="geld">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=700&q=75&auto=format&fit=crop" alt="Produktivität auf Reisen" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Warum du unterwegs produktiver bist als zuhause</h3>
@@ -405,10 +405,10 @@
       <div class="card-footer"><span>6 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/routine-auf-reisen/" class="card" data-cat="life">
+    <a href="/blog/routine-auf-reisen/" class="card" data-cat="destinations">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=75&auto=format&fit=crop" alt="Morgenroutine auf Reisen" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Die Morgenroutine, die Digital Nomads wirklich produktiv hält</h3>
@@ -417,10 +417,10 @@
       <div class="card-footer"><span>5 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/work-and-travel-ohne-ersparnisse-finanzieren/" class="card" data-cat="geld australien">
+    <a href="/blog/work-and-travel-ohne-ersparnisse-finanzieren/" class="card" data-cat="planung australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&q=75&auto=format&fit=crop" alt="Work and Travel finanzieren" loading="lazy" />
-        <span class="card-cat">Jobs &amp; Geld</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>Work and Travel ohne große Ersparnisse. Wie du dein Abenteuer wirklich finanzierst.</h3>
@@ -453,10 +453,10 @@
       <div class="card-footer"><span>8 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/australisches-bankkonto-backpacker-guide/" class="card" data-cat="visum australien">
+    <a href="/blog/australisches-bankkonto-backpacker-guide/" class="card" data-cat="planung australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=75&auto=format&fit=crop" alt="Bankkonto Australien" loading="lazy" />
-        <span class="card-cat">Visum &amp; Bürokratie</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>Australisches Bankkonto eröffnen als Backpacker. So einfach geht's.</h3>
@@ -465,10 +465,10 @@
       <div class="card-footer"><span>5 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/guenstig-wohnen-australien-backpacker/" class="card" data-cat="life australien">
+    <a href="/blog/guenstig-wohnen-australien-backpacker/" class="card" data-cat="destinations australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=700&q=75&auto=format&fit=crop" alt="Günstig wohnen Australien" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Günstig wohnen in Australien. Was Hostels dir nicht sagen.</h3>
@@ -513,10 +513,10 @@
       <div class="card-footer"><span>6 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/reise-dokumentieren-content-creator/" class="card" data-cat="life">
+    <a href="/blog/reise-dokumentieren-content-creator/" class="card" data-cat="geld">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=700&q=75&auto=format&fit=crop" alt="Reise dokumentieren Content Creator" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Jobs &amp; Geld</span>
       </div>
       <div class="card-body">
         <h3>Deine Reise dokumentieren, ohne dein Leben für Content zu verpassen.</h3>
@@ -525,10 +525,10 @@
       <div class="card-footer"><span>6 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/australien-alleine-frau-reisen/" class="card" data-cat="life australien">
+    <a href="/blog/australien-alleine-frau-reisen/" class="card" data-cat="destinations australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=700&q=75&auto=format&fit=crop" alt="Australien alleine als Frau reisen" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Australien alleine als Frau reisen. Was du wissen solltest.</h3>
@@ -549,10 +549,10 @@
       <div class="card-footer"><span>6 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/top-regionen-australien-backpacker/" class="card" data-cat="life australien">
+    <a href="/blog/top-regionen-australien-backpacker/" class="card" data-cat="destinations australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=700&q=75&auto=format&fit=crop" alt="Top Regionen Australien" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Die Top 5 abenteuerlichsten Regionen Australiens für Backpacker.</h3>
@@ -573,10 +573,10 @@
       <div class="card-footer"><span>6 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/australien-second-year-visa-erklaert/" class="card" data-cat="visum australien">
+    <a href="/blog/australien-second-year-visa-erklaert/" class="card" data-cat="planung australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1529108190281-9a4f620bc2d8?w=700&q=75&auto=format&fit=crop" alt="Second Year Visa Australien" loading="lazy" />
-        <span class="card-cat">Visum &amp; Bürokratie</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>Working Holiday Visum verlängern. Second Year und Third Year erklärt.</h3>
@@ -585,10 +585,10 @@
       <div class="card-footer"><span>7 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/meine-tools-australien/" class="card" data-cat="geld australien">
+    <a href="/blog/meine-tools-australien/" class="card" data-cat="planung australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=700&q=75&auto=format&fit=crop" alt="Meine Tools für Australien" loading="lazy" />
-        <span class="card-cat">Jobs &amp; Geld</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>Meine Tools für Australien. Was ich wirklich nutze.</h3>
@@ -609,10 +609,10 @@
       <div class="card-footer"><span>6 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/hansemerkur-reiseversicherung-work-and-travel/" class="card" data-cat="visum australien">
+    <a href="/blog/hansemerkur-reiseversicherung-work-and-travel/" class="card" data-cat="planung australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=75&auto=format&fit=crop" alt="HanseMerkur Reiseversicherung Work and Travel" loading="lazy" />
-        <span class="card-cat">Visum &amp; Bürokratie</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>HanseMerkur Reiseversicherung für Work and Travel. Was du wirklich brauchst.</h3>
@@ -621,10 +621,10 @@
       <div class="card-footer"><span>7 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/dkb-kreditkarte-reisen-work-and-travel/" class="card" data-cat="geld australien">
+    <a href="/blog/dkb-kreditkarte-reisen-work-and-travel/" class="card" data-cat="planung australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=700&q=75&auto=format&fit=crop" alt="DKB Kreditkarte für Reisen" loading="lazy" />
-        <span class="card-cat">Jobs &amp; Geld</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>DKB Kreditkarte für Reisen und Work and Travel. Lohnt sie sich wirklich?</h3>
@@ -633,10 +633,10 @@
       <div class="card-footer"><span>6 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/gold-coast-australien/" class="card" data-cat="life australien">
+    <a href="/blog/gold-coast-australien/" class="card" data-cat="destinations australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=700&q=75&auto=format&fit=crop" alt="Gold Coast Australien Tipps" loading="lazy" />
-        <span class="card-cat">Leben vor Ort</span>
+        <span class="card-cat">Destinations</span>
       </div>
       <div class="card-body">
         <h3>Gold Coast, Australien. Was dich als Backpacker wirklich erwartet.</h3>
@@ -645,10 +645,10 @@
       <div class="card-footer"><span>7 Min Lesezeit</span></div>
     </a>
 
-    <a href="/blog/sim-karte-australien/" class="card" data-cat="visum australien">
+    <a href="/blog/sim-karte-australien/" class="card" data-cat="planung australien">
       <div class="card-img">
         <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=700&q=75&auto=format&fit=crop" alt="SIM Karte Australien Holafly eSIM" loading="lazy" />
-        <span class="card-cat">Visum &amp; Bürokratie</span>
+        <span class="card-cat">Planung &amp; Budget</span>
       </div>
       <div class="card-body">
         <h3>SIM Karte Australien. Holafly eSIM oder lokale SIM? Mein ehrlicher Vergleich.</h3>
@@ -795,4 +795,4 @@ function blogNlSubmit(e) {
 }
 </script>
 </body>
-</html>
+</htm
