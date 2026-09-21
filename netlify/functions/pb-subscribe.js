@@ -11,8 +11,8 @@ const https = require('https');
 
 const ML_ACCOUNT = '2373720';
 const FORMS = {
-  freebie:  'PLACEHOLDER_FREEBIE_FORM_ID',   // <-- MailerLite form id fuer den Guide
-  waitlist: 'PLACEHOLDER_WAITLIST_FORM_ID',  // <-- MailerLite form id fuer die Warteliste (mit Telefon-Feld)
+  freebie:  '199146375413237664',            // MailerLite form id fuer den Guide (Personal Brand Freebie)
+  waitlist: '199190718614340726',            // MailerLite form id fuer die Warteliste (Personal Brand Warteliste)
 };
 
 exports.handler = async (event) => {
