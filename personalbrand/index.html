@@ -73,7 +73,7 @@ header.nav-wrap{position:sticky;top:0;z-index:900;background:rgba(252,250,246,.8
 .nav-right a.link:hover{color:var(--ink)}
 .nav-cta{font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:11px 20px;border:1px solid var(--ink);border-radius:2px;transition:all .2s}
 .nav-cta:hover{background:var(--ink);color:var(--paper)}
-@media(max-width:640px){.nav-right a.link{display:none}.nav{padding:15px 20px}}
+@media(max-width:640px){.nav{padding:13px 20px;flex-wrap:wrap;row-gap:10px}.nav-right{width:100%;justify-content:space-between;gap:10px}.nav-right a{white-space:nowrap}.nav-right a.link{font-size:11px;letter-spacing:.08em}.nav-cta{font-size:11px;padding:8px 12px}}@media(max-width:380px){.nav-right{gap:6px}.nav-right a.link{font-size:10px;letter-spacing:.04em}.nav-cta{font-size:10px;padding:7px 9px;letter-spacing:.04em}}
 
 /* HERO */
 .hero{position:relative;padding:0}
@@ -242,6 +242,8 @@ footer{background:var(--ink);color:rgba(252,250,246,.6);padding:64px 0 40px}
     <a href="/personalbrand/" class="brand">Pack Plan Go <span class="x">x</span> Personalbranding</a>
     <div class="nav-right">
       <a href="/founder/" class="link">Über mich</a>
+      <a href="/personalbrand/" class="link" onclick="document.getElementById('warteliste').scrollIntoView({behavior:'smooth'});return false;">Academy</a>
+      <a href="https://calendly.com/personalbranding-jackywest/30min" target="_blank" rel="noopener" class="link" onclick="if(window.Calendly){Calendly.initPopupWidget({url:'https://calendly.com/personalbranding-jackywest/30min'});return false;}">Call buchen</a>
       <a href="#freebie" class="nav-cta">Guide sichern</a>
     </div>
   </div>
